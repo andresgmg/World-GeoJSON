@@ -1,0 +1,1524 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "USA",
+  "iso_a2": "US",
+  "m49_region": "Northern America",
+  "name": {
+    "en": "United States",
+    "es": "Estados Unidos"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/USA/USA_ADM0.geojson",
+      "bytes": 831809,
+      "sha256": "617ba421ab696181f49f8020c865ff20294d65e61a67e144ab2256f05092f84c",
+      "features": 1,
+      "bbox": [
+        -179.143503,
+        18.906117,
+        179.780935,
+        71.412502
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/USA/preview/USA_ADM0.preview.geojson",
+      "preview_bytes": 36285,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/USA/USA_ADM1.geojson",
+      "bytes": 4333031,
+      "sha256": "4eacc0e4187dbe007e6b28938cb44cefc62f33188388782a5304f634b855fd92",
+      "features": 56,
+      "bbox": [
+        -179.148924,
+        -14.373732,
+        179.778455,
+        71.365162
+      ],
+      "geometry_types": {
+        "MultiPolygon": 32,
+        "Polygon": 24
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/USA/preview/USA_ADM1.preview.geojson",
+      "preview_bytes": 209806,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "United States Census Bureau, MAF/TIGER Database",
+      "src_year": "2018"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/USA/USA_ADM2.geojson",
+      "bytes": 5221654,
+      "sha256": "f53923cba1cd784da83effbbefee2f66dbd725adbffea3bde933ab6e609f4c48",
+      "features": 3233,
+      "bbox": [
+        -179.147355,
+        -14.552542,
+        179.778455,
+        71.352561
+      ],
+      "geometry_types": {
+        "MultiPolygon": 109,
+        "Polygon": 3124
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/USA/preview/USA_ADM2.preview.geojson",
+      "preview_bytes": 944427,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/USA/ADM2/SU-SD.geojson",
+          "bytes": 85008,
+          "sha256": "704c10ae77b7552d28a70f77ec4a0e0faaf3e903b0aebb708686c7e097fcd1f2",
+          "features": 66,
+          "bbox": [
+            -104.057709,
+            42.479642,
+            -96.436597,
+            45.945457
+          ],
+          "geometry_types": {
+            "Polygon": 66
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SU-SD"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-AK.geojson",
+          "bytes": 348440,
+          "sha256": "d3b1a8563899c076b7cffcb718481441675c60ef7efe07691e96870214c11d65",
+          "features": 29,
+          "bbox": [
+            -179.147355,
+            51.219861,
+            179.778455,
+            71.352561
+          ],
+          "geometry_types": {
+            "MultiPolygon": 18,
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-AK"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-AL.geojson",
+          "bytes": 106638,
+          "sha256": "dc98da3059961707c95ef63ced6d28cbf4434d3c14ab31bf9be58a68dcc56cf0",
+          "features": 67,
+          "bbox": [
+            -88.473232,
+            30.221138,
+            -84.889435,
+            35.008035
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 66
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-AL"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-AR.geojson",
+          "bytes": 126166,
+          "sha256": "2522405895f4264646803ad8c3b5ab4070d3fc2baec0cba6b74de43fff587032",
+          "features": 75,
+          "bbox": [
+            -94.617926,
+            33.004112,
+            -89.644844,
+            36.499607
+          ],
+          "geometry_types": {
+            "Polygon": 75
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-AR"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-AS.geojson",
+          "bytes": 3670,
+          "sha256": "899ad975b75712aca5011bef777a4cd9adcfdb4fb5fb42047461fbc2c15fcf71",
+          "features": 4,
+          "bbox": [
+            -171.089847,
+            -14.373732,
+            -169.41882,
+            -11.046927
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-AS"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-AZ.geojson",
+          "bytes": 67735,
+          "sha256": "4f13fd74d68b5290d30677f651c6bb05f6dca7e98a508a4fd77334574b4b39f1",
+          "features": 15,
+          "bbox": [
+            -114.814196,
+            31.332182,
+            -109.045234,
+            37.004266
+          ],
+          "geometry_types": {
+            "Polygon": 15
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-AZ"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-CA.geojson",
+          "bytes": 239861,
+          "sha256": "b119a0288f4c30363f04525a60faeaf7ea06873fe78b4c621487b7f4e2711741",
+          "features": 58,
+          "bbox": [
+            -124.409605,
+            32.534161,
+            -114.134623,
+            42.009523
+          ],
+          "geometry_types": {
+            "MultiPolygon": 5,
+            "Polygon": 53
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-CA"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-CO.geojson",
+          "bytes": 102723,
+          "sha256": "4b301b806f283b87635563cb12feafe88174b76250e465ac321c51eb7aa07a8e",
+          "features": 64,
+          "bbox": [
+            -109.060264,
+            36.992432,
+            -102.041533,
+            41.00345
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 60
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-CO"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-CT.geojson",
+          "bytes": 16533,
+          "sha256": "7ca64f8b705834b8039737c5671c044e135450a4b382b898dedd6529f8ae49de",
+          "features": 8,
+          "bbox": [
+            -73.727776,
+            40.985179,
+            -71.786995,
+            42.050596
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-CT"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-DC.geojson",
+          "bytes": 1505,
+          "sha256": "c27d06e969ad4d2efb117afbd69ab2c0db8fcdf915b877e169e5904a43a34168",
+          "features": 1,
+          "bbox": [
+            -77.119761,
+            38.791653,
+            -76.909395,
+            38.995556
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-DC"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-DE.geojson",
+          "bytes": 6776,
+          "sha256": "a13fe7067d772a5b979c0f0d6fbc2e96570864d13c9897e7648282dfebd3416e",
+          "features": 3,
+          "bbox": [
+            -75.788897,
+            38.45102,
+            -75.048941,
+            39.839193
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-DE"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-FL.geojson",
+          "bytes": 110113,
+          "sha256": "d19e244030f0462595f7c956c10559c10cb74b666a0cfa0472163fb5ede9a4b2",
+          "features": 67,
+          "bbox": [
+            -87.634948,
+            24.514966,
+            -80.031365,
+            31.000887
+          ],
+          "geometry_types": {
+            "MultiPolygon": 5,
+            "Polygon": 62
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-FL"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-GA.geojson",
+          "bytes": 202634,
+          "sha256": "3f4636055fa02b12d51f7c1ee2b5f93b3f3452911575feba7bd82bdfa6565b64",
+          "features": 159,
+          "bbox": [
+            -85.60517,
+            30.357842,
+            -80.840552,
+            35.000666
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 157
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-GA"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-GU.geojson",
+          "bytes": 1820,
+          "sha256": "7cd3abb64ae6192c27cbcfd278afa13d7fd01610e371d1fff8a3b5237e4acd97",
+          "features": 1,
+          "bbox": [
+            144.618326,
+            13.230499,
+            144.958712,
+            13.653525
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-GU"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-HI.geojson",
+          "bytes": 19918,
+          "sha256": "5918ba9a81a40bc75652d79fd49a0e61cbd7a93b43885f2dba568d2e3614807e",
+          "features": 5,
+          "bbox": [
+            -160.249624,
+            18.91747,
+            -154.809394,
+            22.232606
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-HI"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-IA.geojson",
+          "bytes": 79544,
+          "sha256": "4b01c4979d077c1c37add42f3270835f04eaa668b8124629f001855bd2d87712",
+          "features": 99,
+          "bbox": [
+            -96.639712,
+            40.378271,
+            -90.140067,
+            43.501204
+          ],
+          "geometry_types": {
+            "Polygon": 99
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-IA"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-ID.geojson",
+          "bytes": 118803,
+          "sha256": "05a183ef509e4d2e352c29ff6cd9a6d7d1df33d787c502ae7d63202e03f9adc3",
+          "features": 44,
+          "bbox": [
+            -117.24304,
+            41.988063,
+            -111.043576,
+            49.001152
+          ],
+          "geometry_types": {
+            "Polygon": 44
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-ID"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-IL.geojson",
+          "bytes": 103555,
+          "sha256": "f8bfb9d8804659561c4ef90a7e157b0ee59ddb9845928ed409e5b41b5e6bb4e5",
+          "features": 102,
+          "bbox": [
+            -91.513086,
+            36.970305,
+            -87.496499,
+            42.508489
+          ],
+          "geometry_types": {
+            "Polygon": 102
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-IL"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-IN.geojson",
+          "bytes": 86015,
+          "sha256": "b91415655771faee0ea98976d9ce32422fe1fe59cdd4a3841dabefe2e03fdbef",
+          "features": 92,
+          "bbox": [
+            -88.097898,
+            37.771749,
+            -84.784584,
+            41.7606
+          ],
+          "geometry_types": {
+            "Polygon": 92
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-IN"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-KS.geojson",
+          "bytes": 70126,
+          "sha256": "b38998e58d3a257545ea9994e1326923d3e967d5f01275c02e2e1572490c1a70",
+          "features": 105,
+          "bbox": [
+            -102.051753,
+            36.993089,
+            -94.58994,
+            40.003169
+          ],
+          "geometry_types": {
+            "Polygon": 105
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-KS"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-KY.geojson",
+          "bytes": 181861,
+          "sha256": "ba7e35aabc14fbc50a0f2203f231dfd40ac0e772990b202a7cb3463ae47a8b50",
+          "features": 120,
+          "bbox": [
+            -89.571515,
+            36.497137,
+            -81.964975,
+            39.147466
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 119
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-KY"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-LA.geojson",
+          "bytes": 142037,
+          "sha256": "e1bbcbade46a9b68350fc2c3abee18ee2204ba5f4cc2f90b489a8a82357a5856",
+          "features": 64,
+          "bbox": [
+            -94.043154,
+            28.929714,
+            -88.817022,
+            33.019463
+          ],
+          "geometry_types": {
+            "MultiPolygon": 8,
+            "Polygon": 56
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-LA"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-MA.geojson",
+          "bytes": 35121,
+          "sha256": "3b3186c1fc04acd3cd5deadd811b17ddb836133231aa498f4092d09507ed3215",
+          "features": 14,
+          "bbox": [
+            -73.508143,
+            41.237972,
+            -69.928261,
+            42.886598
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-MA"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-MD.geojson",
+          "bytes": 62854,
+          "sha256": "ea104f02f835aa6f068c4309e5da2d3f02b0a1ea9c88728d8ec061badc52f322",
+          "features": 24,
+          "bbox": [
+            -79.487654,
+            37.911725,
+            -75.048941,
+            39.72313
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-MD"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-ME.geojson",
+          "bytes": 61406,
+          "sha256": "726e373a55772b22ca7be26240a7ae7c8a9602b844487b7358420281e7d0ae6c",
+          "features": 16,
+          "bbox": [
+            -71.083925,
+            43.059834,
+            -66.949894,
+            47.459696
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-ME"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-MI.geojson",
+          "bytes": 103171,
+          "sha256": "7e67f336c717b71737a1f97de0c5a1c59ec69a6db3efac5d9a47bf8a3f6e66ad",
+          "features": 83,
+          "bbox": [
+            -90.418143,
+            41.696097,
+            -82.412969,
+            48.190984
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 77
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-MI"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-MN.geojson",
+          "bytes": 122463,
+          "sha256": "b4566219ed66e29086ce5138e2972eb15398b777eb3f9206842bddd7eaa51f97",
+          "features": 87,
+          "bbox": [
+            -97.239219,
+            43.499364,
+            -89.489233,
+            49.384366
+          ],
+          "geometry_types": {
+            "Polygon": 87
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-MN"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-MO.geojson",
+          "bytes": 125464,
+          "sha256": "b7640620eb7f5b61d5b01db5d8f18f07f343aeebddec2ba4a873c1d15a8358f2",
+          "features": 115,
+          "bbox": [
+            -95.774712,
+            35.99569,
+            -89.098849,
+            40.613647
+          ],
+          "geometry_types": {
+            "Polygon": 115
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-MO"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-MP.geojson",
+          "bytes": 4950,
+          "sha256": "5c22f710aa58bec60b646e1ea1f2597685501b21d96fa6aa05aa218e5120124b",
+          "features": 4,
+          "bbox": [
+            144.884682,
+            14.110578,
+            146.081581,
+            20.557256
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-MP"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-MS.geojson",
+          "bytes": 108218,
+          "sha256": "f8000a261e7efa8f084a913c572ff3104579d74f41d2911e59856793ecdc91e6",
+          "features": 82,
+          "bbox": [
+            -91.654913,
+            30.173948,
+            -88.097893,
+            34.996059
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 80
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-MS"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-MT.geojson",
+          "bytes": 178162,
+          "sha256": "0f238f375568639ab73d1cdaa91bf01954ba5a0cfd1cc1c647e764b11a806f14",
+          "features": 56,
+          "bbox": [
+            -116.049908,
+            44.357997,
+            -104.039149,
+            49.001085
+          ],
+          "geometry_types": {
+            "Polygon": 56
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-MT"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-NC.geojson",
+          "bytes": 168446,
+          "sha256": "a44f9573c74c90258080bc0b9766ba8cb514af98576d83990b498d8722ace3c2",
+          "features": 100,
+          "bbox": [
+            -84.321873,
+            33.844524,
+            -75.458661,
+            36.588124
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 98
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-NC"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-ND.geojson",
+          "bytes": 69016,
+          "sha256": "b60b06aed9b19c00674499aa6fbaa08dccb9dede3d86ab9e345c44f50873c6b8",
+          "features": 53,
+          "bbox": [
+            -104.048911,
+            45.935062,
+            -96.554516,
+            49.00057
+          ],
+          "geometry_types": {
+            "Polygon": 53
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-ND"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-NE.geojson",
+          "bytes": 76385,
+          "sha256": "57564ef15bd72c3a4788fcff548dfd2205fcd31453050cffa043a8bdcbe27b14",
+          "features": 93,
+          "bbox": [
+            -104.053524,
+            40.000005,
+            -95.308298,
+            43.001715
+          ],
+          "geometry_types": {
+            "Polygon": 93
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-NE"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-NH.geojson",
+          "bytes": 34465,
+          "sha256": "1bfe955def29d1b2748f29974542a11e9cbe5dd9686f21c3d71a7539f1ce60d9",
+          "features": 10,
+          "bbox": [
+            -72.557248,
+            42.696999,
+            -70.703819,
+            45.30546
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-NH"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-NJ.geojson",
+          "bytes": 37923,
+          "sha256": "f670c332921cdac5d0b28accfba120aa941cbcc676f9041cf3d9cfcb9a267ca7",
+          "features": 21,
+          "bbox": [
+            -75.559616,
+            38.928527,
+            -73.89398,
+            41.357431
+          ],
+          "geometry_types": {
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-NJ"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-NM.geojson",
+          "bytes": 44637,
+          "sha256": "b8fc68dc09adb6313cb3e3e0f5e36c058f4d9b5081871b22b53aa2aff2f9a427",
+          "features": 33,
+          "bbox": [
+            -109.050183,
+            31.33232,
+            -103.001973,
+            37.000238
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 32
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-NM"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-NV.geojson",
+          "bytes": 35778,
+          "sha256": "54c487451eaeb8e1051cbf6a286791b455d63c38e1284bde3e1c30eb5463c5e5",
+          "features": 17,
+          "bbox": [
+            -120.005759,
+            35.001862,
+            -114.03966,
+            42.002213
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-NV"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-NY.geojson",
+          "bytes": 91925,
+          "sha256": "564b72e71625a89bd6d7663c201c83a333b35f0b45e512d3a34a119422a67426",
+          "features": 62,
+          "bbox": [
+            -79.762155,
+            40.496111,
+            -71.856215,
+            45.015859
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 60
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-NY"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-OH.geojson",
+          "bytes": 80424,
+          "sha256": "9cc91bb1c8e76605d5448e768591f525ebd103708d9745da4a650c3a94bc52c2",
+          "features": 88,
+          "bbox": [
+            -84.820164,
+            38.403209,
+            -80.518697,
+            41.977531
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 86
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-OH"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-OK.geojson",
+          "bytes": 97055,
+          "sha256": "425cd04bb3ee743230f539c1ee5b8b129600d386a9e1d274b68e718a1214dc7e",
+          "features": 77,
+          "bbox": [
+            -103.002574,
+            33.616573,
+            -94.431222,
+            37.002212
+          ],
+          "geometry_types": {
+            "Polygon": 77
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-OK"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-OR.geojson",
+          "bytes": 126039,
+          "sha256": "5cad25630f482f78a97ad412a2f859174b70e26729b10ba56cdf75f7cdd29c85",
+          "features": 36,
+          "bbox": [
+            -124.552455,
+            41.9918,
+            -116.463517,
+            46.271009
+          ],
+          "geometry_types": {
+            "Polygon": 36
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-OR"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-PA.geojson",
+          "bytes": 101825,
+          "sha256": "9d0af4332eae704eb43ce9422fdf107b47c6e96ad4bfc304a600a42b9ec03ec3",
+          "features": 67,
+          "bbox": [
+            -80.519895,
+            39.72007,
+            -74.689518,
+            42.269868
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 66
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-PA"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-PR.geojson",
+          "bytes": 61360,
+          "sha256": "ee9d86200124670550735a90e14a6d857c6f26ef173ba36f12809e2953f5dc28",
+          "features": 78,
+          "bbox": [
+            -67.940798,
+            17.878312,
+            -65.221566,
+            18.51576
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 75
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-PR"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-RI.geojson",
+          "bytes": 9810,
+          "sha256": "02fb0255c929d227a5698edf38d3a28b4179c4774d50efc33ed437a3600f01f0",
+          "features": 5,
+          "bbox": [
+            -71.862773,
+            41.146347,
+            -71.120571,
+            42.018807
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-RI"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-SC.geojson",
+          "bytes": 98702,
+          "sha256": "1178e45b018564d8c2cf96cbfa0a7d3be9e12804bf121b648a490d0d02fc1e43",
+          "features": 46,
+          "bbox": [
+            -83.353242,
+            32.034606,
+            -78.541089,
+            35.215409
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 45
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-SC"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-TN.geojson",
+          "bytes": 144394,
+          "sha256": "3d3388cdb50c602988017c27416fe5da1500d7c2ccc5379d63112370da49fc63",
+          "features": 95,
+          "bbox": [
+            -90.310304,
+            34.982979,
+            -81.646904,
+            36.678125
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 93
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-TN"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-TX.geojson",
+          "bytes": 301871,
+          "sha256": "06e84fbe18cef25dfb423ba1f753b9f814f2da030d92c87c77a93092dd95d308",
+          "features": 254,
+          "bbox": [
+            -106.645489,
+            25.837381,
+            -93.516414,
+            36.50071
+          ],
+          "geometry_types": {
+            "MultiPolygon": 8,
+            "Polygon": 246
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-TX"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-UT.geojson",
+          "bytes": 75201,
+          "sha256": "ccbc3d3c83e59d324942acaaa0e1491d9a4dd22ae682dcd453bbc7e0b6dbb9f5",
+          "features": 29,
+          "bbox": [
+            -114.052974,
+            36.997987,
+            -109.041069,
+            42.001573
+          ],
+          "geometry_types": {
+            "Polygon": 29
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-UT"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-VA.geojson",
+          "bytes": 194599,
+          "sha256": "928de2887e79c77681951a46a3929035d6bbdc5cea6ae0669b51ec95bef4a4b4",
+          "features": 133,
+          "bbox": [
+            -83.675417,
+            36.540765,
+            -75.242471,
+            39.46602
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 131
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-VA"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-VI.geojson",
+          "bytes": 4358,
+          "sha256": "a055fd6af744abf3de6e240176734649742c09f327fef0a3246bd82f4fd8b0fc",
+          "features": 3,
+          "bbox": [
+            -65.085359,
+            17.674094,
+            -64.566545,
+            18.413489
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-VI"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-VT.geojson",
+          "bytes": 35200,
+          "sha256": "b4aeee1a522a177ac8abce78fee73d72d53a578a5b9aacb80b05148b9237e2f3",
+          "features": 14,
+          "bbox": [
+            -73.437741,
+            42.726862,
+            -71.46504,
+            45.016668
+          ],
+          "geometry_types": {
+            "Polygon": 14
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-VT"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-WA.geojson",
+          "bytes": 121151,
+          "sha256": "b1bed0891937c1769cc80ea60e802875c08009e7ba7e2a3192b3524622d6c0cb",
+          "features": 39,
+          "bbox": [
+            -124.733189,
+            45.543547,
+            -116.916003,
+            49.0025
+          ],
+          "geometry_types": {
+            "MultiPolygon": 8,
+            "Polygon": 31
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-WA"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-WI.geojson",
+          "bytes": 94797,
+          "sha256": "30fca939a658869e0d68dbc1af409ba48b9aa3a407225d0c4c0ea2cd10a49645",
+          "features": 72,
+          "bbox": [
+            -92.888122,
+            42.491928,
+            -86.805421,
+            47.077578
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 69
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-WI"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-WV.geojson",
+          "bytes": 112476,
+          "sha256": "34ab2daf48ee0e91a547f790e9080942566a5bbf0a6166cc6dcc44d4b50e0107",
+          "features": 55,
+          "bbox": [
+            -82.644743,
+            37.20149,
+            -77.719522,
+            40.638809
+          ],
+          "geometry_types": {
+            "Polygon": 55
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-WV"
+        },
+        {
+          "path": "data/earth/USA/ADM2/US-WY.geojson",
+          "bytes": 43489,
+          "sha256": "e87c7541861e84dd540269c24b05486a7d9300c63e2112ae0d45eb4db13b1033",
+          "features": 23,
+          "bbox": [
+            -111.0569,
+            40.994752,
+            -104.05217,
+            45.005911
+          ],
+          "geometry_types": {
+            "Polygon": 23
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-WY"
+        },
+        {
+          "path": "data/earth/USA/ADM2/unassigned.geojson",
+          "bytes": 565,
+          "sha256": "3b168c3e7ced5a3a56425ed8e5f1dcdf4842fd103976fcee69499f004b401e53",
+          "features": 1,
+          "bbox": [
+            -168.16355,
+            -14.552542,
+            -168.139747,
+            -14.530896
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "unassigned"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "United States Census Bureau, MAF/TIGER Database",
+      "src_year": "2018",
+      "unassigned": 1
+    }
+  ],
+  "notes": "geoBoundaries codes South Dakota as 'SU-SD' rather than the correct ISO 3166-2 'US-SD', so its 66 counties are grouped correctly but under an incorrectly named file. Reported as an upstream data error; left unaltered here."
+}

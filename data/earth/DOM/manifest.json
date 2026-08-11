@@ -1,0 +1,905 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "DOM",
+  "iso_a2": "DO",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Dominican Republic",
+    "es": "República Dominicana"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/DOM/DOM_ADM0.geojson",
+      "bytes": 13189,
+      "sha256": "801ef5bb7b7f917b90f41ba4be27506edc65f6cd60f7a7dd0945f16cfea7ea52",
+      "features": 1,
+      "bbox": [
+        -72.009838,
+        17.545559,
+        -68.328603,
+        19.93769
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/DOM/preview/DOM_ADM0.preview.geojson",
+      "preview_bytes": 804,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/DOM/DOM_ADM1.geojson",
+      "bytes": 49753,
+      "sha256": "16307c8ce542f6134d7cfd0acd84f73f4bb43337ab442cf50cde719e27731ab5",
+      "features": 32,
+      "bbox": [
+        -72.009838,
+        17.545559,
+        -68.328603,
+        19.93769
+      ],
+      "geometry_types": {
+        "MultiPolygon": 2,
+        "Polygon": 30
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DOM/preview/DOM_ADM1.preview.geojson",
+      "preview_bytes": 10106,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth",
+      "src_year": "2022"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/DOM/DOM_ADM2.geojson",
+      "bytes": 638165,
+      "sha256": "3986817c043dd1cd5d2d5624b3ba217a91ed504212294efaadf69f94f5041e9d",
+      "features": 155,
+      "bbox": [
+        -72.003883,
+        17.470417,
+        -68.323196,
+        19.932083
+      ],
+      "geometry_types": {
+        "MultiPolygon": 10,
+        "Polygon": 145
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DOM/preview/DOM_ADM2.preview.geojson",
+      "preview_bytes": 69496,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/DOM/ADM2/DO-01.geojson",
+          "bytes": 2528,
+          "sha256": "9ce537212dec0110448b2ea560731dd9473c54e34d4cae67ab4bdb1932eb5808",
+          "features": 1,
+          "bbox": [
+            -70.000412,
+            18.421806,
+            -69.865501,
+            18.544317
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-01"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-02.geojson",
+          "bytes": 41656,
+          "sha256": "a297ea64d457369ed974060de423f56d3dbe2889bcbae219c0460b635f399296",
+          "features": 10,
+          "bbox": [
+            -71.152229,
+            18.247917,
+            -70.457863,
+            18.99604
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-02"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-03.geojson",
+          "bytes": 19457,
+          "sha256": "9df7d77e50346c62477d8ccebc9a3a03217e62e04f090e6a9336c499d946222d",
+          "features": 5,
+          "bbox": [
+            -71.64119,
+            18.323502,
+            -70.97361,
+            18.654442
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-03"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-04.geojson",
+          "bytes": 34200,
+          "sha256": "1ee1ebca94c5ff5d979c786266e791c8b229268b4c8f576ab5de32f3b06de0e0",
+          "features": 11,
+          "bbox": [
+            -71.428932,
+            17.860668,
+            -70.935089,
+            18.50318
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-04"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-05.geojson",
+          "bytes": 20460,
+          "sha256": "03bc2535c89d1cd88f809fa8f8a37dfd9f4f85658656f8f1dc31bf531bac2cfa",
+          "features": 5,
+          "bbox": [
+            -71.783119,
+            19.226233,
+            -71.415688,
+            19.644075
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-05"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-06.geojson",
+          "bytes": 24747,
+          "sha256": "cdabe8550b23a4db7e96e968e96d98bc6e137147103d7aaeac6a21ea8289e4a9",
+          "features": 7,
+          "bbox": [
+            -70.367432,
+            19.040915,
+            -69.664108,
+            19.514408
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-06"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-07.geojson",
+          "bytes": 22637,
+          "sha256": "f3e105f86b4c0b1c40679b6d7146ea55755dfaffba97b86de78dd20f72bf6365",
+          "features": 6,
+          "bbox": [
+            -71.879333,
+            18.652674,
+            -71.30677,
+            19.27688
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-07"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-08.geojson",
+          "bytes": 14145,
+          "sha256": "87aea9213c02115f4fcdb826bf63c0a43b5e721e4c89edf7907c158bf77849f0",
+          "features": 2,
+          "bbox": [
+            -69.323624,
+            18.533928,
+            -68.77652,
+            19.043751
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-08"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-09.geojson",
+          "bytes": 14047,
+          "sha256": "5525152c26694d802c4ff512adce083b15872e66e7d38865ff5b6401c8706c9c",
+          "features": 4,
+          "bbox": [
+            -70.606651,
+            19.301027,
+            -70.080444,
+            19.701529
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-09"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-10.geojson",
+          "bytes": 20188,
+          "sha256": "4e113d185a208c0eb173b4a81d2acd2941eb9da6dee4b3c2531e96218c9b6343",
+          "features": 6,
+          "bbox": [
+            -72.003883,
+            18.138226,
+            -71.201073,
+            18.695499
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-10"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-11.geojson",
+          "bytes": 24726,
+          "sha256": "8d87f6e8fa01c11bb59f2e12162aa20a6fc38dc1779fb7bf0b996da25f6023d2",
+          "features": 3,
+          "bbox": [
+            -68.933968,
+            18.109861,
+            -68.323196,
+            18.974306
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-11"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-12.geojson",
+          "bytes": 9600,
+          "sha256": "8dc77adcf9e5c34476c55978a520dd79796e0652e5c50ccaecda95660ac2dfb3",
+          "features": 3,
+          "bbox": [
+            -69.115852,
+            18.339306,
+            -68.839096,
+            18.671227
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-12"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-13.geojson",
+          "bytes": 25900,
+          "sha256": "9958ecc61d88d40c968537e9eee74d0b9c7ce50e17ebf530a13722f2c524b56c",
+          "features": 5,
+          "bbox": [
+            -70.950508,
+            18.678946,
+            -70.266617,
+            19.374941
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-13"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-14.geojson",
+          "bytes": 17982,
+          "sha256": "bb207ebe761d0124b2520f80cb5dc668dfd742055e9a91290059885e12d2b559",
+          "features": 4,
+          "bbox": [
+            -70.197678,
+            19.196539,
+            -69.739479,
+            19.68375
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-14"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-15.geojson",
+          "bytes": 28414,
+          "sha256": "a1c606df1affbe02b577095d887c2bf95a11aa971c96558e270b1dc83cc8946b",
+          "features": 6,
+          "bbox": [
+            -71.812927,
+            19.517933,
+            -71.12072,
+            19.912109
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-15"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-16.geojson",
+          "bytes": 13859,
+          "sha256": "6a0bc9295bef0ccfe12eda17c31c15a258c6f2e5365e69536e080b0fc7e01035",
+          "features": 1,
+          "bbox": [
+            -71.780289,
+            17.470417,
+            -71.269859,
+            18.293169
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-16"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-17.geojson",
+          "bytes": 9486,
+          "sha256": "f67f5e509eb0a9b222ba35e712f2a723a033061083022b77cd7e66e9c84bae25",
+          "features": 2,
+          "bbox": [
+            -70.57769,
+            18.194027,
+            -70.173935,
+            18.504923
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-17"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-18.geojson",
+          "bytes": 34344,
+          "sha256": "35b03a3c4edba4b171e1ea5b09d408e670aed61b5bed33c2f5a0c30483060bf2",
+          "features": 9,
+          "bbox": [
+            -71.248512,
+            19.507395,
+            -70.363197,
+            19.932083
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-18"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-19.geojson",
+          "bytes": 9123,
+          "sha256": "2764459def4297f0f1f1deb41b6349db23c20f8fd8f9f548e46dd97768cc3c9c",
+          "features": 3,
+          "bbox": [
+            -70.45298,
+            19.224228,
+            -70.240921,
+            19.557005
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-19"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-20.geojson",
+          "bytes": 17059,
+          "sha256": "52f41a5e72bb9ae2fc7d2a5603b9696c2bc0f31c1ce4f01b36702044f8b552bd",
+          "features": 3,
+          "bbox": [
+            -69.750641,
+            18.992601,
+            -69.150414,
+            19.36375
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-20"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-21.geojson",
+          "bytes": 27987,
+          "sha256": "e52a508cbbb400e970d231f5e1f73a18add4b415df8664009b2b200340a85581",
+          "features": 8,
+          "bbox": [
+            -70.37278,
+            18.229031,
+            -69.993279,
+            18.807133
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-21"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-22.geojson",
+          "bytes": 29779,
+          "sha256": "1403287ca8c57de6883c9fa122b85df6c94ed3ff7f5e3d1b7a52912d2d27c03d",
+          "features": 6,
+          "bbox": [
+            -71.639725,
+            18.587887,
+            -70.878891,
+            19.172844
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-22"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-23.geojson",
+          "bytes": 19698,
+          "sha256": "8bdfb17744af7e58bbf74cbb23e3738de0a8dab8730c6d1c12539dbb25bdc307",
+          "features": 6,
+          "bbox": [
+            -69.608437,
+            18.394028,
+            -69.066025,
+            18.823927
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-23"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-24.geojson",
+          "bytes": 18707,
+          "sha256": "1e09af92a2e9db4ff85514feaca1a74ffeb191f94f1a340b413c9b4bfad96571",
+          "features": 4,
+          "bbox": [
+            -70.390327,
+            18.842655,
+            -69.894562,
+            19.158335
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-24"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-25.geojson",
+          "bytes": 28868,
+          "sha256": "d279dbb174af098424168a3516c97c3d9e234a48f46fdb1c063719fd0a957403",
+          "features": 8,
+          "bbox": [
+            -71.246986,
+            19.017036,
+            -70.539818,
+            19.647375
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-25"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-26.geojson",
+          "bytes": 14926,
+          "sha256": "b63e9548d552c350256c669add08c82eddd865d51814e343fd8828d2676e0659",
+          "features": 3,
+          "bbox": [
+            -71.507462,
+            19.161987,
+            -71.063057,
+            19.562113
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-26"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-27.geojson",
+          "bytes": 11112,
+          "sha256": "36c4fbd8e24c338fb294b4040591c3102bfd002d295e070422bc584a5f985c11",
+          "features": 3,
+          "bbox": [
+            -71.178955,
+            19.426044,
+            -70.872795,
+            19.74502
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-27"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-28.geojson",
+          "bytes": 10809,
+          "sha256": "dce74c593e520172ee92dbd7b40e832965f88d9fd01fe4e04ac7be0e88cef4b6",
+          "features": 3,
+          "bbox": [
+            -70.575653,
+            18.713499,
+            -70.217056,
+            19.124714
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-28"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-29.geojson",
+          "bytes": 26401,
+          "sha256": "d5c6aeb7adf6cea64b6570c5ee3f1ac124b13be1b11a3cafb58d9d232a4459e7",
+          "features": 5,
+          "bbox": [
+            -70.243843,
+            18.577915,
+            -69.362656,
+            19.09874
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-29"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-30.geojson",
+          "bytes": 15890,
+          "sha256": "e2abe03370b946c334091a0cb5cf63aa2d316c3236761253718730c44a28a290",
+          "features": 3,
+          "bbox": [
+            -69.621262,
+            18.528412,
+            -69.120224,
+            19.103193
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-30"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-31.geojson",
+          "bytes": 12824,
+          "sha256": "b07899bc40926a2a217f04b0af3f3794871cee0176facfe4e79a943f6c58247d",
+          "features": 3,
+          "bbox": [
+            -70.673592,
+            18.41872,
+            -70.339424,
+            18.794781
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-31"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-32.geojson",
+          "bytes": 22324,
+          "sha256": "d8815ae30421744b125cadb318135bb65539c22bf016ebc0772606a5f03a84c3",
+          "features": 7,
+          "bbox": [
+            -70.165092,
+            18.400139,
+            -69.506638,
+            18.72669
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-32"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Caribbean GeoPortal, N/A",
+      "src_year": "2020"
+    }
+  ]
+}

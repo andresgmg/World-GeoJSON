@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "LCA",
+  "iso_a2": "LC",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Saint Lucia",
+    "es": "Santa Lucía"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "notes": "geoBoundaries ADM2 reports 547 units against 10 quarters; likely mis-tiered.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/LCA/LCA_ADM0.geojson",
+      "bytes": 1396,
+      "sha256": "6191b5f9364099471caeba616d198728fa2a95d9670b54d6d3fc37273e7944d0",
+      "features": 1,
+      "bbox": [
+        -61.078521,
+        13.714667,
+        -60.882965,
+        14.111884
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/LCA/preview/LCA_ADM0.preview.geojson",
+      "preview_bytes": 308,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/LCA/LCA_ADM1.geojson",
+      "bytes": 23080,
+      "sha256": "7bb5cff1bc5fccd14afe16bad1ccde025938e8e8c711e68bcaa1d2bd28bb08f8",
+      "features": 10,
+      "bbox": [
+        -61.080391,
+        13.707692,
+        -60.873609,
+        14.109421
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 9
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/LCA/preview/LCA_ADM1.preview.geojson",
+      "preview_bytes": 3337,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Wikimedia Commons, Wikimedia Commons",
+      "src_year": "2015"
+    }
+  ]
+}

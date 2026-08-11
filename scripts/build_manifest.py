@@ -34,6 +34,18 @@ LEVEL_DIR = re.compile(r"^ADM\d$|^QUAD$")
 LEVEL_FILE = re.compile(r"^[A-Z]{3,4}_(ADM\d|QUAD)$")
 
 
+def path_key(p: Path) -> str:
+    """Sort key that does not depend on the platform.
+
+    Sorting Path objects directly is not portable: WindowsPath compares
+    case-insensitively while PosixPath does not. With a lowercase
+    `unassigned.geojson` sitting among uppercase `US-XX.geojson` parts, the two
+    platforms produce different orderings — and a manifest that reorders
+    between machines fails the CI freshness check for no real reason.
+    """
+    return p.name
+
+
 # ---------------------------------------------------------------------------
 # scanning
 # ---------------------------------------------------------------------------
@@ -126,7 +138,7 @@ def build_datasets(d: Path, prev: dict[str, dict]) -> list[dict]:
     datasets: dict[str, dict] = {}
 
     # Whole-level files, including the optional combined file for a split level.
-    for f in sorted(d.glob("*.geojson")):
+    for f in sorted(d.glob("*.geojson"), key=path_key):
         if not LEVEL_FILE.match(f.stem):
             print(f"  ! skipping {f.name}: does not match {{CODE}}_{{LEVEL}}.geojson")
             continue
@@ -137,10 +149,11 @@ def build_datasets(d: Path, prev: dict[str, dict]) -> list[dict]:
         )
 
     # Split levels.
-    for sub in sorted(p for p in d.iterdir() if p.is_dir() and LEVEL_DIR.match(p.name)):
+    subdirs = [p for p in d.iterdir() if p.is_dir() and LEVEL_DIR.match(p.name)]
+    for sub in sorted(subdirs, key=path_key):
         level = sub.name
         parts = []
-        for f in sorted(sub.glob("*.geojson")):
+        for f in sorted(sub.glob("*.geojson"), key=path_key):
             part = describe(f)
             part["code"] = f.stem
             parts.append(part)
@@ -173,11 +186,15 @@ def build_datasets(d: Path, prev: dict[str, dict]) -> list[dict]:
             entry["preview"] = preview.relative_to(REPO).as_posix()
             entry["preview_bytes"] = preview.stat().st_size
 
-    # Carry forward the simplification percentage recorded by build_data.py.
+    # Carry forward everything build_data.py recorded that cannot be derived
+    # from the files themselves: provenance, licence and what was done to the
+    # geometry.
+    carried = ("simplification", "license", "src_provider", "src_year", "unassigned")
     for level, entry in datasets.items():
         old = prev.get(level, {})
-        if "simplification" in old:
-            entry["simplification"] = old["simplification"]
+        for key in carried:
+            if key in old:
+                entry[key] = old[key]
 
     return [datasets[k] for k in sorted(datasets)]
 
@@ -198,6 +215,22 @@ def main() -> int:
 
         manifest.setdefault("schema_version", SCHEMA_VERSION)
         manifest["datasets"] = build_datasets(d, prev)
+
+        # Keep the country-level licence honest: it is whatever the datasets
+        # actually carry. A territory holding only a public-domain outline must
+        # not read as CC BY, and levels sourced from different upstreams
+        # legitimately differ.
+        src = manifest.get("source")
+        if isinstance(src, dict):
+            licenses = sorted(
+                {ds["license"] for ds in manifest["datasets"] if ds.get("license")}
+            )
+            if len(licenses) == 1:
+                src["license"] = licenses[0]
+                src.pop("licenses", None)
+            elif licenses:
+                src["license"] = "mixed"
+                src["licenses"] = licenses
 
         mpath.write_text(
             json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MSR",
+  "iso_a2": "MS",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Montserrat",
+    "es": "Montserrat"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MSR/MSR_ADM0.geojson",
+      "bytes": 780,
+      "sha256": "1d3a06dd5dc9198e9dfdb4293fcf41b221f45965506718cdca88281e787210b2",
+      "features": 1,
+      "bbox": [
+        -62.230133,
+        16.67536,
+        -62.140533,
+        16.819322
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MSR/preview/MSR_ADM0.preview.geojson",
+      "preview_bytes": 306,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

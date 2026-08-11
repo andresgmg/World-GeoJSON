@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SXM",
+  "iso_a2": "SX",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Sint Maarten",
+    "es": "Sint Maarten"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "Natural Earth 10m Admin 0",
+    "url": "https://www.naturalearthdata.com/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SXM/SXM_ADM0.geojson",
+      "bytes": 460,
+      "sha256": "699e304fc06bb53a4fe1d4dfe6240455bc2690852bec773b0ed704189562b07c",
+      "features": 1,
+      "bbox": [
+        -63.118886,
+        18.01911,
+        -63.017569,
+        18.06212
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SXM/preview/SXM_ADM0.preview.geojson",
+      "preview_bytes": 324,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

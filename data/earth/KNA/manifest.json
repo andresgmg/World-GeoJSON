@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "KNA",
+  "iso_a2": "KN",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Saint Kitts and Nevis",
+    "es": "San Cristóbal y Nieves"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/KNA/KNA_ADM0.geojson",
+      "bytes": 1213,
+      "sha256": "5cce93e78b15319fa89acd27be91799654d2ed9ef5e3a03569bf526e897a74b8",
+      "features": 1,
+      "bbox": [
+        -62.861073,
+        17.100531,
+        -62.536773,
+        17.415839
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/KNA/preview/KNA_ADM0.preview.geojson",
+      "preview_bytes": 335,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

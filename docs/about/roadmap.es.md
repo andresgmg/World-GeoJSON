@@ -18,29 +18,44 @@ Poner convenciones y tooling en su sitio antes de que crezcan los datos.
 - [x] Generación de previews y mapas interactivos
 - [x] Workflow de validación de datos con lista blanca de licencias
 
-## Siguiente — América
+## Hecho — América
 
-Los 57 territorios UN M49, en un PR para todo el continente.
+**55 territorios, 95 datasets, 16.195 features.** Contornos de país desde
+Natural Earth; primer nivel y tier municipal desde geoBoundaries, solo con
+licencias permisivas; Chile desde IDE Chile.
 
-- [ ] ADM0 de cada territorio desde Natural Earth
-- [ ] ADM1 y tier municipal desde geoBoundaries, solo licencias permisivas
-- [ ] `CHL_ADM0` — el contorno nacional
-- [ ] Verificar los conteos sospechosos: Jamaica ADM2 (827 frente a 14
-      parroquias), Santa Lucía ADM2 (547 frente a 10 distritos), Bahamas
-      ADM1/ADM2 (32/34)
-- [ ] Plantillas de issue y PR para envío de países
-- [ ] Traducir al español las páginas generadas del catálogo
+Dos de los 57 territorios UN M49 no publican nada: **Bonaire, San Eustaquio y
+Saba** y la **Isla Bouvet** no están en Natural Earth bajo sus códigos ISO y no
+tienen datos de subdivisiones con licencia permisiva.
 
-### Huecos de cobertura conocidos
+### Huecos de cobertura
 
-Excluir las fuentes copyleft deja trece países de América sin un ADM1 que este
-proyecto pueda redistribuir: Colombia, Costa Rica, Cuba, Guatemala, Guyana,
-Honduras, Haití, Nicaragua, Panamá, Surinam, Trinidad y Tobago, Uruguay y San
-Vicente y las Granadinas. Sus entradas en geoBoundaries son ODbL.
+**Quince países no tienen aquí divisiones de primer nivel** porque su ADM1 en
+geoBoundaries es copyleft — ODbL en Colombia, Costa Rica, Cuba, Guatemala,
+Guyana, Honduras, Haití, Nicaragua, Panamá, Surinam, Trinidad y Tobago, Uruguay
+y San Vicente y las Granadinas; CC-BY-SA en Granada y Groenlandia. Varios sí
+tienen un tier municipal con licencia permisiva, así que aparecen en el catálogo
+con ADM2 y sin ADM1 por encima.
 
 Cerrar un hueco significa encontrar un SDI nacional o una publicación de HDX con
 términos permisivos — no relajar la regla. Ver
 [Fuentes aprobadas](../contributing/sources.md).
+
+Pendiente en este continente:
+
+- [ ] Los distritos de Perú — geoBoundaries se detiene en sus 196 provincias
+- [ ] Verificar los conteos sospechosos antes de confiar en ellos: Jamaica ADM2
+      (827 frente a 14 parroquias) y Santa Lucía ADM2 (547 frente a 10
+      distritos) parecen mal asignados y se dejaron fuera; los ADM1/ADM2 de
+      Bahamas (32/34) son casi idénticos
+- [ ] Guadalupe, Martinica, Guayana Francesa e Islas Vírgenes de EE.UU. tienen
+      tier municipal pero no ADM1 aguas arriba, así que no se pueden partir
+- [ ] Plantillas de issue y PR para envío de países
+- [ ] Traducir al español las páginas generadas del catálogo
+
+## Siguiente — los demás continentes
+
+Un PR cada uno, reutilizando el pipeline: Europa, África, Asia y Oceanía.
 
 ## Más adelante — cobertura global
 

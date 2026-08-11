@@ -34,13 +34,23 @@ const MIN_PERCENTAGE = 0.2;
 const LEVEL_DIR = /^ADM\d$|^QUAD$/;
 const LEVEL_FILE = /^([A-Z]{3,4})_(ADM\d|QUAD)\.geojson$/;
 
-// Resolve the platform binary rather than passing shell:true. shell:true
-// concatenates arguments instead of escaping them, which Node now warns about
-// and which would mangle any path containing a space.
+// Run the pinned copy's entry script with the current node binary.
+//
+// Not node_modules/.bin/mapshaper: on Windows that is a .cmd shim, and
+// execFileSync cannot spawn a .cmd without a shell — it fails with
+// `status: null, pid: 0`, which reads like a missing binary rather than a
+// spawn restriction. Invoking the .js directly sidesteps the shim entirely
+// and avoids shell:true, which concatenates arguments instead of escaping
+// them and would mangle any path containing a space.
+const ENTRY = join(REPO, "node_modules", "mapshaper", "bin", "mapshaper");
+const HAVE_LOCAL = existsSync(ENTRY);
 const NPX = process.platform === "win32" ? "npx.cmd" : "npx";
 
 function mapshaper(args) {
-  execFileSync(NPX, ["-y", "mapshaper", ...args], {
+  const [bin, prefix] = HAVE_LOCAL
+    ? [process.execPath, [ENTRY]]
+    : [NPX, ["-y", "mapshaper"]];
+  execFileSync(bin, [...prefix, ...args], {
     stdio: ["ignore", "pipe", "pipe"],
   });
 }

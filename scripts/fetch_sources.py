@@ -177,6 +177,16 @@ def main() -> int:
     CACHE.mkdir(parents=True, exist_ok=True)
     print(f"{len(iso3s)} territories in scope\n")
 
+    # One global public-domain file supplies every country outline.
+    ne = CACHE / "natural-earth" / "ne_10m_admin_0_countries.geojson"
+    if args.dry_run:
+        print(f"ADM0 would fetch Natural Earth 10m -> {ne.name}\n")
+    elif ne.exists():
+        print(f"ADM0 Natural Earth already cached ({ne.stat().st_size/1024/1024:.0f} MB)")
+    else:
+        print("ADM0 fetching Natural Earth 10m admin-0 (~13 MB)")
+        fetch(NE_ADM0, ne, expect_json=True)
+
     if "CHL" in iso3s or COUNTRIES.get("CHL", {}).get("source") == "ide-chile":
         dpa = CACHE / "DPA_2023.zip"
         if args.dry_run:

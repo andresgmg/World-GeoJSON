@@ -57,7 +57,12 @@ jobs:
 
       - name: Install image libraries for social cards
         run: |
-          sudo apt-get update -qq
+          # `|| true`: the runner image carries third-party apt sources
+          # (azure-cli, and others) that intermittently 403, which fails the
+          # whole update even though every package below comes from Ubuntu
+          # main. If a package is genuinely unavailable, the install still
+          # fails loudly on the next line.
+          sudo apt-get update -qq || true
           sudo apt-get install -y --no-install-recommends \
             libcairo2-dev libfreetype6-dev libffi-dev \
             libjpeg-dev libpng-dev libz-dev pngquant
@@ -86,8 +91,19 @@ jobs:
         run: |
           size=$(du -sm site | cut -f1)
           echo "site/ is ${size} MB"
-          if [ "$size" -gt 100 ]; then
-            echo "::error::site/ is ${size} MB — data files have leaked into docs_dir"
+          # Per-file, not total. The site legitimately grows with each
+          # continent — it carries a preview per dataset, duplicated across
+          # language builds — so a total-size cap would eventually fire on
+          # normal growth. What must never appear is a full-resolution
+          # dataset, and every one of those is far larger than any preview.
+          big=$(find site -type f -size +5M)
+          if [ -n "$big" ]; then
+            echo "::error::files over 5 MB in site/ — full-resolution data has leaked into docs_dir"
+            echo "$big" | xargs du -h
+            exit 1
+          fi
+          if [ "$size" -gt 400 ]; then
+            echo "::error::site/ is ${size} MB, which is beyond anything previews explain"
             exit 1
           fi
 

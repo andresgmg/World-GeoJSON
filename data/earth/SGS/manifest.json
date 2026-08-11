@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SGS",
+  "iso_a2": "GS",
+  "m49_region": "South America",
+  "name": {
+    "en": "South Georgia and the South Sandwich Islands",
+    "es": "Georgias del Sur y Sandwich del Sur"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "Natural Earth 10m Admin 0",
+    "url": "https://www.naturalearthdata.com/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "notes": "Sovereignty disputed between the United Kingdom and Argentina.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SGS/SGS_ADM0.geojson",
+      "bytes": 14202,
+      "sha256": "9655cb9f1f8980262ec7dfd6606cdf06b1600745fec20ea2ff7a5e424977ee81",
+      "features": 1,
+      "bbox": [
+        -38.087026,
+        -59.472752,
+        -26.239329,
+        -53.972426
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SGS/preview/SGS_ADM0.preview.geojson",
+      "preview_bytes": 845,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

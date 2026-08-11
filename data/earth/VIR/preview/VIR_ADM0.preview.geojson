@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-64.8764,17.6891,-64.5594,18.343], "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-64.5594,17.7516],[-64.6898,17.7448],[-64.7716,17.7926],[-64.8764,17.6891],[-64.5594,17.7516]]]},"properties":{"shapeName":"United States Virgin Islands","shapeISO":"VIR","shapeType":"ADM0"}}
+]}

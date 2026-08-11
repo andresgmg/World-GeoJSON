@@ -18,28 +18,43 @@ Putting conventions and tooling in place before the data grows.
 - [x] Preview generation and interactive maps
 - [x] Data validation workflow with a licence allow-list
 
-## Next — the Americas
+## Done — the Americas
 
-All 57 UN M49 territories, one PR for the continent.
+**55 territories, 95 datasets, 16,195 features.** Country outlines from Natural
+Earth; first-level and municipal tiers from geoBoundaries under permissive
+licences only; Chile from IDE Chile.
 
-- [ ] ADM0 for every territory from Natural Earth
-- [ ] ADM1 and the municipal tier from geoBoundaries, permissive licences only
-- [ ] `CHL_ADM0` — the national outline
-- [ ] Verify the suspect unit counts: Jamaica ADM2 (827 against 14 parishes),
-      Saint Lucia ADM2 (547 against 10 quarters), Bahamas ADM1/ADM2 (32/34)
-- [ ] Issue and PR templates for country submissions
-- [ ] Translate generated catalog pages into Spanish
+Two of the 57 UN M49 territories ship nothing: **Bonaire, Sint Eustatius and
+Saba** and **Bouvet Island** are absent from Natural Earth under their ISO codes
+and have no permissively licensed subdivision data.
 
-### Known coverage gaps
+### Coverage gaps
 
-Excluding copyleft sources leaves thirteen Americas countries without an ADM1
-this project can redistribute: Colombia, Costa Rica, Cuba, Guatemala, Guyana,
-Honduras, Haiti, Nicaragua, Panama, Suriname, Trinidad and Tobago, Uruguay and
-Saint Vincent and the Grenadines. Their geoBoundaries entries are ODbL.
+**Fifteen countries have no first-level divisions here** because their
+geoBoundaries ADM1 is copyleft — ODbL for Colombia, Costa Rica, Cuba,
+Guatemala, Guyana, Honduras, Haiti, Nicaragua, Panama, Suriname, Trinidad and
+Tobago, Uruguay and Saint Vincent and the Grenadines; CC-BY-SA for Grenada and
+Greenland. Several of them do have a permissively licensed municipal tier, so
+they appear in the catalog with an ADM2 and no ADM1 above it.
 
 Closing a gap means finding a national SDI or an HDX release under permissive
 terms — not relaxing the rule. See
 [Approved sources](../contributing/sources.md).
+
+Also outstanding for this continent:
+
+- [ ] Peru's districts — geoBoundaries stops at its 196 provinces
+- [ ] Verify the suspect unit counts before trusting them: Jamaica ADM2 (827
+      against 14 parishes) and Saint Lucia ADM2 (547 against 10 quarters) look
+      mis-tiered and were left out; Bahamas ADM1/ADM2 (32/34) are near-identical
+- [ ] Guadeloupe, Martinique, French Guiana and the US Virgin Islands have a
+      municipal tier but no ADM1 upstream, so they cannot be split
+- [ ] Issue and PR templates for country submissions
+- [ ] Translate generated catalog pages into Spanish
+
+## Next — the other continents
+
+One PR each, reusing the pipeline: Europe, Africa, Asia, Oceania.
 
 ## Later — global coverage
 

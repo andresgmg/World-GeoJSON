@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ATG",
+  "iso_a2": "AG",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Antigua and Barbuda",
+    "es": "Antigua y Barbuda"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ATG/ATG_ADM0.geojson",
+      "bytes": 2910,
+      "sha256": "7c945d7f125944df75aaaf2072f903fa3ca0f4d585fc14d7ef8534f8a7063146",
+      "features": 1,
+      "bbox": [
+        -62.34826,
+        16.93197,
+        -61.667592,
+        17.727688
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ATG/preview/ATG_ADM0.preview.geojson",
+      "preview_bytes": 458,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ATG/ATG_ADM1.geojson",
+      "bytes": 18664,
+      "sha256": "2abcbf3f7200e9daad67fe1d1c8a43e56b7443c1e46e3a23e85484a5956cd7a6",
+      "features": 8,
+      "bbox": [
+        -62.348159,
+        16.932293,
+        -61.660261,
+        17.728862
+      ],
+      "geometry_types": {
+        "MultiPolygon": 3,
+        "Polygon": 5
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ATG/preview/ATG_ADM1.preview.geojson",
+      "preview_bytes": 2612,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia",
+      "src_year": "2009"
+    }
+  ]
+}

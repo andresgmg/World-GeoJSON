@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "VEN",
+  "iso_a2": "VE",
+  "m49_region": "South America",
+  "name": {
+    "en": "Venezuela",
+    "es": "Venezuela"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/VEN/VEN_ADM0.geojson",
+      "bytes": 69995,
+      "sha256": "10f88a2fc2fbfe9ee2a811f50fb294e4f9c70098b73f3d15158a274afdb533fb",
+      "features": 1,
+      "bbox": [
+        -73.391149,
+        0.649315,
+        -59.815595,
+        15.702948
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/VEN/preview/VEN_ADM0.preview.geojson",
+      "preview_bytes": 3065,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/VEN/VEN_ADM1.geojson",
+      "bytes": 957533,
+      "sha256": "8c5320ec252f17883b4fba87c2e6926091f1960311ed7e8b122ab2b88c0d795c",
+      "features": 25,
+      "bbox": [
+        -73.369055,
+        0.634574,
+        -59.741104,
+        12.498837
+      ],
+      "geometry_types": {
+        "MultiPolygon": 5,
+        "Polygon": 20
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/VEN/preview/VEN_ADM1.preview.geojson",
+      "preview_bytes": 45303,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "OCHA Venezuela, Instituto Nacional de Estadística",
+      "src_year": "2020"
+    }
+  ]
+}

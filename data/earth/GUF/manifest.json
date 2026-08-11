@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GUF",
+  "iso_a2": "GF",
+  "m49_region": "South America",
+  "name": {
+    "en": "French Guiana",
+    "es": "Guayana Francesa"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "Etalab-2.0",
+    "retrieved": "2026-08-11"
+  },
+  "notes": "geoBoundaries ADM3 reports 2 units against 22 communes. Level skip and likely incomplete.",
+  "datasets": [
+    {
+      "level": "ADM3",
+      "path": "data/earth/GUF/GUF_ADM3.geojson",
+      "bytes": 110334,
+      "sha256": "69ee9f5f91fa59ddfe68fb623e988ba987cd21b27630bb1152cc32673d99267f",
+      "features": 2,
+      "bbox": [
+        -54.602361,
+        2.111156,
+        -51.619066,
+        5.748682
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GUF/preview/GUF_ADM3.preview.geojson",
+      "preview_bytes": 5344,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "Etalab-2.0",
+      "src_provider": "Institut national de l'information géographique et forestière (IGN-F)",
+      "src_year": "2022"
+    }
+  ]
+}

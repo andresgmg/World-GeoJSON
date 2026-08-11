@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "PAN",
+  "iso_a2": "PA",
+  "m49_region": "Central America",
+  "name": {
+    "en": "Panama",
+    "es": "Panamá"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/PAN/PAN_ADM0.geojson",
+      "bytes": 43324,
+      "sha256": "ae0da9a47813b257a6a3834a9b11eb5e75c65b74f21392d68ec870cc2d6a9231",
+      "features": 1,
+      "bbox": [
+        -83.053246,
+        7.205715,
+        -77.16327,
+        9.629292
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/PAN/preview/PAN_ADM0.preview.geojson",
+      "preview_bytes": 2088,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/PAN/PAN_ADM2.geojson",
+      "bytes": 920958,
+      "sha256": "4a146b5c18072c4236b45d23a072aee76e26b9130062a07a050fa59d9ce14967",
+      "features": 76,
+      "bbox": [
+        -83.051966,
+        7.203961,
+        -77.156315,
+        9.640265
+      ],
+      "geometry_types": {
+        "MultiPolygon": 29,
+        "Polygon": 47
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/PAN/preview/PAN_ADM2.preview.geojson",
+      "preview_bytes": 62250,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Milton Solano, of the Smithsonian Tropical Research Institute, on ArcGIS online, GIS Laboratory. Smithsonian Tropical Research Institute, Panama, 2012",
+      "src_year": "2012"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CUW",
+  "iso_a2": "CW",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Curaçao",
+    "es": "Curazao"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CUW/CUW_ADM0.geojson",
+      "bytes": 1260,
+      "sha256": "5ba8d1666d5ed9a22d50fccff3022781bde747d866d187d2e94cc80328d97495",
+      "features": 1,
+      "bbox": [
+        -69.171742,
+        12.041327,
+        -68.739735,
+        12.391506
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CUW/preview/CUW_ADM0.preview.geojson",
+      "preview_bytes": 378,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

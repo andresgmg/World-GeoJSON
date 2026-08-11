@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BOL",
+  "iso_a2": "BO",
+  "m49_region": "South America",
+  "name": {
+    "en": "Bolivia",
+    "es": "Bolivia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BOL/BOL_ADM0.geojson",
+      "bytes": 34905,
+      "sha256": "3d24f26f214bc7129d56f6c574dc0a467c3e90cea458c1255ba49cfa814677d3",
+      "features": 1,
+      "bbox": [
+        -69.666492,
+        -22.897258,
+        -57.465661,
+        -9.679821
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BOL/preview/BOL_ADM0.preview.geojson",
+      "preview_bytes": 1707,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BOL/BOL_ADM1.geojson",
+      "bytes": 804766,
+      "sha256": "7f511219c00306b56e60046714ee7da413a610f3e85eafac397f957ee9592032",
+      "features": 9,
+      "bbox": [
+        -69.645146,
+        -22.906568,
+        -57.454434,
+        -9.669633
+      ],
+      "geometry_types": {
+        "MultiPolygon": 3,
+        "Polygon": 6
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BOL/preview/BOL_ADM1.preview.geojson",
+      "preview_bytes": 36091,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "GeoBolivia, Derived from ADM3 layer",
+      "src_year": "2015"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/BOL/BOL_ADM3.geojson",
+      "bytes": 3325171,
+      "sha256": "4cd3cccb400fe7de0367599dca08ff3d3433769867e2749098480039c2098836",
+      "features": 339,
+      "bbox": [
+        -69.645146,
+        -22.906568,
+        -57.454434,
+        -9.669633
+      ],
+      "geometry_types": {
+        "MultiPolygon": 11,
+        "Polygon": 328
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BOL/preview/BOL_ADM3.preview.geojson",
+      "preview_bytes": 233473,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/BOL/ADM3/BO-B.geojson",
+          "bytes": 422791,
+          "sha256": "59490b5858899be81fc5bcd9a7e191d2500c110d845e6798d1c19af96403c006",
+          "features": 19,
+          "bbox": [
+            -67.562061,
+            -16.491651,
+            -61.52793,
+            -10.381218
+          ],
+          "geometry_types": {
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-B"
+        },
+        {
+          "path": "data/earth/BOL/ADM3/BO-C.geojson",
+          "bytes": 348766,
+          "sha256": "ca7af0e853a28698f8bcfc7df0fc430e0895a1b5f6a54df6d956eea3834e6f27",
+          "features": 47,
+          "bbox": [
+            -67.005561,
+            -18.681806,
+            -64.234106,
+            -15.779917
+          ],
+          "geometry_types": {
+            "Polygon": 47
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-C"
+        },
+        {
+          "path": "data/earth/BOL/ADM3/BO-H.geojson",
+          "bytes": 275799,
+          "sha256": "43bb6050de2c682e02e34bb030ab4cf279c310b9c8a8abf217cf06fe16308ebc",
+          "features": 29,
+          "bbox": [
+            -65.695133,
+            -21.517323,
+            -62.179371,
+            -18.347264
+          ],
+          "geometry_types": {
+            "Polygon": 29
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-H"
+        },
+        {
+          "path": "data/earth/BOL/ADM3/BO-L.geojson",
+          "bytes": 589676,
+          "sha256": "26e98ad23486df0b3673ced2dba05da8d9f650049c0c37ff1e9207e682ce39fb",
+          "features": 87,
+          "bbox": [
+            -69.645146,
+            -18.046856,
+            -66.732113,
+            -11.849681
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 80
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-L"
+        },
+        {
+          "path": "data/earth/BOL/ADM3/BO-N.geojson",
+          "bytes": 208943,
+          "sha256": "6c4e3116808b4702c91b8f522b5d168c6a36e83f4dd2a3def150d66b3195b970",
+          "features": 15,
+          "bbox": [
+            -69.574748,
+            -12.49844,
+            -65.28681,
+            -9.669633
+          ],
+          "geometry_types": {
+            "Polygon": 15
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-N"
+        },
+        {
+          "path": "data/earth/BOL/ADM3/BO-O.geojson",
+          "bytes": 201214,
+          "sha256": "921801ba1be9488f2a1036e2d15e3a9fc58d61d5898395a1fa0595f839b07431",
+          "features": 35,
+          "bbox": [
+            -69.142341,
+            -19.88671,
+            -66.086104,
+            -17.32399
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 34
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-O"
+        },
+        {
+          "path": "data/earth/BOL/ADM3/BO-P.geojson",
+          "bytes": 369370,
+          "sha256": "fba1b0d20548a12587c225b404e5f623aaefdd132626d41970c4738abf6afdba",
+          "features": 40,
+          "bbox": [
+            -68.773873,
+            -22.906568,
+            -64.714387,
+            -17.807111
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 37
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-P"
+        },
+        {
+          "path": "data/earth/BOL/ADM3/BO-S.geojson",
+          "bytes": 788238,
+          "sha256": "ed0fca75c753c8fbea7b83f6f2a0dc8a21c969ed20b999c26c1df16e96066ce9",
+          "features": 56,
+          "bbox": [
+            -64.842413,
+            -20.473214,
+            -57.454434,
+            -13.475843
+          ],
+          "geometry_types": {
+            "Polygon": 56
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-S"
+        },
+        {
+          "path": "data/earth/BOL/ADM3/BO-T.geojson",
+          "bytes": 126908,
+          "sha256": "5cf705d993f3f0053190db5977bf10c88cca326aab59f97df71c72da46035fbf",
+          "features": 11,
+          "bbox": [
+            -65.419842,
+            -22.882762,
+            -62.260665,
+            -20.885813
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BO-T"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "GeoBolivia",
+      "src_year": "2015"
+    }
+  ]
+}

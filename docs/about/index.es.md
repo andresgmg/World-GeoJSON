@@ -29,13 +29,13 @@ convenciones, porque
 
 | | |
 |---|---|
-| Países | 1 (Chile) |
-| Datasets | 3 (ADM1, ADM2, ADM3) |
-| Features | 417 |
+| Territorios | 55 (América) |
+| Datasets | 95 |
+| Features | 16.195 |
 | Cuerpos | 1 de 3 previstos |
-| Licencia de datos | CC BY 4.0, fuente única |
+| Licencia de datos | Solo permisivas, registrada por dataset |
 
-América es lo siguiente, y luego un continente por release. Ver
+Europa, África, Asia y Oceanía vienen después, un continente por release. Ver
 [Hoja de ruta](roadmap.md).
 
 Los cuatro archivos heredados en la raíz del repositorio son anteriores a las

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GRL",
+  "iso_a2": "GL",
+  "m49_region": "Northern America",
+  "name": {
+    "en": "Greenland",
+    "es": "Groenlandia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GRL/GRL_ADM0.geojson",
+      "bytes": 452776,
+      "sha256": "66a4d8a63c861fffbc8468ab2a537d6937c9d4d5406f9b2200ef89f201ed0e3b",
+      "features": 1,
+      "bbox": [
+        -73.05724,
+        59.792629,
+        -11.37682,
+        83.634101
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GRL/preview/GRL_ADM0.preview.geojson",
+      "preview_bytes": 20361,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

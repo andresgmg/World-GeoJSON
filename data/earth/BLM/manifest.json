@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BLM",
+  "iso_a2": "BL",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Saint Barthélemy",
+    "es": "San Bartolomé"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BLM/BLM_ADM0.geojson",
+      "bytes": 515,
+      "sha256": "d9cbbc8acde32b7893094868f3e23ae581ebd6030349bf297065f9af23a89aca",
+      "features": 1,
+      "bbox": [
+        -62.86734,
+        17.881985,
+        -62.791656,
+        17.929145
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BLM/preview/BLM_ADM0.preview.geojson",
+      "preview_bytes": 309,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

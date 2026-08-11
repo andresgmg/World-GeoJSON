@@ -70,12 +70,15 @@ lo evita.
 
 ## Estado actual
 
-Chile, desde la *División Política Administrativa* 2023 de IDE Chile: 16
-regiones, 56 provincias y 345 comunas, todo bajo CC BY.
+**América: 55 territorios, 95 datasets, 16.195 features.**
 
-Las convenciones y el tooling se hicieron primero a propósito, para que todo lo
-que se añada después llegue con una forma consistente. América es lo siguiente,
-un continente por release. La [Hoja de ruta](about/roadmap.md) tiene la
-secuencia.
+Contornos de país desde Natural Earth, divisiones de primer nivel y municipales
+desde geoBoundaries, y Chile desde la *División Política Administrativa* 2023 de
+IDE Chile. Todos los datasets tienen licencia permisiva — las fuentes copyleft
+quedan excluidas, y por eso algunos países aún no tienen divisiones de primer
+nivel.
+
+Europa, África, Asia y Oceanía vienen después, un continente por release. La
+[Hoja de ruta](about/roadmap.md) tiene la secuencia y los huecos conocidos.
 
 --8<-- "abbreviations.md"

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CYM",
+  "iso_a2": "KY",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Cayman Islands",
+    "es": "Islas Caimán"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CYM/CYM_ADM0.geojson",
+      "bytes": 2055,
+      "sha256": "f2cd94ff7865269b729f2c39d6f4582c2b2c4c724c1b21b428e6e47ad273e5f4",
+      "features": 1,
+      "bbox": [
+        -81.416542,
+        19.263864,
+        -79.726643,
+        19.757631
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CYM/preview/CYM_ADM0.preview.geojson",
+      "preview_bytes": 330,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}
