@@ -68,7 +68,7 @@ jobs:
           pip install -r requirements-docs-ci.txt
 
       - name: Restore social card cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .cache
           key: mkdocs-social-${{ hashFiles('mkdocs.yml') }}-${{ github.sha }}
