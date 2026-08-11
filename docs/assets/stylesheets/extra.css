@@ -1,0 +1,46 @@
+/* --------------------------------------------------------------------------
+   World GeoJSON — theme extras
+   -------------------------------------------------------------------------- */
+
+/* Map embeds.
+   z-index: 0 is not cosmetic. Leaflet's panes sit at z-index 400–700 and will
+   render *over* Material's sticky header and search dropdown without it. */
+.geojson-map {
+  height: 420px;
+  margin: 1em 0;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+  z-index: 0;
+}
+
+.leaflet-container {
+  background: var(--md-default-bg-color);
+  font: inherit;
+}
+
+.geojson-map__error {
+  padding: 1em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Source status pills used on catalog pages. */
+.status {
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  border-radius: 1em;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status--ok {
+  background: var(--md-typeset-mark-color);
+  color: var(--md-default-fg-color);
+}
+
+/* Licence tables read much better with the verdict column emphasised. */
+.licence-table td:first-child {
+  white-space: nowrap;
+  font-weight: 600;
+}

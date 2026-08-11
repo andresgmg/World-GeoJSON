@@ -1,0 +1,308 @@
+# ---------------------------------------------------------------------------
+# World GeoJSON — MkDocs configuration
+#
+# Build:   mkdocs build --strict
+# Serve:   mkdocs serve
+#
+# ARCHITECTURAL RULE: the docs build must never open a .geojson file.
+# All catalog metadata comes from small data/**/manifest.json sidecars.
+# See docs/reference/manifest.md for why.
+# ---------------------------------------------------------------------------
+
+site_name: World GeoJSON
+site_url: https://andresgmg.github.io/World-GeoJSON/
+site_description: >-
+  Open, versioned GeoJSON administrative boundaries for every country on
+  Earth — and, in time, for the Moon and Mars.
+site_author: Andres Marquez
+copyright: >-
+  Copyright &copy; 2023–2026 Andres Marquez ·
+  Code MIT · Data licensed per source
+
+repo_url: https://github.com/andresgmg/World-GeoJSON
+repo_name: andresgmg/World-GeoJSON
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+site_dir: site
+
+# Only watch what the build actually reads. NEVER add `data` here — watchdog
+# would stat the whole data tree on every keystroke, which is unusable on a
+# OneDrive-synced folder.
+watch:
+  - scripts
+  - includes
+
+# ---------------------------------------------------------------------------
+# Theme
+# ---------------------------------------------------------------------------
+
+theme:
+  name: material
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    # navigation.prune is load-bearing: Material inlines the whole nav into
+    # every page. At 250+ country pages, without prune that is megabytes of
+    # duplicated HTML per page. Incompatible with navigation.expand.
+    - navigation.prune
+    - navigation.top
+    - navigation.footer
+    # navigation.instant is deliberately OFF: it swaps the DOM via XHR, so
+    # DOMContentLoaded never fires again and Leaflet maps silently die on the
+    # second page view. assets/javascripts/geojson-map.js is written to
+    # survive it, but leave it off until maps are proven.
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - content.action.edit
+
+# ---------------------------------------------------------------------------
+# Hooks
+#
+# gen_catalog materialises docs/catalog/ from data/**/manifest.json at
+# on_config, before the file tree is collected. It is a hook rather than a
+# mkdocs-gen-files script because mkdocs-static-i18n silently drops generated
+# Markdown that lives outside docs_dir — see the module docstring.
+#
+# The generated tree is git-ignored: it is a build artifact.
+# ---------------------------------------------------------------------------
+
+hooks:
+  - scripts/gen_catalog.py
+
+# ---------------------------------------------------------------------------
+# Plugins — order matters, events fire in the order listed.
+# ---------------------------------------------------------------------------
+
+plugins:
+  - search
+
+  # literate-nav must stay LAST of the file-touching plugins: it builds the
+  # nav from the final file collection, and any plugin that mutates files
+  # afterwards triggers "The literate-nav plugin created the nav based on
+  # files that were subsequently modified by another MkDocs plugin!"
+  #
+  # fallback_to_default is mandatory: generated catalog pages exist only in
+  # the default language, and without it the Spanish site 404s across the
+  # entire catalog.
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Español
+          build: true
+          site_description: >-
+            GeoJSON abierto y versionado de límites administrativos de todos
+            los países del mundo — y, con el tiempo, de la Luna y Marte.
+          nav_translations:
+            Home: Inicio
+            Get started: Empezar
+            Quick start: Inicio rápido
+            Download & CDN: Descarga y CDN
+            Recipes: Recetas
+            Catalog: Catálogo
+            Reference: Referencia
+            File & folder naming: Nombres de archivos y carpetas
+            Administrative levels: Niveles administrativos
+            Property schema: Esquema de propiedades
+            Property dictionary: Diccionario de propiedades
+            Coordinate reference systems: Sistemas de referencia de coordenadas
+            Planetary bodies: Cuerpos planetarios
+            Manifest format: Formato del manifiesto
+            Contributing: Contribuir
+            Add a country: Añadir un país
+            Data pipeline: Pipeline de datos
+            Simplification & previews: Simplificación y previews
+            Approved sources & licensing: Fuentes aprobadas y licencias
+            Review checklist: Checklist de revisión
+            Editing the docs: Editar la documentación
+            Code of conduct: Código de conducta
+            About: Acerca de
+            Versioning & stability: Versionado y estabilidad
+            Licensing & attribution: Licencias y atribución
+            Disputed boundaries policy: Política de fronteras disputadas
+            Changelog: Registro de cambios
+            Roadmap: Hoja de ruta
+            Credits: Créditos
+
+  # Turns the generated catalog/SUMMARY.md into the Catalog nav subtree.
+  # Must be the LAST plugin that touches the file collection.
+  - literate-nav:
+      nav_file: SUMMARY.md
+
+  # Generated catalog pages have no git history, which emits warnings that
+  # --strict turns into build failures. Hence the exclude.
+  #
+  # `strict: false` downgrades this plugin's own "no git logs" warnings to
+  # info. Uncommitted files legitimately have no history, and without this a
+  # contributor cannot run `mkdocs build --strict` until after committing.
+  - git-revision-date-localized:
+      type: timeago
+      enable_creation_date: false
+      fallback_to_build_date: true
+      strict: false
+      exclude:
+        - catalog/*
+
+  # Social cards need the Cairo native library. GitHub Actions sets CI=true,
+  # so cards render in CI and are skipped locally. This one line is what
+  # keeps Windows contributors from having to install Cairo.
+  - social:
+      enabled: !ENV [CI, false]
+      cards_layout_options:
+        background_color: "#00695c"
+
+# ---------------------------------------------------------------------------
+# Markdown extensions
+# ---------------------------------------------------------------------------
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Anchor link to this section
+      toc_depth: 3
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  # base_path points OUTSIDE docs_dir. If includes lived in docs/, MkDocs
+  # would publish them as orphan pages and --strict would flag them.
+  - pymdownx.snippets:
+      base_path: [includes]
+      check_paths: true
+      auto_append:
+        - abbreviations.md
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# ---------------------------------------------------------------------------
+# Assets
+# ---------------------------------------------------------------------------
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+# ---------------------------------------------------------------------------
+# Extra — also read by scripts/gen_catalog.py
+# ---------------------------------------------------------------------------
+
+extra:
+  data_cdn: https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@main
+  data_raw: https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/andresgmg/World-GeoJSON
+      name: World GeoJSON on GitHub
+
+# literate-nav consumes catalog/SUMMARY.md to build the Catalog subtree, but
+# because i18n has already wrapped it in an I18nFile, literate-nav's removal
+# of the nav file from the collection does not take, and MkDocs then reports
+# it as a page missing from the nav. Declaring it here is the fix.
+not_in_nav: |
+  /catalog/SUMMARY.md
+
+# Start permissive; tighten to `error` once the catalog generator is stable.
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+# ---------------------------------------------------------------------------
+# Navigation. The Catalog subtree is injected by literate-nav from the
+# generated catalog/SUMMARY.md.
+# ---------------------------------------------------------------------------
+
+nav:
+  - Home: index.md
+  - Get started:
+      - get-started/index.md
+      - Quick start: get-started/quickstart.md
+      - Download & CDN: get-started/download.md
+      - Recipes: get-started/recipes.md
+  - Catalog: catalog/
+  - Reference:
+      - reference/index.md
+      - File & folder naming: reference/naming.md
+      - Administrative levels: reference/admin-levels.md
+      - Property schema: reference/schema.md
+      - Property dictionary: reference/properties.md
+      - Coordinate reference systems: reference/crs.md
+      - Planetary bodies: reference/planetary.md
+      - Manifest format: reference/manifest.md
+  - Contributing:
+      - contributing/index.md
+      - Add a country: contributing/add-a-country.md
+      - Data pipeline: contributing/pipeline.md
+      - Simplification & previews: contributing/previews.md
+      - Approved sources & licensing: contributing/sources.md
+      - Review checklist: contributing/checklist.md
+      - Editing the docs: contributing/docs.md
+      - Code of conduct: contributing/code-of-conduct.md
+  - About:
+      - about/index.md
+      - Versioning & stability: about/versioning.md
+      - Licensing & attribution: about/license.md
+      - Disputed boundaries policy: about/disputed-boundaries.md
+      - Changelog: about/changelog.md
+      - Roadmap: about/roadmap.md
+      - Credits: about/credits.md
