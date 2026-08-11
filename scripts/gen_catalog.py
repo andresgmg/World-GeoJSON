@@ -136,9 +136,19 @@ def render_dataset(out: list[str], manifest: dict, ds: dict, up: str, cdn: str, 
     bbox = ds.get("bbox") or []
     if len(bbox) == 4:
         out.append(f"| Bounding box | `{bbox[0]}, {bbox[1]}, {bbox[2]}, {bbox[3]}` |")
+    if ds.get("license"):
+        out.append(f"| Licence | `{ds['license']}` |")
+    if ds.get("src_provider"):
+        out.append(f"| Upstream | {ds['src_provider']} |")
+    if ds.get("src_year"):
+        out.append(f"| Vintage | {ds['src_year']} |")
     simp = ds.get("simplification") or {}
     if simp.get("tolerance_m"):
         out.append(f"| Simplification | {simp['tolerance_m']} m tolerance |")
+    if ds.get("unassigned"):
+        out.append(
+            f"| Unassigned | {ds['unassigned']} feature(s) have no parent upstream |"
+        )
     if ds.get("sha256"):
         out.append(f"| SHA-256 | `{ds['sha256'][:16]}…` |")
     out.append("")
@@ -209,9 +219,14 @@ def render_country(manifest: dict, up: str, cdn: str, raw: str) -> str:
 
     crs = manifest.get("crs", {})
     src = manifest.get("source") or {}
+    licenses = src.get("licenses") or (
+        [src["license"]] if src.get("license") else ["unknown"]
+    )
     out.append(
-        f"**Licence:** `{src.get('license', 'unknown')}` · "
-        f"**CRS:** `{crs.get('authority', '?')}:{crs.get('code', '?')}` "
+        "**Licence:** "
+        + ", ".join(f"`{v}`" for v in licenses)
+        + (" (varies by level)" if len(licenses) > 1 else "")
+        + f" · **CRS:** `{crs.get('authority', '?')}:{crs.get('code', '?')}` "
         f"([policy]({up}reference/crs.md))\n"
     )
 
@@ -340,7 +355,19 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
                 "name": title,
                 "group": group,
                 "url": rel.as_posix(),
-                "license": (manifest.get("source") or {}).get("license", "unknown"),
+                # Report the licences that actually govern the files, not a
+                # single country-level claim: a territory whose only dataset is
+                # a public-domain outline must not read as CC BY.
+                "license": ", ".join(
+                    sorted(
+                        {
+                            d["license"]
+                            for d in manifest.get("datasets", [])
+                            if d.get("license")
+                        }
+                    )
+                )
+                or (manifest.get("source") or {}).get("license", "unknown"),
                 "levels": [d.get("level", "?") for d in manifest.get("datasets", [])],
                 "features": sum(
                     d.get("features", 0) for d in manifest.get("datasets", [])

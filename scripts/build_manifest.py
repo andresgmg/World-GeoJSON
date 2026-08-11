@@ -173,11 +173,15 @@ def build_datasets(d: Path, prev: dict[str, dict]) -> list[dict]:
             entry["preview"] = preview.relative_to(REPO).as_posix()
             entry["preview_bytes"] = preview.stat().st_size
 
-    # Carry forward the simplification percentage recorded by build_data.py.
+    # Carry forward everything build_data.py recorded that cannot be derived
+    # from the files themselves: provenance, licence and what was done to the
+    # geometry.
+    carried = ("simplification", "license", "src_provider", "src_year", "unassigned")
     for level, entry in datasets.items():
         old = prev.get(level, {})
-        if "simplification" in old:
-            entry["simplification"] = old["simplification"]
+        for key in carried:
+            if key in old:
+                entry[key] = old[key]
 
     return [datasets[k] for k in sorted(datasets)]
 
@@ -198,6 +202,22 @@ def main() -> int:
 
         manifest.setdefault("schema_version", SCHEMA_VERSION)
         manifest["datasets"] = build_datasets(d, prev)
+
+        # Keep the country-level licence honest: it is whatever the datasets
+        # actually carry. A territory holding only a public-domain outline must
+        # not read as CC BY, and levels sourced from different upstreams
+        # legitimately differ.
+        src = manifest.get("source")
+        if isinstance(src, dict):
+            licenses = sorted(
+                {ds["license"] for ds in manifest["datasets"] if ds.get("license")}
+            )
+            if len(licenses) == 1:
+                src["license"] = licenses[0]
+                src.pop("licenses", None)
+            elif licenses:
+                src["license"] = "mixed"
+                src["licenses"] = licenses
 
         mpath.write_text(
             json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",

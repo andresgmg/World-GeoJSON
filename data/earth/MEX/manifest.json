@@ -1,0 +1,893 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MEX",
+  "iso_a2": "MX",
+  "m49_region": "Central America",
+  "name": {
+    "en": "Mexico",
+    "es": "México"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MEX/MEX_ADM0.geojson",
+      "bytes": 170006,
+      "sha256": "698f22303966611fca5e92c607e886af7b416d3735b7ed703d1badc916067b4c",
+      "features": 1,
+      "bbox": [
+        -118.368804,
+        14.546279,
+        -86.700592,
+        32.712836
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MEX/preview/MEX_ADM0.preview.geojson",
+      "preview_bytes": 7278,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/MEX/MEX_ADM1.geojson",
+      "bytes": 2820541,
+      "sha256": "1acf233f8d1cc6fb49b9e0758af4a6cd582ead831e8a75b5fd636858107176bf",
+      "features": 32,
+      "bbox": [
+        -118.366111,
+        14.535074,
+        -86.713383,
+        32.718626
+      ],
+      "geometry_types": {
+        "MultiPolygon": 17,
+        "Polygon": 15
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MEX/preview/MEX_ADM1.preview.geojson",
+      "preview_bytes": 145401,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Instituto Nacional de Estadística y Geografía (INEGI)",
+      "src_year": "2020"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/MEX/MEX_ADM2.geojson",
+      "bytes": 11898858,
+      "sha256": "b2f8b372e2713b7537da8170420961b6a2ff8663b586acc015b8853ace8ae843",
+      "features": 2457,
+      "bbox": [
+        -118.40765,
+        14.532098,
+        -86.711905,
+        32.718654
+      ],
+      "geometry_types": {
+        "MultiPolygon": 77,
+        "Polygon": 2380
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MEX/preview/MEX_ADM2.preview.geojson",
+      "preview_bytes": 797373,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/MEX/ADM2/MX-AGU.geojson",
+          "bytes": 54280,
+          "sha256": "c4746be9ad264cce572a704d6ea32bcb45b0f16514ec680f01b048597e47a8a2",
+          "features": 11,
+          "bbox": [
+            -102.874177,
+            21.622266,
+            -101.835289,
+            22.45959
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-AGU"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-BCN.geojson",
+          "bytes": 110634,
+          "sha256": "2f51c0731c46a35f777ed6218e1f97793db6edfbb780362fdcf05fd6fa9b0502",
+          "features": 5,
+          "bbox": [
+            -118.40765,
+            28.0,
+            -112.65424,
+            32.718654
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-BCN"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-BCS.geojson",
+          "bytes": 142450,
+          "sha256": "3bb33b1030ea316d7bddb5ed0e907acba5ef6b7ed6d6708c90adb4295e328e5f",
+          "features": 5,
+          "bbox": [
+            -115.220277,
+            22.871959,
+            -109.413252,
+            28.0
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-BCS"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-CAM.geojson",
+          "bytes": 76791,
+          "sha256": "2748547463e55147c5511240b826ed114e59247ab62cb80777e55ecd0fb6ec66",
+          "features": 11,
+          "bbox": [
+            -92.46879,
+            17.812871,
+            -89.121229,
+            20.848327
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-CAM"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-CHH.geojson",
+          "bytes": 651005,
+          "sha256": "fb3047ac901025175a5a06f58594aff3d6459ee07dbae52be854399d74c8d6fa",
+          "features": 67,
+          "bbox": [
+            -109.074886,
+            25.558844,
+            -103.306808,
+            31.784486
+          ],
+          "geometry_types": {
+            "Polygon": 67
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-CHH"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-CHP.geojson",
+          "bytes": 580887,
+          "sha256": "24850a31dbdf02bd10073c67872c21c4df8a3eb88354bf6e7b93f406c68ae191",
+          "features": 118,
+          "bbox": [
+            -94.139144,
+            14.532098,
+            -90.370214,
+            17.983957
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 117
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-CHP"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-COA.geojson",
+          "bytes": 187416,
+          "sha256": "97277d742df6cf552ea0513839e6da3402398ae5e86428a89d07e8c1f0b02998",
+          "features": 38,
+          "bbox": [
+            -103.960002,
+            24.542684,
+            -99.843223,
+            29.880014
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 37
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-COA"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-COL.geojson",
+          "bytes": 72521,
+          "sha256": "9cf0502a3ff094058306c335875f8ce4bfd1e8f8d8637ddab0e6dfbd1f717647",
+          "features": 10,
+          "bbox": [
+            -114.759455,
+            18.332594,
+            -103.486474,
+            19.512519
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-COL"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-DUR.geojson",
+          "bytes": 326452,
+          "sha256": "dbb535b5bdfe20b861f772e0b2ccc14aaa8cd38f34eb6c20b357520c4579c629",
+          "features": 39,
+          "bbox": [
+            -107.210132,
+            22.345745,
+            -102.472697,
+            26.844876
+          ],
+          "geometry_types": {
+            "Polygon": 39
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-DUR"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-GRO.geojson",
+          "bytes": 527605,
+          "sha256": "9ceda72ddf7a8262baa80adb41a7c8a548b33208a3bb6b6c604afddcd8c05e88",
+          "features": 81,
+          "bbox": [
+            -102.184266,
+            16.315953,
+            -98.007276,
+            18.887101
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 79
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-GRO"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-GUA.geojson",
+          "bytes": 289472,
+          "sha256": "1e628c314baa9da2f0e1a1bdf6c0192a3b0f0e1933c234737f7b0eb96c9a0b75",
+          "features": 46,
+          "bbox": [
+            -102.096899,
+            19.91275,
+            -99.671303,
+            21.839417
+          ],
+          "geometry_types": {
+            "Polygon": 46
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-GUA"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-HID.geojson",
+          "bytes": 415103,
+          "sha256": "b20bcefabdb46a835f7fa29141986063fb7e032f0f9329af2fb20d2915508496",
+          "features": 84,
+          "bbox": [
+            -99.859106,
+            19.597891,
+            -97.985043,
+            21.398518
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 83
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-HID"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-JAL.geojson",
+          "bytes": 1025856,
+          "sha256": "4cffc7b1ef5744ce454464161b71ed1b3ec9a71c3dd84fa3e3a89131326f0bab",
+          "features": 125,
+          "bbox": [
+            -105.695249,
+            18.926132,
+            -101.510542,
+            22.75016
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 124
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-JAL"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-MEX.geojson",
+          "bytes": 440561,
+          "sha256": "53c2e700ae1b41d5a0367037d3fc27a6d52940e8e8d888f573d0ca03cb5fbc2d",
+          "features": 141,
+          "bbox": [
+            -100.613091,
+            18.367434,
+            -98.596867,
+            20.285867
+          ],
+          "geometry_types": {
+            "MultiPolygon": 9,
+            "Polygon": 132
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-MEX"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-MIC.geojson",
+          "bytes": 686311,
+          "sha256": "f3373bf48805db26fcc788ad17ad6e736ab43893d746a8c5d6c1fb99b5f91121",
+          "features": 113,
+          "bbox": [
+            -103.737982,
+            17.914913,
+            -100.063184,
+            20.394436
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 112
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-MIC"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-MOR.geojson",
+          "bytes": 102044,
+          "sha256": "62de5156eb3c76e8ea209418d895cf6863d0da64dadebb4c267df203c5dcda53",
+          "features": 33,
+          "bbox": [
+            -99.494414,
+            18.332567,
+            -98.632947,
+            19.131702
+          ],
+          "geometry_types": {
+            "Polygon": 33
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-MOR"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-NAY.geojson",
+          "bytes": 187937,
+          "sha256": "17b96155fbdcfab9e66723633120a11c001aa5c3291f7d35fc6d791e265ab50b",
+          "features": 20,
+          "bbox": [
+            -106.687459,
+            20.603221,
+            -103.720896,
+            23.08448
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-NAY"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-NLE.geojson",
+          "bytes": 231131,
+          "sha256": "7bf104ad91f8ec6dfadd9e9a24f13d3b75edb82fa504ba5884da1fa99b41d399",
+          "features": 51,
+          "bbox": [
+            -101.206763,
+            23.162683,
+            -98.421576,
+            27.799137
+          ],
+          "geometry_types": {
+            "Polygon": 51
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-NLE"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-OAX.geojson",
+          "bytes": 1370840,
+          "sha256": "61de8e6a851060dd09a033ccec19bcc798c1b73f15a3c5c62a3b0005f5d394e9",
+          "features": 570,
+          "bbox": [
+            -98.552632,
+            15.65765,
+            -93.867427,
+            18.669317
+          ],
+          "geometry_types": {
+            "MultiPolygon": 18,
+            "Polygon": 552
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-OAX"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-PUE.geojson",
+          "bytes": 854089,
+          "sha256": "9cc3ce40811e350593bc6ca4191a82c00ed6580fa29cc718e86cbe0fe2fbcb76",
+          "features": 217,
+          "bbox": [
+            -99.069968,
+            17.860912,
+            -96.724683,
+            20.83996
+          ],
+          "geometry_types": {
+            "MultiPolygon": 9,
+            "Polygon": 208
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-PUE"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-QUE.geojson",
+          "bytes": 105468,
+          "sha256": "fa7a64964e8ab79f7fa44b15559721f14208eb97da493c76ab978bcf6a4aa852",
+          "features": 18,
+          "bbox": [
+            -100.596507,
+            20.019168,
+            -99.04308,
+            21.669917
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-QUE"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-ROO.geojson",
+          "bytes": 100496,
+          "sha256": "e184f459a6c39ee166e990666b6824691cd5a3c9760892c9413358213eb29812",
+          "features": 10,
+          "bbox": [
+            -89.296562,
+            17.893986,
+            -86.711905,
+            21.605504
+          ],
+          "geometry_types": {
+            "MultiPolygon": 5,
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-ROO"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-SIN.geojson",
+          "bytes": 192933,
+          "sha256": "900940c7cc9f5f4fbe660c553b1857dd1245810516e7a28dae5e4f98c4a9006d",
+          "features": 18,
+          "bbox": [
+            -109.447693,
+            22.467159,
+            -105.392245,
+            27.042048
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-SIN"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-SLP.geojson",
+          "bytes": 280423,
+          "sha256": "62aef8e36741d47218f171552af5c0fc8438b7e989c7836e9e15317c19d0f092",
+          "features": 58,
+          "bbox": [
+            -102.296038,
+            21.160184,
+            -98.325967,
+            24.491522
+          ],
+          "geometry_types": {
+            "Polygon": 58
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-SLP"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-SON.geojson",
+          "bytes": 362891,
+          "sha256": "654436b32efa3a549300a60a98dd4708ae5ed7ea2e4f48ea9514fc9c11ddde47",
+          "features": 72,
+          "bbox": [
+            -115.053022,
+            26.296988,
+            -108.424271,
+            32.493913
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 69
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-SON"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-TAB.geojson",
+          "bytes": 164047,
+          "sha256": "2eca3cd4b9b660cfab60bd191ca3be4437e2dec34796f57306ce140ec7d2e257",
+          "features": 17,
+          "bbox": [
+            -94.130025,
+            17.250893,
+            -90.987459,
+            18.650965
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-TAB"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-TAM.geojson",
+          "bytes": 227607,
+          "sha256": "b6644f21ba15a53cba7e9745e44fa945da2471b54b934139f059cd7a862f642b",
+          "features": 43,
+          "bbox": [
+            -100.14495,
+            22.206966,
+            -97.144224,
+            27.679126
+          ],
+          "geometry_types": {
+            "Polygon": 43
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-TAM"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-TLA.geojson",
+          "bytes": 128247,
+          "sha256": "7d64ebbbc1707f7e8e6506b8a528b0a6b1e3480121ae93cdf020a74d4be08550",
+          "features": 60,
+          "bbox": [
+            -98.708399,
+            19.105072,
+            -97.62552,
+            19.728917
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 58
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-TLA"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-VER.geojson",
+          "bytes": 1193441,
+          "sha256": "501240e3bd3907bf2b03e92fc1e4a9d36f23ecf607fe5d6a72b4a5c31b5bf1ed",
+          "features": 212,
+          "bbox": [
+            -98.681547,
+            17.136965,
+            -93.60794,
+            22.471657
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 206
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-VER"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-YUC.geojson",
+          "bytes": 411282,
+          "sha256": "cf255dab1eb3bdc6a0c3275af50dc1fa400f51fc65e2786a128aaaac38ab7784",
+          "features": 106,
+          "bbox": [
+            -92.3249,
+            19.551174,
+            -87.533145,
+            22.6138
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 104
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-YUC"
+        },
+        {
+          "path": "data/earth/MEX/ADM2/MX-ZAC.geojson",
+          "bytes": 448172,
+          "sha256": "f9b43762947741029ca8743cc5a1986412a6333e05d7632e8d0c6bc7d0e3a2c4",
+          "features": 58,
+          "bbox": [
+            -104.353533,
+            21.041869,
+            -100.742324,
+            25.125236
+          ],
+          "geometry_types": {
+            "Polygon": 58
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "MX-ZAC"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "World Bank",
+      "src_year": "2012"
+    }
+  ]
+}

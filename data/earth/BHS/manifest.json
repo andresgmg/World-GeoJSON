@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BHS",
+  "iso_a2": "BS",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Bahamas",
+    "es": "Bahamas"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "geoBoundaries ADM1 (32) and ADM2 (34) are near-identical; likely a duplicated tier.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BHS/BHS_ADM0.geojson",
+      "bytes": 37285,
+      "sha256": "7163d8f5d0c73a53c75a88f9f0d853486dd30fc898fa48f6bd44be8f25e8f224",
+      "features": 1,
+      "bbox": [
+        -79.59435,
+        20.912399,
+        -72.746165,
+        26.928412
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BHS/preview/BHS_ADM0.preview.geojson",
+      "preview_bytes": 2034,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BHS/BHS_ADM1.geojson",
+      "bytes": 528334,
+      "sha256": "4235af6547f3ec437fb6bff54a3e70d1eeee0901cb740d6712b1fa3de4b717f5",
+      "features": 32,
+      "bbox": [
+        -80.467087,
+        20.912361,
+        -72.712082,
+        27.262222
+      ],
+      "geometry_types": {
+        "MultiPolygon": 30,
+        "Polygon": 2
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BHS/preview/BHS_ADM1.preview.geojson",
+      "preview_bytes": 28332,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Haiti GeoPortal",
+      "src_year": "09-09-2017 to 24-08-2020"
+    }
+  ]
+}

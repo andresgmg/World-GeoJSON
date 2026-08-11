@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "HND",
+  "iso_a2": "HN",
+  "m49_region": "Central America",
+  "name": {
+    "en": "Honduras",
+    "es": "Honduras"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/HND/HND_ADM0.geojson",
+      "bytes": 26550,
+      "sha256": "00ccf84c351ac2082464d2570c1ab47ce9f6effc730d5780c159ff5a21560ce7",
+      "features": 1,
+      "bbox": [
+        -89.363791,
+        12.979777,
+        -83.130444,
+        17.418647
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/HND/preview/HND_ADM0.preview.geojson",
+      "preview_bytes": 1341,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/HND/HND_ADM2.geojson",
+      "bytes": 1065957,
+      "sha256": "7f2ac3390826eeb54c2177973e34dce2138a3df2e98c469cbecb1bc2d391ac65",
+      "features": 298,
+      "bbox": [
+        -89.356648,
+        12.982033,
+        -83.151448,
+        16.515956
+      ],
+      "geometry_types": {
+        "MultiPolygon": 14,
+        "Polygon": 284
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/HND/preview/HND_ADM2.preview.geojson",
+      "preview_bytes": 127136,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "ICF - Instituto Nacional de Conservación y Desarrollo Forestal, Áreas Protegidas y Vida Silvestre, Gobierno de la República de Honduras",
+      "src_year": "2019"
+    }
+  ]
+}

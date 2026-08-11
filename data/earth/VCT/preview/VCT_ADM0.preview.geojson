@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-61.4414,12.6079,-61.1239,13.3689], "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.1673,13.1461],[-61.1239,13.3083],[-61.212,13.3689],[-61.2714,13.1865],[-61.1673,13.1461]]]},"properties":{"shapeName":"Saint Vincent and the Grenadines","shapeISO":"VCT","shapeType":"ADM0"}}
+]}

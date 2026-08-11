@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-70.0581,12.4177,-69.8802,12.5776], "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-69.9969,12.5776],[-70.0581,12.5372],[-69.8881,12.4177],[-69.8802,12.4536],[-69.9969,12.5776]]]},"properties":{"shapeName":"Aruba","shapeISO":"ABW","shapeType":"ADM0"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-62.2301,16.7276,-62.1474,16.8193], "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.1474,16.7443],[-62.202,16.8193],[-62.2301,16.7276],[-62.1474,16.7443]]]},"properties":{"shapeName":"Montserrat","shapeISO":"MSR","shapeType":"ADM0"}}
+]}

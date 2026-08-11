@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "PRI",
+  "iso_a2": "PR",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Puerto Rico",
+    "es": "Puerto Rico"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "notes": "geoBoundaries has no ADM0 or ADM1 for Puerto Rico; ADM0 comes from Natural Earth.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/PRI/PRI_ADM0.geojson",
+      "bytes": 7175,
+      "sha256": "b7ffeb85c7b17911c61f57f6f76c45ca57f3e0b202e2d37813a82f8606ac02fa",
+      "features": 1,
+      "bbox": [
+        -67.937815,
+        17.922919,
+        -65.244618,
+        18.522773
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/PRI/preview/PRI_ADM0.preview.geojson",
+      "preview_bytes": 536,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/PRI/PRI_ADM2.geojson",
+      "bytes": 230679,
+      "sha256": "f9ba7fe0a2787a4f7fc8826824a7223ab67f7b78514a4fa90bb4e78513b92747",
+      "features": 78,
+      "bbox": [
+        -67.945404,
+        17.88328,
+        -65.220703,
+        18.515683
+      ],
+      "geometry_types": {
+        "MultiPolygon": 6,
+        "Polygon": 72
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/PRI/preview/PRI_ADM2.preview.geojson",
+      "preview_bytes": 29776,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "United States Census Bureau, MAF/TIGER",
+      "src_year": "2021"
+    }
+  ]
+}

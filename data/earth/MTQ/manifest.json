@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MTQ",
+  "iso_a2": "MQ",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Martinique",
+    "es": "Martinica"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "Etalab-2.0",
+    "retrieved": "2026-08-11"
+  },
+  "notes": "geoBoundaries publishes ADM3 and ADM4 only. Level skip.",
+  "datasets": [
+    {
+      "level": "ADM4",
+      "path": "data/earth/MTQ/MTQ_ADM4.geojson",
+      "bytes": 71237,
+      "sha256": "06ba87a97087033b604d2bd0986b55a5157266db13338ba080686b6a6e855520",
+      "features": 34,
+      "bbox": [
+        -61.229033,
+        14.394702,
+        -60.810598,
+        14.878723
+      ],
+      "geometry_types": {
+        "MultiPolygon": 6,
+        "Polygon": 28
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MTQ/preview/MTQ_ADM4.preview.geojson",
+      "preview_bytes": 11938,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "Etalab-2.0",
+      "src_provider": "Institut national de l'information géographique et forestière (IGN-F)",
+      "src_year": "2022"
+    }
+  ]
+}

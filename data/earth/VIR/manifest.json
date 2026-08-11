@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "VIR",
+  "iso_a2": "VI",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "United States Virgin Islands",
+    "es": "Islas Vírgenes de EE.UU."
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "notes": "geoBoundaries publishes ADM3 only. Level skip.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/VIR/VIR_ADM0.geojson",
+      "bytes": 1907,
+      "sha256": "1997023cc4b5c058bdb87e517005a65d8aa93c7616e91e12675969a24da2e965",
+      "features": 1,
+      "bbox": [
+        -65.041493,
+        17.682766,
+        -64.559397,
+        18.386599
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/VIR/preview/VIR_ADM0.preview.geojson",
+      "preview_bytes": 343,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/VIR/VIR_ADM3.geojson",
+      "bytes": 32942,
+      "sha256": "9ba729681c5916a935cfb1fa98cc0339d2c29b6b5b242ce37e5ed7dc5f1a614a",
+      "features": 20,
+      "bbox": [
+        -65.085362,
+        17.675011,
+        -64.565594,
+        18.41242
+      ],
+      "geometry_types": {
+        "MultiPolygon": 10,
+        "Polygon": 10
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/VIR/preview/VIR_ADM3.preview.geojson",
+      "preview_bytes": 6298,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "United States Census Bureau, MAF/TIGER",
+      "src_year": "2021"
+    }
+  ]
+}

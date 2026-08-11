@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GRD",
+  "iso_a2": "GD",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Grenada",
+    "es": "Granada"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GRD/GRD_ADM0.geojson",
+      "bytes": 1723,
+      "sha256": "048012bb51a3e9d9befa47566786dbc99cd634a4153ad13973a9f791beb42f00",
+      "features": 1,
+      "bbox": [
+        -61.790517,
+        12.002834,
+        -61.42162,
+        12.529731
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GRD/preview/GRD_ADM0.preview.geojson",
+      "preview_bytes": 322,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

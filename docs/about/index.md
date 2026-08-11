@@ -27,13 +27,13 @@ over](../reference/planetary.md).
 
 | | |
 |---|---|
-| Countries | 1 (Chile) |
-| Datasets | 3 (ADM1, ADM2, ADM3) |
-| Features | 417 |
+| Territories | 55 (the Americas) |
+| Datasets | 95 |
+| Features | 16,195 |
 | Bodies | 1 of 3 planned |
-| Data licence | CC BY 4.0, single source |
+| Data licence | Permissive only, recorded per dataset |
 
-The Americas are next, then one continent per release. See
+Europe, Africa, Asia and Oceania follow, one continent per release. See
 [Roadmap](roadmap.md).
 
 The four legacy files in the repository root predate the conventions and are

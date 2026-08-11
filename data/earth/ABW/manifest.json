@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ABW",
+  "iso_a2": "AW",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Aruba",
+    "es": "Aruba"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ABW/ABW_ADM0.geojson",
+      "bytes": 846,
+      "sha256": "218fb202c0a875e4503071f613a54f89bbba26edfd7e4e35c444bbf8b736a0d8",
+      "features": 1,
+      "bbox": [
+        -70.062408,
+        12.41767,
+        -69.87682,
+        12.632148
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ABW/preview/ABW_ADM0.preview.geojson",
+      "preview_bytes": 321,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

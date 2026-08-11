@@ -6,6 +6,35 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Añadido — América
+
+- **55 territorios, 95 datasets, 16.195 features.** Contornos de país desde
+  Natural Earth 10m (dominio público); divisiones de primer nivel y municipales
+  desde geoBoundaries `gbOpen`, solo con licencias permisivas; Chile desde IDE
+  Chile.
+- Los niveles municipales van partidos por su padre de primer nivel. El padre se
+  deriva mediante unión espacial por mayor solapamiento, porque geoBoundaries no
+  lleva referencia al padre y con frecuencia entrega un `shapeISO` vacío.
+- Cada dataset registra su propia licencia, proveedor aguas arriba y añada. Una
+  licencia a nivel de país sería una afirmación falsa: el contorno de Brasil es
+  dominio público, sus estados CC BY 2.5 y sus municipios CC BY 3.0 IGO.
+- mapshaper queda fijado en `package.json` e instalado localmente, en vez de
+  resolverse por `npx` en cada llamada.
+
+**Qué no entra, y por qué.** Quince países no tienen divisiones de primer nivel
+porque su ADM1 en geoBoundaries es ODbL o CC-BY-SA. Bonaire/San Eustaquio y Saba
+y la Isla Bouvet no publican nada. Los ADM2 de Jamaica y Santa Lucía se dejaron
+fuera por parecer mal asignados — 827 unidades frente a 14 parroquias, 547
+frente a 10 distritos. Ver la [Hoja de ruta](roadmap.md).
+
+**Rarezas de las fuentes que conviene conocer.** El metadato `admUnitCount` de
+geoBoundaries no concuerda con los archivos que sirve en varios casos (Surinam
+declara 62 unidades ADM2 y entrega 58); los conteos aquí son lo que los archivos
+contienen realmente. El ADM1 de Argentina omite la Ciudad Autónoma de Buenos
+Aires, así que sus 8 comunas no solapan con ninguna provincia y se conservan en
+una parte `unassigned` en lugar de descartarse. Ecuador y Perú entregan cada uno
+un ADM1 cuyo `shapeISO` contiene un asterisco.
+
 ### Añadido — pipeline de datos y Chile
 
 - **Chile en `data/earth/CHL/`**, desde la *División Política Administrativa*

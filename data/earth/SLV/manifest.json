@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SLV",
+  "iso_a2": "SV",
+  "m49_region": "Central America",
+  "name": {
+    "en": "El Salvador",
+    "es": "El Salvador"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SLV/SLV_ADM0.geojson",
+      "bytes": 8619,
+      "sha256": "28a16bb28738d61c3bf0d508e042049845c76f3734665032ddf2971abb96b947",
+      "features": 1,
+      "bbox": [
+        -90.114779,
+        13.158637,
+        -87.693194,
+        14.445373
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SLV/preview/SLV_ADM0.preview.geojson",
+      "preview_bytes": 607,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/SLV/SLV_ADM2.geojson",
+      "bytes": 300252,
+      "sha256": "b348aefe48d8b37b23cecd14b2ccdf5089bbb868f6a181ccdd3c55710126296c",
+      "features": 272,
+      "bbox": [
+        -90.137713,
+        13.143988,
+        -87.66986,
+        14.451031
+      ],
+      "geometry_types": {
+        "Polygon": 272
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SLV/preview/SLV_ADM2.preview.geojson",
+      "preview_bytes": 87917,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries",
+      "src_year": "2007"
+    }
+  ]
+}

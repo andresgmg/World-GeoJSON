@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CUB",
+  "iso_a2": "CU",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Cuba",
+    "es": "Cuba"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CUB/CUB_ADM0.geojson",
+      "bytes": 61322,
+      "sha256": "e24b9964a98a3afc7f23005d800c4f1611cc1ebd5e2031e33a826c10b4c5e7b5",
+      "features": 1,
+      "bbox": [
+        -84.949615,
+        19.827826,
+        -74.132883,
+        23.26557
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CUB/preview/CUB_ADM0.preview.geojson",
+      "preview_bytes": 2772,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

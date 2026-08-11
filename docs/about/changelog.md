@@ -6,6 +6,33 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
+### Added — the Americas
+
+- **55 territories, 95 datasets, 16,195 features.** Country outlines from
+  Natural Earth 10m (public domain); first-level and municipal divisions from
+  geoBoundaries `gbOpen`, permissive licences only; Chile from IDE Chile.
+- Municipal levels are split by first-level parent. The parent is derived by
+  largest-overlap spatial join, because geoBoundaries carries no parent
+  reference and frequently ships an empty `shapeISO`.
+- Each dataset records its own licence, upstream provider and vintage. A
+  country-level licence would be a false claim: Brazil's outline is public
+  domain, its states CC BY 2.5 and its municipalities CC BY 3.0 IGO.
+- mapshaper is pinned in `package.json` and installed locally rather than
+  resolved through `npx` on every call.
+
+**Not included, and why.** Fifteen countries have no first-level divisions
+because their geoBoundaries ADM1 is ODbL or CC-BY-SA. Bonaire/Sint Eustatius
+and Saba and Bouvet Island ship nothing at all. Jamaica's and Saint Lucia's
+ADM2 were left out as apparently mis-tiered — 827 units against 14 parishes,
+547 against 10 quarters. See the [Roadmap](roadmap.md).
+
+**Upstream quirks worth knowing.** geoBoundaries' `admUnitCount` metadata
+disagrees with the files it serves in several cases (Suriname reports 62 ADM2
+units and ships 58); the counts here are what the files actually contain.
+Argentina's ADM1 omits the Autonomous City of Buenos Aires, so its 8 comunas
+overlap no province and are kept in an `unassigned` part rather than dropped.
+Ecuador and Peru each ship an ADM1 whose `shapeISO` contains an asterisk.
+
 ### Added — data pipeline and Chile
 
 - **Chile at `data/earth/CHL/`**, from IDE Chile's *División Política

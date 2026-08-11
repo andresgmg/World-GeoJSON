@@ -13,16 +13,48 @@
     "code": "CRS84",
     "epsg": 4326
   },
+  "status": "ok",
   "source": {
     "name": "IDE Chile / SUBDERE — División Política Administrativa 2023",
-    "url": "https://www.geoportal.cl/geoportal/catalog/36391/Divisi%C3%B3n%20Pol%C3%ADtica%20Administrativa%202023",
-    "license": "CC-BY-4.0",
-    "license_note": "Published as Creative Commons Attribution on datos.gob.cl. The source cartography is authorised for circulation by Resolución N°50 de 2019 of DIFROL; Chilean rules require derived products to be reviewed by DIFROL equally.",
-    "retrieved": "2026-08-11"
+    "url": "https://www.geoportal.cl/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
   },
-  "status": "ok",
-  "notes": "345 communes, not the 346 in the official register: the Antártica commune (12202) is absent because the DPA package excludes Chile's Antarctic claim — the data stops at 56.5°S. geoBoundaries omits it for the same reason.",
   "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CHL/CHL_ADM0.geojson",
+      "bytes": 407930,
+      "sha256": "18e57932e64371abccbc383c486af4111243c4974b5098bb04ee86fb8cebac79",
+      "features": 1,
+      "bbox": [
+        -109.453725,
+        -55.918504,
+        -66.420806,
+        -17.506588
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CHL/preview/CHL_ADM0.preview.geojson",
+      "preview_bytes": 18782,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
     {
       "level": "ADM1",
       "path": "data/earth/CHL/CHL_ADM1.geojson",
@@ -48,7 +80,12 @@
         "src_superficie_km2"
       ],
       "preview": "data/earth/CHL/preview/CHL_ADM1.preview.geojson",
-      "preview_bytes": 226499
+      "preview_bytes": 226499,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0"
     },
     {
       "level": "ADM2",
@@ -77,7 +114,12 @@
         "src_region"
       ],
       "preview": "data/earth/CHL/preview/CHL_ADM2.preview.geojson",
-      "preview_bytes": 271783
+      "preview_bytes": 271783,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0"
     },
     {
       "level": "ADM3",
@@ -586,7 +628,12 @@
           ],
           "code": "CL-VS"
         }
-      ]
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0"
     }
   ]
 }

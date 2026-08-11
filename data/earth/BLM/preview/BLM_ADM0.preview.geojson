@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-62.8574,17.882,-62.7917,17.925], "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.8389,17.882],[-62.7917,17.9155],[-62.8574,17.925],[-62.8389,17.882]]]},"properties":{"shapeName":"Saint-Barthélemy","shapeISO":"BLM","shapeType":"ADM0"}}
+]}

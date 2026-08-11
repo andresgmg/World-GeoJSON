@@ -1,0 +1,13 @@
+{
+  "name": "world-geojson-tools",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Geometry tooling for the World GeoJSON data pipeline. Not published.",
+  "type": "module",
+  "scripts": {
+    "previews": "node scripts/make_previews.mjs"
+  },
+  "devDependencies": {
+    "mapshaper": "0.6.109"
+  }
+}

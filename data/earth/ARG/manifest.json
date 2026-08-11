@@ -1,0 +1,713 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ARG",
+  "iso_a2": "AR",
+  "m49_region": "South America",
+  "name": {
+    "en": "Argentina",
+    "es": "Argentina"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-2.5",
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ARG/ARG_ADM0.geojson",
+      "bytes": 109841,
+      "sha256": "dab5c11e6a1813ed38e0f0b5c15e5c18b815f04fa454e316203977186a054294",
+      "features": 1,
+      "bbox": [
+        -73.57274,
+        -55.052016,
+        -53.661552,
+        -21.786938
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ARG/preview/ARG_ADM0.preview.geojson",
+      "preview_bytes": 4847,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ARG/ARG_ADM1.geojson",
+      "bytes": 106481,
+      "sha256": "3a694646d1bad55730d6aacf26e12c878ac99152edcbe8b340107f87fe1ba5d9",
+      "features": 23,
+      "bbox": [
+        -73.531182,
+        -54.844037,
+        -53.601347,
+        -21.805624
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 22
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ARG/preview/ARG_ADM1.preview.geojson",
+      "preview_bytes": 10032,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-2.5",
+      "src_provider": "geoBoundaries, Wikimedia",
+      "src_year": "2006"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/ARG/ARG_ADM2.geojson",
+      "bytes": 4330370,
+      "sha256": "ed5bcbbb1922308c8c80d9829b1f9f60bf47bdb57b625728d81d1f2c7024abea",
+      "features": 525,
+      "bbox": [
+        -73.566589,
+        -55.057698,
+        -53.637369,
+        -21.781135
+      ],
+      "geometry_types": {
+        "MultiPolygon": 19,
+        "Polygon": 506
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ARG/preview/ARG_ADM2.preview.geojson",
+      "preview_bytes": 335978,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/ARG/ADM2/AR-A.geojson",
+          "bytes": 318185,
+          "sha256": "925ac4b172576f395e8cdb5f29fc6ab749d8359cbc334a05e94da07d2f22bec3",
+          "features": 23,
+          "bbox": [
+            -68.568688,
+            -26.416799,
+            -62.341733,
+            -21.998768
+          ],
+          "geometry_types": {
+            "Polygon": 23
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-A"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-B.geojson",
+          "bytes": 883665,
+          "sha256": "e212188145a95e01728d550ee2bf1b48f51ae9c16254138cacacdfb419ab0409",
+          "features": 141,
+          "bbox": [
+            -63.384346,
+            -41.037855,
+            -56.665027,
+            -30.158971
+          ],
+          "geometry_types": {
+            "MultiPolygon": 5,
+            "Polygon": 136
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-B"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-C.geojson",
+          "bytes": 19761,
+          "sha256": "d9195d4acf5f13ecffe420900105f32ee36b28879e16a62ca8c399df187594c9",
+          "features": 18,
+          "bbox": [
+            -58.776825,
+            -34.912224,
+            -58.333485,
+            -34.445923
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-C"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-D.geojson",
+          "bytes": 100190,
+          "sha256": "bacfc660e8fa88c6a4fbf049330df6d96c04d29d3f941427c6336a64766e5f43",
+          "features": 9,
+          "bbox": [
+            -67.383793,
+            -35.99953,
+            -64.882753,
+            -31.833805
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-D"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-F.geojson",
+          "bytes": 76984,
+          "sha256": "0678554da3403fdab7f3e5a10743c6b960a88f6f3c5b98dfe4423797f69d4738",
+          "features": 18,
+          "bbox": [
+            -69.634973,
+            -31.99769,
+            -65.422985,
+            -27.709778
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-F"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-G.geojson",
+          "bytes": 161951,
+          "sha256": "33b5a84e715a5a6a500adeb9bf44de6e37222568e49137a63fb8a9f64bf27903",
+          "features": 26,
+          "bbox": [
+            -65.188125,
+            -30.056461,
+            -61.711134,
+            -25.649034
+          ],
+          "geometry_types": {
+            "Polygon": 26
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-G"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-H.geojson",
+          "bytes": 82761,
+          "sha256": "58954b2fe2b6861aff19026e0932dfc30b96b6763b4f6e8025e56ffc1ae4d5e9",
+          "features": 25,
+          "bbox": [
+            -63.422474,
+            -28.066825,
+            -58.377351,
+            -24.084401
+          ],
+          "geometry_types": {
+            "Polygon": 25
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-H"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-J.geojson",
+          "bytes": 178635,
+          "sha256": "02e519864ccc394cabcbb4a11ea349e6bd172f4194f6c2319a1919df610bce0a",
+          "features": 19,
+          "bbox": [
+            -70.569191,
+            -32.62636,
+            -66.661788,
+            -28.388752
+          ],
+          "geometry_types": {
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-J"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-K.geojson",
+          "bytes": 235210,
+          "sha256": "9712bf6014151d1122c6e3b88cff41ea0f3e7ff1cccb433f1a38c69da2a43623",
+          "features": 18,
+          "bbox": [
+            -69.095264,
+            -30.119602,
+            -64.780965,
+            -25.168313
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-K"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-L.geojson",
+          "bytes": 51474,
+          "sha256": "50bb2c787cfcde921e4f7e86708b810e35cc884c1aa806af5ed02e2a3a746ac8",
+          "features": 22,
+          "bbox": [
+            -68.296145,
+            -39.330685,
+            -63.383514,
+            -35.000002
+          ],
+          "geometry_types": {
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-L"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-M.geojson",
+          "bytes": 219516,
+          "sha256": "44cbee8b11f864736bad99d658c9e39ae5f50e1cde2e8478f8c33e581078f1ff",
+          "features": 18,
+          "bbox": [
+            -70.583686,
+            -37.576686,
+            -66.478577,
+            -31.999385
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-M"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-N.geojson",
+          "bytes": 118700,
+          "sha256": "f7828f0d4aa2b1ab43181932f1eed3194482e76926be3962f462b6fd97a5e211",
+          "features": 17,
+          "bbox": [
+            -56.058638,
+            -28.164223,
+            -53.637369,
+            -25.494444
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-N"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-P.geojson",
+          "bytes": 98732,
+          "sha256": "edc4ea8ed08bfe98eb6ab65d3d104a7210087bc2829ca73d187e54b9ae48dd45",
+          "features": 9,
+          "bbox": [
+            -62.342302,
+            -26.872232,
+            -57.559388,
+            -22.460728
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-P"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-Q.geojson",
+          "bytes": 241322,
+          "sha256": "503dc7dd759903bb646667d9784fccf8b8b7f99d790f3477a0b17f1fc0168e3e",
+          "features": 16,
+          "bbox": [
+            -71.965686,
+            -41.100586,
+            -68.000224,
+            -36.110346
+          ],
+          "geometry_types": {
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-Q"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-R.geojson",
+          "bytes": 117387,
+          "sha256": "eb239634dc42b47821186adab7301d3147974d38fbc5cfc5469e29720b4495cc",
+          "features": 13,
+          "bbox": [
+            -71.91208,
+            -42.000305,
+            -62.789667,
+            -37.576686
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-R"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-S.geojson",
+          "bytes": 236418,
+          "sha256": "aab6e395afe43ecff933b1374711026ae014ed23f4ff27bb509b73f307501c4b",
+          "features": 19,
+          "bbox": [
+            -62.87973,
+            -34.383607,
+            -58.880822,
+            -27.999421
+          ],
+          "geometry_types": {
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-S"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-T.geojson",
+          "bytes": 125795,
+          "sha256": "0aa11ff70396b3bad4c2841fb0c69e4c118000d18a00307b79e10fd59514e3b6",
+          "features": 15,
+          "bbox": [
+            -66.14082,
+            -28.013917,
+            -64.481988,
+            -26.058288
+          ],
+          "geometry_types": {
+            "Polygon": 15
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-T"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-U.geojson",
+          "bytes": 155264,
+          "sha256": "67b6db8dd5f190cec542634c06f2a74c4ea2e8e4390b181b20a8a30025398335",
+          "features": 15,
+          "bbox": [
+            -72.188191,
+            -45.999795,
+            -63.583183,
+            -41.999838
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-U"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-V.geojson",
+          "bytes": 69977,
+          "sha256": "457cb44b9e57dadadaca5957eefaee142e14ec85a62bc7eaa374047ddc974b86",
+          "features": 2,
+          "bbox": [
+            -68.609416,
+            -55.057698,
+            -63.796126,
+            -52.659008
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-V"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-W.geojson",
+          "bytes": 325483,
+          "sha256": "bc5e9053ef4654ac445ddabdc361cbcdc7c74559a297642034855ec9ec131d20",
+          "features": 24,
+          "bbox": [
+            -59.712013,
+            -30.729623,
+            -55.620237,
+            -27.2549
+          ],
+          "geometry_types": {
+            "MultiPolygon": 5,
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-W"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-X.geojson",
+          "bytes": 221224,
+          "sha256": "4c217a2fbb35cffa2e8ca4cb56698fd72d1fc0a540de8b5d9de374f3b801bf75",
+          "features": 27,
+          "bbox": [
+            -65.771984,
+            -35.000135,
+            -61.770953,
+            -29.500423
+          ],
+          "geometry_types": {
+            "Polygon": 27
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-X"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-Y.geojson",
+          "bytes": 171535,
+          "sha256": "a7983a2da0dfaef1d3b665de4496013169455850ed04944f69e63e7b989ede62",
+          "features": 16,
+          "bbox": [
+            -67.213047,
+            -24.61338,
+            -64.15077,
+            -21.781135
+          ],
+          "geometry_types": {
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-Y"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/AR-Z.geojson",
+          "bytes": 123369,
+          "sha256": "82b895c27f275c93244e5f1edc90f039cac1c2f809875014554e88febd4eb55b",
+          "features": 7,
+          "bbox": [
+            -73.566589,
+            -52.396303,
+            -65.710693,
+            -45.999753
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AR-Z"
+        },
+        {
+          "path": "data/earth/ARG/ADM2/unassigned.geojson",
+          "bytes": 8026,
+          "sha256": "a53f7f137964c2ce40f3ad3752c9342aadaaffeb442de9d3bd1c15faaaf872b4",
+          "features": 8,
+          "bbox": [
+            -58.475866,
+            -34.662607,
+            -58.335231,
+            -34.526526
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "unassigned"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Instituto Geografico Nacional and UNHCR, OCHA ROLAC",
+      "src_year": "2020",
+      "unassigned": 8
+    }
+  ]
+}

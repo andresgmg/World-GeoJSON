@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BMU",
+  "iso_a2": "BM",
+  "m49_region": "Northern America",
+  "name": {
+    "en": "Bermuda",
+    "es": "Bermudas"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BMU/BMU_ADM0.geojson",
+      "bytes": 2155,
+      "sha256": "99fb727e70dd3c1cdcde4d48c10224039c4fa8662914a776dbc055d02abbae35",
+      "features": 1,
+      "bbox": [
+        -64.885994,
+        32.248077,
+        -64.647631,
+        32.388658
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BMU/preview/BMU_ADM0.preview.geojson",
+      "preview_bytes": 342,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

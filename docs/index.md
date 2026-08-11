@@ -66,11 +66,14 @@ without written rules produces a pile of mutually incompatible files. The
 
 ## Current status
 
-Chile, from IDE Chile's *División Política Administrativa* 2023: 16 regions, 56
-provinces and 345 communes, all under CC BY.
+**The Americas: 55 territories, 95 datasets, 16,195 features.**
 
-The conventions and tooling came first on purpose, so that everything added
-afterwards arrives in a consistent shape. The Americas are next, one continent
-per release. [Roadmap](about/roadmap.md) has the sequence.
+Country outlines from Natural Earth, first-level and municipal divisions from
+geoBoundaries, and Chile from IDE Chile's *División Política Administrativa*
+2023. Every dataset is permissively licensed — copyleft sources are excluded,
+which is why some countries have no first-level divisions yet.
+
+Europe, Africa, Asia and Oceania follow, one continent per release.
+[Roadmap](about/roadmap.md) has the sequence and the known gaps.
 
 --8<-- "abbreviations.md"

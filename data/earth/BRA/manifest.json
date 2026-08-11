@@ -1,0 +1,827 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BRA",
+  "iso_a2": "BR",
+  "m49_region": "South America",
+  "name": {
+    "en": "Brazil",
+    "es": "Brasil"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-2.5",
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BRA/BRA_ADM0.geojson",
+      "bytes": 253879,
+      "sha256": "b5fb47aaf4e3e065ebd0fe76ca2f8a2dad189f334de595e9f54fa0f6c17d9c77",
+      "features": 1,
+      "bbox": [
+        -74.018475,
+        -33.74228,
+        -28.877065,
+        5.267225
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BRA/preview/BRA_ADM0.preview.geojson",
+      "preview_bytes": 10836,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BRA/BRA_ADM1.geojson",
+      "bytes": 1583771,
+      "sha256": "749b66ee5427ac90ddb912b91b588fdda40def3a8b2426cf634b335dffc51140",
+      "features": 27,
+      "bbox": [
+        -74.040512,
+        -33.734744,
+        -34.65613,
+        5.179929
+      ],
+      "geometry_types": {
+        "Polygon": 27
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BRA/preview/BRA_ADM1.preview.geojson",
+      "preview_bytes": 75480,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-2.5",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2006"
+    },
+    {
+      "level": "ADM2",
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/BRA/ADM2/BR-AC.geojson",
+          "bytes": 279515,
+          "sha256": "d89b46eb4740f8e9c076e84973ace372731ab9cf7a579b4519870a57ccc254dd",
+          "features": 22,
+          "bbox": [
+            -73.990479,
+            -11.143494,
+            -66.62439,
+            -7.112122
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-AC"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-AL.geojson",
+          "bytes": 201771,
+          "sha256": "0cc8a9275df6106b12538a405195cd0ca9c13246af6cd1145046baaecb0a7320",
+          "features": 98,
+          "bbox": [
+            -38.237183,
+            -10.499695,
+            -35.152527,
+            -8.81311
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 92
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-AL"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-AM.geojson",
+          "bytes": 1536658,
+          "sha256": "a999ea9faba327557730cbac6505f83ca059ec86eb62b02a6fb60541e6dee146",
+          "features": 62,
+          "bbox": [
+            -73.801575,
+            -9.817078,
+            -56.097412,
+            2.246704
+          ],
+          "geometry_types": {
+            "MultiPolygon": 22,
+            "Polygon": 40
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-AM"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-AP.geojson",
+          "bytes": 344671,
+          "sha256": "83844cf3eef8e81afc64968d736a95b6a6c029f62029e8b7d27e68483feb2254",
+          "features": 16,
+          "bbox": [
+            -54.876221,
+            -1.236206,
+            -49.87561,
+            4.508911
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-AP"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-BA.geojson",
+          "bytes": 2335209,
+          "sha256": "80c855f0f83275d655c474977b4e608805c794ce5a67842b72666cee5035c52f",
+          "features": 417,
+          "bbox": [
+            -46.576904,
+            -18.343994,
+            -37.341125,
+            -8.532776
+          ],
+          "geometry_types": {
+            "MultiPolygon": 17,
+            "Polygon": 400
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-BA"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-CE.geojson",
+          "bytes": 813559,
+          "sha256": "0e8275ea743adc5ca0ab053ab54854a6dba602beda671c8ceb8c32db2f35ab16",
+          "features": 193,
+          "bbox": [
+            -41.423523,
+            -7.857605,
+            -37.221313,
+            -2.78479
+          ],
+          "geometry_types": {
+            "MultiPolygon": 8,
+            "Polygon": 185
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-CE"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-DF.geojson",
+          "bytes": 7242,
+          "sha256": "5f41fd8014c3357095ecd394733776efc56f0ec8b5283767914eb63d3aa44598",
+          "features": 1,
+          "bbox": [
+            -48.284729,
+            -16.051208,
+            -47.309204,
+            -15.501221
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-DF"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-ES.geojson",
+          "bytes": 435659,
+          "sha256": "f5c9c5e78ebd464bc9f10cc92e128570aa5957e8a7d37062be298fe7936feea6",
+          "features": 79,
+          "bbox": [
+            -41.8797,
+            -21.315125,
+            -28.849182,
+            -17.891907
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 75
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-ES"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-GO.geojson",
+          "bytes": 1958442,
+          "sha256": "a9f47a1379b997def7887aaa21beb6eb76262c6030d060ee0f993a9df1de3a56",
+          "features": 246,
+          "bbox": [
+            -53.248291,
+            -19.499084,
+            -45.907288,
+            -12.397217
+          ],
+          "geometry_types": {
+            "MultiPolygon": 21,
+            "Polygon": 225
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-GO"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-MA.geojson",
+          "bytes": 1196916,
+          "sha256": "810be0b4d7f53a3db9ce28d2a23a56a4b1011a558bfce4340ed268b1e2119f6b",
+          "features": 218,
+          "bbox": [
+            -48.755127,
+            -10.261719,
+            -41.756592,
+            -1.0495
+          ],
+          "geometry_types": {
+            "MultiPolygon": 32,
+            "Polygon": 186
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-MA"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-MG.geojson",
+          "bytes": 5127427,
+          "sha256": "227641a8ff09a2839652c55974c335a77d0f2c73120dc36b8a6cb664676c9018",
+          "features": 860,
+          "bbox": [
+            -51.045776,
+            -22.922302,
+            -39.857117,
+            -14.234009
+          ],
+          "geometry_types": {
+            "MultiPolygon": 45,
+            "Polygon": 815
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-MG"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-MS.geojson",
+          "bytes": 1106973,
+          "sha256": "15ee9f06d2c716d431937d429045e58e54eddf16cf2c048500abad4b736c0e0d",
+          "features": 79,
+          "bbox": [
+            -58.168213,
+            -24.06781,
+            -50.922913,
+            -17.166626
+          ],
+          "geometry_types": {
+            "MultiPolygon": 17,
+            "Polygon": 62
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-MS"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-MT.geojson",
+          "bytes": 2378165,
+          "sha256": "0b9b1bf31ea7a062f225ce38a29484b5bc350b2d305a20101ee27f241702a3ce",
+          "features": 141,
+          "bbox": [
+            -61.633179,
+            -18.041504,
+            -50.224792,
+            -7.348999
+          ],
+          "geometry_types": {
+            "MultiPolygon": 31,
+            "Polygon": 110
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-MT"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-PA.geojson",
+          "bytes": 2027492,
+          "sha256": "2690cab82a523d91688f858bd91d3789f22530e70d9e5ad1ae4bd796ac95051e",
+          "features": 144,
+          "bbox": [
+            -58.898315,
+            -9.841125,
+            -46.061401,
+            2.591125
+          ],
+          "geometry_types": {
+            "MultiPolygon": 12,
+            "Polygon": 132
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-PA"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-PB.geojson",
+          "bytes": 517054,
+          "sha256": "8c91350713227931be1de61f1ce7e42a6fd2a6d09bcdf307ee510139ef85aabb",
+          "features": 221,
+          "bbox": [
+            -38.718018,
+            -8.302917,
+            -34.793579,
+            -6.150513
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 214
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-PB"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-PE.geojson",
+          "bytes": 534073,
+          "sha256": "31bcef6bb5c353abdfee96749ca4467e8fe64f63562f2b8a5f4bcadf7a9f4739",
+          "features": 180,
+          "bbox": [
+            -41.358276,
+            -9.482727,
+            -34.806885,
+            -7.272888
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 173
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-PE"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-PI.geojson",
+          "bytes": 629266,
+          "sha256": "0cc2a7200883fef2e4871a22694538acf1ec3fb1981e086180e6d2013eedffb0",
+          "features": 222,
+          "bbox": [
+            -46.028198,
+            -10.928101,
+            -40.370483,
+            -2.75708
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 221
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-PI"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-PR.geojson",
+          "bytes": 2092722,
+          "sha256": "b646f696490fd6076c452715b6767c604909da859676d02cb0485133ec43c3e7",
+          "features": 400,
+          "bbox": [
+            -54.620117,
+            -26.716797,
+            -48.023682,
+            -22.516296
+          ],
+          "geometry_types": {
+            "MultiPolygon": 59,
+            "Polygon": 341
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-PR"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-RJ.geojson",
+          "bytes": 427753,
+          "sha256": "9ba1a5182c2799376ce7ba9b199ed6a4e20a837c3a268fd9b5bc0fbfe93e2c90",
+          "features": 91,
+          "bbox": [
+            -44.889099,
+            -23.36908,
+            -40.958191,
+            -20.763611
+          ],
+          "geometry_types": {
+            "MultiPolygon": 15,
+            "Polygon": 76
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-RJ"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-RN.geojson",
+          "bytes": 294503,
+          "sha256": "c496c26a564a12471c6bc931f1b92047ee0924c22d549d864d52b47d1aabdae6",
+          "features": 167,
+          "bbox": [
+            -38.60199,
+            -7.019714,
+            -34.964905,
+            -4.88092
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 165
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-RN"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-RO.geojson",
+          "bytes": 599162,
+          "sha256": "6236a23ae67a711f2828526ff3bc3d59e4749a02a0eeb24b0e2ad78eb62ecc58",
+          "features": 52,
+          "bbox": [
+            -66.809204,
+            -13.693726,
+            -59.775513,
+            -7.975891
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 48
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-RO"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-RR.geojson",
+          "bytes": 342562,
+          "sha256": "bb31beef09e0dfd22887c2956e4b3530635311467c8654ed13dcbb7f3f49eca1",
+          "features": 15,
+          "bbox": [
+            -64.825195,
+            -1.580627,
+            -58.886902,
+            5.271118
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-RR"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-RS.geojson",
+          "bytes": 2393181,
+          "sha256": "cb6138519b11c8a2ab92c88cca13048538337de8b484395907bf05eebab74c0f",
+          "features": 493,
+          "bbox": [
+            -57.649597,
+            -33.750793,
+            -49.691528,
+            -27.082275
+          ],
+          "geometry_types": {
+            "MultiPolygon": 71,
+            "Polygon": 422
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-RS"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-SC.geojson",
+          "bytes": 1293212,
+          "sha256": "dd096de752d4c13d4941e6b758e5d0ab419339ffb061f8782fbdd9e5bb5139ca",
+          "features": 296,
+          "bbox": [
+            -53.83783,
+            -29.444092,
+            -48.355591,
+            -25.980713
+          ],
+          "geometry_types": {
+            "MultiPolygon": 29,
+            "Polygon": 267
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-SC"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-SE.geojson",
+          "bytes": 210161,
+          "sha256": "c74fc96aa280c130d77ce77a0837f962803ea5c33ef6552a6636fa58a5347ce2",
+          "features": 76,
+          "bbox": [
+            -38.243713,
+            -11.567993,
+            -36.394897,
+            -9.516296
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 75
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-SE"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-SP.geojson",
+          "bytes": 2763710,
+          "sha256": "8337b0d938f00a17c452642c933270669556bce2f1e5dbca7cf1c94590e5244b",
+          "features": 639,
+          "bbox": [
+            -53.110107,
+            -25.312622,
+            -44.163208,
+            -19.779724
+          ],
+          "geometry_types": {
+            "MultiPolygon": 21,
+            "Polygon": 618
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-SP"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/BR-TO.geojson",
+          "bytes": 1256697,
+          "sha256": "88c94c0c4374b26091af1f3a7bec68f5334a6ea38158fa0b5b2d1a823649d306",
+          "features": 139,
+          "bbox": [
+            -50.742004,
+            -13.466797,
+            -45.699402,
+            -5.168396
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 132
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BR-TO"
+        },
+        {
+          "path": "data/earth/BRA/ADM2/unassigned.geojson",
+          "bytes": 6442,
+          "sha256": "a77aef05cd8ec70218a02f29d993790c85d95bc42b9f9dd725fb23722232cc3b",
+          "features": 3,
+          "bbox": [
+            -48.584412,
+            -27.21991,
+            -32.38031,
+            -2.40332
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "unassigned"
+        }
+      ],
+      "features": 5570,
+      "bytes": 33110197,
+      "properties": [
+        "adm1ISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "geometry_types": {
+        "MultiPolygon": 453,
+        "Polygon": 5117
+      },
+      "bbox": [
+        -73.990479,
+        -33.750793,
+        -28.849182,
+        5.271118
+      ],
+      "preview": "data/earth/BRA/preview/BRA_ADM2.preview.geojson",
+      "preview_bytes": 1739360,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Instituto Brasileiro de Geografia e Estatística (IBGE), OCHA ROLAC",
+      "src_year": "2020",
+      "unassigned": 3
+    }
+  ]
+}

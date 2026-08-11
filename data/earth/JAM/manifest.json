@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "JAM",
+  "iso_a2": "JM",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Jamaica",
+    "es": "Jamaica"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "notes": "geoBoundaries ADM2 reports 827 units against 14 parishes; almost certainly mis-tiered electoral divisions.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/JAM/JAM_ADM0.geojson",
+      "bytes": 5950,
+      "sha256": "bee3144b857f545162134c65eed8989b8d00ba4031390295c3236c80c8d2c582",
+      "features": 1,
+      "bbox": [
+        -78.374664,
+        17.703192,
+        -76.187978,
+        18.525092
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/JAM/preview/JAM_ADM0.preview.geojson",
+      "preview_bytes": 487,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

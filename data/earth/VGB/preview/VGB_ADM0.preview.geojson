@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-64.7298,18.358,-64.3365,18.7243], "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-64.6351,18.4055],[-64.5833,18.4163],[-64.5602,18.4541],[-64.6618,18.4404],[-64.6826,18.3995],[-64.6351,18.4055]]]},"properties":{"shapeName":"British Virgin Islands","shapeISO":"VGB","shapeType":"ADM0"}}
+]}

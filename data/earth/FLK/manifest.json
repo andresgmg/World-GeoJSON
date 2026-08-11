@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "FLK",
+  "iso_a2": "FK",
+  "m49_region": "South America",
+  "name": {
+    "en": "Falkland Islands",
+    "es": "Islas Malvinas"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "notes": "Sovereignty disputed between the United Kingdom and Argentina. Geometry follows the named source; see about/disputed-boundaries.md.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/FLK/FLK_ADM0.geojson",
+      "bytes": 32024,
+      "sha256": "588b5919aaa56cca14d39bd6cff31e6be04d786a9d47b47a478f1e932b1916f8",
+      "features": 1,
+      "bbox": [
+        -61.318186,
+        -52.406523,
+        -57.734283,
+        -51.027765
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/FLK/preview/FLK_ADM0.preview.geojson",
+      "preview_bytes": 1683,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

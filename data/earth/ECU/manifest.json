@@ -1,0 +1,684 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ECU",
+  "iso_a2": "EC",
+  "m49_region": "South America",
+  "name": {
+    "en": "Ecuador",
+    "es": "Ecuador"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ECU/ECU_ADM0.geojson",
+      "bytes": 34052,
+      "sha256": "7330f9f0c5d035eb4a7b19510e16da9d63c207738cfb2c4bb9f6bc58257e71a9",
+      "features": 1,
+      "bbox": [
+        -92.011586,
+        -5.011373,
+        -75.227264,
+        1.664374
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ECU/preview/ECU_ADM0.preview.geojson",
+      "preview_bytes": 1740,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ECU/ECU_ADM1.geojson",
+      "bytes": 288419,
+      "sha256": "7f12c6ab2171806d2dccdc329dc00458d8980d69d32f03caafef28fa6a2724d4",
+      "features": 24,
+      "bbox": [
+        -92.009293,
+        -5.011662,
+        -75.188588,
+        1.681731
+      ],
+      "geometry_types": {
+        "MultiPolygon": 5,
+        "Polygon": 19
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ECU/preview/ECU_ADM1.preview.geojson",
+      "preview_bytes": 18097,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2011"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/ECU/ECU_ADM2.geojson",
+      "bytes": 2196005,
+      "sha256": "77dd8d33cfaf4998489814e200d5146edaf903f97489e387c6ea369377c0d782",
+      "features": 223,
+      "bbox": [
+        -92.008462,
+        -5.015057,
+        -75.187147,
+        1.68179
+      ],
+      "geometry_types": {
+        "MultiPolygon": 19,
+        "Polygon": 204
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ECU/preview/ECU_ADM2.preview.geojson",
+      "preview_bytes": 154579,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/ECU/ADM2/EC-A.geojson",
+          "bytes": 90980,
+          "sha256": "e2018f4ed8ff4bc1947399084245b3b6924c88ee2f17678634acfb9e2e70cd31",
+          "features": 15,
+          "bbox": [
+            -79.763226,
+            -3.629983,
+            -78.422272,
+            -2.496643
+          ],
+          "geometry_types": {
+            "Polygon": 15
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-A"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-B.geojson",
+          "bytes": 43628,
+          "sha256": "70c2755221c6cfc02ee7f1eb19d2b88ef68fb500481eba070a63b508b589daa0",
+          "features": 7,
+          "bbox": [
+            -79.394809,
+            -2.202498,
+            -78.844024,
+            -1.149803
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-B"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-C.geojson",
+          "bytes": 53038,
+          "sha256": "b7b88aae96faa4bbadc9738409589316fd4759ca39a2e570953cd179ce70df40",
+          "features": 6,
+          "bbox": [
+            -78.549073,
+            0.356616,
+            -77.531625,
+            1.197772
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-C"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-D.geojson",
+          "bytes": 84515,
+          "sha256": "3b761f3bd4cfd3a17d2e52fc55ae36dd0eaf10ef7052d47539892779f5fe6601",
+          "features": 4,
+          "bbox": [
+            -77.627546,
+            -1.564241,
+            -75.187147,
+            -0.047289
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-D"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-E.geojson",
+          "bytes": 116732,
+          "sha256": "563eb64555e0bc95684922595dbd54b72abbe6308fdc408606570d3fcacec459",
+          "features": 7,
+          "bbox": [
+            -80.102007,
+            -0.04732,
+            -78.426475,
+            1.453982
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-E"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-F.geojson",
+          "bytes": 41843,
+          "sha256": "0b0d6c5605897b38f910bf3084d0fd27590568bd875f6790ca51d093de827fb4",
+          "features": 7,
+          "bbox": [
+            -79.531874,
+            -2.836858,
+            -78.569544,
+            -2.211874
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-F"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-G.geojson",
+          "bytes": 252586,
+          "sha256": "ed93e6d1278952bd553cdec8a44d183ce7dd241a93842df993d74ec54a95a7d7",
+          "features": 26,
+          "bbox": [
+            -80.561944,
+            -3.063828,
+            -79.102079,
+            -0.485473
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-G"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-H.geojson",
+          "bytes": 133515,
+          "sha256": "bc0efc606f47da6868f08c6ce321940f9b000c6ddc6595caea99b608c93721d4",
+          "features": 17,
+          "bbox": [
+            -79.339855,
+            -2.567487,
+            -78.357861,
+            -0.331365
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-H"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-I.geojson",
+          "bytes": 55762,
+          "sha256": "6b4de2b6f94d6895865fd1c307a3f18ab30f4bf842c5efd4a2b7b1113c927b75",
+          "features": 7,
+          "bbox": [
+            -79.274715,
+            0.122874,
+            -77.81031,
+            0.875927
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-I"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-L.geojson",
+          "bytes": 133444,
+          "sha256": "194f27deda180eb90fb3412d4e9b4c33be8d19f4f36ea38ecab98ecb9470560e",
+          "features": 16,
+          "bbox": [
+            -80.486352,
+            -4.740834,
+            -79.095257,
+            -3.329333
+          ],
+          "geometry_types": {
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-L"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-M.geojson",
+          "bytes": 210989,
+          "sha256": "1a1ce6b005918c42bf8b9a51ff0cb78404ec80c4eadcfe66020d63ea04f5f1e0",
+          "features": 22,
+          "bbox": [
+            -81.083628,
+            -1.947066,
+            -79.398646,
+            0.37399
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-M"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-N.geojson",
+          "bytes": 83805,
+          "sha256": "971d3c56a478c2835daca183b5aeef61fc03a4a2988ca0026a460188c6697279",
+          "features": 5,
+          "bbox": [
+            -78.427144,
+            -1.248085,
+            -77.030769,
+            0.034298
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-N"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-O.geojson",
+          "bytes": 98642,
+          "sha256": "58217f26ea8647aa9c81a375c4147ac6da91550dd9dcbaeb952cb9f771c50a39",
+          "features": 14,
+          "bbox": [
+            -80.439178,
+            -3.889828,
+            -79.366473,
+            -3.047598
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-O"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-P.geojson",
+          "bytes": 80058,
+          "sha256": "a18b6f274c586195f2e38f4eecb08119aa10c5a9df6b15c519050bda1d15abeb",
+          "features": 8,
+          "bbox": [
+            -79.371205,
+            -0.716912,
+            -77.839569,
+            0.326749
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-P"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-R.geojson",
+          "bytes": 114053,
+          "sha256": "eed18e12a28b9299908c9db8230c14e8dd7e906edd67b5bc2690d35ae5b84453",
+          "features": 13,
+          "bbox": [
+            -79.875388,
+            -2.133492,
+            -79.083252,
+            -0.538763
+          ],
+          "geometry_types": {
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-R"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-S.geojson",
+          "bytes": 141856,
+          "sha256": "adf8d78853973e37baa494f14d4d79cd663ee61dc5a2cef0acf302a8544ad3f1",
+          "features": 12,
+          "bbox": [
+            -78.953642,
+            -3.58751,
+            -76.693,
+            -1.447776
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-S"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-SD.geojson",
+          "bytes": 27765,
+          "sha256": "dc079d06160b536ed9d78c76767926b68b5bc2c3b92cee02030d7a054673054d",
+          "features": 2,
+          "bbox": [
+            -79.61624,
+            -0.700011,
+            -78.746467,
+            0.026502
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-SD"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-SE.geojson",
+          "bytes": 20030,
+          "sha256": "7e13525788dc6e519300ba111994abbb59871b2349038e7ae0753317da1e3f4c",
+          "features": 3,
+          "bbox": [
+            -81.011098,
+            -2.505674,
+            -80.200331,
+            -1.668402
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-SE"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-T.geojson",
+          "bytes": 38484,
+          "sha256": "d79f2f50482c13ca26d00bf4b1797b1a58f2764cdbe5b6a9d46077392f91b7c1",
+          "features": 9,
+          "bbox": [
+            -78.93792,
+            -1.523129,
+            -78.11494,
+            -0.988645
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-T"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-U.geojson",
+          "bytes": 121287,
+          "sha256": "bffabee06f01dc553da2ca97740e65ab76a915d1837615ab1e07bd3dd4784304",
+          "features": 7,
+          "bbox": [
+            -77.979297,
+            -0.656207,
+            -75.223456,
+            0.661768
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-U"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-W.geojson",
+          "bytes": 76646,
+          "sha256": "0ee15231210134c8301dc6d0fd385cf83f6b90dcc604509a8c31a14192fcd126",
+          "features": 3,
+          "bbox": [
+            -92.008462,
+            -1.411022,
+            -89.241277,
+            1.68179
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-W"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-Y.geojson",
+          "bytes": 107259,
+          "sha256": "82ffb44a3ae3a026abf51a76b1738605f41d5bedbe4d3a4b3bd1bcd21fa30f2e",
+          "features": 4,
+          "bbox": [
+            -78.178049,
+            -2.610272,
+            -75.580415,
+            -1.003981
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-Y"
+        },
+        {
+          "path": "data/earth/ECU/ADM2/EC-Z.geojson",
+          "bytes": 74955,
+          "sha256": "5aa334dd52e30641adf3e6c0e1721d007c697913e3f8486541698aad9e69a9f3",
+          "features": 9,
+          "bbox": [
+            -79.429674,
+            -5.015057,
+            -78.365263,
+            -3.341405
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "EC-Z"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "INEC - Instituto Nacional de Estadística y Censos, OCHA ROLAC",
+      "src_year": "2019"
+    }
+  ]
+}

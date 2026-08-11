@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-59.6542,13.0847,-59.4269,13.2951], "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-59.4269,13.1604],[-59.6542,13.2951],[-59.6081,13.0847],[-59.4269,13.1604]]]},"properties":{"shapeName":"Barbados","shapeISO":"BRB","shapeType":"ADM0"}}
+]}

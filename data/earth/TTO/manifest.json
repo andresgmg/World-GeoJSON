@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "TTO",
+  "iso_a2": "TT",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Trinidad and Tobago",
+    "es": "Trinidad y Tobago"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/TTO/TTO_ADM0.geojson",
+      "bytes": 4459,
+      "sha256": "2cf67464fe94da8816ef823d996bece595b8b713d75250925ddb688894082d30",
+      "features": 1,
+      "bbox": [
+        -61.9287,
+        10.04206,
+        -60.522084,
+        11.35106
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/TTO/preview/TTO_ADM0.preview.geojson",
+      "preview_bytes": 445,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

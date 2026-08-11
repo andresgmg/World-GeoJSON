@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MAF",
+  "iso_a2": "MF",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Saint Martin",
+    "es": "San Martín"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "Natural Earth 10m Admin 0",
+    "url": "https://www.naturalearthdata.com/",
+    "license": "public-domain",
+    "retrieved": "2026-08-11"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MAF/MAF_ADM0.geojson",
+      "bytes": 762,
+      "sha256": "ff16cb2bff6a8b4c4d627ad25f8c49cd6ee961e07c8b984eb27821d419ef3144",
+      "features": 1,
+      "bbox": [
+        -63.14684,
+        18.033391,
+        -63.010732,
+        18.122138
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MAF/preview/MAF_ADM0.preview.geojson",
+      "preview_bytes": 326,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

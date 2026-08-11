@@ -120,13 +120,34 @@ def check_country(d: Path) -> None:
         if not src.get(key):
             err(f"{rel}: source.{key} is missing or empty")
 
+    def check_license(value: str, where: str) -> None:
+        if value not in ALLOWED_LICENSES:
+            err(
+                f"{rel}: {where} '{value}' is not on the permissive allow-list. "
+                f"Copyleft (ODbL, CC-BY-SA) cannot be redistributed here — see "
+                f"docs/contributing/sources.md"
+            )
+
     lic = src.get("license")
-    if lic and lic not in ALLOWED_LICENSES:
-        err(
-            f"{rel}: source.license '{lic}' is not on the permissive allow-list. "
-            f"Copyleft (ODbL, CC-BY-SA) cannot be redistributed here — see "
-            f"docs/contributing/sources.md"
-        )
+    if lic == "mixed":
+        # Levels can come from different upstreams under different terms, so a
+        # single country-level licence would be a false claim. "mixed" is only
+        # acceptable alongside the actual list.
+        listed = src.get("licenses") or []
+        if not listed:
+            err(f"{rel}: source.license is 'mixed' but source.licenses is missing")
+        for value in listed:
+            check_license(value, "source.licenses entry")
+    elif lic:
+        check_license(lic, "source.license")
+
+    # The per-dataset licence is the one that actually governs each file.
+    for ds in manifest.get("datasets", []):
+        value = ds.get("license")
+        if not value:
+            err(f"{rel} {ds.get('level', '?')}: no licence recorded")
+        else:
+            check_license(value, f"{ds.get('level', '?')} license")
 
     if "\n" in (manifest.get("notes") or ""):
         err(f"{rel}: manifest 'notes' must be a single line (it renders inside an admonition)")

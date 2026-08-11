@@ -86,8 +86,19 @@ jobs:
         run: |
           size=$(du -sm site | cut -f1)
           echo "site/ is ${size} MB"
-          if [ "$size" -gt 100 ]; then
-            echo "::error::site/ is ${size} MB — data files have leaked into docs_dir"
+          # Per-file, not total. The site legitimately grows with each
+          # continent — it carries a preview per dataset, duplicated across
+          # language builds — so a total-size cap would eventually fire on
+          # normal growth. What must never appear is a full-resolution
+          # dataset, and every one of those is far larger than any preview.
+          big=$(find site -type f -size +5M)
+          if [ -n "$big" ]; then
+            echo "::error::files over 5 MB in site/ — full-resolution data has leaked into docs_dir"
+            echo "$big" | xargs du -h
+            exit 1
+          fi
+          if [ "$size" -gt 400 ]; then
+            echo "::error::site/ is ${size} MB, which is beyond anything previews explain"
             exit 1
           fi
 
