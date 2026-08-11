@@ -64,38 +64,73 @@ aportan información que no se pueda recalcular, y además inducen a error:
 | `shape_leng` | Duplicado de `st_length_`, truncado al límite de 10 caracteres de dBase |
 | `area_km` | Área precalculada en **kilómetros cuadrados** |
 
-!!! warning "Hoy las unidades son inconsistentes"
+!!! warning "Las áreas precalculadas no se pueden comparar entre fuentes"
 
-    `regiones.geojson` tiene `area_km` en km². `comunas.geojson` tiene
-    `st_area_sh` en m². Ningún archivo lo dice. Quien compare ambos sin mirar
-    los valores con cuidado obtiene un resultado equivocado por un factor de un
+    Cada productor usa unidades y proyecciones distintas para un campo que
+    suena igual, y rara vez documenta ninguna de las dos. La DPA de Chile trae
+    `SUPERFICIE` en km²; las exportaciones Esri traen `st_area_sh` en m².
+    Compáralos ingenuamente y el resultado se desvía por un factor de un
     millón.
 
-    Calcula el área tú mismo desde la geometría, en una proyección adecuada a
-    tu zona de interés — ver
+    Cuando un campo así se preserva, se le da un nombre que lleva la unidad
+    (`src_superficie_km2`). Para cualquier cosa de la que dependas, calcula el
+    área tú mismo desde la geometría, en una proyección adecuada a tu zona de
+    interés — ver
     [Recetas](../get-started/recipes.md#calcular-el-area-correctamente).
 
-## Tabla de migración para Chile
+## Ejemplo trabajado: Chile
 
-| Hoy | Pasa a ser |
+Chile se construye desde la *División Política Administrativa* 2023 de IDE
+Chile, cuyos atributos encajan limpiamente en el conjunto estándar:
+
+| Campo de origen | Pasa a ser |
 |---|---|
-| `Region` | `shapeName` en ADM1; búsqueda de `parentISO` en ADM3 |
-| `Comuna` | `shapeName` en ADM3 |
-| `Provincia` | `src_provincia` |
-| `codregion` | `src_codregion`, y determina `shapeISO` en ADM1 |
-| `cod_comuna` | `shapeISO`, **como cadena con cero a la izquierda** |
-| `objectid`, `st_area_sh`, `st_length_`, `shape_leng`, `area_km` | eliminados |
+| `REGION` | `shapeName` en ADM1 |
+| `PROVINCIA` | `shapeName` en ADM2 |
+| `COMUNA` | `shapeName` en ADM3 |
+| `CUT_REG` | `shapeISO` en ADM1 vía el lookup ISO 3166-2; `src_cut_reg` en el resto |
+| `CUT_PROV` | `shapeISO` en ADM2, `parentISO` en ADM3 |
+| `CUT_COM` | `shapeISO` en ADM3 |
+| `SUPERFICIE` | `src_superficie_km2` |
 
-### El problema del cero inicial
+Una comuna queda así:
 
-`cod_comuna` está guardado hoy como **número** JSON. Camiña es `1402`. El
-código oficial INE/SUBDERE es `01402` — una cadena de cinco caracteres. Todas
-las comunas de las regiones 1 a 9 pierden así su cero inicial, y cualquier join
-contra estadísticas oficiales no encuentra nada, sin avisar.
+```json
+{
+  "shapeName": "Camiña",
+  "shapeISO": "01402",
+  "shapeGroup": "CHL",
+  "shapeType": "ADM3",
+  "parentISO": "011",
+  "adm1ISO": "CL-TA",
+  "src_cut_com": "01402",
+  "src_cut_prov": "011",
+  "src_cut_reg": "01",
+  "src_provincia": "Tamarugal",
+  "src_region": "Tarapacá"
+}
+```
 
-Por eso `shapeISO` es **siempre una cadena**, nunca un número, aunque parezca
-numérico. No es una preferencia estilística: los números JSON no pueden
-representar un cero a la izquierda en absoluto.
+### `shapeISO` es siempre una cadena
+
+El código oficial INE/SUBDERE de Camiña es `01402` — cinco caracteres, cero
+inicial incluido. Todas las comunas de las regiones 1 a 9 lo llevan.
+
+Un **número** JSON no puede representar un cero a la izquierda en absoluto, así
+que una fuente que los guarde como enteros convierte `01402` en `1402` sin
+avisar, y cualquier join contra estadísticas oficiales deja de encontrar nada.
+El shapefile de la DPA ya guarda los códigos CUT como cadenas, que es una de las
+razones por las que se eligió frente a las alternativas.
+
+Por eso `shapeISO` es siempre una cadena, nunca un número, aunque parezca
+numérico.
+
+!!! note "Aquí los códigos son nacionales, no ISO 3166-2"
+
+    Chile tiene códigos ISO 3166-2 para sus regiones (`CL-TA`) pero no para
+    provincias ni comunas, así que esos niveles llevan el código CUT nacional.
+    Es el respaldo documentado: ISO 3166-2 donde exista, código nacional en
+    caso contrario.
 
 ## El `id` a nivel de feature
 

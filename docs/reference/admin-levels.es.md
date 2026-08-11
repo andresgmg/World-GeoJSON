@@ -44,17 +44,52 @@ multipaís que agrupe por nivel.
     `notes` del manifiesto, y no reorganices la jerarquía en silencio para que
     parezca ordenada.
 
+## El tier municipal
+
+Este proyecto publica tres cosas por país: el contorno (ADM0), las divisiones de
+primer nivel (ADM1) y el **tier municipal** — el nivel de gobierno local en el
+que la gente vive de verdad. Ahí se detiene.
+
+El tier municipal es un objetivo *semántico*, no un número de nivel, y su número
+varía:
+
+| País | Tier municipal | Nivel |
+|---|---|---|
+| Chile | Comuna | **ADM3** |
+| México | Municipio | ADM2 |
+| Brasil | Município | ADM2 |
+| Estados Unidos | Condado | ADM2 |
+| Bolivia | Municipio | **ADM3** |
+| Haití | Comuna | **ADM3** |
+| Costa Rica | Cantón | ADM2 |
+
+Como no se puede inferir de los datos, la correspondencia se cura a mano en
+`scripts/countries.json` y es la única pieza de este pipeline que siempre
+necesitará criterio humano.
+
+Los niveles más profundos — los *corregimientos* de Panamá, los *distritos* de
+Costa Rica — quedan fuera de alcance. Existen en pocos países, los tamaños de
+archivo crecen mucho y casi nadie los necesita.
+
+El nivel municipal va siempre **partido en un archivo por padre ADM1**; ver
+[Nombres de archivos y carpetas](naming.md#el-nivel-municipal-va-partido).
+
 ## Expectativas de cobertura
 
 - **ADM0 y ADM1 son la prioridad.** Son los niveles que más consumidores
   necesitan y los que están disponibles con licencia abierta de forma más
   fiable.
-- **ADM2 donde exista una buena fuente.**
-- **ADM3 es oportunista.** Muy pocos países lo publican abiertamente, y los
-  tamaños de archivo crecen rápido.
+- **El tier municipal donde exista una fuente con licencia abierta.**
 
 Una entrada de país con solo ADM1 es bienvenida. La cobertura parcial es normal
 y el catálogo muestra exactamente qué niveles existen para cada entrada.
+
+!!! warning "Los números de nivel tampoco son consistentes entre fuentes"
+
+    La numeración ADM de geoBoundaries se asigna por país y no siempre coincide
+    con la jerarquía oficial — publica Guadalupe solo en ADM4, Puerto Rico sin
+    ADM0 ni ADM1, y Martinica en ADM3 y ADM4 sin nada en medio. Nunca supongas
+    que ADM2 significa lo mismo en dos países.
 
 ## El anidamiento debe ser consistente
 

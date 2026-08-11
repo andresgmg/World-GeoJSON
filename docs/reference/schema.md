@@ -63,37 +63,71 @@ information that cannot be recomputed, and they are actively misleading:
 | `shape_leng` | Duplicate of `st_length_`, truncated to the dBase 10-character field limit |
 | `area_km` | Precomputed area in **square kilometres** |
 
-!!! warning "The units are inconsistent today"
+!!! warning "Precomputed areas cannot be compared across sources"
 
-    `regiones.geojson` has `area_km` in km². `comunas.geojson` has
-    `st_area_sh` in m². Neither file says so. Anyone comparing the two without
-    reading the values carefully gets an answer off by a factor of a million.
+    Different producers use different units and different projections for the
+    same-sounding field, and rarely document either. Chile's DPA ships
+    `SUPERFICIE` in km²; Esri exports ship `st_area_sh` in m². Compare them
+    naively and the answer is off by a factor of a million.
 
-    Compute area yourself from the geometry, in a projection appropriate to
-    your area of interest — see
+    Where such a field is preserved it keeps a unit-bearing name
+    (`src_superficie_km2`). For anything you rely on, compute area yourself
+    from the geometry in a projection suited to your area of interest — see
     [Recipes](../get-started/recipes.md#compute-area-correctly).
 
-## Migration table for Chile
+## Worked example: Chile
 
-| Today | Becomes |
+Chile is built from IDE Chile's *División Política Administrativa* 2023, whose
+attributes map cleanly onto the standard set:
+
+| Source field | Becomes |
 |---|---|
-| `Region` | `shapeName` on ADM1; `parentISO` lookup on ADM3 |
-| `Comuna` | `shapeName` on ADM3 |
-| `Provincia` | `src_provincia` |
-| `codregion` | `src_codregion`, and drives `shapeISO` on ADM1 |
-| `cod_comuna` | `shapeISO`, **as a zero-padded string** |
-| `objectid`, `st_area_sh`, `st_length_`, `shape_leng`, `area_km` | removed |
+| `REGION` | `shapeName` on ADM1 |
+| `PROVINCIA` | `shapeName` on ADM2 |
+| `COMUNA` | `shapeName` on ADM3 |
+| `CUT_REG` | `shapeISO` on ADM1 via the ISO 3166-2 lookup; `src_cut_reg` elsewhere |
+| `CUT_PROV` | `shapeISO` on ADM2, `parentISO` on ADM3 |
+| `CUT_COM` | `shapeISO` on ADM3 |
+| `SUPERFICIE` | `src_superficie_km2` |
 
-### The leading-zero problem
+A commune therefore looks like:
 
-`cod_comuna` is currently stored as a JSON **number**. Camiña is `1402`. The
-official INE/SUBDERE code is `01402` — a five-character string. Every commune in
-regions 1 through 9 loses its leading zero this way, and any join against
-official statistics silently matches nothing.
+```json
+{
+  "shapeName": "Camiña",
+  "shapeISO": "01402",
+  "shapeGroup": "CHL",
+  "shapeType": "ADM3",
+  "parentISO": "011",
+  "adm1ISO": "CL-TA",
+  "src_cut_com": "01402",
+  "src_cut_prov": "011",
+  "src_cut_reg": "01",
+  "src_provincia": "Tamarugal",
+  "src_region": "Tarapacá"
+}
+```
 
-`shapeISO` is therefore **always a string**, never a number, even when it looks
-numeric. This is not a stylistic preference: JSON numbers cannot represent a
-leading zero at all.
+### `shapeISO` is always a string
+
+The official INE/SUBDERE code for Camiña is `01402` — five characters, leading
+zero included. Every commune in regions 1 through 9 has one.
+
+A JSON **number** cannot represent a leading zero at all, so a source that
+stores these as integers silently turns `01402` into `1402`, and any join
+against official statistics then matches nothing. The DPA shapefile already
+stores CUT codes as strings, which is one of the reasons it was chosen over
+alternatives.
+
+`shapeISO` is therefore always a string, never a number, even when it looks
+numeric.
+
+!!! note "Codes here are national, not ISO 3166-2"
+
+    Chile has ISO 3166-2 codes for its regions (`CL-TA`) but not for provinces
+    or communes, so those levels carry the national CUT code instead. That is
+    the documented fallback: ISO 3166-2 where it exists, the national code
+    otherwise.
 
 ## Feature-level `id`
 

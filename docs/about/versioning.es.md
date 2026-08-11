@@ -39,18 +39,24 @@ https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<ruta>
 `@main` sigue la rama por defecto, así que una corrección de límites aguas
 arriba llega a tu aplicación sin previo aviso.
 
-## El cambio rompedor que viene
+## Los archivos heredados de la raíz
 
-Reestructurar los datos de Chile hacia `data/earth/CHL/` con el esquema
-estándar de propiedades es un cambio mayor. Se mueven tanto las rutas como los
-nombres de propiedades:
+Chile vive ahora en `data/earth/CHL/` bajo el esquema estándar de propiedades,
+construido desde la DPA 2023 de IDE Chile. Los archivos antiguos siguen en la
+raíz del repositorio y están obsoletos:
 
-| Hoy | Pasa a ser |
+| Obsoleto | Reemplazo |
 |---|---|
 | `/main/regiones.geojson` | `/main/data/earth/CHL/CHL_ADM1.geojson` |
 | `/main/comunas.geojson` | `/main/data/earth/CHL/CHL_ADM3.geojson` |
-| `properties.Region` | `properties.shapeName` |
-| `properties.cod_comuna` (número) | `properties.shapeISO` (cadena) |
+| `/main/regiones.json`, `/main/comunas.json` | — se retiran, usa las rutas `.geojson` |
+| `properties.Region` / `properties.Comuna` | `properties.shapeName` |
+| `properties.cod_comuna` (número) | `properties.shapeISO` (cadena, con ceros) |
+
+Los reemplazos no son equivalentes byte a byte. Vienen de otra fuente (la DPA
+2023 de IDE Chile en vez del conjunto vectorial más antiguo de BCN), llevan otro
+esquema de propiedades y están simplificados a una tolerancia documentada de
+100 m. Trátalo como una migración, no como un movimiento de archivos.
 
 ### Ventana de obsolescencia
 

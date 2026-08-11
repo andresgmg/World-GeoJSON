@@ -99,17 +99,22 @@ def render_dataset(out: list[str], manifest: dict, ds: dict, up: str, cdn: str, 
     level = ds["level"]
     out.append(f"## {level} — {LEVELS.get(level, level)}\n")
 
-    if ds.get("preview"):
+    if ds.get("_preview_asset"):
+        # Served from the site itself, not the CDN. Pointing at jsDelivr would
+        # mean the maps 404 during `mkdocs serve` and throughout PR review —
+        # the data is not on the default branch until after the merge. Previews
+        # are small (a few hundred KB), so hosting them alongside the docs is
+        # cheap and makes the site self-contained and offline-capable.
         out.append(
             f'<div class="geojson-map"\n'
-            f'     data-src="{cdn}/{ds["preview"]}"\n'
+            f'     data-src="{ds["_preview_asset"]}"\n'
             f'     data-body="{manifest["body"]}"\n'
             f'     data-label="{manifest["name"]["en"]} {level}"></div>\n'
         )
         out.append(
             f"<small>The map above is a simplified preview "
             f"({human_bytes(ds.get('preview_bytes'))}). Download the "
-            f"full-resolution file below.</small>\n"
+            f"full-resolution data below.</small>\n"
         )
     else:
         out.append(
@@ -118,15 +123,22 @@ def render_dataset(out: list[str], manifest: dict, ds: dict, up: str, cdn: str, 
             f"    [Simplification and previews]({up}contributing/previews.md).\n"
         )
 
+    parts = ds.get("parts") or []
+
     out.append("| | |")
     out.append("|---|---|")
-    out.append(f"| Features | {ds['features']:,} |")
-    out.append(f"| File size | {human_bytes(ds.get('bytes'))} |")
+    out.append(f"| Features | {ds.get('features', 0):,} |")
+    if parts:
+        out.append(f"| Files | {len(parts)}, split by {ds.get('split_by', 'ADM1')} |")
+    out.append(f"| Total size | {human_bytes(ds.get('bytes'))} |")
     types = ", ".join(ds.get("geometry_types", {})) or "—"
     out.append(f"| Geometry | {types} |")
     bbox = ds.get("bbox") or []
     if len(bbox) == 4:
         out.append(f"| Bounding box | `{bbox[0]}, {bbox[1]}, {bbox[2]}, {bbox[3]}` |")
+    simp = ds.get("simplification") or {}
+    if simp.get("tolerance_m"):
+        out.append(f"| Simplification | {simp['tolerance_m']} m tolerance |")
     if ds.get("sha256"):
         out.append(f"| SHA-256 | `{ds['sha256'][:16]}…` |")
     out.append("")
@@ -135,12 +147,45 @@ def render_dataset(out: list[str], manifest: dict, ds: dict, up: str, cdn: str, 
     if props:
         out.append("**Properties:** " + ", ".join(f"`{p}`" for p in props) + "\n")
 
-    out.append('=== "CDN"\n')
-    out.append(f"    ```\n    {cdn}/{ds['path']}\n    ```\n")
-    out.append('=== "Raw"\n')
-    out.append(f"    ```\n    {raw}/{ds['path']}\n    ```\n")
-    out.append('=== "curl"\n')
-    out.append(f"    ```bash\n    curl -LO {raw}/{ds['path']}\n    ```\n")
+    if parts:
+        out.append(
+            f"This level is split by {ds.get('split_by', 'ADM1')} so no single "
+            "file is unwieldy. Download only the areas you need.\n"
+        )
+        out.append("| Area | Features | Size | Download |")
+        out.append("|---|---|---|---|")
+        for p in sorted(parts, key=lambda x: x.get("code", "")):
+            code = p.get("code", "—")
+            path = p.get("path")
+            link = f"[`{code}.geojson`]({cdn}/{path})" if path else "—"
+            out.append(
+                f"| `{code}` | {p.get('features', 0):,} "
+                f"| {human_bytes(p.get('bytes'))} | {link} |"
+            )
+        out.append("")
+
+    path = ds.get("path")
+    if path:
+        heading = "Whole-country file" if parts else "Download"
+        out.append(f"**{heading}**\n")
+        out.append('=== "CDN"\n')
+        out.append(f"    ```\n    {cdn}/{path}\n    ```\n")
+        out.append('=== "Raw"\n')
+        out.append(f"    ```\n    {raw}/{path}\n    ```\n")
+        out.append('=== "curl"\n')
+        out.append(f"    ```bash\n    curl -LO {raw}/{path}\n    ```\n")
+    elif parts:
+        out.append(
+            '!!! note "No whole-country file"\n\n'
+            "    The combined file for this level exceeds the 20 MB ceiling the\n"
+            "    CDN will serve, so only the split files above are published.\n"
+        )
+    else:
+        out.append(
+            '!!! failure "Dataset incomplete"\n\n'
+            "    This entry has no file path recorded. Regenerate the manifest\n"
+            "    with `python scripts/build_manifest.py`.\n"
+        )
 
 
 def render_country(manifest: dict, up: str, cdn: str, raw: str) -> str:
@@ -163,10 +208,11 @@ def render_country(manifest: dict, up: str, cdn: str, raw: str) -> str:
         )
 
     crs = manifest.get("crs", {})
+    src = manifest.get("source") or {}
     out.append(
-        '!!! info "Coordinate reference system"\n\n'
-        f"    `{crs.get('authority', '?')}:{crs.get('code', '?')}` — see the\n"
-        f"    [CRS policy]({up}reference/crs.md).\n"
+        f"**Licence:** `{src.get('license', 'unknown')}` · "
+        f"**CRS:** `{crs.get('authority', '?')}:{crs.get('code', '?')}` "
+        f"([policy]({up}reference/crs.md))\n"
     )
 
     if manifest.get("notes"):
@@ -220,13 +266,13 @@ def render_index(coverage: list[dict]) -> str:
         "Every page below is generated from that dataset's `manifest.json`. "
         "To correct a fact, edit the manifest — not the page.\n"
     )
-    out.append("| Entry | Code | Group | Levels | Features |")
-    out.append("|---|---|---|---|---|")
+    out.append("| Entry | Code | Group | Levels | Features | Licence |")
+    out.append("|---|---|---|---|---|---|")
     for c in sorted(coverage, key=lambda x: (x["body"], x["group"], x["name"])):
         levels = ", ".join(c["levels"]) or "—"
         out.append(
             f"| [{c['name']}]({c['url']}) | `{c['code']}` | {c['group']} "
-            f"| {levels} | {c['features']:,} |"
+            f"| {levels} | {c['features']:,} | `{c['license']}` |"
         )
     out.append("")
     return "\n".join(out)
@@ -240,6 +286,7 @@ def render_index(coverage: list[dict]) -> str:
 def generate(docs_dir: Path, cdn: str, raw: str) -> int:
     catalog = docs_dir / "catalog"
     wanted: dict[Path, str] = {}
+    assets: dict[Path, Path] = {}
     coverage: list[dict] = []
     nav_lines: list[str] = []
     _EDIT_TARGETS.clear()
@@ -254,6 +301,25 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
         title = manifest["name"]["en"]
 
         rel = Path(body, slug(group), f"{code}.md")
+
+        # Copy each preview next to the page that shows it. With MkDocs'
+        # default directory URLs, catalog/<body>/<group>/<code>.md is served
+        # at .../<code>/, so an asset written to catalog/<body>/<group>/
+        # <code>/<LEVEL>.preview.geojson resolves from a bare relative link —
+        # no base-URL juggling, and it works identically under `mkdocs serve`,
+        # in CI and on the published site.
+        asset_dir = catalog / body / slug(group) / code
+        for ds in manifest.get("datasets", []):
+            preview = ds.get("preview")
+            if not preview:
+                continue
+            src = REPO / preview
+            if not src.exists():
+                continue
+            name = f"{ds.get('level', 'ADM')}.preview.geojson"
+            assets[asset_dir / name] = src
+            ds["_preview_asset"] = name
+
         # catalog/<body>/<group>/<code>.md sits three directories below the
         # docs root, so links back out need three levels of `../`.
         wanted[catalog / rel] = render_country(manifest, "../../../", cdn, raw)
@@ -261,8 +327,11 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
             manifest_path.relative_to(REPO).as_posix()
         )
 
+        # Sort key is (title, path) only. Including the manifest dict would
+        # make sorted() fall through to comparing dicts whenever two entries
+        # share a title and path, which raises TypeError.
         grouped.setdefault((BODIES.get(body, body), group), []).append(
-            (title, rel, manifest)
+            ((title, rel.as_posix()), title, rel)
         )
         coverage.append(
             {
@@ -271,7 +340,8 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
                 "name": title,
                 "group": group,
                 "url": rel.as_posix(),
-                "levels": [d["level"] for d in manifest.get("datasets", [])],
+                "license": (manifest.get("source") or {}).get("license", "unknown"),
+                "levels": [d.get("level", "?") for d in manifest.get("datasets", [])],
                 "features": sum(
                     d.get("features", 0) for d in manifest.get("datasets", [])
                 ),
@@ -286,17 +356,18 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
             nav_lines.append(f"- {body_label}")
             last_body = body_label
         nav_lines.append(f"    - {group}")
-        for title, rel, _ in sorted(entries):
+        for _, title, rel in sorted(entries, key=lambda e: e[0]):
             nav_lines.append(f"        - [{title}]({rel.as_posix()})")
 
     wanted[catalog / "index.md"] = render_index(coverage)
     wanted[catalog / "SUMMARY.md"] = "\n".join(nav_lines) + "\n"
 
-    # Drop stale pages from a previous run (a country removed or renamed).
+    # Drop stale files from a previous run (a country removed or renamed).
     if catalog.exists():
-        for existing in catalog.rglob("*.md"):
-            if existing not in wanted:
-                existing.unlink()
+        for pattern in ("*.md", "*.json", "*.geojson"):
+            for existing in catalog.rglob(pattern):
+                if existing not in wanted and existing not in assets:
+                    existing.unlink()
         for d in sorted(catalog.rglob("*"), reverse=True):
             if d.is_dir() and not any(d.iterdir()):
                 d.rmdir()
@@ -304,6 +375,17 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
         catalog.mkdir(parents=True, exist_ok=True)
 
     changed = sum(write_if_changed(p, c) for p, c in wanted.items())
+
+    # Copy previews only when they differ, for the same reason as
+    # write_if_changed: `mkdocs serve` watches docs_dir and unconditional
+    # writes would retrigger the build forever.
+    for dest, src in assets.items():
+        if dest.exists() and dest.stat().st_size == src.stat().st_size:
+            continue
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(src, dest)
+        changed += 1
+
     return changed
 
 

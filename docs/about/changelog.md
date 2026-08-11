@@ -6,7 +6,44 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
-### Added
+### Added — data pipeline and Chile
+
+- **Chile at `data/earth/CHL/`**, from IDE Chile's *División Política
+  Administrativa* 2023 under CC BY: 16 regions, 56 provinces and 345 communes.
+  The provincial tier had no openly licensed source before now.
+- The municipal level is **split by region** into 16 files so no single file is
+  unwieldy, plus a whole-country file where it fits under the CDN ceiling.
+- Ingestion pipeline: `fetch_sources.py`, `build_data.py`,
+  `build_manifest.py`, `make_previews.mjs`, and a curated
+  `scripts/countries.json` recording which ADM level is each country's
+  municipal tier.
+- All geometry simplified to a **100 m ground tolerance**, recorded per dataset
+  in the manifest. A distance rather than a percentage, so the whole repository
+  shares one real-world resolution.
+- `validate-data.yml` — checks manifests against a clean regeneration, verifies
+  split parts sum to the level total, enforces size budgets, and rejects any
+  `source.license` outside the permissive allow-list.
+- Interactive preview maps, served from the docs site itself so they work under
+  `mkdocs serve` and during PR review rather than depending on CDN propagation.
+
+### Changed
+
+- **Chile's source moved from BCN to IDE Chile DPA 2023.** geoBoundaries was
+  evaluated and rejected for Chile: its ADM2 is OpenStreetMap under ODbL, and
+  its communes are a 2020 vintage.
+- **geoBoundaries is no longer described as a CC BY 4.0 source.** `gbOpen` is a
+  container of per-file licences and 33% of its Americas entries are copyleft.
+  `contributing/sources.md` was wrong and has been corrected.
+- Natural Earth is now the designated source for country outlines.
+
+### Deprecated
+
+- `regiones.geojson`, `comunas.geojson` and their `.json` duplicates remain at
+  the repository root, unchanged, for one full major version. They are not
+  byte-equivalent to their replacements — different source, schema and
+  resolution.
+
+### Added — documentation site
 
 - Documentation site built with MkDocs and Material for MkDocs, deployed to
   GitHub Pages.
@@ -30,18 +67,8 @@ data in [Versioning & stability](versioning.md).
 
 ### Planned — breaking
 
-The next release restructures the data tree. See
-[Versioning & stability](versioning.md#the-upcoming-breaking-change).
-
-- `regiones.geojson` → `data/earth/CHL/CHL_ADM1.geojson`
-- `comunas.geojson` → `data/earth/CHL/CHL_ADM3.geojson`
-- Properties renamed to the standard schema
-- `cod_comuna` becomes `shapeISO`, a zero-padded **string**
-- Esri artifacts removed
-- Duplicate `.json` files removed
-
-The four root-level files remain in place, deprecated, for one full major
-version. They will not disappear silently.
+The legacy root files are removed in the next major release. See
+[Versioning & stability](versioning.md#the-legacy-root-files).
 
 ---
 

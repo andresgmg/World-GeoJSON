@@ -38,6 +38,34 @@ La página de catálogo de cada dataset nombra su fuente y su licencia. Cada
 **Consulta la página del dataset antes de redistribuir.** No hay una respuesta
 única para todo el repositorio, y nunca la habrá.
 
+## Nada de copyleft
+
+Todos los datasets aquí están bajo una licencia **permisiva** — CC BY, CC0,
+dominio público o equivalente. Las fuentes share-alike quedan excluidas, y el CI
+aplica la [lista blanca](../contributing/sources.md#la-lista-blanca).
+
+El motivo es ODbL en concreto. Define una *Base de Datos Derivada*, y mezclar un
+solo dataset ODbL en esta colección colocaría discutiblemente la colección
+entera bajo ODbL — cambiando los términos para todos los consumidores
+existentes sin que se enteren. No es un intercambio que este proyecto vaya a
+hacer, aunque cueste cobertura real: un tercio de las entradas de América de
+geoBoundaries quedan descartadas por esta vía.
+
+Los huecos se registran en la [Hoja de ruta](roadmap.md). Se cierran encontrando
+una fuente permisiva, no relajando la regla.
+
+## Condiciones que acompañan a una concesión
+
+Algunas licencias abiertas llegan con obligaciones más allá de la atribución, y
+esas se registran en `source.license_note` del manifiesto.
+
+Chile es el ejemplo actual. La DPA 2023 de IDE Chile se publica como CC BY, pero
+la cartografía subyacente circula bajo la **Resolución N°50 de 2019 de DIFROL**,
+y las normas chilenas piden que los productos derivados se revisen igualmente.
+Es lo habitual en la cartografía oficial chilena — existe por la reclamación
+antártica y por las fronteras terrestres — y aquí se reproduce en vez de
+omitirse en silencio.
+
 ## Atribución
 
 Para los datasets que la exijan, atribuye tanto a la fuente original como a

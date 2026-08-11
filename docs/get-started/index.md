@@ -32,10 +32,9 @@ That has consequences worth knowing up front:
 
 | You want | Level | In Chile |
 |---|---|---|
-| The outline of the country | ADM0 | Chile |
 | First-level divisions | ADM1 | 16 *regiones* |
-| Second-level divisions | ADM2 | *provincias* — no open boundary file exists |
-| Third-level divisions | ADM3 | 343 *comunas* |
+| Second-level divisions | ADM2 | 56 *provincias* |
+| The municipal tier | ADM3 | 345 *comunas* |
 
 Level numbers are structural, not semantic: a country's ADM1 is whatever its
 first-level division happens to be called. See

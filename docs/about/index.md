@@ -28,15 +28,17 @@ over](../reference/planetary.md).
 | | |
 |---|---|
 | Countries | 1 (Chile) |
-| Datasets | 2 (ADM1, ADM3) |
+| Datasets | 3 (ADM1, ADM2, ADM3) |
+| Features | 417 |
 | Bodies | 1 of 3 planned |
-| Documentation | This site |
-| Data conventions | Written, not yet applied to the existing files |
+| Data licence | CC BY 4.0, single source |
 
-The gap between the written conventions and the shipped data is deliberate and
-tracked. See [Roadmap](roadmap.md), and
-[Reference](../reference/index.md#current-state-versus-target-state) for the
-specific differences.
+The Americas are next, then one continent per release. See
+[Roadmap](roadmap.md).
+
+The four legacy files in the repository root predate the conventions and are
+deprecated; see
+[Versioning & stability](versioning.md#the-legacy-root-files).
 
 ## Maintainer
 

@@ -1,0 +1,29 @@
+{
+  "$comment": [
+    "ADM1 code lookup: maps a national first-level code to its ISO 3166-2 code.",
+    "Used to name the split municipal-level files predictably.",
+    "",
+    "Where a country has no entry here, build_data.py falls back to a slug of",
+    "the ADM1 name. That fallback is documented in docs/reference/naming.md."
+  ],
+
+  "CHL": {
+    "_key": "CUT_REG",
+    "01": "CL-TA",
+    "02": "CL-AN",
+    "03": "CL-AT",
+    "04": "CL-CO",
+    "05": "CL-VS",
+    "06": "CL-LI",
+    "07": "CL-ML",
+    "08": "CL-BI",
+    "09": "CL-AR",
+    "10": "CL-LL",
+    "11": "CL-AI",
+    "12": "CL-MA",
+    "13": "CL-RM",
+    "14": "CL-LR",
+    "15": "CL-AP",
+    "16": "CL-NB"
+  }
+}

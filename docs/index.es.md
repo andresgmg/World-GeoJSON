@@ -70,9 +70,12 @@ lo evita.
 
 ## Estado actual
 
-Solo Chile: 16 regiones y 343 comunas, con fuente en BCN / IDE Chile. La
-documentación, las convenciones y el tooling descritos en este sitio se están
-poniendo en marcha primero, para que todo lo que se añada después llegue con
-una forma consistente. La [Hoja de ruta](about/roadmap.md) tiene la secuencia.
+Chile, desde la *División Política Administrativa* 2023 de IDE Chile: 16
+regiones, 56 provincias y 345 comunas, todo bajo CC BY.
+
+Las convenciones y el tooling se hicieron primero a propósito, para que todo lo
+que se añada después llegue con una forma consistente. América es lo siguiente,
+un continente por release. La [Hoja de ruta](about/roadmap.md) tiene la
+secuencia.
 
 --8<-- "abbreviations.md"

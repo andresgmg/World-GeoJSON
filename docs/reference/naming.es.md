@@ -19,18 +19,58 @@ data/
 └─ earth/
    └─ CHL/
       ├─ manifest.json
-      ├─ CHL_ADM0.geojson
-      ├─ CHL_ADM1.geojson          # regiones
-      ├─ CHL_ADM3.geojson          # comunas
+      ├─ CHL_ADM1.geojson          # 16 regiones
+      ├─ CHL_ADM2.geojson          # 56 provincias
+      ├─ CHL_ADM3.geojson          # 345 comunas, país completo
+      ├─ ADM3/                     # …y partidas por región
+      │  ├─ CL-AP.geojson
+      │  ├─ CL-RM.geojson
+      │  └─ …
       └─ preview/
          ├─ CHL_ADM1.preview.geojson
+         ├─ CHL_ADM2.preview.geojson
          └─ CHL_ADM3.preview.geojson
 ```
 
-Chile no tiene `CHL_ADM2.geojson` porque no existe un archivo abierto de
-límites para sus provincias. **Los huecos en la secuencia de niveles son
-esperables y están permitidos** — nombra cada archivo por el nivel que
-realmente representa, en vez de renumerar para cerrar el hueco.
+**Los huecos en la secuencia de niveles son esperables y están permitidos** —
+nombra cada archivo por el nivel que realmente representa, en vez de renumerar
+para cerrar el hueco.
+
+## El nivel municipal va partido
+
+El nivel más profundo que publica este proyecto es el **tier municipal**, y va
+siempre partido en un archivo por cada padre ADM1:
+
+```
+data/{body}/{CODE}/{LEVEL}/{código del padre}.geojson
+```
+
+Brasil tiene 5.570 municipios y México 2.457; un único archivo por país sería
+de decenas de megabytes e inutilizable en un navegador. Partir por la primera
+división mantiene todos los archivos pequeños, permite descargar solo el estado
+que interesa, y deja todo por debajo del techo de 20 MB del CDN.
+
+El código del padre es el **ISO 3166-2** de la unidad ADM1 cuando se conoce
+(`CL-RM`, `CL-AP`). Cuando no — geoBoundaries entrega con frecuencia un
+`shapeISO` vacío — se recurre a un slug del nombre del ADM1, y `manifest.json`
+registra la correspondencia para que nadie tenga que adivinarla.
+
+### El archivo de país completo es condicional
+
+El archivo combinado (`CHL_ADM3.geojson`) se publica **solo si queda por debajo
+de 20 MB**, que es el mayor tamaño que sirve jsDelivr. Por encima de eso solo
+existen los archivos partidos, y la página de catálogo del dataset lo indica
+explícitamente.
+
+Así que conviene consultar la página de catálogo o el manifiesto en vez de dar
+por hecho que existe un combinado.
+
+### `parentISO` es el padre inmediato, no la clave del archivo
+
+El `parentISO` de una comuna nombra su *provincia* — el padre inmediato en la
+jerarquía oficial — aunque el archivo en el que vive esté indexado por
+*región*. Son cosas distintas y ambas son útiles, así que se registran las dos:
+`parentISO` para la jerarquía y `adm1ISO` para el archivo al que pertenece.
 
 ## Reglas
 

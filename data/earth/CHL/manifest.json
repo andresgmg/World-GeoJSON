@@ -1,0 +1,592 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CHL",
+  "iso_a2": "CL",
+  "m49_region": "South America",
+  "name": {
+    "en": "Chile",
+    "es": "Chile"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "source": {
+    "name": "IDE Chile / SUBDERE — División Política Administrativa 2023",
+    "url": "https://www.geoportal.cl/geoportal/catalog/36391/Divisi%C3%B3n%20Pol%C3%ADtica%20Administrativa%202023",
+    "license": "CC-BY-4.0",
+    "license_note": "Published as Creative Commons Attribution on datos.gob.cl. The source cartography is authorised for circulation by Resolución N°50 de 2019 of DIFROL; Chilean rules require derived products to be reviewed by DIFROL equally.",
+    "retrieved": "2026-08-11"
+  },
+  "status": "ok",
+  "notes": "345 communes, not the 346 in the official register: the Antártica commune (12202) is absent because the DPA package excludes Chile's Antarctic claim — the data stops at 56.5°S. geoBoundaries omits it for the same reason.",
+  "datasets": [
+    {
+      "level": "ADM1",
+      "path": "data/earth/CHL/CHL_ADM1.geojson",
+      "bytes": 4814221,
+      "sha256": "5cf4e9d8d34822d498cc61ddea063bd4381671d9d05568b49bb3e2f40f9b44b8",
+      "features": 16,
+      "bbox": [
+        -109.449861,
+        -56.525107,
+        -66.416176,
+        -17.498399
+      ],
+      "geometry_types": {
+        "MultiPolygon": 10,
+        "Polygon": 6
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_cut_reg",
+        "src_superficie_km2"
+      ],
+      "preview": "data/earth/CHL/preview/CHL_ADM1.preview.geojson",
+      "preview_bytes": 226499
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/CHL/CHL_ADM2.geojson",
+      "bytes": 5415926,
+      "sha256": "766da7bd6980e296c05f0ff5ab3abe8756c9acbdad6a4b577fdd2c15207c27bb",
+      "features": 56,
+      "bbox": [
+        -109.449861,
+        -56.525107,
+        -66.416176,
+        -17.498399
+      ],
+      "geometry_types": {
+        "MultiPolygon": 22,
+        "Polygon": 34
+      },
+      "properties": [
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_cut_prov",
+        "src_cut_reg",
+        "src_region"
+      ],
+      "preview": "data/earth/CHL/preview/CHL_ADM2.preview.geojson",
+      "preview_bytes": 271783
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/CHL/CHL_ADM3.geojson",
+      "bytes": 6965828,
+      "sha256": "aecbdc78ab298ac75df12de97c46dec33ef414e785da96cbebcd39998f8640de",
+      "features": 345,
+      "bbox": [
+        -109.449861,
+        -56.525107,
+        -66.416176,
+        -17.498399
+      ],
+      "geometry_types": {
+        "MultiPolygon": 40,
+        "Polygon": 305
+      },
+      "properties": [
+        "adm1ISO",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_cut_com",
+        "src_cut_prov",
+        "src_cut_reg",
+        "src_provincia",
+        "src_region"
+      ],
+      "preview": "data/earth/CHL/preview/CHL_ADM3.preview.geojson",
+      "preview_bytes": 425291,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/CHL/ADM3/CL-AI.geojson",
+          "bytes": 1281188,
+          "sha256": "3e55fb5694854d124580a8625dbe4d6a9b6b34a0810675130bed701532aafe0c",
+          "features": 10,
+          "bbox": [
+            -75.64927,
+            -49.158776,
+            -71.091675,
+            -43.637991
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-AI"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-AN.geojson",
+          "bytes": 135098,
+          "sha256": "a1c9eec263ac7ecb8ea6d48039199eabe59a5aef4bf0d164953b663bc7761e21",
+          "features": 9,
+          "bbox": [
+            -70.73677,
+            -26.062273,
+            -66.990503,
+            -20.934545
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-AN"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-AP.geojson",
+          "bytes": 45655,
+          "sha256": "f09c2f533cbdbcdbfcce8b2066db70b25fbb961e5d1a9a9c4c9f74da7515aeef",
+          "features": 4,
+          "bbox": [
+            -70.376311,
+            -19.22905,
+            -68.914147,
+            -17.498399
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-AP"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-AR.geojson",
+          "bytes": 286378,
+          "sha256": "88328874b89e86c7d53d0e006600df2596310d44c0478da56ed94d6337db0bb3",
+          "features": 32,
+          "bbox": [
+            -73.51912,
+            -39.636878,
+            -70.82646,
+            -37.581726
+          ],
+          "geometry_types": {
+            "Polygon": 32
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-AR"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-AT.geojson",
+          "bytes": 230893,
+          "sha256": "cbaafefa2a143edf3435f2ecdbd61247aeb7c411207a440fdd7676adfc1b3cce",
+          "features": 9,
+          "bbox": [
+            -71.59019,
+            -29.535,
+            -68.263233,
+            -25.28584
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-AT"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-BI.geojson",
+          "bytes": 259302,
+          "sha256": "12cfd7ac3e383d985a053e5b6268a3b6333fe56b96935834262bb06b0aa1c9d3",
+          "features": 33,
+          "bbox": [
+            -73.96096,
+            -38.491888,
+            -70.983714,
+            -36.44327
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 29
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-BI"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-CO.geojson",
+          "bytes": 245741,
+          "sha256": "3f368842abba20bf4227d9e9255ecabfd60add59220474644964f246eea8b66d",
+          "features": 15,
+          "bbox": [
+            -71.71699,
+            -32.28247,
+            -69.809082,
+            -29.03667
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-CO"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-LI.geojson",
+          "bytes": 205314,
+          "sha256": "20a1fe44ff6562c2c37bb78fffad9275c397dcbe052843936c9d0f1204459995",
+          "features": 33,
+          "bbox": [
+            -72.057541,
+            -35.005199,
+            -70.009245,
+            -33.850926
+          ],
+          "geometry_types": {
+            "Polygon": 33
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-LI"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-LL.geojson",
+          "bytes": 447631,
+          "sha256": "7f7080493846826a4a7d1fde4ed3ca6db2d78daee8c573ff3d9003bddaee2fb3",
+          "features": 30,
+          "bbox": [
+            -74.83528,
+            -44.067119,
+            -71.58104,
+            -40.236202
+          ],
+          "geometry_types": {
+            "MultiPolygon": 12,
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-LL"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-LR.geojson",
+          "bytes": 151700,
+          "sha256": "8884d42644c80cc654f35f6866b6e88dc5e32f7326f45bbde09120be7519041f",
+          "features": 12,
+          "bbox": [
+            -73.72518,
+            -40.680795,
+            -71.592287,
+            -39.287706
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-LR"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-MA.geojson",
+          "bytes": 2771577,
+          "sha256": "722c7adb60a37d2077fa7fefa6b296e96c36bb1bcdbe7b14d6b671f2dcedf7de",
+          "features": 10,
+          "bbox": [
+            -75.710432,
+            -56.525107,
+            -66.416176,
+            -48.595366
+          ],
+          "geometry_types": {
+            "MultiPolygon": 8,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-MA"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-ML.geojson",
+          "bytes": 285863,
+          "sha256": "6236cd78eb9925c8a4cc4f543da6ab0f2bddb513ebb2274ef62e67ded272a4fa",
+          "features": 30,
+          "bbox": [
+            -72.78557,
+            -36.543818,
+            -70.31258,
+            -34.684513
+          ],
+          "geometry_types": {
+            "Polygon": 30
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-ML"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-NB.geojson",
+          "bytes": 164426,
+          "sha256": "2561cfe87939f3e53290e30865d1eb8e05b94fcc99d3cb064bed051fd972a002",
+          "features": 21,
+          "bbox": [
+            -72.88463,
+            -37.198361,
+            -71.007057,
+            -36.005602
+          ],
+          "geometry_types": {
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-NB"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-RM.geojson",
+          "bytes": 164329,
+          "sha256": "61105a7a90e85ce5f2beb12c2e6900739dd1622024dc721f01303728f5da684a",
+          "features": 52,
+          "bbox": [
+            -71.71548,
+            -34.291023,
+            -69.769802,
+            -32.921925
+          ],
+          "geometry_types": {
+            "Polygon": 52
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-RM"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-TA.geojson",
+          "bytes": 74744,
+          "sha256": "328744c4791ab96134c0d74b3fe8af2334dee672018e558601f5156ea4739b77",
+          "features": 7,
+          "bbox": [
+            -70.28645,
+            -21.62774,
+            -68.404871,
+            -18.936775
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-TA"
+        },
+        {
+          "path": "data/earth/CHL/ADM3/CL-VS.geojson",
+          "bytes": 217420,
+          "sha256": "6776c0956723140211a898ecc0e6cedf79acc5e8243830e9edb0f96fd858640e",
+          "features": 38,
+          "bbox": [
+            -109.449861,
+            -33.955931,
+            -69.989397,
+            -26.286255
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 35
+          },
+          "properties": [
+            "adm1ISO",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_cut_com",
+            "src_cut_prov",
+            "src_cut_reg",
+            "src_provincia",
+            "src_region"
+          ],
+          "code": "CL-VS"
+        }
+      ]
+    }
+  ]
+}

@@ -34,10 +34,9 @@ Eso tiene consecuencias que conviene saber de entrada:
 
 | Quieres | Nivel | En Chile |
 |---|---|---|
-| El contorno del país | ADM0 | Chile |
 | Divisiones de primer nivel | ADM1 | 16 regiones |
-| Divisiones de segundo nivel | ADM2 | provincias — no existe archivo abierto |
-| Divisiones de tercer nivel | ADM3 | 343 comunas |
+| Divisiones de segundo nivel | ADM2 | 56 provincias |
+| El tier municipal | ADM3 | 345 comunas |
 
 Los números de nivel son estructurales, no semánticos: el ADM1 de un país es
 como se llame su primera división. Ver
