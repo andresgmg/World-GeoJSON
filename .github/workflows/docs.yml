@@ -57,7 +57,12 @@ jobs:
 
       - name: Install image libraries for social cards
         run: |
-          sudo apt-get update -qq
+          # `|| true`: the runner image carries third-party apt sources
+          # (azure-cli, and others) that intermittently 403, which fails the
+          # whole update even though every package below comes from Ubuntu
+          # main. If a package is genuinely unavailable, the install still
+          # fails loudly on the next line.
+          sudo apt-get update -qq || true
           sudo apt-get install -y --no-install-recommends \
             libcairo2-dev libfreetype6-dev libffi-dev \
             libjpeg-dev libpng-dev libz-dev pngquant

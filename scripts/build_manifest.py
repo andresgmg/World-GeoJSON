@@ -34,6 +34,18 @@ LEVEL_DIR = re.compile(r"^ADM\d$|^QUAD$")
 LEVEL_FILE = re.compile(r"^[A-Z]{3,4}_(ADM\d|QUAD)$")
 
 
+def path_key(p: Path) -> str:
+    """Sort key that does not depend on the platform.
+
+    Sorting Path objects directly is not portable: WindowsPath compares
+    case-insensitively while PosixPath does not. With a lowercase
+    `unassigned.geojson` sitting among uppercase `US-XX.geojson` parts, the two
+    platforms produce different orderings — and a manifest that reorders
+    between machines fails the CI freshness check for no real reason.
+    """
+    return p.name
+
+
 # ---------------------------------------------------------------------------
 # scanning
 # ---------------------------------------------------------------------------
@@ -126,7 +138,7 @@ def build_datasets(d: Path, prev: dict[str, dict]) -> list[dict]:
     datasets: dict[str, dict] = {}
 
     # Whole-level files, including the optional combined file for a split level.
-    for f in sorted(d.glob("*.geojson")):
+    for f in sorted(d.glob("*.geojson"), key=path_key):
         if not LEVEL_FILE.match(f.stem):
             print(f"  ! skipping {f.name}: does not match {{CODE}}_{{LEVEL}}.geojson")
             continue
@@ -137,10 +149,11 @@ def build_datasets(d: Path, prev: dict[str, dict]) -> list[dict]:
         )
 
     # Split levels.
-    for sub in sorted(p for p in d.iterdir() if p.is_dir() and LEVEL_DIR.match(p.name)):
+    subdirs = [p for p in d.iterdir() if p.is_dir() and LEVEL_DIR.match(p.name)]
+    for sub in sorted(subdirs, key=path_key):
         level = sub.name
         parts = []
-        for f in sorted(sub.glob("*.geojson")):
+        for f in sorted(sub.glob("*.geojson"), key=path_key):
             part = describe(f)
             part["code"] = f.stem
             parts.append(part)

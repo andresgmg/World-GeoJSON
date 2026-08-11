@@ -136,30 +136,6 @@
           "code": "SU-SD"
         },
         {
-          "path": "data/earth/USA/ADM2/unassigned.geojson",
-          "bytes": 565,
-          "sha256": "3b168c3e7ced5a3a56425ed8e5f1dcdf4842fd103976fcee69499f004b401e53",
-          "features": 1,
-          "bbox": [
-            -168.16355,
-            -14.552542,
-            -168.139747,
-            -14.530896
-          ],
-          "geometry_types": {
-            "Polygon": 1
-          },
-          "properties": [
-            "adm1ISO",
-            "shapeGroup",
-            "shapeISO",
-            "shapeName",
-            "shapeType",
-            "src_shape_id"
-          ],
-          "code": "unassigned"
-        },
-        {
           "path": "data/earth/USA/ADM2/US-AK.geojson",
           "bytes": 348440,
           "sha256": "d3b1a8563899c076b7cffcb718481441675c60ef7efe07691e96870214c11d65",
@@ -1508,6 +1484,30 @@
             "src_shape_id"
           ],
           "code": "US-WY"
+        },
+        {
+          "path": "data/earth/USA/ADM2/unassigned.geojson",
+          "bytes": 565,
+          "sha256": "3b168c3e7ced5a3a56425ed8e5f1dcdf4842fd103976fcee69499f004b401e53",
+          "features": 1,
+          "bbox": [
+            -168.16355,
+            -14.552542,
+            -168.139747,
+            -14.530896
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "unassigned"
         }
       ],
       "simplification": {
@@ -1519,5 +1519,6 @@
       "src_year": "2018",
       "unassigned": 1
     }
-  ]
+  ],
+  "notes": "geoBoundaries codes South Dakota as 'SU-SD' rather than the correct ISO 3166-2 'US-SD', so its 66 counties are grouped correctly but under an incorrectly named file. Reported as an upstream data error; left unaltered here."
 }

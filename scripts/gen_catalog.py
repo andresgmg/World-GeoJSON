@@ -308,7 +308,12 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
 
     grouped: dict[tuple[str, str], list[tuple[str, Path, dict]]] = {}
 
-    for manifest_path in sorted(DATA.glob("*/*/manifest.json")):
+    # Sort on the string, not the Path: WindowsPath compares case-insensitively
+    # while PosixPath does not, and the generated pages must not depend on
+    # which machine ran the build.
+    for manifest_path in sorted(
+        DATA.glob("*/*/manifest.json"), key=lambda p: p.as_posix()
+    ):
         manifest = json.loads(manifest_path.read_text("utf-8"))
         body = manifest["body"]
         code = (manifest.get("iso_a3") or manifest.get("code", "")).lower()
