@@ -1,2 +1,19 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Geospatial data: force LF in the working tree, everywhere.
+#
+# Without this, `* text=auto` classifies .geojson as text and converts it to
+# CRLF on Windows checkout. Measured on comunas.geojson: the stored blob is
+# 72,076,912 bytes while the checked-out file is 73,907,118 — a delta of
+# 1,830,206 bytes, exactly one per line. Any SHA-256 computed on Windows would
+# then disagree with Linux CI and with raw.githubusercontent.com, which
+# matters because the catalog publishes checksums.
+*.geojson  text eol=lf
+*.json     text eol=lf
+*.topojson text eol=lf
+
+# Keep the data tree out of GitHub's language statistics, and out of diffs
+# that no human is going to read.
+data/**   linguist-generated=true
+*.geojson -diff

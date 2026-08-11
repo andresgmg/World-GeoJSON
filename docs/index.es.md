@@ -1,0 +1,78 @@
+# World GeoJSON
+
+Límites administrativos en GeoJSON, abiertos y versionados — empezando por
+Chile, creciendo hacia todos los países del mundo y, con el tiempo, hacia la
+Luna y Marte.
+
+Todos los datos son GeoJSON según [RFC 7946](https://www.rfc-editor.org/rfc/rfc7946)
+en WGS 84. Sin API key, sin registro, sin un servicio con límite de peticiones
+en medio: pides una URL y tienes los límites.
+
+<div class="grid cards" markdown>
+
+-   :material-rocket-launch: **[Empezar](get-started/index.md)**
+
+    Encuentra un dataset, copia una URL y cárgalo en Leaflet, MapLibre, Python
+    o QGIS.
+
+-   :material-map-search: **[Catálogo](catalog/index.md)**
+
+    Todos los datasets, con número de features, bounding box, lista de
+    propiedades y enlaces de descarga.
+
+-   :material-book-open-variant: **[Referencia](reference/index.md)**
+
+    Las convenciones: estructura de carpetas, niveles administrativos, esquema
+    de propiedades, política de CRS y en qué se diferencian los cuerpos
+    planetarios.
+
+-   :material-source-pull: **[Contribuir](contributing/index.md)**
+
+    Cómo añadir un país — incluyendo qué fuentes son legalmente seguras.
+
+</div>
+
+## Pruébalo
+
+```js
+const url =
+  "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/regiones.geojson";
+
+const regiones = await fetch(url).then((r) => r.json());
+console.log(regiones.features.length); // 16
+```
+
+## Qué es este proyecto
+
+Un **catálogo de datos**, no un servicio. El repositorio guarda los archivos;
+este sitio documenta qué contienen, de dónde vino cada uno y qué convenciones
+debe seguir cualquier contribución nueva.
+
+Esas convenciones importan más de lo que parece. El proyecto empezó como un
+volcado de dos archivos de un solo país, sin esquema, sin declaración de
+sistema de coordenadas y sin atribución de fuente. Escalar eso a cientos de
+países sin reglas escritas produce un montón de archivos mutuamente
+incompatibles. La sección [Referencia](reference/index.md) es el contrato que
+lo evita.
+
+## Qué no es
+
+- **No es un geocodificador ni un servidor de teselas.** Son polígonos de
+  límites. El renderizado, la búsqueda y el indexado espacial son trabajo de tu
+  aplicación.
+- **No es autoritativo sobre soberanía.** Los límites siguen a la fuente
+  declarada en la página de cada dataset. Donde hay reclamaciones en conflicto,
+  el proyecto documenta el desacuerdo en lugar de resolverlo — ver
+  [Fronteras disputadas](about/disputed-boundaries.md).
+- **No tiene una licencia uniforme.** El código es MIT. Los *datos* se
+  licencian según su fuente, y algunas exigen atribución. Ver
+  [Licencias y atribución](about/license.md).
+
+## Estado actual
+
+Solo Chile: 16 regiones y 343 comunas, con fuente en BCN / IDE Chile. La
+documentación, las convenciones y el tooling descritos en este sitio se están
+poniendo en marcha primero, para que todo lo que se añada después llegue con
+una forma consistente. La [Hoja de ruta](about/roadmap.md) tiene la secuencia.
+
+--8<-- "abbreviations.md"

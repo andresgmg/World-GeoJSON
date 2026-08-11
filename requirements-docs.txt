@@ -1,0 +1,31 @@
+# World GeoJSON — documentation toolchain.
+#
+#   python -m venv .venv
+#   .\.venv\Scripts\python.exe -m pip install -r requirements-docs.txt
+#   .\.venv\Scripts\python.exe -m mkdocs serve
+#
+# Pinned for reproducible builds; Dependabot opens PRs for bumps.
+# Do NOT pin pymdown-extensions / pygments here — mkdocs-material owns them
+# and pinning separately means fighting the resolver.
+
+mkdocs==1.6.1
+mkdocs-material==9.5.49
+
+# Catalog navigation. The catalog pages themselves are written by
+# scripts/gen_catalog.py (a MkDocs hook); literate-nav turns the SUMMARY.md
+# it emits into the Catalog nav subtree.
+#
+# Note: mkdocs-gen-files is deliberately NOT used. It writes virtual pages
+# outside docs_dir, and mkdocs-static-i18n drops those silently.
+mkdocs-literate-nav==0.6.1
+
+# Bilingual site (English default, Spanish).
+mkdocs-static-i18n==1.2.3
+
+# "Last updated" stamps. Requires fetch-depth: 0 in CI.
+mkdocs-git-revision-date-localized-plugin==1.3.0
+
+# Streaming JSON scanner used by scripts/build_manifest.py.
+# Not needed to build the docs, but keeping one requirements file is
+# simpler for contributors who are not Python developers.
+ijson==3.3.0

@@ -1,0 +1,15 @@
+# CI-only additions.
+#
+# Social card rendering needs the Cairo native library, which is painful to
+# install on Windows. The `social` plugin is therefore gated behind
+# `enabled: !ENV [CI, false]` in mkdocs.yml and its dependencies are
+# installed only here.
+#
+# Ubuntu system packages required first:
+#   libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+#   pngquant
+
+-r requirements-docs.txt
+
+cairosvg==2.7.1
+pillow==11.0.0
