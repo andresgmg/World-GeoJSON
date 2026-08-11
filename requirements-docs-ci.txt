@@ -12,4 +12,4 @@
 -r requirements-docs.txt
 
 cairosvg==2.9.0
-pillow==11.0.0
+pillow==12.3.0
