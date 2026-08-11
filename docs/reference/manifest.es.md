@@ -30,29 +30,85 @@ ningún archivo `.geojson`*.
   "name": { "en": "Chile", "es": "Chile" },
   "crs": { "authority": "OGC", "code": "CRS84", "epsg": 4326 },
   "source": {
-    "name": "Biblioteca del Congreso Nacional de Chile (BCN) / IDE Chile",
-    "url": "https://www.bcn.cl/siit/mapas_vectoriales",
-    "license": "CC-BY-3.0-CL",
-    "retrieved": "2023-05-01"
+    "name": "IDE Chile / SUBDERE — División Política Administrativa 2023",
+    "url": "https://www.geoportal.cl/",
+    "license": "CC-BY-4.0",
+    "retrieved": "2026-08-11"
   },
-  "status": "review",
-  "notes": "ADM2 (provincias) no disponible. 343 de 346 comunas presentes.",
+  "status": "ok",
+  "notes": "345 comunas, no las 346 del registro oficial: falta Antártica (12202) porque el paquete DPA excluye la reclamación antártica chilena.",
   "datasets": [
     {
       "level": "ADM1",
       "path": "data/earth/CHL/CHL_ADM1.geojson",
       "preview": "data/earth/CHL/preview/CHL_ADM1.preview.geojson",
-      "bytes": 3571959,
-      "preview_bytes": 148320,
-      "sha256": "…",
+      "bytes": 4814221,
+      "preview_bytes": 226499,
+      "sha256": "5cf4e9d8d34822d4…",
       "features": 16,
-      "bbox": [-109.4548, -56.5333, -66.4177, -17.4983],
-      "geometry_types": { "Polygon": 12, "MultiPolygon": 4 },
-      "properties": ["shapeName", "shapeISO", "shapeGroup", "shapeType"]
+      "bbox": [-109.449861, -56.525107, -66.416176, -17.498399],
+      "geometry_types": { "MultiPolygon": 10, "Polygon": 6 },
+      "properties": ["shapeName", "shapeISO", "shapeGroup", "shapeType"],
+      "simplification": { "method": "visvalingam", "tolerance_m": 100 }
     }
   ]
 }
 ```
+
+## Niveles partidos
+
+El nivel municipal va partido por padre ADM1, así que su entrada lleva un array
+`parts` en vez de apoyarse en un único archivo:
+
+```json
+{
+  "level": "ADM3",
+  "split_by": "ADM1",
+  "features": 345,
+  "path": "data/earth/CHL/CHL_ADM3.geojson",
+  "parts": [
+    {
+      "code": "CL-RM",
+      "path": "data/earth/CHL/ADM3/CL-RM.geojson",
+      "features": 52,
+      "bytes": 164329,
+      "sha256": "…",
+      "bbox": [-71.72, -34.30, -70.02, -32.92]
+    }
+  ]
+}
+```
+
+- `features` en la entrada es el **nivel completo**, para que el catálogo pueda
+  dar siempre un total exista o no un archivo combinado.
+- `path` es el archivo de país completo, opcional, presente solo cuando cabe por
+  debajo de 20 MB. Su ausencia es normal y el catálogo lo indica.
+- `code` es el ISO 3166-2 del padre ADM1, o un slug del nombre cuando no se
+  conoce código ISO.
+
+El CI comprueba que las partes sumen exactamente el número de features del
+nivel — así es como se detecta una partición que perdió o duplicó un municipio.
+
+## Simplificación
+
+Cada dataset registra qué se le hizo:
+
+```json
+"simplification": { "method": "visvalingam", "tolerance_m": 100 }
+```
+
+`tolerance_m` es una **distancia sobre el terreno**, no un porcentaje. Es
+deliberado: un porcentaje conserva una fracción fija de los vértices de cada
+archivo, así que la resolución resultante depende de lo densamente que se
+hubiera digitalizado la fuente y dos países vecinos acaban con fidelidades
+distintas. Una distancia da a todo el repositorio una única resolución real
+consistente.
+
+La tolerancia estándar son **100 m**. Las 16 regiones de Chile — una de las
+costas más complejas del mundo — miden 49,7 MB a 10 m, 10,0 MB a 50 m, 4,6 MB a
+100 m y 1,6 MB a 250 m. Un dataset que aun así superara el techo de tamaño con
+la tolerancia estándar recibe una más gruesa, y el valor registrado aquí es
+siempre el aplicado realmente.
 
 ## Escrito a mano frente a generado
 

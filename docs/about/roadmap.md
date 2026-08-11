@@ -13,20 +13,33 @@ Putting conventions and tooling in place before the data grows.
 - [x] Disputed-boundaries policy
 - [x] Catalog generator wired to manifests
 - [x] CI building and deploying the site
-- [ ] Restructure Chile into `data/earth/CHL/` with manifests
-- [ ] Apply the standard property schema to Chile
-- [ ] Minify and trim coordinate precision on the existing files
-- [ ] Preview generation and interactive maps
-- [ ] Data validation workflow
+- [x] Ingestion pipeline: fetch, normalise, simplify, split, manifest, preview
+- [x] Chile from IDE Chile DPA 2023 — ADM1, ADM2 and ADM3
+- [x] Preview generation and interactive maps
+- [x] Data validation workflow with a licence allow-list
 
-## Next — Chile complete, then Latin America
+## Next — the Americas
 
+All 57 UN M49 territories, one PR for the continent.
+
+- [ ] ADM0 for every territory from Natural Earth
+- [ ] ADM1 and the municipal tier from geoBoundaries, permissive licences only
 - [ ] `CHL_ADM0` — the national outline
-- [ ] The three missing communes: Antártica, Isla de Pascua, Juan Fernández
-- [ ] `CHL_ADM2` — *provincias*, if an openly licensed source can be found
-- [ ] Argentina, Peru, Bolivia, Uruguay, Paraguay
+- [ ] Verify the suspect unit counts: Jamaica ADM2 (827 against 14 parishes),
+      Saint Lucia ADM2 (547 against 10 quarters), Bahamas ADM1/ADM2 (32/34)
 - [ ] Issue and PR templates for country submissions
 - [ ] Translate generated catalog pages into Spanish
+
+### Known coverage gaps
+
+Excluding copyleft sources leaves thirteen Americas countries without an ADM1
+this project can redistribute: Colombia, Costa Rica, Cuba, Guatemala, Guyana,
+Honduras, Haiti, Nicaragua, Panama, Suriname, Trinidad and Tobago, Uruguay and
+Saint Vincent and the Grenadines. Their geoBoundaries entries are ODbL.
+
+Closing a gap means finding a national SDI or an HDX release under permissive
+terms — not relaxing the rule. See
+[Approved sources](../contributing/sources.md).
 
 ## Later — global coverage
 
@@ -56,16 +69,11 @@ Tracked, not hidden.
 
 | Problem | Where | Status |
 |---|---|---|
-| 343 of 346 communes | `comunas.geojson` | Next |
-| No ADM2 (*provincias*) boundary file | Chile | Next, source permitting |
-| Coordinates at ~14 decimal places | Both files | Now |
-| Pretty-printed, ~40% size overhead | Both files | Now |
-| No `bbox` member | Both files | Now |
-| `cod_comuna` as integer, loses leading zero | `comunas.geojson` | Now |
-| GeoJSON `id` on 5 of 343 features | `comunas.geojson` | Now |
-| Duplicate `.json` files | Repo root | Now |
-| Inconsistent area units between files | Both files | Now |
-| `Región de Aysén del Gral.Ibañez del Campo` malformed | `regiones.geojson` | Now |
+| Antártica commune (12202) absent — 345 of 346 | Chile ADM3 | Won't fix; the official DPA package excludes the Antarctic claim |
+| 13 countries have no permissively licensed ADM1 | Americas | Awaiting a permissive source |
+| Municipal tier assignment unverified for ~15 territories | `scripts/countries.json` | Marked `verify` and shipped as `review` |
+| Peru's districts unavailable — geoBoundaries stops at provinces | Peru | Awaiting a source |
+| Legacy files still at the repository root | `comunas.geojson` and friends | Deprecated, removed in the next major |
 
 ## Not planned
 

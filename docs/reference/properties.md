@@ -11,80 +11,83 @@ Defined by this project and present on every feature. See
 | Key | Type | Meaning |
 |---|---|---|
 | `shapeName` | string | Local-language name, with diacritics |
-| `shapeISO` | string | Official code for the unit |
+| `shapeISO` | string | Official code — ISO 3166-2 where one exists, otherwise the national code |
 | `shapeGroup` | string | ISO 3166-1 alpha-3 of the country, or body code |
 | `shapeType` | string | `ADM0`–`ADM3` or `QUAD` |
+| `parentISO` | string | `shapeISO` of the **immediate** parent unit |
+| `adm1ISO` | string | ISO 3166-2 of the ADM1 the feature belongs to. Present on split municipal levels, where it names the file the feature lives in |
 | `shapeID` | string | `{shapeGroup}-{shapeType}-{shapeISO}` |
-| `parentISO` | string | `shapeISO` of the parent unit |
 | `shapeNameEn` | string | English exonym, where meaningfully different |
+
+!!! note "`parentISO` and `adm1ISO` are not the same thing"
+
+    On a Chilean commune, `parentISO` is its *province* — the immediate parent
+    in the official hierarchy — while `adm1ISO` is its *region*, which is what
+    the file is keyed by. Both are useful and both are recorded.
 
 ## Source properties — Chile
 
-Preserved from BCN / IDE Chile under the `src_` prefix.
+Preserved from IDE Chile's DPA 2023 under the `src_` prefix.
 
 | Key | Type | Meaning |
 |---|---|---|
-| `src_cod_comuna` | integer | INE/SUBDERE commune code. **Loses its leading zero** — see below |
-| `src_codregion` | integer | Region code, 1–16 |
-| `src_provincia` | string | Province name. No boundary file exists for this tier |
-| `src_dis_elec` | integer | Electoral district |
-| `src_cir_sena` | integer | Senatorial constituency |
+| `src_cut_com` | string | CUT commune code, five characters, zero-padded |
+| `src_cut_prov` | string | CUT province code, three characters |
+| `src_cut_reg` | string | CUT region code, two characters |
+| `src_provincia` | string | Province name |
+| `src_region` | string | Region name |
+| `src_superficie_km2` | number | Official area in **square kilometres** |
 
-The presence of `dis_elec` and `cir_sena` is the clearest evidence that the
-upstream source is the Biblioteca del Congreso Nacional's shapefile set rather
-than a plain INE boundary file — electoral divisions are not something a
-statistics agency ships with administrative boundaries.
+CUT (*Código Único Territorial*) is the national territorial coding scheme used
+by INE and SUBDERE. Codes nest: commune `01402` sits in province `011`, which
+sits in region `01`.
 
-## Legacy properties (pre-migration)
+## Source properties — geoBoundaries
 
-Present in the current root-level files. These are being removed or renamed;
-see the [migration table](schema.md#migration-table-for-chile).
+Countries taken from geoBoundaries carry its five native fields. Four of them
+already match the standard vocabulary, which is why this project adopted it.
 
-| Key | Fate | Why |
-|---|---|---|
-| `Region` | → `shapeName` / `parentISO` | Inconsistent TitleCase; unaccented key, accented value |
-| `Comuna` | → `shapeName` | |
-| `Provincia` | → `src_provincia` | |
-| `codregion` | → `src_codregion` | |
-| `cod_comuna` | → `shapeISO` as zero-padded string | |
-| `objectid` | **dropped** | Esri internal row number, not stable |
-| `st_area_sh` | **dropped** | Precomputed area in m², projection unstated |
-| `st_length_` | **dropped** | Precomputed perimeter, same problem |
-| `shape_leng` | **dropped** | Duplicate of `st_length_`, truncated to the dBase 10-char limit |
-| `area_km` | **dropped** | Precomputed area in km² — different units from `st_area_sh` |
+| Key | Note |
+|---|---|
+| `shapeName`, `shapeGroup`, `shapeType` | Used directly |
+| `shapeISO` | **Frequently empty.** geoBoundaries documents it as "where available", and in practice many countries ship `""` |
+| `shapeID` | An opaque internal identifier, not a territorial code |
+
+## Properties that get dropped
+
+Export artifacts from the source GIS software. They carry no information that
+cannot be recomputed, and they mislead.
+
+| Key | Why it goes |
+|---|---|
+| `objectid` | An Esri internal row number. Not stable across exports |
+| `st_area_sh` | Precomputed area in square metres, from an unstated projection |
+| `st_length_` | Precomputed perimeter, same problem |
+| `shape_leng` | Duplicate of `st_length_`, truncated to the dBase 10-character field limit |
 
 ## Known traps
 
-!!! danger "`cod_comuna` loses its leading zero"
+!!! danger "Territorial codes must be strings"
 
-    Stored as a JSON number, so Camiña is `1402`. The official code is the
-    string `01402`. Every commune in regions 1–9 is affected, and joins against
-    official statistics silently match nothing.
+    A JSON number cannot hold a leading zero, so any source storing Chile's
+    `01402` as an integer silently yields `1402`, and joins against official
+    statistics match nothing. `shapeISO` and every `src_cut_*` field are
+    strings.
 
-    JSON numbers cannot represent a leading zero at all, which is why
-    `shapeISO` is always a string.
+!!! warning "`shapeISO` may be empty on geoBoundaries data"
 
-!!! warning "Area units differ between files"
+    Do not assume it is populated. Use `shapeName` for display and `shapeID`
+    for identity when the ISO code is missing.
 
-    `regiones.geojson` carries `area_km` in **square kilometres**.
-    `comunas.geojson` carries `st_area_sh` in **square metres**. Neither file
-    documents this. Compare them naively and your answer is off by 10⁶.
+!!! warning "The GeoJSON `id` member is not used"
 
-!!! warning "`Region` is unaccented as a key, accented as a value"
-
-    The key is `"Region"`; the value is `"Región de Tarapacá"`. Code that
-    round-trips key names through a normaliser will not find the field.
-
-!!! warning "The GeoJSON `id` member is unreliable"
-
-    Present on 5 of 343 commune features, absent from all 16 regions. Values
-    are non-sequential and do not correspond to feature position. Use
-    `shapeID` in properties instead.
+    Identity lives in properties. Files in this repository do not rely on the
+    top-level `id` member, and consumers should not either.
 
 ## Regenerating this page
 
 Property lists are recorded per dataset in each
-[`manifest.json`](manifest.md). This page is currently maintained by hand;
-generating it from the manifests is on the [Roadmap](../about/roadmap.md).
+[`manifest.json`](manifest.md). This page is maintained by hand; generating it
+from the manifests is on the [Roadmap](../about/roadmap.md).
 
 --8<-- "abbreviations.md"

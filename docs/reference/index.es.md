@@ -27,22 +27,17 @@ Estas páginas usan **debe**, **debería** y **puede** en el sentido de
 [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119). "Debe" se aplica en la
 revisión y, donde es práctico, en CI.
 
-## Estado actual frente a estado objetivo
+## Los archivos heredados
 
-Aquí la honestidad importa más que la prolijidad: **los datos actuales de Chile
-todavía no siguen estas convenciones.** Son anteriores a ellas.
+Todo lo que hay bajo `data/` sigue estas convenciones. Los cuatro archivos que
+siguen en la raíz del repositorio — `regiones.geojson`, `comunas.geojson` y sus
+duplicados `.json` — no: son anteriores a las convenciones.
 
-| Convención | Chile hoy | Objetivo |
-|---|---|---|
-| Ubicación | `comunas.geojson` en la raíz | `data/earth/CHL/CHL_ADM3.geojson` |
-| Propiedad de nombre | `Comuna` | `shapeName` |
-| Propiedad de código | `cod_comuna` (entero, `1402`) | `shapeISO` (cadena, `01402`) |
-| Artefactos Esri | `objectid`, `st_area_sh`, `st_length_` | eliminados |
-| Miembro `bbox` | ausente | presente |
-| Precisión de coordenadas | ~14 decimales | 6 decimales |
+Se mantienen en su sitio, sin cambios, durante una versión mayor completa para
+que los enlaces profundos existentes sigan funcionando, y están **obsoletos**.
+Usa `data/earth/CHL/`.
 
-Cada página marca la distancia entre ambos. La migración es un cambio rompedor
-deliberado con ventana de obsolescencia — ver
-[Versionado y estabilidad](../about/versioning.md).
+Ver [Versionado y estabilidad](../about/versioning.md) para el calendario de
+retirada.
 
 --8<-- "abbreviations.md"

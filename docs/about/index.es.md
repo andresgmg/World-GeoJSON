@@ -30,15 +30,17 @@ convenciones, porque
 | | |
 |---|---|
 | Países | 1 (Chile) |
-| Datasets | 2 (ADM1, ADM3) |
+| Datasets | 3 (ADM1, ADM2, ADM3) |
+| Features | 417 |
 | Cuerpos | 1 de 3 previstos |
-| Documentación | Este sitio |
-| Convenciones de datos | Escritas, aún no aplicadas a los archivos existentes |
+| Licencia de datos | CC BY 4.0, fuente única |
 
-La distancia entre las convenciones escritas y los datos publicados es
-deliberada y está registrada. Ver [Hoja de ruta](roadmap.md), y
-[Referencia](../reference/index.md#estado-actual-frente-a-estado-objetivo) para
-las diferencias concretas.
+América es lo siguiente, y luego un continente por release. Ver
+[Hoja de ruta](roadmap.md).
+
+Los cuatro archivos heredados en la raíz del repositorio son anteriores a las
+convenciones y están obsoletos; ver
+[Versionado y estabilidad](versioning.md#los-archivos-heredados-de-la-raiz).
 
 ## Mantenimiento
 

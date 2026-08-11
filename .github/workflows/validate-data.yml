@@ -1,0 +1,53 @@
+name: Validate data
+
+on:
+  pull_request:
+    paths:
+      - "data/**"
+      - "scripts/build_manifest.py"
+      - "scripts/validate_data.py"
+      - ".github/workflows/validate-data.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-data-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate datasets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Unlike the docs workflow, this one genuinely needs the .geojson
+          # files: it re-derives every manifest from them.
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-docs.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-docs.txt
+
+      - name: Validate
+        run: python scripts/validate_data.py
+
+      - name: Check manifests are up to date
+        run: |
+          python scripts/build_manifest.py data/earth/*/
+          if ! git diff --quiet -- 'data/**/manifest.json'; then
+            echo "::error::A committed manifest disagrees with a fresh regeneration."
+            echo "Run: python scripts/build_manifest.py data/earth/<ISO3>"
+            git diff --stat -- 'data/**/manifest.json'
+            exit 1
+          fi
+          echo "manifests match a clean regeneration"

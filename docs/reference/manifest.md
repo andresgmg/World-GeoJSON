@@ -29,29 +29,84 @@ at all*.
   "name": { "en": "Chile", "es": "Chile" },
   "crs": { "authority": "OGC", "code": "CRS84", "epsg": 4326 },
   "source": {
-    "name": "Biblioteca del Congreso Nacional de Chile (BCN) / IDE Chile",
-    "url": "https://www.bcn.cl/siit/mapas_vectoriales",
-    "license": "CC-BY-3.0-CL",
-    "retrieved": "2023-05-01"
+    "name": "IDE Chile / SUBDERE — División Política Administrativa 2023",
+    "url": "https://www.geoportal.cl/",
+    "license": "CC-BY-4.0",
+    "retrieved": "2026-08-11"
   },
-  "status": "review",
-  "notes": "ADM2 (provincias) unavailable. 343 of 346 communes present.",
+  "status": "ok",
+  "notes": "345 communes, not the 346 in the official register: Antártica (12202) is absent because the DPA package excludes Chile's Antarctic claim.",
   "datasets": [
     {
       "level": "ADM1",
       "path": "data/earth/CHL/CHL_ADM1.geojson",
       "preview": "data/earth/CHL/preview/CHL_ADM1.preview.geojson",
-      "bytes": 3571959,
-      "preview_bytes": 148320,
-      "sha256": "…",
+      "bytes": 4814221,
+      "preview_bytes": 226499,
+      "sha256": "5cf4e9d8d34822d4…",
       "features": 16,
-      "bbox": [-109.4548, -56.5333, -66.4177, -17.4983],
-      "geometry_types": { "Polygon": 12, "MultiPolygon": 4 },
-      "properties": ["shapeName", "shapeISO", "shapeGroup", "shapeType"]
+      "bbox": [-109.449861, -56.525107, -66.416176, -17.498399],
+      "geometry_types": { "MultiPolygon": 10, "Polygon": 6 },
+      "properties": ["shapeName", "shapeISO", "shapeGroup", "shapeType"],
+      "simplification": { "method": "visvalingam", "tolerance_m": 100 }
     }
   ]
 }
 ```
+
+## Split levels
+
+The municipal level is split by ADM1 parent, so its entry carries a `parts`
+array instead of standing on a single file:
+
+```json
+{
+  "level": "ADM3",
+  "split_by": "ADM1",
+  "features": 345,
+  "path": "data/earth/CHL/CHL_ADM3.geojson",
+  "parts": [
+    {
+      "code": "CL-RM",
+      "path": "data/earth/CHL/ADM3/CL-RM.geojson",
+      "features": 52,
+      "bytes": 164329,
+      "sha256": "…",
+      "bbox": [-71.72, -34.30, -70.02, -32.92]
+    }
+  ]
+}
+```
+
+- `features` on the entry is the **whole level**, so the catalog can always
+  report a total whether or not a combined file exists.
+- `path` is the optional whole-country file, present only when it fits under
+  20 MB. Its absence is normal and the catalog says so.
+- `code` is the ADM1 parent's ISO 3166-2 code, or a name slug when no ISO code
+  is known.
+
+CI checks that the parts sum exactly to the level's feature count — that is how
+a split that lost or duplicated a municipality gets caught.
+
+## Simplification
+
+Every dataset records what was done to it:
+
+```json
+"simplification": { "method": "visvalingam", "tolerance_m": 100 }
+```
+
+`tolerance_m` is a **ground distance**, not a percentage. That is deliberate: a
+percentage keeps a fixed share of each file's vertices, so the resulting
+resolution depends on how densely the source happened to be digitised and two
+neighbouring countries end up at different fidelities. A distance gives the
+whole repository one consistent real-world resolution.
+
+The standard tolerance is **100 m**. Chile's 16 regions — one of the world's
+most complex coastlines — measure 49.7 MB at 10 m, 10.0 MB at 50 m, 4.6 MB at
+100 m and 1.6 MB at 250 m. A dataset that would still exceed the size ceiling at
+the standard tolerance gets a coarser one, and the value recorded here is always
+the value actually applied.
 
 ## Hand-authored versus generated
 

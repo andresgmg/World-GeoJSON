@@ -19,18 +19,56 @@ data/
 └─ earth/
    └─ CHL/
       ├─ manifest.json
-      ├─ CHL_ADM0.geojson
-      ├─ CHL_ADM1.geojson          # regiones
-      ├─ CHL_ADM3.geojson          # comunas
+      ├─ CHL_ADM1.geojson          # 16 regiones
+      ├─ CHL_ADM2.geojson          # 56 provincias
+      ├─ CHL_ADM3.geojson          # 345 comunas, whole country
+      ├─ ADM3/                     # …and split by region
+      │  ├─ CL-AP.geojson
+      │  ├─ CL-RM.geojson
+      │  └─ …
       └─ preview/
          ├─ CHL_ADM1.preview.geojson
+         ├─ CHL_ADM2.preview.geojson
          └─ CHL_ADM3.preview.geojson
 ```
 
-Chile has no `CHL_ADM2.geojson` because no open boundary file exists for its
-*provincias*. **Gaps in the level sequence are expected and allowed** — name
-each file for the level it actually represents rather than renumbering to close
-the gap.
+**Gaps in the level sequence are expected and allowed** — name each file for
+the level it actually represents rather than renumbering to close the gap.
+
+## The municipal level is split
+
+The deepest level this project publishes is the **municipal tier**, and it is
+always split into one file per ADM1 parent:
+
+```
+data/{body}/{CODE}/{LEVEL}/{parent code}.geojson
+```
+
+Brazil has 5,570 municipalities and Mexico 2,457; a single file per country
+would be tens of megabytes and unusable in a browser. Splitting by first-level
+division keeps every file small, lets consumers fetch only the state they care
+about, and keeps everything inside the CDN's 20 MB ceiling.
+
+The parent code is the ADM1 unit's **ISO 3166-2 code** where one is known
+(`CL-RM`, `CL-AP`). Where it is not — geoBoundaries frequently ships an empty
+`shapeISO` — the fallback is a slug of the ADM1 name, and `manifest.json`
+records the mapping so consumers never have to guess.
+
+### The whole-country file is conditional
+
+A combined file (`CHL_ADM3.geojson`) is published **only when it stays under
+20 MB**, because that is the largest file jsDelivr will serve. Above that, only
+the split files exist, and the dataset's catalog page says so explicitly.
+
+So: check the catalog page or the manifest rather than assuming a combined file
+exists.
+
+### `parentISO` is the immediate parent, not the file key
+
+A commune's `parentISO` names its *province* — the immediate parent in the
+official hierarchy — even though the file it lives in is keyed by *region*.
+Those are different things and both are useful, so both are recorded:
+`parentISO` for the hierarchy, `adm1ISO` for the file it belongs to.
 
 ## Rules
 

@@ -26,22 +26,15 @@ These pages use **must**, **should** and **may** in the
 [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) sense. "Must" is enforced in
 review and, where practical, in CI.
 
-## Current state versus target state
+## The legacy files
 
-Honesty matters more than tidiness here: **the existing Chile data does not yet
-follow these conventions.** It predates them.
+Everything under `data/` follows these conventions. The four files still sitting
+in the repository root — `regiones.geojson`, `comunas.geojson` and their `.json`
+duplicates — do not: they predate the conventions entirely.
 
-| Convention | Chile today | Target |
-|---|---|---|
-| Location | `comunas.geojson` at repo root | `data/earth/CHL/CHL_ADM3.geojson` |
-| Name property | `Comuna` | `shapeName` |
-| Code property | `cod_comuna` (integer, `1402`) | `shapeISO` (string, `01402`) |
-| Esri artifacts | `objectid`, `st_area_sh`, `st_length_` | removed |
-| `bbox` member | absent | present |
-| Coordinate precision | ~14 decimals | 6 decimals |
+They remain in place, unchanged, for one full major version so that existing
+deep links keep working, and they are **deprecated**. Use `data/earth/CHL/`.
 
-Each page marks the gap between the two. Migration is a deliberate breaking
-change with a deprecation window — see
-[Versioning & stability](../about/versioning.md).
+See [Versioning & stability](../about/versioning.md) for the removal schedule.
 
 --8<-- "abbreviations.md"

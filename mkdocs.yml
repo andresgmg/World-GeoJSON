@@ -74,9 +74,10 @@ theme:
     - navigation.top
     - navigation.footer
     # navigation.instant is deliberately OFF: it swaps the DOM via XHR, so
-    # DOMContentLoaded never fires again and Leaflet maps silently die on the
-    # second page view. assets/javascripts/geojson-map.js is written to
-    # survive it, but leave it off until maps are proven.
+    # DOMContentLoaded never fires again and Leaflet maps would silently die on
+    # the second page view. assets/javascripts/geojson-map.js subscribes to
+    # `document$` as well, so it would survive — but leave this off until the
+    # maps have proven themselves in production.
     - toc.follow
     - search.suggest
     - search.highlight
@@ -238,8 +239,16 @@ markdown_extensions:
 # Assets
 # ---------------------------------------------------------------------------
 
+# Leaflet is vendored rather than loaded from a CDN: no third-party runtime
+# dependency, it works offline under `mkdocs serve`, and --strict can verify
+# the asset actually exists.
 extra_css:
+  - assets/vendor/leaflet/leaflet.css
   - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/vendor/leaflet/leaflet.js
+  - assets/javascripts/geojson-map.js
 
 # ---------------------------------------------------------------------------
 # Extra — also read by scripts/gen_catalog.py

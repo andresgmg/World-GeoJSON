@@ -44,16 +44,52 @@ that groups by level.
     the manifest's `notes` field, and do not silently reshape the hierarchy to
     make it look tidy.
 
+## The municipal tier
+
+This project publishes three things per country: the outline (ADM0), the
+first-level divisions (ADM1), and the **municipal tier** — the level of local
+government people actually live in. It stops there.
+
+The municipal tier is a *semantic* target, not a level number, and its number
+varies:
+
+| Country | Municipal tier | Level |
+|---|---|---|
+| Chile | Comuna | **ADM3** |
+| Mexico | Municipio | ADM2 |
+| Brazil | Município | ADM2 |
+| United States | County | ADM2 |
+| Bolivia | Municipio | **ADM3** |
+| Haiti | Commune | **ADM3** |
+| Costa Rica | Cantón | ADM2 |
+
+Because it cannot be inferred from the data, the mapping is curated by hand in
+`scripts/countries.json` and is the one piece of this pipeline that will always
+need human judgement.
+
+Deeper levels — Panama's *corregimientos*, Costa Rica's *distritos* — are out
+of scope. They exist in few countries, the file sizes grow sharply, and almost
+nobody needs them.
+
+The municipal level is always **split into one file per ADM1 parent**; see
+[File & folder naming](naming.md#the-municipal-level-is-split).
+
 ## Coverage expectations
 
 - **ADM0 and ADM1 are the priority.** They are the levels most consumers need
   and the ones most reliably available under an open licence.
-- **ADM2 where a good source exists.**
-- **ADM3 is opportunistic.** Very few countries publish it openly, and the file
-  sizes grow quickly.
+- **The municipal tier where an openly licensed source exists.**
 
 A country entry with only ADM1 is welcome. Partial coverage is normal and the
 catalog shows exactly which levels exist for each entry.
+
+!!! warning "Level numbers are not consistent between sources either"
+
+    geoBoundaries' ADM numbering is assigned per country and does not always
+    match the official hierarchy — it publishes Guadeloupe at ADM4 only,
+    Puerto Rico with no ADM0 or ADM1, and Martinique at ADM3 and ADM4 with
+    nothing in between. Never assume ADM2 means the same thing in two
+    countries.
 
 ## Nesting must be consistent
 

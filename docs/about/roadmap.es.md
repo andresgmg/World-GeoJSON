@@ -13,20 +13,34 @@ Poner convenciones y tooling en su sitio antes de que crezcan los datos.
 - [x] Política de fronteras disputadas
 - [x] Generador de catálogo conectado a los manifiestos
 - [x] CI que construye y despliega el sitio
-- [ ] Reestructurar Chile a `data/earth/CHL/` con manifiestos
-- [ ] Aplicar el esquema estándar de propiedades a Chile
-- [ ] Minificar y recortar la precisión de los archivos existentes
-- [ ] Generación de previews y mapas interactivos
-- [ ] Workflow de validación de datos
+- [x] Pipeline de ingesta: descarga, normaliza, simplifica, parte, manifiesto y preview
+- [x] Chile desde la DPA 2023 de IDE Chile — ADM1, ADM2 y ADM3
+- [x] Generación de previews y mapas interactivos
+- [x] Workflow de validación de datos con lista blanca de licencias
 
-## Siguiente — Chile completo, luego Latinoamérica
+## Siguiente — América
 
+Los 57 territorios UN M49, en un PR para todo el continente.
+
+- [ ] ADM0 de cada territorio desde Natural Earth
+- [ ] ADM1 y tier municipal desde geoBoundaries, solo licencias permisivas
 - [ ] `CHL_ADM0` — el contorno nacional
-- [ ] Las tres comunas que faltan: Antártica, Isla de Pascua, Juan Fernández
-- [ ] `CHL_ADM2` — provincias, si se encuentra una fuente con licencia abierta
-- [ ] Argentina, Perú, Bolivia, Uruguay, Paraguay
+- [ ] Verificar los conteos sospechosos: Jamaica ADM2 (827 frente a 14
+      parroquias), Santa Lucía ADM2 (547 frente a 10 distritos), Bahamas
+      ADM1/ADM2 (32/34)
 - [ ] Plantillas de issue y PR para envío de países
 - [ ] Traducir al español las páginas generadas del catálogo
+
+### Huecos de cobertura conocidos
+
+Excluir las fuentes copyleft deja trece países de América sin un ADM1 que este
+proyecto pueda redistribuir: Colombia, Costa Rica, Cuba, Guatemala, Guyana,
+Honduras, Haití, Nicaragua, Panamá, Surinam, Trinidad y Tobago, Uruguay y San
+Vicente y las Granadinas. Sus entradas en geoBoundaries son ODbL.
+
+Cerrar un hueco significa encontrar un SDI nacional o una publicación de HDX con
+términos permisivos — no relajar la regla. Ver
+[Fuentes aprobadas](../contributing/sources.md).
 
 ## Más adelante — cobertura global
 
@@ -56,16 +70,11 @@ Registrados, no escondidos.
 
 | Problema | Dónde | Estado |
 |---|---|---|
-| 343 de 346 comunas | `comunas.geojson` | Siguiente |
-| Sin archivo de límites ADM2 (provincias) | Chile | Siguiente, si hay fuente |
-| Coordenadas con ~14 decimales | Ambos archivos | Ahora |
-| Con indentación, ~40% de sobrecoste de tamaño | Ambos archivos | Ahora |
-| Sin miembro `bbox` | Ambos archivos | Ahora |
-| `cod_comuna` como entero, pierde el cero inicial | `comunas.geojson` | Ahora |
-| `id` de GeoJSON en 5 de 343 features | `comunas.geojson` | Ahora |
-| Archivos `.json` duplicados | Raíz del repo | Ahora |
-| Unidades de área inconsistentes entre archivos | Ambos archivos | Ahora |
-| `Región de Aysén del Gral.Ibañez del Campo` malformado | `regiones.geojson` | Ahora |
+| Falta la comuna Antártica (12202) — 345 de 346 | Chile ADM3 | No se corrige; el paquete DPA oficial excluye la reclamación antártica |
+| 13 países sin ADM1 con licencia permisiva | América | Pendiente de fuente permisiva |
+| Asignación del tier municipal sin verificar en ~15 territorios | `scripts/countries.json` | Marcados `verify` y publicados como `review` |
+| Los distritos de Perú no están disponibles — geoBoundaries se detiene en provincias | Perú | Pendiente de fuente |
+| Archivos heredados aún en la raíz | `comunas.geojson` y compañía | Obsoletos, se retiran en la próxima mayor |
 
 ## No previsto
 

@@ -66,9 +66,11 @@ without written rules produces a pile of mutually incompatible files. The
 
 ## Current status
 
-Chile only: 16 regions and 343 communes, sourced from BCN / IDE Chile. The
-documentation, conventions and tooling described across this site are being put
-in place first, so that everything added afterwards arrives in a consistent
-shape. [Roadmap](about/roadmap.md) has the sequence.
+Chile, from IDE Chile's *División Política Administrativa* 2023: 16 regions, 56
+provinces and 345 communes, all under CC BY.
+
+The conventions and tooling came first on purpose, so that everything added
+afterwards arrives in a consistent shape. The Americas are next, one continent
+per release. [Roadmap](about/roadmap.md) has the sequence.
 
 --8<-- "abbreviations.md"

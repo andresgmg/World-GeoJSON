@@ -36,17 +36,24 @@ https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<path>
 `@main` follows the default branch, so an upstream boundary correction reaches
 your application unannounced.
 
-## The upcoming breaking change
+## The legacy root files
 
-Restructuring Chile's data into `data/earth/CHL/` with the standard property
-schema is a major change. Both the paths and the property names move:
+Chile now lives at `data/earth/CHL/` under the standard property schema, built
+from IDE Chile's DPA 2023. The old files remain at the repository root and are
+deprecated:
 
-| Today | Becomes |
+| Deprecated | Replacement |
 |---|---|
 | `/main/regiones.geojson` | `/main/data/earth/CHL/CHL_ADM1.geojson` |
 | `/main/comunas.geojson` | `/main/data/earth/CHL/CHL_ADM3.geojson` |
-| `properties.Region` | `properties.shapeName` |
-| `properties.cod_comuna` (number) | `properties.shapeISO` (string) |
+| `/main/regiones.json`, `/main/comunas.json` | — removed, use the `.geojson` paths |
+| `properties.Region` / `properties.Comuna` | `properties.shapeName` |
+| `properties.cod_comuna` (number) | `properties.shapeISO` (string, zero-padded) |
+
+The replacements are not byte-equivalent. They come from a different source
+(IDE Chile DPA 2023 rather than BCN's older vector set), carry a different
+property schema, and are simplified to a documented 100 m tolerance. Treat this
+as a migration, not a move.
 
 ### Deprecation window
 
