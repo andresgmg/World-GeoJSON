@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # Unlike the docs workflow, this one genuinely needs the .geojson
           # files: it re-derives every manifest from them.
