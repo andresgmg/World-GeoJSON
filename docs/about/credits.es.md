@@ -2,24 +2,36 @@
 
 ## Fuentes de datos
 
-**[Biblioteca del Congreso Nacional de Chile (BCN) / IDE Chile](https://www.bcn.cl/siit/mapas_vectoriales)**
-— los límites regionales y comunales con los que empezó este proyecto,
-incluidos los atributos de distrito electoral y circunscripción senatorial que
-vienen con ellos.
+Todo lo que hay bajo `data/` procede de una de tres fuentes. Cuál, y bajo qué
+licencia, se registra por dataset en los campos `license` y `src_provider` del
+manifiesto — ver [Licencias y atribución](license.md).
 
-## Fuentes recomendadas
-
-Aún no utilizadas, pero sobre las que este proyecto espera construir. Ambas son
-modelos de cómo deberían publicarse los datos geográficos abiertos:
-
+- **[Natural Earth](https://www.naturalearthdata.com/)** — los contornos de
+  país Admin 0 a escala 10m usados para **todos los ADM0** del repositorio.
+  Dominio público, mantenidos por voluntarios con apoyo de NACIS.
 - **[geoBoundaries](https://www.geoboundaries.org/)** (geoLab, William & Mary)
-  — límites ADM0–ADM3 abiertos para todos los países, bajo CC BY 4.0. El
-  vocabulario de propiedades de este proyecto (`shapeName`, `shapeISO`,
-  `shapeGroup`, `shapeType`) coincide con el suyo deliberadamente, para que los
-  datos se puedan mover entre ambos sin traducción.
-- **[Natural Earth](https://www.naturalearthdata.com/)** — datos vectoriales de
-  escala pequeña en dominio público, mantenidos por voluntarios con apoyo de
-  NACIS.
+  — el primer nivel y el tier municipal de todos los países salvo Chile. La
+  release `gbOpen` de geoBoundaries no es una licencia única: cada archivo
+  lleva la licencia de su proveedor original (un instituto nacional de
+  estadística, una agencia de la ONU, Wikimedia, …), y este proyecto toma solo
+  el subconjunto permisivo — CC BY 2.5, CC BY 3.0 IGO, CC BY 4.0, Etalab 2.0,
+  OGL Canada 2.0 y dominio público hoy. El proveedor original se acredita en
+  el `src_provider` de cada dataset. El vocabulario de propiedades de este
+  proyecto (`shapeName`, `shapeISO`, `shapeGroup`, `shapeType`) coincide con
+  el suyo deliberadamente, para que los datos se puedan mover entre ambos sin
+  traducción.
+- **[IDE Chile / SUBDERE](https://www.geoportal.cl/)** — la *División
+  Política Administrativa* 2023, bajo CC BY 4.0, para las regiones, provincias
+  y comunas de Chile.
+
+### Archivos heredados
+
+**[Biblioteca del Congreso Nacional de Chile (BCN)](https://www.bcn.cl/siit/mapas_vectoriales)**
+— los límites regionales y comunales con los que empezó este proyecto en 2023,
+incluidos los atributos de distrito electoral y circunscripción senatorial que
+vienen con ellos. Sobreviven solo como los obsoletos `regiones.geojson` y
+`comunas.geojson` en la raíz del repositorio; nada bajo `data/` deriva de
+ellos.
 
 ## Estándares
 
@@ -46,7 +58,8 @@ modelos de cómo deberían publicarse los datos geográficos abiertos:
 - **[GDAL/OGR](https://gdal.org/)** — conversión de formatos y reproyección.
 - **[Leaflet](https://leafletjs.com/)** — los mapas de preview.
 - **[ijson](https://github.com/ICRAR/ijson)** — parseo JSON en streaming, que
-  es lo que permite escanear un archivo de 70 MB en memoria constante.
+  es lo que permite al escáner de manifiestos leer los archivos más grandes en
+  memoria constante.
 - **[USGS Astrogeology](https://astrogeology.usgs.gov/)** — mapas base
   planetarios.
 

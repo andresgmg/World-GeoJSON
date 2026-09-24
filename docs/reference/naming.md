@@ -10,23 +10,26 @@ data/{body}/{CODE}/{CODE}_{LEVEL}.geojson
 |---|---|---|
 | `body` | Lowercase body name | `earth`, `moon`, `mars` |
 | `CODE` | Uppercase ISO 3166-1 alpha-3, or a body-specific code | `CHL`, `NZL`, `MARS` |
-| `LEVEL` | `ADM0`–`ADM3`, or `QUAD` for planetary quadrangles | `ADM2` |
+| `LEVEL` | `ADM0`–`ADM4`, or `QUAD` for planetary quadrangles | `ADM2` |
 
-Worked example:
+Worked example — this is what `data/earth/CHL/` actually contains:
 
 ```
 data/
 └─ earth/
    └─ CHL/
       ├─ manifest.json
+      ├─ CHL_ADM0.geojson          # country outline (Natural Earth)
       ├─ CHL_ADM1.geojson          # 16 regiones
       ├─ CHL_ADM2.geojson          # 56 provincias
       ├─ CHL_ADM3.geojson          # 345 comunas, whole country
       ├─ ADM3/                     # …and split by region
+      │  ├─ CL-AI.geojson
+      │  ├─ CL-AN.geojson
       │  ├─ CL-AP.geojson
-      │  ├─ CL-RM.geojson
-      │  └─ …
+      │  └─ … (16 files)
       └─ preview/
+         ├─ CHL_ADM0.preview.geojson
          ├─ CHL_ADM1.preview.geojson
          ├─ CHL_ADM2.preview.geojson
          └─ CHL_ADM3.preview.geojson
@@ -34,31 +37,62 @@ data/
 
 **Gaps in the level sequence are expected and allowed** — name each file for
 the level it actually represents rather than renumbering to close the gap.
+Guadeloupe and Martinique ship `GLP_ADM4.geojson` and `MTQ_ADM4.geojson` with
+nothing between ADM0 and ADM4, because that is the level at which geoBoundaries
+publishes their communes.
 
-## The municipal level is split
+## The municipal level is split by ADM1, when an ADM1 exists
 
-The deepest level this project publishes is the **municipal tier**, and it is
-always split into one file per ADM1 parent:
+The deepest level this project publishes is the **municipal tier**. Wherever
+the country also has an ADM1 in this repository, that tier is split into one
+file per ADM1 parent:
 
 ```
-data/{body}/{CODE}/{LEVEL}/{parent code}.geojson
+data/{body}/{CODE}/{LEVEL}/{ADM1 code}.geojson
 ```
 
 Brazil has 5,570 municipalities and Mexico 2,457; a single file per country
 would be tens of megabytes and unusable in a browser. Splitting by first-level
 division keeps every file small, lets consumers fetch only the state they care
-about, and keeps everything inside the CDN's 20 MB ceiling.
+about, and keeps everything inside the per-file size budget.
 
-The parent code is the ADM1 unit's **ISO 3166-2 code** where one is known
-(`CL-RM`, `CL-AP`). Where it is not — geoBoundaries frequently ships an empty
-`shapeISO` — the fallback is a slug of the ADM1 name, and `manifest.json`
-records the mapping so consumers never have to guess.
+Split levels exist today for ARG, BLZ, BOL, BRA, CHL, DOM, ECU, MEX, PRY and
+USA.
+
+**Fourteen territories have a municipal tier but no ADM1 to split it by**, so
+they ship the whole-country file only: COL, CRI, GLP, GTM, GUF, GUY, HND, HTI,
+MTQ, PAN, PRI, SLV, SUR and VIR. (Most of these are countries whose
+geoBoundaries ADM1 is copyleft; see the [Roadmap](../about/roadmap.md).)
+
+### Part codes
+
+The part code is the ADM1 unit's **ISO 3166-2 code** as the upstream source
+ships it (`CL-RM`, `US-CA`). The manifest's `parts[].code` records the mapping
+so consumers never have to guess. Two things to know:
+
+- **Upstream typos are passed through, not corrected.** geoBoundaries codes
+  South Dakota as `SU-SD` instead of `US-SD`, so its 66 counties live in
+  `USA/ADM2/SU-SD.geojson`. The USA manifest's `notes` says so; the file is
+  renamed in v1.0.0 along with the other `shapeISO` fixes.
+- **Units whose parent could not be determined** go to
+  `{LEVEL}/unassigned.geojson` rather than being dropped, and the manifest
+  records the count in `unassigned`. Today: ARG ADM2 (8 — the comunas of
+  Buenos Aires city, which the upstream ADM1 omits), BRA ADM2 (3) and USA
+  ADM2 (1).
+
+The pipeline falls back to a slug of the ADM1 name if the upstream code is
+empty; no part currently needs it.
 
 ### The whole-country file is conditional
 
 A combined file (`CHL_ADM3.geojson`) is published **only when it stays under
-20 MB**, because that is the largest file jsDelivr will serve. Above that, only
-the split files exist, and the dataset's catalog page says so explicitly.
+the 18 MiB per-file budget**, which keeps it below the 20 MB per-file limit
+that jsDelivr documents. Above that, only the split files exist, and the
+dataset's catalog page says so explicitly.
+
+Brazil is the live example: its combined ADM2 would be 33 MB, so
+`data/earth/BRA/` has an `ADM2/` folder with 28 parts and no
+`BRA_ADM2.geojson`. Chile's communes fit (7 MB), so both forms exist.
 
 So: check the catalog page or the manifest rather than assuming a combined file
 exists.
@@ -69,6 +103,10 @@ A commune's `parentISO` names its *province* — the immediate parent in the
 official hierarchy — even though the file it lives in is keyed by *region*.
 Those are different things and both are useful, so both are recorded:
 `parentISO` for the hierarchy, `adm1ISO` for the file it belongs to.
+
+Today only Chile carries `parentISO`; every split part carries `adm1ISO`. The
+v1.0.0 contract adds `parentID` and `adm1ISO` to every sub-national feature —
+see the [Property dictionary](properties.md).
 
 ## Rules
 
@@ -84,10 +122,10 @@ Those are different things and both are useful, so both are recorded:
 
 !!! note "Why not `.json` as well?"
 
-    The repository currently ships both `comunas.geojson` and `comunas.json`,
+    The repository root still ships both `comunas.geojson` and `comunas.json`,
     byte-identical. Git stores them as a single blob, so the duplication costs
     nothing in repository size — but it doubles the working tree, and it makes
-    the catalog ambiguous about which path is canonical. Going forward there is
+    the catalog ambiguous about which path is canonical. Under `data/` there is
     exactly one file per dataset.
 
 ## Why ISO 3166-1 alpha-3

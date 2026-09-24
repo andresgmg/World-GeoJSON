@@ -20,7 +20,7 @@ Cuatro consecuencias:
    mantiene el proyecto, ni la de quien contribuye, ni la de un gobierno. Si la
    fuente traza una línea en cierto sitio, ahí está la línea.
 3. **Los desacuerdos se documentan, no se resuelven.** Donde una frontera está
-   en disputa, el campo `notes` del dataset lo registra e identifica las
+   en disputa, el campo `notes` del manifiesto lo registra e identifica las
    reclamaciones en conflicto. Se avisa a quien usa los datos de que hay una
    disputa; no se le dice quién gana.
 4. **Las reclamaciones alternativas pueden publicarse en paralelo.** Cuando
@@ -60,26 +60,37 @@ débil, y ese es justamente el punto. Es una que este proyecto sí puede cumplir
 
 ## Casos ya presentes
 
-Los datos actuales de Chile contienen dos:
-
-- **El Territorio Antártico Chileno.** `Región de Magallanes y Antártica
-  Chilena` está presente en ADM1. La reclamación antártica de Chile se solapa
-  con las de Argentina y el Reino Unido, y el Tratado Antártico suspende todas
-  ellas. La geometría refleja lo que publica BCN.
+- **El Territorio Antártico Chileno.** La región `Magallanes y de la Antártica
+  Chilena` está presente en ADM1 y la provincia `Antártica Chilena` en ADM2,
+  pero la comuna Antártica (`12202`) no: el paquete DPA 2023 de IDE Chile
+  excluye la reclamación antártica, así que nada en los archivos actuales pasa
+  de los 56,6°S. La reclamación de Chile se solapa con
+  las de Argentina y el Reino Unido, y el Tratado Antártico suspende todas
+  ellas. La geometría refleja lo que publica IDE Chile. (Los archivos
+  heredados de la raíz, de BCN, son otro dataset.)
 - **Isla de Pascua / Rapa Nui.** No está disputada entre estados, pero la
-  denominación sí lo está localmente entre la forma española y la rapa nui. El
-  campo `shapeName` lleva la forma de la fuente; los nombres alternativos
-  pueden registrarse aparte.
+  denominación sí lo está localmente entre la forma española y la rapa nui. La
+  comuna está presente en ADM3; `shapeName` lleva la forma de la fuente,
+  `Isla de Pascua`.
+- **Islas Malvinas / Falkland Islands (`FLK`) y Georgias del Sur y Sandwich
+  del Sur (`SGS`).** La soberanía está en disputa entre el Reino Unido y
+  Argentina. Ambos publican solo el contorno ADM0, de Natural Earth, cuya
+  representación de facto se sigue. Los nombres de los manifiestos siguen
+  ISO 3166 en cada idioma (`Falkland Islands` / `Islas Malvinas`);
+  `shapeName` lleva la forma de Natural Earth. El `notes` de cada manifiesto
+  registra la disputa y remite a esta página.
 
-Ninguno está anotado hoy en un manifiesto, porque todavía no existen
-manifiestos. Ambos lo estarán cuando se reestructuren los datos.
+De los 55 manifiestos, `FLK` y `SGS` llevan hoy esa nota; el de Chile todavía
+no.
 
 ## Nombres
 
 Los topónimos están con frecuencia tan disputados como las líneas.
 
 - `shapeName` lleva el nombre que usa la fuente, en el idioma local.
-- `shapeNameEn` puede llevar un exónimo en inglés cuando sea de uso común.
+- Los `name.en` y `name.es` del manifiesto dan el nombre del territorio para
+  mostrar en cada idioma; no se guarda ningún exónimo en inglés como propiedad
+  de feature.
 - Los nombres alternativos o disputados van en `notes`, con su contexto.
 
 El proyecto no renombra features para favorecer la forma de una comunidad sobre

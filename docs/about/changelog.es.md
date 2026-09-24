@@ -6,6 +6,38 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Añadido — higiene de ingeniería
+
+- `pyproject.toml` con configuración de `ruff`, `mypy` y `pytest`, y una suite
+  `tests/` para los scripts del pipeline.
+- `justfile`, `.pre-commit-config.yaml` y `.editorconfig`.
+- Workflow de CI `ci.yml` que ejecuta lint y tests en cada pull request;
+  `validate-data` corre ahora también en los push a `main`.
+
+### Corregido — pipeline y sitio
+
+- El sitio de documentación perdió sus mapas de preview: el sparse checkout del
+  workflow de docs excluía los archivos de `preview/` desde los que se sirven.
+- `fetch_sources.py` descargaba el archivo de 297 MB de Chile para cualquier
+  alcance, no solo cuando se pedía Chile, y lo extraía incluso con `--dry-run`.
+- `build_data.py` salía con código 0 tras fallos.
+- `validate_data.py --help` ejecutaba la validación completa en vez de mostrar
+  la ayuda, y comprobaba las propiedades obligatorias solo en la primera feature
+  de cada archivo; ahora comprueba todas.
+- `gen_catalog.py` no detectaba un preview cambiado cuando el archivo nuevo
+  tenía el mismo tamaño que el anterior.
+- `make_previews.mjs` procesaba sus entradas en el orden del sistema de
+  archivos, así que la salida no era reproducible entre plataformas.
+
+### Documentación
+
+- Todas las páginas de Referencia y Acerca de alineadas con los datos tal como
+  se publican: el conjunto de propiedades realmente presente (`src_shape_id`,
+  dónde existen `adm1ISO` y `parentISO`; `shapeID` y `shapeNameEn` nunca
+  existieron), los campos reales del manifiesto, las reglas de partición y los
+  territorios sin partir, los cuatro niveles de Chile, los problemas conocidos
+  de `shapeISO` y la hoja de ruta hacia plataforma.
+
 ### Añadido — América
 
 - **55 territorios, 95 datasets, 16.195 features.** Contornos de país desde

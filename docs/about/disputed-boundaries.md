@@ -19,9 +19,9 @@ Four consequences:
    contributor's, not a government's. If the upstream source draws a line
    somewhere, that is where the line is.
 3. **Disagreements are documented, not resolved.** Where a boundary is
-   contested, the dataset's `notes` field records that fact and identifies the
-   competing claims. Users are told there is a dispute; they are not told who
-   wins.
+   contested, the manifest's `notes` field records that fact and identifies
+   the competing claims. Users are told there is a dispute; they are not told
+   who wins.
 4. **Alternative claims may be published side by side.** Where a well-sourced
    alternative delineation exists, it can be added as a separate dataset with
    its own source attribution — never by overwriting the existing one.
@@ -56,19 +56,27 @@ the point. It is one this project can actually honour.
 
 ## Cases already in scope
 
-Chile's existing data contains two:
+- **The Chilean Antarctic Territory.** The region `Magallanes y de la
+  Antártica Chilena` is present at ADM1 and the province `Antártica Chilena`
+  at ADM2, but the commune Antártica (`12202`) is not: IDE Chile's DPA 2023
+  package excludes the Antarctic claim, so nothing in the current files
+  reaches beyond 56.6°S. Chile's claim overlaps those of Argentina and
+  the United Kingdom, and the Antarctic Treaty suspends all such claims. The
+  geometry reflects what IDE Chile publishes. (The legacy root files, from
+  BCN, are a different dataset.)
+- **Isla de Pascua / Rapa Nui.** Not disputed between states, but the naming
+  is contested locally between the Spanish and Rapa Nui forms. The commune is
+  present at ADM3; `shapeName` carries the source's form, `Isla de Pascua`.
+- **Falkland Islands / Islas Malvinas (`FLK`) and South Georgia and the South
+  Sandwich Islands (`SGS`).** Sovereignty is disputed between the United
+  Kingdom and Argentina. Both ship an ADM0 outline only, from Natural Earth,
+  whose de-facto depiction is followed. Names in the manifests follow ISO
+  3166 in each language (`Falkland Islands` / `Islas Malvinas`); `shapeName`
+  carries Natural Earth's form. Each manifest's `notes` records the dispute
+  and points to this page.
 
-- **The Chilean Antarctic Territory.** `Región de Magallanes y Antártica
-  Chilena` is present at ADM1. Chile's Antarctic claim overlaps those of
-  Argentina and the United Kingdom, and the Antarctic Treaty suspends all such
-  claims. The geometry reflects what BCN publishes.
-- **Isla de Pascua / Rapa Nui.** Not disputed between states, but the naming is
-  contested locally between the Spanish and Rapa Nui forms. The `shapeName`
-  field carries the source's form; alternative names can be recorded
-  separately.
-
-Neither is currently annotated in a manifest, because no manifests exist yet.
-Both will be when the data is restructured.
+Of the 55 manifests, `FLK` and `SGS` carry such a note today; Chile's does not
+yet.
 
 ## Naming
 
@@ -76,7 +84,8 @@ Place names are frequently as contested as the lines.
 
 - `shapeName` carries the name used by the upstream source, in the local
   language.
-- `shapeNameEn` may carry an English exonym where one is in common use.
+- The manifest's `name.en` and `name.es` give the territory's display name per
+  language; no English exonym is stored as a feature property.
 - Alternative or contested names belong in `notes`, with their context.
 
 The project does not rename features to prefer one community's form over

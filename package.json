@@ -5,9 +5,13 @@
   "description": "Geometry tooling for the World GeoJSON data pipeline. Not published.",
   "type": "module",
   "scripts": {
-    "previews": "node scripts/make_previews.mjs"
+    "previews": "node scripts/make_previews.mjs",
+    "validate": "python scripts/validate_data.py"
   },
   "devDependencies": {
     "mapshaper": "0.6.109"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

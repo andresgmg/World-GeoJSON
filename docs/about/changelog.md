@@ -6,6 +6,37 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
+### Added — engineering hygiene
+
+- `pyproject.toml` with `ruff`, `mypy` and `pytest` configuration, and a
+  `tests/` suite for the pipeline scripts.
+- `justfile`, `.pre-commit-config.yaml` and `.editorconfig`.
+- CI workflow `ci.yml` running lint and tests on every pull request;
+  `validate-data` now also runs on pushes to `main`.
+
+### Fixed — pipeline and site
+
+- The docs site lost its preview maps: the docs workflow's sparse checkout
+  excluded the `preview/` files the maps are served from.
+- `fetch_sources.py` downloaded the 297 MB Chile archive for every scope, not
+  only when Chile was requested, and extracted it even under `--dry-run`.
+- `build_data.py` exited 0 after failures.
+- `validate_data.py --help` ran the whole validation instead of printing help,
+  and checked the required properties on the first feature of each file only;
+  it now checks every feature.
+- `gen_catalog.py` missed a changed preview when the new file had the same size
+  as the old one.
+- `make_previews.mjs` processed its inputs in filesystem order, so output was
+  not reproducible across platforms.
+
+### Docs
+
+- Every page under Reference and About brought in line with the data as
+  shipped: the property set actually present (`src_shape_id`, where `adm1ISO`
+  and `parentISO` exist; `shapeID` and `shapeNameEn` never did), the real
+  manifest fields, the split rules and unsplit territories, Chile's four
+  levels, the known `shapeISO` issues, and the platform roadmap.
+
 ### Added — the Americas
 
 - **55 territories, 95 datasets, 16,195 features.** Country outlines from

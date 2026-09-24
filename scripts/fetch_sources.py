@@ -28,9 +28,7 @@ REPO = Path(__file__).resolve().parents[1]
 CACHE = REPO / ".cache" / "sources"
 COUNTRIES = {
     k: v
-    for k, v in json.loads(
-        (REPO / "scripts" / "countries.json").read_text("utf-8")
-    ).items()
+    for k, v in json.loads((REPO / "scripts" / "countries.json").read_text("utf-8")).items()
     if not k.startswith("$")  # drop the `$comment` block
 }
 
@@ -40,8 +38,7 @@ NE_ADM0 = (
     "geojson/ne_10m_admin_0_countries.geojson"
 )
 IDE_CHILE_DPA = (
-    "https://geoportal.cl/geoportal/catalog/download/"
-    "912598ad-ac92-35f6-8045-098f214bd9c2"
+    "https://geoportal.cl/geoportal/catalog/download/912598ad-ac92-35f6-8045-098f214bd9c2"
 )
 
 CONTINENTS = {
@@ -106,7 +103,7 @@ def fetch(url: str, dest: Path, expect_json: bool = False) -> None:
     if expect_json:
         try:
             json.loads(data)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             raise RuntimeError(f"not valid JSON: {exc}") from exc
 
     dest.write_bytes(data)
@@ -122,8 +119,9 @@ def geoboundaries_catalogue() -> list[dict]:
 
 def plan(iso3s: set[str]) -> tuple[list[dict], list[dict]]:
     """Decide what to take. Returns (accepted, rejected)."""
-    accepted, rejected = [], []
-    wanted_levels = {}
+    accepted: list[dict] = []
+    rejected: list[dict] = []
+    wanted_levels: dict[str, set[str]] = {}
     for iso3 in iso3s:
         entry = COUNTRIES[iso3]
         levels = {"ADM1"}
@@ -132,17 +130,17 @@ def plan(iso3s: set[str]) -> tuple[list[dict], list[dict]]:
         wanted_levels[iso3] = levels
 
     for rec in geoboundaries_catalogue():
-        iso3 = rec.get("boundaryISO")
+        code = rec.get("boundaryISO")
         level = rec.get("boundaryType")
-        if iso3 not in iso3s or level not in wanted_levels.get(iso3, ()):
+        if code not in iso3s or level not in wanted_levels.get(code, ()):
             continue
         # Chile is taken from IDE Chile instead; see build_data.build_chile.
-        if COUNTRIES[iso3].get("source") != "geoboundaries":
+        if COUNTRIES[code].get("source") != "geoboundaries":
             continue
 
         ident = spdx(rec.get("boundaryLicense", ""))
         row = {
-            "iso3": iso3,
+            "iso3": code,
             "level": level,
             "license_text": rec.get("boundaryLicense", ""),
             "license": ident,
@@ -174,7 +172,6 @@ def main() -> int:
     if unknown:
         raise SystemExit(f"not in countries.json: {', '.join(sorted(unknown))}")
 
-    CACHE.mkdir(parents=True, exist_ok=True)
     print(f"{len(iso3s)} territories in scope\n")
 
     # One global public-domain file supplies every country outline.
@@ -182,31 +179,36 @@ def main() -> int:
     if args.dry_run:
         print(f"ADM0 would fetch Natural Earth 10m -> {ne.name}\n")
     elif ne.exists():
-        print(f"ADM0 Natural Earth already cached ({ne.stat().st_size/1024/1024:.0f} MB)")
+        print(f"ADM0 Natural Earth already cached ({ne.stat().st_size / 1024 / 1024:.0f} MB)")
     else:
         print("ADM0 fetching Natural Earth 10m admin-0 (~13 MB)")
         fetch(NE_ADM0, ne, expect_json=True)
 
-    if "CHL" in iso3s or COUNTRIES.get("CHL", {}).get("source") == "ide-chile":
+    # Only when Chile is actually in scope. The 297 MB DPA archive is Chile's
+    # alone; pulling it for `--iso3 USA` would be a pointless download.
+    if "CHL" in iso3s and COUNTRIES["CHL"].get("source") == "ide-chile":
         dpa = CACHE / "DPA_2023.zip"
+        target = CACHE / "DPA_2023"
         if args.dry_run:
             print(f"CHL  would fetch IDE Chile DPA 2023 -> {dpa.name}\n")
-        elif dpa.exists():
-            print(f"CHL  DPA 2023 already cached ({dpa.stat().st_size/1024/1024:.0f} MB)")
         else:
-            print("CHL  fetching IDE Chile DPA 2023 (~297 MB)")
-            fetch(IDE_CHILE_DPA, dpa)
-        target = CACHE / "DPA_2023"
-        if dpa.exists() and not target.exists():
-            with zipfile.ZipFile(dpa) as z:
-                z.extractall(target)
-            print(f"     extracted to {target.relative_to(REPO)}")
+            if dpa.exists():
+                print(f"CHL  DPA 2023 already cached ({dpa.stat().st_size / 1024 / 1024:.0f} MB)")
+            else:
+                print("CHL  fetching IDE Chile DPA 2023 (~297 MB)")
+                fetch(IDE_CHILE_DPA, dpa)
+            if not target.exists():
+                with zipfile.ZipFile(dpa) as z:
+                    z.extractall(target)
+                print(f"     extracted to {target.relative_to(REPO)}")
 
     accepted, rejected = plan(iso3s)
 
     print(f"\nAccepted ({len(accepted)}):")
     for r in sorted(accepted, key=lambda x: (x["iso3"], x["level"])):
-        print(f"  {r['iso3']} {r['level']:<5} {r['license']:<16} {r['units']:>6} units")
+        # admUnitCount is occasionally null upstream; a `?` beats a TypeError.
+        units = "?" if r["units"] is None else str(r["units"])
+        print(f"  {r['iso3']} {r['level']:<5} {r['license']:<16} {units:>6} units")
 
     if rejected:
         print(f"\nRejected on licence ({len(rejected)}):")
@@ -228,8 +230,8 @@ def main() -> int:
             continue
         try:
             fetch(r["url"], dest, expect_json=True)
-            print(f"  fetched {dest.name} ({dest.stat().st_size/1024/1024:.1f} MB)")
-        except Exception as exc:  # noqa: BLE001
+            print(f"  fetched {dest.name} ({dest.stat().st_size / 1024 / 1024:.1f} MB)")
+        except Exception as exc:
             failures += 1
             print(f"  !! {r['iso3']} {r['level']}: {exc}", file=sys.stderr)
 

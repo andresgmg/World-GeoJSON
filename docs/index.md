@@ -1,6 +1,6 @@
 # World GeoJSON
 
-Open, versioned GeoJSON administrative boundaries — starting with Chile,
+Open, versioned GeoJSON administrative boundaries — the Americas today,
 growing toward every country on Earth, and eventually to the Moon and Mars.
 
 Every dataset here is plain [RFC 7946](https://www.rfc-editor.org/rfc/rfc7946)
@@ -34,11 +34,18 @@ it: fetch a URL and you have boundaries.
 
 ```js
 const url =
-  "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/regiones.geojson";
+  "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/earth/CHL/CHL_ADM1.geojson";
 
 const regions = await fetch(url).then((r) => r.json());
 console.log(regions.features.length); // 16
+console.log(regions.features.map((f) => f.properties.shapeName));
+// ["Coquimbo", "Ñuble", "Los Lagos", …]
 ```
+
+Every dataset sits at `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` and carries
+the same four properties — `shapeName`, `shapeISO`, `shapeGroup`,
+`shapeType` — so the snippet works for any country in the
+[Catalog](catalog/index.md).
 
 ## What this project is
 

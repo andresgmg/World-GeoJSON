@@ -31,6 +31,7 @@ check the .geojson files out at all.
 
 from __future__ import annotations
 
+import filecmp
 import json
 import logging
 import shutil
@@ -48,6 +49,8 @@ LEVELS = {
     "ADM1": "First-level divisions",
     "ADM2": "Second-level divisions",
     "ADM3": "Third-level divisions",
+    # Guadeloupe and Martinique publish their communes as ADM4 upstream.
+    "ADM4": "Fourth-level divisions",
     "QUAD": "Quadrangles",
 }
 
@@ -146,9 +149,7 @@ def render_dataset(out: list[str], manifest: dict, ds: dict, up: str, cdn: str, 
     if simp.get("tolerance_m"):
         out.append(f"| Simplification | {simp['tolerance_m']} m tolerance |")
     if ds.get("unassigned"):
-        out.append(
-            f"| Unassigned | {ds['unassigned']} feature(s) have no parent upstream |"
-        )
+        out.append(f"| Unassigned | {ds['unassigned']} feature(s) have no parent upstream |")
     if ds.get("sha256"):
         out.append(f"| SHA-256 | `{ds['sha256'][:16]}…` |")
     out.append("")
@@ -169,8 +170,7 @@ def render_dataset(out: list[str], manifest: dict, ds: dict, up: str, cdn: str, 
             path = p.get("path")
             link = f"[`{code}.geojson`]({cdn}/{path})" if path else "—"
             out.append(
-                f"| `{code}` | {p.get('features', 0):,} "
-                f"| {human_bytes(p.get('bytes'))} | {link} |"
+                f"| `{code}` | {p.get('features', 0):,} | {human_bytes(p.get('bytes'))} | {link} |"
             )
         out.append("")
 
@@ -219,9 +219,7 @@ def render_country(manifest: dict, up: str, cdn: str, raw: str) -> str:
 
     crs = manifest.get("crs", {})
     src = manifest.get("source") or {}
-    licenses = src.get("licenses") or (
-        [src["license"]] if src.get("license") else ["unknown"]
-    )
+    licenses = src.get("licenses") or ([src["license"]] if src.get("license") else ["unknown"])
     out.append(
         "**Licence:** "
         + ", ".join(f"`{v}`" for v in licenses)
@@ -274,9 +272,7 @@ def render_index(coverage: list[dict]) -> str:
 
     datasets = sum(len(c["levels"]) for c in coverage)
     bodies = len({c["body"] for c in coverage})
-    out.append(
-        f"{len(coverage)} entries · {datasets} datasets · {bodies} bodies.\n"
-    )
+    out.append(f"{len(coverage)} entries · {datasets} datasets · {bodies} bodies.\n")
     out.append(
         "Every page below is generated from that dataset's `manifest.json`. "
         "To correct a fact, edit the manifest — not the page.\n"
@@ -306,14 +302,13 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
     nav_lines: list[str] = []
     _EDIT_TARGETS.clear()
 
-    grouped: dict[tuple[str, str], list[tuple[str, Path, dict]]] = {}
+    # (body label, group) -> [((title, url), title, page path)]
+    grouped: dict[tuple[str, str], list[tuple[tuple[str, str], str, Path]]] = {}
 
     # Sort on the string, not the Path: WindowsPath compares case-insensitively
     # while PosixPath does not, and the generated pages must not depend on
     # which machine ran the build.
-    for manifest_path in sorted(
-        DATA.glob("*/*/manifest.json"), key=lambda p: p.as_posix()
-    ):
+    for manifest_path in sorted(DATA.glob("*/*/manifest.json"), key=lambda p: p.as_posix()):
         manifest = json.loads(manifest_path.read_text("utf-8"))
         body = manifest["body"]
         code = (manifest.get("iso_a3") or manifest.get("code", "")).lower()
@@ -343,9 +338,9 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
         # catalog/<body>/<group>/<code>.md sits three directories below the
         # docs root, so links back out need three levels of `../`.
         wanted[catalog / rel] = render_country(manifest, "../../../", cdn, raw)
-        _EDIT_TARGETS[(Path("catalog") / rel).as_posix()] = (
-            manifest_path.relative_to(REPO).as_posix()
-        )
+        _EDIT_TARGETS[(Path("catalog") / rel).as_posix()] = manifest_path.relative_to(
+            REPO
+        ).as_posix()
 
         # Sort key is (title, path) only. Including the manifest dict would
         # make sorted() fall through to comparing dicts whenever two entries
@@ -364,19 +359,11 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
                 # single country-level claim: a territory whose only dataset is
                 # a public-domain outline must not read as CC BY.
                 "license": ", ".join(
-                    sorted(
-                        {
-                            d["license"]
-                            for d in manifest.get("datasets", [])
-                            if d.get("license")
-                        }
-                    )
+                    sorted({d["license"] for d in manifest.get("datasets", []) if d.get("license")})
                 )
                 or (manifest.get("source") or {}).get("license", "unknown"),
                 "levels": [d.get("level", "?") for d in manifest.get("datasets", [])],
-                "features": sum(
-                    d.get("features", 0) for d in manifest.get("datasets", [])
-                ),
+                "features": sum(d.get("features", 0) for d in manifest.get("datasets", [])),
             }
         )
 
@@ -410,9 +397,10 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
 
     # Copy previews only when they differ, for the same reason as
     # write_if_changed: `mkdocs serve` watches docs_dir and unconditional
-    # writes would retrigger the build forever.
+    # writes would retrigger the build forever. Compare contents, not sizes:
+    # a regenerated preview can change every coordinate and keep its length.
     for dest, src in assets.items():
-        if dest.exists() and dest.stat().st_size == src.stat().st_size:
+        if dest.exists() and filecmp.cmp(src, dest, shallow=False):
             continue
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(src, dest)

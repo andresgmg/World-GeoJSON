@@ -4,30 +4,42 @@ Hay tres formas de obtener un archivo. No son intercambiables.
 
 ## CDN de jsDelivr
 
-Rápido, cacheado globalmente, con cabeceras CORS correctas. **Lo mejor para
-navegadores.**
+Rápido, cacheado globalmente, con cabeceras CORS correctas — cuando sirve el
+repositorio.
 
 ```
 https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@main/<ruta>
 ```
 
-!!! danger "Límite duro de 20 MB"
+!!! danger "jsDelivr puede rechazar este repositorio"
 
-    jsDelivr se niega a servir archivos de más de **20 MB**. El archivo de
-    comunas de Chile pesa 70 MB, así que la ruta CDN sencillamente no existe
-    para él — obtienes un error, no una descarga lenta. Usa raw GitHub para
-    archivos grandes, o los archivos de preview simplificados, que están
-    construidos precisamente para quedar muy por debajo de este límite.
+    jsDelivr documenta dos límites para su endpoint de GitHub: **20 MB por
+    archivo** y **150 MB por repositorio**. Todos los archivos bajo `data/`
+    están por debajo del primero — el más grande pesa 14,9 MB, y los niveles
+    que lo superarían se parten por ADM1. El repositorio en conjunto supera
+    actualmente el segundo, así que jsDelivr puede negarse a servirlo. Trata
+    el CDN como una optimización que probar, no como una dependencia: las URLs
+    raw de GitHub son la ruta fiable hoy, y los assets de la GitHub Release lo
+    serán a partir de v1.0.0.
+
+    El `comunas.geojson` heredado de 72 MB en la raíz del repositorio supera
+    el límite por archivo en cualquier caso. Usa
+    `data/earth/CHL/CHL_ADM3.geojson`.
 
 **Fija una etiqueta en producción.** `@main` sigue la rama por defecto, así que
 una corrección de límites que se mergee aguas arriba cambia lo que recibe tu
 aplicación, en silencio.
 
-=== "Fijado (recomendado)"
+=== "Fijado (cuando exista la etiqueta v1.0.0)"
 
     ```
     https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<ruta>
     ```
+
+    Todavía no hay ninguna etiqueta — `v1.0.0` es lo siguiente previsto, ver
+    la [Hoja de ruta](../about/roadmap.md). Hasta entonces solo resuelve
+    `@main`. A partir de v1.0.0, los zips por país adjuntos a la GitHub
+    Release son la descarga fijada recomendada.
 
 === "Última versión"
 
@@ -47,14 +59,28 @@ Pero **no es un CDN**: sin caché de borde, y con límite de peticiones. Bien
 para desarrollo, scripts y descargas desde servidor; mal para tráfico de
 navegador en producción.
 
+## Previews
+
+Para un mapa en el navegador rara vez quieres el archivo completo. Cada
+dataset tiene un compañero simplificado en
+
+```
+data/earth/{ISO3}/preview/{ISO3}_{LEVEL}.preview.geojson
+```
+
+— como máximo 2 MB y normalmente unos cientos de KB, coordenadas con cuatro
+decimales y solo `shapeName`, `shapeISO` y `shapeType` — servido desde las
+mismas URLs que los archivos completos y apto para cargarlo directamente. Las
+345 comunas de Chile pesan 425 KB como preview frente a 7 MB completas.
+
 ## Git
 
 Para trabajar con los datos localmente o en un pipeline.
 
-El tamaño empaquetado del repositorio es de solo unos 8,5 MB — el JSON con
-indentación comprime aproximadamente 9:1 — así que un clon completo es más
-rápido de lo que sugieren los tamaños de archivo. Lo lento es hacer checkout de
-148 MB de working tree que quizá no necesitas.
+El pack del repositorio pesa unos 56 MiB y el working tree unos 309 MB —
+164 MB bajo `data/` y casi todo el resto los cuatro archivos heredados de la
+raíz. Un clon completo no es enorme, pero un sparse checkout de un solo país es
+bastante más pequeño.
 
 === "Todo"
 
@@ -89,8 +115,10 @@ rápido de lo que sugieren los tamaños de archivo. Lo lento es hacer checkout d
 
 ## Checksums
 
-Cada página de dataset publica un SHA-256 de su archivo. Verifica una descarga
-con:
+Cada página del catálogo muestra los primeros 16 caracteres hexadecimales del
+SHA-256 del archivo; el hash completo está en el `manifest.json` del país, en
+`datasets[].sha256` y, para los niveles partidos, en `parts[].sha256`.
+Verifica una descarga con:
 
 === "PowerShell"
 
@@ -108,8 +136,8 @@ con:
 
     Git normaliza los finales de línea al hacer checkout. En Windows, un
     `.geojson` con CRLF es un byte por línea más grande que el mismo archivo en
-    Linux — para el archivo de comunas de Chile eso son 1,8 MB de diferencia, y
-    un hash completamente distinto.
+    Linux — para el `comunas.geojson` heredado de 72 MB, con una coordenada
+    por línea, eso son 1,8 MB de diferencia y un hash completamente distinto.
 
     El `.gitattributes` del repositorio fija `*.geojson` a LF precisamente para
     que los checksums publicados coincidan en todas partes. Si tu hash no

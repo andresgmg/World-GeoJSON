@@ -5,63 +5,74 @@ page.
 
 ## Why previews exist
 
-Full-resolution boundary data cannot be displayed in a browser. Chile's
-communes file is 70 MB; loading it means 70 MB over the network, several
-hundred megabytes of JavaScript heap after `JSON.parse`, and tens of seconds of
-blocked main thread. On a phone that is a crashed tab, not a slow map.
+Full-resolution boundary data cannot be displayed in a browser. Files under
+`data/` are already simplified to a 100 m tolerance and still run to 5–15 MB —
+Chile's communes are 7 MB, Canada's provinces 14.9 MB. Loading one means that
+much over the network, a multiple of it in JavaScript heap after `JSON.parse`,
+and a blocked main thread while it parses. On a phone that is a crashed tab,
+not a slow map.
 
-Separately, **jsDelivr refuses files over 20 MB**, so the CDN path does not
-exist for large files at all.
+Separately, **jsDelivr refuses files over 20 MB** and may refuse a repository
+over 150 MB, so the CDN path is not something a catalog map can depend on.
 
 And a 420-pixel-tall map cannot render 11-centimetre precision anyway. The
 detail is not being lost — it was never visible.
 
 ## Generating
 
-```powershell
-node scripts\make_previews.mjs data/earth/CHL
+```bash
+node scripts/make_previews.mjs data/earth/CHL
+npm run previews                              # every country
 ```
 
-Which runs, per dataset:
+Run it **before** `build_manifest.py`: the manifest records a preview's path
+and size only if the file already exists.
+
+For each level the script runs mapshaper, starting at 5% of vertices:
 
 ```bash
 npx mapshaper data/earth/CHL/CHL_ADM3.geojson \
-  -simplify percentage=2% keep-shapes \
+  -simplify percentage=5% keep-shapes \
   -filter-fields shapeName,shapeISO,shapeType \
-  -o precision=0.0001 format=geojson \
+  -o precision=0.0001 bbox format=geojson \
      data/earth/CHL/preview/CHL_ADM3.preview.geojson
 ```
 
-Three reductions compound:
+and then, while the result is over 800 KB, halves the percentage — 2.5%,
+1.25%, 0.625% — down to a floor of 0.2%. A split level is built from its
+combined file, or from the parts merged together when there is none (Brazil
+ADM2), so the preview covers the whole country.
 
 | Step | Effect |
 |---|---|
-| `-simplify percentage=2%` | Visvalingam simplification, keeping 2% of vertices |
+| `-simplify percentage=5%` | Visvalingam simplification, keeping 5% of vertices |
 | `keep-shapes` | Prevents small polygons collapsing to nothing |
 | `-filter-fields` | Keeps only what the tooltip needs |
 | `precision=0.0001` | ~11 m, ample for a small map |
 
-Typical result: 70 MB → 300–800 KB.
+Typical result: 7 MB → 425 KB for Chile's 345 communes; 4.8 MB → 226 KB for
+its 16 regions.
 
 ## Size budget
 
 | Threshold | Meaning |
 |---|---|
-| under 800 KB | Target |
-| 800 KB – 2 MB | Acceptable for unusually complex geometry |
-| over 2 MB | **CI fails.** Simplify harder |
+| under 800 KB | Target — the script stops halving here |
+| 800 KB – 2 MB | Acceptable for unusually complex geometry that is still over target at 0.2% |
+| over 2 MB | **Rejected.** `make_previews.mjs` refuses to write it, and `validate_data.py` fails CI |
 
-If a preview will not come under budget at 2%, drop to 1% or 0.5%. Complex
-coastlines — Chile, Norway, Indonesia, Greece — need more aggressive settings
-than compact countries.
+A preview still over 2 MB at 0.2% means the source geometry is unusually
+dense; the fix is upstream, in the source file's simplification tolerance,
+not in the preview.
 
 ## Check the result
 
 Simplification is lossy and its failure modes are visual, so look at it.
 
 - **Islands disappearing.** `keep-shapes` prevents whole polygons vanishing,
-  but a multipolygon can still lose small members. Compare feature counts
-  before and after: they must match exactly.
+  but a multipolygon can still lose small members. The script compares the
+  feature count against the source and refuses to write a preview that
+  dropped any — but a multipolygon member is not a feature, so look.
 - **Slivers and self-intersections.** Aggressive simplification can make
   adjacent boundaries cross, leaving visible gaps or overlaps between units.
 - **Disconnected coastlines.** Look for units that no longer touch their
@@ -71,15 +82,18 @@ Simplification is lossy and its failure modes are visual, so look at it.
 npx mapshaper data/earth/CHL/preview/CHL_ADM3.preview.geojson -info
 ```
 
-Feature count must equal the source. If it does not, the simplification dropped
-geometry and the settings are too aggressive.
-
 ## Previews are committed
 
-They are small, deterministic build artifacts, and committing them means the
-documentation site needs no build step over the data. Regenerate them whenever
-the source file changes — CI checks that they exist and are within budget, and
-[`manifest.json`](../reference/manifest.md) records their size.
+They are small build artifacts, and committing them means the documentation
+site needs no build step over the data. They are deterministic as long as the
+inputs are processed in a fixed order, which the script does — levels and
+split parts sorted by name — so regenerating from unchanged sources yields
+unchanged bytes.
+
+Regenerate them whenever the source file changes. `validate_data.py` treats a
+dataset with no preview recorded as a warning (the catalog map is empty), and
+a recorded preview that is missing or over 2 MB as an error;
+[`manifest.json`](../reference/manifest.md) records the path and size.
 
 ## Static thumbnails
 

@@ -126,18 +126,25 @@ function processCountry(dir) {
   const previewDir = join(dir, "preview");
   const levels = new Map();
 
-  for (const name of readdirSync(dir)) {
+  // Sorted explicitly: readdirSync order is filesystem-defined, and NTFS
+  // (case-insensitive) and ext4 (bytewise) disagree on where a lowercase
+  // `unassigned.geojson` sits among uppercase `US-XX.geojson` parts. The
+  // merge order decides feature order in the preview, so the preview bytes
+  // must not depend on which machine generated them.
+  for (const name of readdirSync(dir).sort()) {
     const full = join(dir, name);
     const m = LEVEL_FILE.exec(name);
     if (m && statSync(full).isFile()) {
+      // A combined file wins over the parts when both exist: it holds the
+      // same features and a single input is the cheaper merge. Parts are
+      // the fallback for levels published without one (Brazil ADM2).
       levels.set(m[2], [full]);
     } else if (statSync(full).isDirectory() && LEVEL_DIR.test(name)) {
       const parts = readdirSync(full)
         .filter((f) => f.endsWith(".geojson"))
+        .sort()
         .map((f) => join(full, f));
-      // A split level's parts are the source of truth; prefer them over the
-      // optional combined file so the preview always covers the whole country.
-      if (parts.length) levels.set(name, parts);
+      if (parts.length && !levels.has(name)) levels.set(name, parts);
     }
   }
 
@@ -159,6 +166,7 @@ const args = process.argv.slice(2);
 const targets = args.length
   ? args.map((a) => resolve(REPO, a))
   : readdirSync(DATA)
+      .sort()
       .map((d) => join(DATA, d))
       .filter((d) => statSync(d).isDirectory());
 

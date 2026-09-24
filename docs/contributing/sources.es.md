@@ -94,8 +94,9 @@ cualquier otro:
 
 ## Los huecos de cobertura son aceptables; las violaciones de licencia no
 
-Excluir copyleft deja agujeros visibles — trece países de América no tienen un
-ADM1 abierto que este proyecto pueda redistribuir. Es el intercambio correcto.
+Excluir copyleft deja agujeros visibles — 15 países de América no tienen ADM1
+aquí porque su ADM1 de geoBoundaries es copyleft (13 ODbL, 2 CC-BY-SA) y aún
+no se ha encontrado una alternativa permisiva. Es el intercambio correcto.
 
 Los huecos se registran en la [Hoja de ruta](../about/roadmap.md) como
 "pendiente de fuente permisiva", y la forma de cerrar uno es encontrar un SDI
@@ -117,10 +118,11 @@ Cada `manifest.json` debe llevar un bloque `source` completo:
 - `license` **debe** ser un identificador SPDX de la lista blanca de arriba.
 - `retrieved` importa: los límites cambian, y conocer la añada es como un
   consumidor decide si dos datasets se pueden combinar con seguridad.
-- `license_note` es opcional y es donde van las condiciones que acompañan a una
-  concesión — por ejemplo, la cartografía oficial chilena circula bajo la
-  Resolución N°50 de 2019 de DIFROL, que pide que los productos derivados sean
-  revisados igualmente.
+- El campo `notes` del manifest (una sola línea) es donde van las condiciones
+  que acompañan a una concesión — por ejemplo, la cartografía oficial chilena
+  circula bajo la Resolución N°50 de 2019 de DIFROL, que pide que los
+  productos derivados sean revisados igualmente. (No existe un campo
+  `license_note` aparte.)
 
 ## Si tienes dudas
 

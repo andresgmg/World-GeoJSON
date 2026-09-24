@@ -93,8 +93,9 @@ else:
 
 ## Coverage gaps are acceptable; licence violations are not
 
-Excluding copyleft leaves visible holes — thirteen Americas countries have no
-open ADM1 that this project can redistribute. That is the correct trade.
+Excluding copyleft leaves visible holes — 15 Americas countries have no ADM1
+here because their geoBoundaries ADM1 is copyleft (13 ODbL, 2 CC-BY-SA) and
+no permissive alternative has been found yet. That is the correct trade.
 
 Gaps are recorded on the [Roadmap](../about/roadmap.md) as "awaiting a
 permissive source", and the way to close one is to find a national SDI or HDX
@@ -116,10 +117,10 @@ Every `manifest.json` must carry a complete `source` block:
 - `license` **must** be an SPDX identifier from the allow-list above.
 - `retrieved` matters: boundaries change, and knowing the vintage is how a
   consumer decides whether two datasets can safely be combined.
-- `license_note` is optional and is where conditions that travel with a grant
-  belong — for example, Chilean official cartography circulates under
-  Resolución N°50 de 2019 of DIFROL, which asks that derived products be
-  reviewed equally.
+- The manifest's single-line `notes` field is where conditions that travel
+  with a grant belong — for example, Chilean official cartography circulates
+  under Resolución N°50 de 2019 of DIFROL, which asks that derived products
+  be reviewed equally. (There is no separate `license_note` field.)
 
 ## If you are unsure
 

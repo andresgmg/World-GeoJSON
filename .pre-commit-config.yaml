@@ -1,0 +1,24 @@
+# Optional local hooks. `pip install pre-commit && pre-commit install`.
+# CI runs the same ruff and mypy configuration from pyproject.toml.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.8
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: end-of-file-fixer
+        exclude: ^data/
+      - id: trailing-whitespace
+        exclude: ^data/
+        args: [--markdown-linebreak-ext=md]
+      - id: check-yaml
+      - id: check-json
+        # GeoJSON is one feature per line and can be tens of MB; leave it alone.
+        exclude: ^data/.*\.geojson$
+      - id: check-added-large-files
+        args: [--maxkb=20480]

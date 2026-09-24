@@ -1,0 +1,53 @@
+# Tooling configuration for the pipeline scripts.
+#
+# There is no installable package yet — turning scripts/ into one is the next
+# refactor (see docs/about/roadmap.md). This file only configures ruff, mypy
+# and pytest so that scripts/ and tests/ share a single set of rules, locally
+# and in .github/workflows/ci.yml.
+#
+#   pip install -r requirements-dev.txt
+#   ruff check . && ruff format --check . && mypy && pytest
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["data", "docs", "site", "node_modules", ".cache", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = [
+  # Em dashes and accented characters in messages and comments are deliberate.
+  "RUF001",
+  "RUF002",
+  "RUF003",
+]
+
+[tool.ruff.lint.isort]
+# scripts/ is a directory of top-level modules, not a package.
+known-first-party = [
+  "build_data",
+  "build_manifest",
+  "fetch_sources",
+  "gen_catalog",
+  "validate_data",
+]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["scripts", "tests"]
+mypy_path = "scripts"
+explicit_package_bases = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+# ijson ships no type stubs and the MkDocs hook signatures are untyped.
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts"]
+addopts = "-ra"
+markers = [
+  "mapshaper: needs Node and mapshaper (npm install); skipped when absent",
+]

@@ -23,18 +23,28 @@ Este proyecto no puede conceder derechos que no tiene. Un dataset obtenido bajo
 CC BY 4.0 sigue siendo CC BY 4.0 diga lo que diga esta página, y su requisito
 de atribución te alcanza a ti.
 
-La página de catálogo de cada dataset nombra su fuente y su licencia. Cada
-`manifest.json` las registra:
+La licencia se registra **por dataset**, porque los niveles de un mismo país
+vienen habitualmente de proveedores distintos: el contorno de Brasil es dominio
+público, sus estados CC BY 2.5 y sus municipios CC BY 3.0 IGO. Cada
+`manifest.json` lleva `datasets[].license`, y consolida los valores distintos
+en `source.license` — `"mixed"` más una lista `licenses` cuando difieren.
+Chile, abreviado:
 
 ```json
 "source": {
-  "name": "geoBoundaries",
-  "url": "https://www.geoboundaries.org/",
-  "license": "CC-BY-4.0",
-  "retrieved": "2026-08-10"
-}
+  "name": "IDE Chile / SUBDERE — División Política Administrativa 2023",
+  "url": "https://www.geoportal.cl/",
+  "license": "mixed",
+  "retrieved": "2026-08-11",
+  "licenses": ["CC-BY-4.0", "public-domain"]
+},
+"datasets": [
+  { "level": "ADM0", "license": "public-domain", "src_provider": "Natural Earth", "…": "…" },
+  { "level": "ADM1", "license": "CC-BY-4.0", "…": "…" }
+]
 ```
 
+La página de catálogo de cada dataset también nombra su fuente y su licencia.
 **Consulta la página del dataset antes de redistribuir.** No hay una respuesta
 única para todo el repositorio, y nunca la habrá.
 
@@ -42,22 +52,25 @@ La página de catálogo de cada dataset nombra su fuente y su licencia. Cada
 
 Todos los datasets aquí están bajo una licencia **permisiva** — CC BY, CC0,
 dominio público o equivalente. Las fuentes share-alike quedan excluidas, y el CI
-aplica la [lista blanca](../contributing/sources.md#la-lista-blanca).
+aplica la [lista blanca](../contributing/sources.md#la-lista-blanca) a cada
+`datasets[].license` y a cada entrada de `source.licenses`.
 
 El motivo es ODbL en concreto. Define una *Base de Datos Derivada*, y mezclar un
 solo dataset ODbL en esta colección colocaría discutiblemente la colección
 entera bajo ODbL — cambiando los términos para todos los consumidores
 existentes sin que se enteren. No es un intercambio que este proyecto vaya a
 hacer, aunque cueste cobertura real: un tercio de las entradas de América de
-geoBoundaries quedan descartadas por esta vía.
+geoBoundaries quedan descartadas por esta vía, y 15 países no tienen ADM1 aquí
+por ello.
 
 Los huecos se registran en la [Hoja de ruta](roadmap.md). Se cierran encontrando
 una fuente permisiva, no relajando la regla.
 
 ## Condiciones que acompañan a una concesión
 
-Algunas licencias abiertas llegan con obligaciones más allá de la atribución, y
-esas se registran en `source.license_note` del manifiesto.
+Algunas licencias abiertas llegan con obligaciones más allá de la atribución.
+Esas van en el campo `notes` del manifiesto, junto a la fuente a la que se
+aplican — el manifiesto no tiene un campo aparte para notas de licencia.
 
 Chile es el ejemplo actual. La DPA 2023 de IDE Chile se publica como CC BY, pero
 la cartografía subyacente circula bajo la **Resolución N°50 de 2019 de DIFROL**,
@@ -74,10 +87,16 @@ este proyecto:
 > Límites de [nombre de la fuente], vía World GeoJSON
 > (<https://github.com/andresgmg/World-GeoJSON>), bajo licencia [licencia].
 
-Para los datos actuales de Chile:
+Para los datos actuales de Chile bajo `data/earth/CHL/`:
 
-> Límites de la Biblioteca del Congreso Nacional de Chile (BCN) / IDE Chile,
-> vía World GeoJSON.
+> Límites de IDE Chile / SUBDERE (División Política Administrativa 2023,
+> CC BY 4.0) y Natural Earth, vía World GeoJSON.
+
+Para los `regiones.geojson` y `comunas.geojson` heredados de la raíz del
+repositorio:
+
+> Límites de la Biblioteca del Congreso Nacional de Chile (BCN), vía World
+> GeoJSON.
 
 ## Cita
 
@@ -99,7 +118,8 @@ Al contribuir, confirmas que:
 
 1. Tienes derecho a aportar los datos.
 2. La licencia de origen permite la redistribución, incluido el uso comercial.
-3. El bloque `source` del manifiesto es exacto y completo.
+3. El bloque `source` y cada `datasets[].license` del manifiesto son exactos y
+   completos.
 
 Ver [Fuentes aprobadas y licencias](../contributing/sources.md) para saber qué
 es aceptable — y en concreto por qué **GADM no lo es**.
@@ -108,7 +128,7 @@ es aceptable — y en concreto por qué **GADM no lo es**.
 
 Estos límites se ofrecen tal cual. No son aptos para fines legales, de
 navegación ni catastrales. Se sabe que el número de features es incompleto en
-algunos casos — Chile incluye 343 de 346 comunas — y la exactitud de la
+algunos casos — Chile incluye 345 de 346 comunas — y la exactitud de la
 geometría es la que aportara la fuente original.
 
 ## Fronteras disputadas

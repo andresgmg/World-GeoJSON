@@ -8,6 +8,7 @@
 | **ADM1** | First-level divisions |
 | **ADM2** | Second-level divisions |
 | **ADM3** | Third-level divisions |
+| **ADM4** | Fourth-level divisions — published only where the upstream source puts the municipal tier there (Guadeloupe and Martinique today) |
 
 These follow the semantics used by
 [geoBoundaries](https://www.geoboundaries.org/) and GADM, so datasets from this
@@ -17,8 +18,9 @@ project can be cross-referenced against them without a translation step.
 
 This is the rule that causes the most confusion, so it is worth stating
 plainly: **ADM1 does not mean "province".** It means "whatever the first level
-of subdivision is in this country". The local term is recorded separately in
-the manifest.
+of subdivision is in this country". The local term is recorded separately, as
+`adm1_term` and `municipal_term` in `scripts/countries.json` — not in the
+manifests.
 
 | Country | ADM1 | ADM2 | ADM3 |
 |---|---|---|---|
@@ -62,6 +64,7 @@ varies:
 | Bolivia | Municipio | **ADM3** |
 | Haiti | Commune | **ADM3** |
 | Costa Rica | Cantón | ADM2 |
+| Guadeloupe, Martinique | Commune | **ADM4** |
 
 Because it cannot be inferred from the data, the mapping is curated by hand in
 `scripts/countries.json` and is the one piece of this pipeline that will always
@@ -71,8 +74,11 @@ Deeper levels — Panama's *corregimientos*, Costa Rica's *distritos* — are ou
 of scope. They exist in few countries, the file sizes grow sharply, and almost
 nobody needs them.
 
-The municipal level is always **split into one file per ADM1 parent**; see
-[File & folder naming](naming.md#the-municipal-level-is-split).
+The municipal level is **split into one file per ADM1 parent wherever an ADM1
+exists**. Fourteen territories have a municipal tier but no ADM1 here (mostly
+because their geoBoundaries ADM1 is copyleft), so they ship a single
+whole-country file instead; see
+[File & folder naming](naming.md#the-municipal-level-is-split-by-adm1-when-an-adm1-exists).
 
 ## Coverage expectations
 
@@ -98,25 +104,36 @@ Where multiple levels are provided for one country:
 - Every ADM2 feature **must** nest inside exactly one ADM1 feature.
 - The union of ADM1 features **should** equal the ADM0 outline, within the
   tolerance of the source geometry.
-- Features **must** carry a reference to their parent — see
-  [Property schema](schema.md).
+- Features **should** carry a reference to their parent. Today only Chile's
+  do (`parentISO`); elsewhere the split parts carry `adm1ISO`, derived by a
+  largest-overlap spatial join because geoBoundaries ships no parent
+  reference. The v1.0.0 contract makes `parentID` and `adm1ISO` mandatory on
+  every sub-national feature — see [Property schema](schema.md).
 
 Do not mix vintages. Boundaries change: a 2019 ADM1 file combined with a 2024
 ADM2 file will not nest, and the mismatch is difficult to detect visually.
-Record the vintage in the manifest.
+Record the vintage in the manifest (`src_year`).
 
-## The Chile gap
+## Chile, level by level
 
-Chile's current data has a documented hole worth knowing about:
+Chile is the one country with the full ladder, and it is worth knowing exactly
+what is there:
 
-- 343 communes are present; **346** exist officially. The missing three are the
-  usual omissions from this source — Antártica, Isla de Pascua and Juan
-  Fernández.
-- **ADM2 is missing entirely.** The `Provincia` property is populated on every
-  commune feature, so the middle tier can be *read*, but no provincial boundary
-  file exists and so it cannot be drawn. Chile therefore currently jumps from
-  ADM1 straight to ADM3.
+| Level | File | Contents | Source |
+|---|---|---|---|
+| ADM0 | `CHL_ADM0.geojson` | Country outline | Natural Earth 10m |
+| ADM1 | `CHL_ADM1.geojson` | 16 regions | IDE Chile / SUBDERE DPA 2023 |
+| ADM2 | `CHL_ADM2.geojson` | 56 provinces | IDE Chile / SUBDERE DPA 2023 |
+| ADM3 | `CHL_ADM3.geojson` + `ADM3/` (16 parts) | 345 communes | IDE Chile / SUBDERE DPA 2023 |
 
-Both are tracked on the [Roadmap](../about/roadmap.md).
+- **345 of 346 communes.** Only Antártica (`12202`) is absent: the DPA package
+  excludes Chile's Antarctic claim, so this is an upstream choice, not a
+  processing loss. Isla de Pascua and Juan Fernández are present.
+- The provincial tier exists as drawable geometry, not just as a property on
+  each commune — each commune's `parentISO` points at its province's
+  `shapeISO`.
+
+The legacy root files (BCN, 343 communes, no provinces) are the older dataset
+this replaces; see [Versioning & stability](../about/versioning.md).
 
 --8<-- "abbreviations.md"

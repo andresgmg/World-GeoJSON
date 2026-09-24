@@ -1,6 +1,6 @@
 # World GeoJSON
 
-Open, versioned GeoJSON administrative boundaries — starting with Chile,
+Open, versioned GeoJSON administrative boundaries — the Americas today,
 growing toward every country on Earth, and eventually the Moon and Mars.
 
 **📖 Documentation: <https://andresgmg.github.io/World-GeoJSON/>**
@@ -13,48 +13,65 @@ growing toward every country on Earth, and eventually the Moon and Mars.
 
 ```js
 const url =
-  "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/regiones.geojson";
+  "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/earth/CHL/CHL_ADM1.geojson";
 
 const regions = await fetch(url).then((r) => r.json());
 console.log(regions.features.length); // 16
+console.log(regions.features.map((f) => f.properties.shapeName));
+// ["Coquimbo", "Ñuble", "Los Lagos", …]
 ```
+
+Every dataset lives at the same kind of path and carries the same four
+properties — `shapeName`, `shapeISO`, `shapeGroup`, `shapeType` — so code
+written against one country works against all of them.
 
 ## What is here
 
-| File | Features | Size |
-|---|---|---|
-| `regiones.geojson` | 16 Chilean regions (ADM1) | 3.5 MB |
-| `comunas.geojson` | 343 Chilean communes (ADM3) | 70 MB |
+| | |
+|---|---|
+| **Coverage** | The Americas: 55 territories, 95 datasets, 16,195 features |
+| **Layout** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` with `LEVEL` from `ADM0` to `ADM4`, plus `manifest.json` (sizes, SHA-256, licence) and `preview/` (simplified, at most 2 MB) per country |
+| **Sizes** | Largest file 14.9 MB (`CAN_ADM1`); nothing over 20 MB. Municipal tiers that would be bigger are split by ADM1 into `{LEVEL}/{code}.geojson` |
+| **Sources** | Natural Earth (every ADM0), geoBoundaries gbOpen under permissive licences only (ADM1 and municipal tiers), IDE Chile / SUBDERE DPA 2023 (Chile) |
 
-Source: Biblioteca del Congreso Nacional de Chile (BCN) / IDE Chile.
+The [Catalog](https://andresgmg.github.io/World-GeoJSON/catalog/) lists every
+dataset with feature counts, bounding boxes, properties and download links.
+
+### Legacy files (deprecated)
+
+The four files in the repository root predate the catalog. They are an older
+BCN dataset with their own property names (`Region`, `Comuna`, `cod_comuna`,
+`area_km`), kept only so that existing links keep working.
+
+| Legacy file | Use instead |
+|---|---|
+| `regiones.geojson` (3.5 MB) and its duplicate `regiones.json` | `data/earth/CHL/CHL_ADM1.geojson` |
+| `comunas.geojson` (72 MB) and its duplicate `comunas.json` | `data/earth/CHL/CHL_ADM3.geojson` (7 MB) |
 
 > [!WARNING]
-> `comunas.geojson` is 70 MB. Do not load it directly in a browser — it will
-> crash the tab on mobile. See
-> [Get started](https://andresgmg.github.io/World-GeoJSON/get-started/) for
-> simplification recipes.
+> `comunas.geojson` is 72 MB. Do not load it in a browser — it crashes the tab
+> on mobile. The replacement is 7 MB, and its preview under 500 KB.
 
-> [!NOTE]
-> `comunas.json` and `regiones.json` are byte-identical duplicates of the
-> `.geojson` files and are **deprecated**. Use the `.geojson` paths.
+All four stay unchanged through the 1.x series and are removed in v2.0.0. See
+[Versioning](https://andresgmg.github.io/World-GeoJSON/about/versioning/).
 
 ## Where things are going
 
-The repository is being restructured from a flat, Chile-only data drop into a
-documented, multi-country catalog:
+1. **Data contract v1** — one `data/index.json` listing every file with bytes,
+   SHA-256, bbox and licence; JSON Schemas under `schemas/`; a stable Feature
+   `id` (`{ISO3}:{LEVEL}:{code}`) and `parentID`/`adm1ISO` on every
+   sub-national feature; tag `v1.0.0` with a GitHub Release of per-country zips.
+2. **Pipeline as a package** — an installable Python package with a `wgj` CLI,
+   tests and fixtures.
+3. **Client libraries** — Python `world-geojson` (PyPI) and TypeScript
+   `@world-geojson/core` (npm): thin clients that read `index.json` at a pinned
+   data version, download on demand and verify checksums.
+4. **Framework adapters** — `@world-geojson/react`, `/leaflet`, `/maplibre`.
 
-```
-data/{body}/{ISO3}/{ISO3}_{LEVEL}.geojson
-```
-
-The conventions that make that possible — folder layout, administrative
-levels, property schema, CRS policy, licensing rules — are written up in the
-[Reference](https://andresgmg.github.io/World-GeoJSON/reference/) section
-**before** the data grows, so that contributions arrive in a consistent shape.
-
-The current root-level files stay where they are, unchanged, for one full
-major version. Existing links will not break without notice. See
-[Versioning](https://andresgmg.github.io/World-GeoJSON/about/versioning/).
+Other continents follow the same pipeline. There is no hosted API, tile
+service or geocoder, and no historical boundaries. The
+[Roadmap](https://andresgmg.github.io/World-GeoJSON/about/roadmap/) has the
+detail.
 
 ## Contributing
 
@@ -65,6 +82,10 @@ is not.
 
 Then follow
 [Add a country](https://andresgmg.github.io/World-GeoJSON/contributing/add-a-country/).
+
+To run the checks locally: `pip install -r requirements-dev.txt`, then
+`ruff check . && mypy && pytest` for the code and
+`python scripts/validate_data.py` for the data. See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Licence
 
@@ -77,45 +98,89 @@ Code is [MIT](LICENSE). **Data is licensed per source** — see
 
 # World GeoJSON <sub>(español)</sub>
 
-Límites administrativos en GeoJSON, abiertos y versionados — empezando por
-Chile, con el objetivo de cubrir todos los países del mundo y, más adelante,
-la Luna y Marte.
+Límites administrativos en GeoJSON, abiertos y versionados — hoy América,
+creciendo hacia todos los países del mundo y, más adelante, la Luna y Marte.
 
 **📖 Documentación: <https://andresgmg.github.io/World-GeoJSON/es/>**
 
+## Inicio rápido
+
+```js
+const url =
+  "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/earth/CHL/CHL_ADM1.geojson";
+
+const regiones = await fetch(url).then((r) => r.json());
+console.log(regiones.features.length); // 16
+console.log(regiones.features.map((f) => f.properties.shapeName));
+// ["Coquimbo", "Ñuble", "Los Lagos", …]
+```
+
+Todos los datasets viven en el mismo tipo de ruta y llevan las mismas cuatro
+propiedades — `shapeName`, `shapeISO`, `shapeGroup`, `shapeType` — así que el
+código escrito para un país sirve para todos.
+
 ## Qué hay aquí
 
-| Archivo | Features | Tamaño |
-|---|---|---|
-| `regiones.geojson` | 16 regiones de Chile (ADM1) | 3,5 MB |
-| `comunas.geojson` | 343 comunas de Chile (ADM3) | 70 MB |
+| | |
+|---|---|
+| **Cobertura** | América: 55 territorios, 95 datasets, 16.195 features |
+| **Estructura** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` con `LEVEL` de `ADM0` a `ADM4`, más `manifest.json` (tamaños, SHA-256, licencia) y `preview/` (simplificados, como máximo 2 MB) por país |
+| **Tamaños** | El archivo más grande pesa 14,9 MB (`CAN_ADM1`); ninguno supera 20 MB. Los niveles municipales que lo superarían se parten por ADM1 en `{LEVEL}/{código}.geojson` |
+| **Fuentes** | Natural Earth (todos los ADM0), geoBoundaries gbOpen solo con licencias permisivas (ADM1 y niveles municipales), IDE Chile / SUBDERE DPA 2023 (Chile) |
 
-Fuente: Biblioteca del Congreso Nacional de Chile (BCN) / IDE Chile.
+El [Catálogo](https://andresgmg.github.io/World-GeoJSON/es/catalog/) lista cada
+dataset con número de features, bounding box, propiedades y enlaces de
+descarga.
+
+### Archivos heredados (obsoletos)
+
+Los cuatro archivos de la raíz del repositorio son anteriores al catálogo. Son
+un dataset más antiguo (BCN) con sus propios nombres de propiedades (`Region`,
+`Comuna`, `cod_comuna`, `area_km`) y se conservan solo para que los enlaces
+existentes sigan funcionando.
+
+| Archivo heredado | Usa en su lugar |
+|---|---|
+| `regiones.geojson` (3,5 MB) y su duplicado `regiones.json` | `data/earth/CHL/CHL_ADM1.geojson` |
+| `comunas.geojson` (72 MB) y su duplicado `comunas.json` | `data/earth/CHL/CHL_ADM3.geojson` (7 MB) |
 
 > [!WARNING]
-> `comunas.geojson` pesa 70 MB. No lo cargues directamente en el navegador —
-> en móvil revienta la pestaña.
+> `comunas.geojson` pesa 72 MB. No lo cargues en el navegador — en móvil
+> revienta la pestaña. El reemplazo pesa 7 MB, y su preview menos de 500 KB.
 
-> [!NOTE]
-> `comunas.json` y `regiones.json` son duplicados byte a byte de los
-> `.geojson` y están **obsoletos**. Usa las rutas `.geojson`.
+Los cuatro se mantienen sin cambios durante la serie 1.x y se eliminan en
+v2.0.0. Ver
+[Versionado](https://andresgmg.github.io/World-GeoJSON/es/about/versioning/).
 
 ## Hacia dónde va
 
-El repositorio se está reestructurando desde un volcado plano de datos solo de
-Chile hacia un catálogo documentado y multipaís. Las convenciones que lo hacen
-posible — estructura de carpetas, niveles administrativos, esquema de
-propiedades, política de CRS, reglas de licencias — se escriben **antes** de
-que crezcan los datos, para que las contribuciones lleguen con una forma
-consistente.
+1. **Contrato de datos v1** — un único `data/index.json` que lista cada archivo
+   con bytes, SHA-256, bbox y licencia; JSON Schemas en `schemas/`; un `id` de
+   Feature estable (`{ISO3}:{LEVEL}:{código}`) y `parentID`/`adm1ISO` en cada
+   feature subnacional; etiqueta `v1.0.0` con una GitHub Release de zips por
+   país.
+2. **Pipeline como paquete** — un paquete Python instalable con CLI `wgj`,
+   tests y fixtures.
+3. **Bibliotecas cliente** — `world-geojson` en Python (PyPI) y
+   `@world-geojson/core` en TypeScript (npm): clientes ligeros que leen
+   `index.json` de una versión de datos fijada, descargan bajo demanda y
+   verifican checksums.
+4. **Adaptadores** — `@world-geojson/react`, `/leaflet`, `/maplibre`.
 
-Los archivos actuales en la raíz se mantienen sin cambios durante una versión
-mayor completa. Los enlaces existentes no se romperán sin aviso.
+Los demás continentes siguen el mismo pipeline. No hay API alojada, servidor
+de teselas ni geocodificador, y no hay límites históricos. La
+[Hoja de ruta](https://andresgmg.github.io/World-GeoJSON/es/about/roadmap/)
+tiene el detalle.
 
 ## Contribuir
 
 **Verifica primero la licencia de tu fuente.** GADM, la fuente global más
-cómoda, no es utilizable aquí.
+cómoda, no es utilizable aquí. Después sigue
+[Añadir un país](https://andresgmg.github.io/World-GeoJSON/es/contributing/add-a-country/).
+
+Para ejecutar las comprobaciones en local: `pip install -r requirements-dev.txt`,
+después `ruff check . && mypy && pytest` para el código y
+`python scripts/validate_data.py` para los datos. Ver [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Licencia
 
