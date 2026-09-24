@@ -4,7 +4,17 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.1.0/). El
 versionado sigue [Semantic Versioning](https://semver.org/lang/es/) adaptado a
 datos según [Versionado y estabilidad](versioning.md).
 
-## [1.0.0] — Sin publicar
+## Sin publicar
+
+### Eliminado
+
+- El sitio de documentación ya no muestra sellos de "última actualización"
+  ni genera tarjetas de previsualización social (Open Graph). Entre ambos
+  costaban GitPython, Cairo, Pillow, un paso `apt` y un clon con historial
+  completo en cada build; la cadena de docs baja de 46 a unos 30 paquetes y
+  CI usa un clon superficial.
+
+## [1.0.0] — 2026-09-24
 
 La primera release etiquetada, cortada desde `main` en cuanto se mergee el
 contrato de datos. Todo lo de esta sección va en ella: el contrato, la higiene

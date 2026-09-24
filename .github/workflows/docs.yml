@@ -9,7 +9,7 @@ on:
       - "schemas/**"
       - "scripts/**"
       - "mkdocs.yml"
-      - "requirements-docs*.txt"
+      - "requirements-docs.txt"
       - "data/**/manifest.json"
       - ".github/workflows/docs.yml"
   pull_request:
@@ -31,12 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          # git-revision-date-localized needs the full commit graph...
-          fetch-depth: 0
-          # ...but not every historical version of a 70 MB GeoJSON blob.
-          # blob:none makes this a partial clone: blobs are fetched lazily,
-          # only when something actually reads them.
-          filter: blob:none
+          fetch-depth: 1
           # The docs build reads no full-resolution GeoJSON — scripts/
           # gen_catalog.py works from manifest.json sidecars — but it does
           # copy each dataset's small preview next to its catalog page for
@@ -56,34 +51,10 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: |
-            requirements-docs.txt
-            requirements-docs-ci.txt
-
-      - name: Install image libraries for social cards
-        run: |
-          # `|| true`: the runner image carries third-party apt sources
-          # (azure-cli, and others) that intermittently 403, which fails the
-          # whole update even though every package below comes from Ubuntu
-          # main. If a package is genuinely unavailable, the install still
-          # fails loudly on the next line.
-          sudo apt-get update -qq || true
-          sudo apt-get install -y --no-install-recommends \
-            libcairo2-dev libfreetype6-dev libffi-dev \
-            libjpeg-dev libpng-dev libz-dev pngquant
+          cache-dependency-path: requirements-docs.txt
 
       - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements-docs-ci.txt
-
-      - name: Restore social card cache
-        uses: actions/cache@v6
-        with:
-          path: .cache
-          key: mkdocs-social-${{ hashFiles('mkdocs.yml') }}-${{ github.sha }}
-          restore-keys: |
-            mkdocs-social-${{ hashFiles('mkdocs.yml') }}-
+        run: pip install -r requirements-docs.txt
 
       - name: Check the previews were checked out
         run: |
@@ -97,10 +68,6 @@ jobs:
           fi
 
       - name: Build
-        env:
-          # Enables the `social` plugin, which is gated off locally so that
-          # Windows contributors do not need the Cairo native library.
-          CI: "true"
         run: mkdocs build --strict
 
       - name: Check the site carries the preview maps
