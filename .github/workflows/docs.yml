@@ -36,14 +36,17 @@ jobs:
           # blob:none makes this a partial clone: blobs are fetched lazily,
           # only when something actually reads them.
           filter: blob:none
-          # And the docs build reads no GeoJSON at all — scripts/gen_catalog.py
-          # works exclusively from manifest.json sidecars. So check the
-          # manifests out and skip the data itself. Non-cone patterns are
+          # The docs build reads no full-resolution GeoJSON — scripts/
+          # gen_catalog.py works from manifest.json sidecars — but it does
+          # copy each dataset's small preview next to its catalog page for
+          # the interactive map. So check out the manifests and the previews
+          # (8 MB in total) and skip the data itself. Non-cone patterns are
           # gitignore-style and later lines win.
           sparse-checkout: |
             /*
             !/data/**
             /data/**/manifest.json
+            /data/**/preview/*.preview.geojson
           sparse-checkout-cone-mode: false
 
       - name: Set up Python
@@ -80,12 +83,33 @@ jobs:
           restore-keys: |
             mkdocs-social-${{ hashFiles('mkdocs.yml') }}-
 
+      - name: Check the previews were checked out
+        run: |
+          # Without them gen_catalog silently renders "No preview available"
+          # on every page, and the site ships without a single map.
+          n=$(find data -name '*.preview.geojson' | wc -l)
+          echo "$n preview file(s) in the checkout"
+          if [ "$n" -lt 50 ]; then
+            echo "::error::only $n previews checked out — the sparse-checkout above is broken"
+            exit 1
+          fi
+
       - name: Build
         env:
           # Enables the `social` plugin, which is gated off locally so that
           # Windows contributors do not need the Cairo native library.
           CI: "true"
         run: mkdocs build --strict
+
+      - name: Check the site carries the preview maps
+        run: |
+          expected=$(find data -name '*.preview.geojson' | wc -l)
+          got=$(find site -name '*.preview.geojson' | wc -l)
+          echo "$got preview file(s) in site/ ($expected in data/)"
+          if [ "$got" -lt "$expected" ]; then
+            echo "::error::gen_catalog copied $got of $expected previews into the site"
+            exit 1
+          fi
 
       - name: Check the site did not swallow the data tree
         run: |

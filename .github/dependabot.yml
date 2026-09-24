@@ -20,3 +20,11 @@ updates:
     labels:
       - ci
       - dependencies
+
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+    labels:
+      - pipeline
+      - dependencies

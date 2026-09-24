@@ -144,9 +144,7 @@ def build_datasets(d: Path, prev: dict[str, dict]) -> list[dict]:
             continue
         level = f.stem.rsplit("_", 1)[-1]
         datasets.setdefault(level, {"level": level})
-        datasets[level].update(
-            describe(f, preview_dir / f"{f.stem}.preview.geojson")
-        )
+        datasets[level].update(describe(f, preview_dir / f"{f.stem}.preview.geojson"))
 
     # Split levels.
     subdirs = [p for p in d.iterdir() if p.is_dir() and LEVEL_DIR.match(p.name)]
@@ -222,9 +220,7 @@ def main() -> int:
         # legitimately differ.
         src = manifest.get("source")
         if isinstance(src, dict):
-            licenses = sorted(
-                {ds["license"] for ds in manifest["datasets"] if ds.get("license")}
-            )
+            licenses = sorted({ds["license"] for ds in manifest["datasets"] if ds.get("license")})
             if len(licenses) == 1:
                 src["license"] = licenses[0]
                 src.pop("licenses", None)
@@ -239,9 +235,7 @@ def main() -> int:
         )
 
         total = sum(ds.get("features", 0) for ds in manifest["datasets"])
-        levels = ", ".join(
-            f"{ds['level']}={ds.get('features', 0)}" for ds in manifest["datasets"]
-        )
+        levels = ", ".join(f"{ds['level']}={ds.get('features', 0)}" for ds in manifest["datasets"])
         print(f"{mpath.relative_to(REPO)}  —  {levels}  (total {total} features)")
 
         missing = [k for k in ("body", "name", "source", "crs") if k not in manifest]

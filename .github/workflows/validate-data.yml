@@ -1,12 +1,15 @@
 name: Validate data
 
 on:
-  pull_request:
-    paths:
+  push:
+    branches: [main]
+    paths: &data_paths
       - "data/**"
-      - "scripts/build_manifest.py"
-      - "scripts/validate_data.py"
+      - "scripts/**"
+      - "requirements-dev.txt"
       - ".github/workflows/validate-data.yml"
+  pull_request:
+    paths: *data_paths
   workflow_dispatch:
 
 permissions:
@@ -22,21 +25,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # Unlike the docs workflow, this one genuinely needs the .geojson
           # files: it re-derives every manifest from them.
           fetch-depth: 1
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: requirements-docs.txt
+          cache-dependency-path: requirements-dev.txt
 
       - name: Install dependencies
-        run: pip install -r requirements-docs.txt
+        # Only ijson is needed here; the docs toolchain is not.
+        run: pip install -r requirements-dev.txt
 
       - name: Validate
         run: python scripts/validate_data.py

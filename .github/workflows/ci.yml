@@ -1,0 +1,120 @@
+name: CI
+
+# Lint, type-check and test the pipeline scripts. Data validation has its own
+# workflow (validate-data.yml); the docs build has docs.yml.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint and type-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (no data)
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            /*
+            !/data/**
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install
+        run: pip install -r requirements-dev.txt
+
+      - name: Ruff (lint)
+        run: ruff check --output-format=github .
+
+      - name: Ruff (format)
+        run: ruff format --check .
+
+      - name: Mypy
+        run: mypy
+
+  test:
+    name: Tests (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - name: Checkout (manifests + fixture countries only)
+        uses: actions/checkout@v7
+        with:
+          # The tests use three small countries as fixtures and every
+          # manifest; the rest of the 160 MB data tree is not needed.
+          sparse-checkout: |
+            /*
+            !/data/**
+            /data/**/manifest.json
+            /data/earth/ABW/**
+            /data/earth/BRB/**
+            /data/earth/DOM/**
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install
+        run: pip install -r requirements-dev.txt
+
+      - name: Pytest
+        run: pytest
+
+  previews:
+    name: Previews reproduce byte-for-byte
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (fixture countries only)
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            /*
+            !/data/**
+            /data/earth/ABW/**
+            /data/earth/BRB/**
+            /data/earth/DOM/**
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install pinned mapshaper
+        run: npm ci
+
+      - name: Regenerate previews
+        run: node scripts/make_previews.mjs data/earth/ABW data/earth/BRB data/earth/DOM
+
+      - name: Compare with the committed previews
+        run: |
+          if ! git diff --quiet -- data/earth/*/preview; then
+            echo "::error::Regenerated previews differ from the committed ones."
+            git diff --stat -- data/earth/*/preview
+            exit 1
+          fi
+          echo "previews reproduce"

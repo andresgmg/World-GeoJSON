@@ -1,0 +1,14 @@
+# World GeoJSON — lint, type-check and test toolchain for scripts/ and tests/.
+#
+#   pip install -r requirements-dev.txt
+#   ruff check . && ruff format --check . && mypy && pytest
+#
+# Pinned for reproducible CI; Dependabot opens PRs for bumps. The docs
+# toolchain lives in requirements-docs.txt and is not needed here.
+
+ruff==0.15.8
+mypy==1.19.1
+pytest==9.0.2
+
+# Streaming JSON scanner used by scripts/build_manifest.py (and its tests).
+ijson==3.5.1

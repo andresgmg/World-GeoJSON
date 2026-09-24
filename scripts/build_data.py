@@ -29,10 +29,11 @@ import subprocess
 import sys
 import tempfile
 import unicodedata
+from collections.abc import Callable
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_sources import spdx  # noqa: E402  — shared licence mapping
+from fetch_sources import spdx
 
 REPO = Path(__file__).resolve().parents[1]
 CACHE = REPO / ".cache" / "sources"
@@ -40,9 +41,7 @@ DATA = REPO / "data" / "earth"
 
 COUNTRIES = {
     k: v
-    for k, v in json.loads(
-        (REPO / "scripts" / "countries.json").read_text("utf-8")
-    ).items()
+    for k, v in json.loads((REPO / "scripts" / "countries.json").read_text("utf-8")).items()
     if not k.startswith("$")  # drop the `$comment` block
 }
 ISO2_MAP = json.loads((REPO / "scripts" / "iso3166_2.json").read_text("utf-8"))
@@ -95,7 +94,19 @@ def _mapshaper_cmd() -> list[str]:
     return [npx, "-y", "mapshaper"]
 
 
-_MAPSHAPER = _mapshaper_cmd()
+_MAPSHAPER: list[str] | None = None
+
+
+def mapshaper_cmd() -> list[str]:
+    """Resolve mapshaper on first use, not at import.
+
+    Resolving at import made the module unimportable on a machine without
+    Node — including the test runner — even for the pure helpers below.
+    """
+    global _MAPSHAPER
+    if _MAPSHAPER is None:
+        _MAPSHAPER = _mapshaper_cmd()
+    return _MAPSHAPER
 
 
 def run_mapshaper(args: list[str]) -> None:
@@ -107,7 +118,7 @@ def run_mapshaper(args: list[str]) -> None:
     can use single quotes and survive intact.
     """
     proc = subprocess.run(
-        [*_MAPSHAPER, *args],
+        [*mapshaper_cmd(), *args],
         capture_output=True,
         text=True,
         encoding="utf-8",
@@ -128,9 +139,7 @@ def js_lookup(mapping: dict[str, str]) -> str:
 
 
 def slug(text: str) -> str:
-    ascii_text = (
-        unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
-    )
+    ascii_text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
     out = "".join(c if c.isalnum() else "-" for c in ascii_text.lower())
     while "--" in out:
         out = out.replace("--", "-")
@@ -212,11 +221,11 @@ def simplify(
 
         if size > budget:
             raise RuntimeError(
-                f"{dest.name}: {size/1024/1024:.1f} MB still exceeds the budget "
+                f"{dest.name}: {size / 1024 / 1024:.1f} MB still exceeds the budget "
                 f"at {interval} m tolerance"
             )
 
-    print(f"      {interval} m tolerance  ->  {size/1024/1024:.1f} MB")
+    print(f"      {interval} m tolerance  ->  {size / 1024 / 1024:.1f} MB")
     return {"method": "visvalingam", "tolerance_m": interval}
 
 
@@ -262,7 +271,7 @@ def build_chile() -> list[dict]:
                 }
             ),
             "-filter-fields",
-            ",".join(STANDARD_FIELDS[:4] + ["src_cut_reg", "src_superficie_km2"]),
+            ",".join([*STANDARD_FIELDS[:4], "src_cut_reg", "src_superficie_km2"]),
         ],
     )
     results.append({"level": "ADM1", "path": adm1_out, "simplification": simp})
@@ -288,7 +297,7 @@ def build_chile() -> list[dict]:
                 }
             ),
             "-filter-fields",
-            ",".join(STANDARD_FIELDS + ["src_cut_prov", "src_cut_reg", "src_region"]),
+            ",".join([*STANDARD_FIELDS, "src_cut_prov", "src_cut_reg", "src_region"]),
         ],
     )
     results.append({"level": "ADM2", "path": adm2_out, "simplification": simp})
@@ -327,8 +336,8 @@ def build_chile() -> list[dict]:
                 ),
                 "-filter-fields",
                 ",".join(
-                    STANDARD_FIELDS
-                    + [
+                    [
+                        *STANDARD_FIELDS,
                         "adm1ISO",
                         "src_cut_com",
                         "src_cut_prov",
@@ -369,11 +378,11 @@ def build_chile() -> list[dict]:
         # Only publish a whole-country file when it fits the CDN ceiling.
         if combined_size <= SIZE_BUDGET:
             shutil.copyfile(combined, out_dir / "CHL_ADM3.geojson")
-            print(f"      combined file published ({combined_size/1024/1024:.1f} MB)")
+            print(f"      combined file published ({combined_size / 1024 / 1024:.1f} MB)")
         else:
             print(
-                f"      combined file omitted ({combined_size/1024/1024:.1f} MB "
-                f"exceeds the {SIZE_BUDGET/1024/1024:.0f} MB CDN budget)"
+                f"      combined file omitted ({combined_size / 1024 / 1024:.1f} MB "
+                f"exceeds the {SIZE_BUDGET / 1024 / 1024:.0f} MB CDN budget)"
             )
 
     results.append({"level": "ADM3", "path": adm3_dir, "simplification": simp, "split": True})
@@ -457,7 +466,7 @@ def build_adm0(iso3: str, entry: dict) -> dict | None:
 
     if feature_count(dest) == 0:
         dest.unlink()
-        print(f"  ADM0 — not present in Natural Earth")
+        print("  ADM0 — not present in Natural Earth")
         return None
     return {"level": "ADM0", "simplification": simp}
 
@@ -613,7 +622,7 @@ def build_gb_municipal(
         # Puerto Rico, Guadeloupe, Martinique and French Guiana all publish a
         # municipal tier with no ADM1 above it. Nothing to split by, so the
         # whole-country file stands alone.
-        print(f"      no ADM1 to split by — publishing whole-country only")
+        print("      no ADM1 to split by — publishing whole-country only")
         if normalised.stat().st_size > SIZE_BUDGET:
             raise SystemExit(f"{normalised.name}: too large and cannot be split")
         return result
@@ -649,17 +658,13 @@ def build_gb_municipal(
         total = feature_count(normalised)
         placed = sum(feature_count(f) for f in split_dir.glob("*.geojson"))
         if placed != total:
-            raise SystemExit(
-                f"{iso3} {level}: split holds {placed} of {total} features"
-            )
-        oversized = [
-            f for f in split_dir.glob("*.geojson") if f.stat().st_size > SIZE_BUDGET
-        ]
+            raise SystemExit(f"{iso3} {level}: split holds {placed} of {total} features")
+        oversized = [f for f in split_dir.glob("*.geojson") if f.stat().st_size > SIZE_BUDGET]
         if oversized:
             raise RuntimeError(
                 f"{oversized[0].name} is "
-                f"{oversized[0].stat().st_size/1024/1024:.1f} MB, over the "
-                f"{SIZE_BUDGET/1024/1024:.0f} MB per-file ceiling"
+                f"{oversized[0].stat().st_size / 1024 / 1024:.1f} MB, over the "
+                f"{SIZE_BUDGET / 1024 / 1024:.0f} MB per-file ceiling"
             )
 
         parts = len(list(split_dir.glob("*.geojson")))
@@ -702,7 +707,12 @@ def build_geoboundaries(iso3: str, entry: dict) -> list[dict]:
     return results
 
 
-BUILDERS = {"ide-chile": build_chile, "geoboundaries": build_geoboundaries}
+# build_chile takes no arguments (one country, hard-wired sources); main()
+# special-cases it. Every other builder is called as builder(iso3, entry).
+BUILDERS: dict[str, Callable[..., list[dict]]] = {
+    "ide-chile": build_chile,
+    "geoboundaries": build_geoboundaries,
+}
 
 
 CONTINENTS = {
@@ -728,9 +738,7 @@ def main() -> int:
 
     if args.continent:
         regions = CONTINENTS[args.continent]
-        targets = sorted(
-            k for k, v in COUNTRIES.items() if v.get("m49_region") in regions
-        )
+        targets = sorted(k for k, v in COUNTRIES.items() if v.get("m49_region") in regions)
     elif args.iso3:
         targets = [c.upper() for c in args.iso3]
     else:
@@ -769,15 +777,19 @@ def main() -> int:
                 failed.append(iso3)
         except SystemExit:
             raise
-        except Exception as exc:  # noqa: BLE001 - keep going, report at the end
+        except Exception as exc:
             print(f"  !! failed: {exc}")
             failed.append(iso3)
 
     print(f"\nbuilt {len(built)}, skipped {len(skipped)}, failed {len(failed)}")
     if failed:
         print("failed: " + ", ".join(failed))
-    print("\nNow run: python scripts/build_manifest.py data/earth/*/")
-    return 0
+    print(
+        "\nNow run: node scripts/make_previews.mjs"
+        " && python scripts/build_manifest.py data/earth/*/"
+    )
+    # A non-zero exit is what lets a shell loop or CI notice the failures.
+    return 1 if failed else 0
 
 
 _GB_CATALOGUE: dict[tuple[str, str], dict] | None = None
@@ -829,11 +841,14 @@ def _record_simplification(iso3: str, results: list[dict], retrieved: str) -> No
     manifest = json.loads(mpath.read_text("utf-8")) if mpath.exists() else {}
 
     manifest.setdefault("schema_version", 1)
+    # Identity is derived from the registry and the folder, so it is always
+    # rewritten. `name`, `status` and `notes` are hand-editable per
+    # docs/reference/manifest.md, so an existing value wins.
     manifest["body"] = "earth"
     manifest["iso_a3"] = iso3
     manifest["iso_a2"] = entry["iso_a2"]
     manifest["m49_region"] = entry["m49_region"]
-    manifest["name"] = entry["name"]
+    manifest.setdefault("name", entry["name"])
     manifest["crs"] = {"authority": "OGC", "code": "CRS84", "epsg": 4326}
     manifest.setdefault("status", "review" if entry.get("verify") else "ok")
 
@@ -851,6 +866,9 @@ def _record_simplification(iso3: str, results: list[dict], retrieved: str) -> No
         ds = by_level.setdefault(r["level"], {"level": r["level"]})
         if r.get("simplification"):
             ds["simplification"] = r["simplification"]
+        # Always reset: a rebuild that places every feature must clear the
+        # count a previous run recorded, not leave it behind.
+        ds.pop("unassigned", None)
         if r.get("unassigned"):
             ds["unassigned"] = r["unassigned"]
 
