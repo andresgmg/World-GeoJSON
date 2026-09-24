@@ -1,0 +1,230 @@
+{
+  "countries": [
+    {
+      "bytes": 864,
+      "datasets": 1,
+      "features": 1,
+      "iso_a2": "AW",
+      "iso_a3": "ABW",
+      "levels": [
+        "ADM0"
+      ],
+      "license": "public-domain",
+      "licenses": [
+        "public-domain"
+      ],
+      "m49_region": "Caribbean",
+      "municipal_level": null,
+      "name": {
+        "en": "Aruba",
+        "es": "Aruba"
+      },
+      "status": "ok"
+    },
+    {
+      "bytes": 10641,
+      "datasets": 2,
+      "features": 12,
+      "iso_a2": "BB",
+      "iso_a3": "BRB",
+      "levels": [
+        "ADM0",
+        "ADM1"
+      ],
+      "license": "mixed",
+      "licenses": [
+        "CC-BY-2.5",
+        "public-domain"
+      ],
+      "m49_region": "Caribbean",
+      "municipal_level": "ADM1",
+      "name": {
+        "en": "Barbados",
+        "es": "Barbados"
+      },
+      "status": "review"
+    },
+    {
+      "bytes": 109937,
+      "datasets": 3,
+      "features": 44,
+      "iso_a2": "DO",
+      "iso_a3": "DOM",
+      "levels": [
+        "ADM0",
+        "ADM1",
+        "ADM2"
+      ],
+      "license": "mixed",
+      "licenses": [
+        "CC-BY-4.0",
+        "public-domain"
+      ],
+      "m49_region": "Caribbean",
+      "municipal_level": "ADM2",
+      "name": {
+        "en": "Dominican Republic",
+        "es": "República Dominicana"
+      },
+      "status": "ok"
+    }
+  ],
+  "dom": {
+    "bbox": {
+      "ADM0": [
+        -72.009838,
+        17.545559,
+        -68.328603,
+        19.93769
+      ],
+      "ADM1": [
+        -72.009838,
+        17.545559,
+        -68.328603,
+        19.93769
+      ],
+      "ADM2": [
+        -71.152229,
+        18.247917,
+        -69.865501,
+        18.99604
+      ]
+    },
+    "feature_counts": {
+      "ADM0": 1,
+      "ADM1": 32,
+      "ADM2": 11
+    },
+    "leaf": {
+      "bbox": null,
+      "geometry_type": "Polygon",
+      "id": "DOM:ADM2:DO-02.guayabal",
+      "properties": {
+        "adm1ISO": "DO-02",
+        "parentID": "DOM:ADM1:DO-02",
+        "parentISO": "DO-02",
+        "shapeGroup": "DOM",
+        "shapeISO": "",
+        "shapeName": "Guayabal",
+        "shapeType": "ADM2",
+        "src_shape_id": "3306468B24687357743066"
+      }
+    },
+    "levels": [
+      "ADM0",
+      "ADM1",
+      "ADM2"
+    ],
+    "municipal_level": "ADM2",
+    "parents": {
+      "DOM:ADM0:DOM": null,
+      "DOM:ADM1:DO-02": "DOM:ADM0:DOM",
+      "DOM:ADM2:DO-02.estebania": "DOM:ADM1:DO-02"
+    },
+    "parts": [
+      "DO-01",
+      "DO-02"
+    ],
+    "paths": {
+      "ADM0": "data/earth/DOM/DOM_ADM0.geojson",
+      "ADM1_preview": "data/earth/DOM/preview/DOM_ADM1.preview.geojson",
+      "ADM2_parts": [
+        "data/earth/DOM/ADM2/DO-01.geojson",
+        "data/earth/DOM/ADM2/DO-02.geojson"
+      ]
+    },
+    "preview_ids": [
+      "DOM:ADM1:DO-15",
+      "DOM:ADM1:DO-05",
+      "DOM:ADM1:DO-07",
+      "DOM:ADM1:DO-10",
+      "DOM:ADM1:DO-16"
+    ],
+    "search": {
+      "DO-01|ADM1": [
+        "DOM:ADM1:DO-01"
+      ],
+      "PERAVIA|*": [
+        "DOM:ADM1:DO-17"
+      ],
+      "compostéla|ADM2": [
+        "DOM:ADM2:DO-02.azua-de-compostela"
+      ],
+      "las|ADM2": [
+        "DOM:ADM2:DO-02.las-charcas",
+        "DOM:ADM2:DO-02.las-yayas-de-viajama",
+        "DOM:ADM2:DO-02.padre-las-casas"
+      ],
+      "santo|*": [
+        "DOM:ADM1:DO-32"
+      ],
+      "san|ADM2": [],
+      "|*": []
+    },
+    "terms": {
+      "adm1": {
+        "en": "Province",
+        "es": "Provincia"
+      },
+      "municipal": {
+        "en": "Municipality",
+        "es": "Municipio"
+      }
+    },
+    "tree": {
+      "DOM:ADM0:DOM": {
+        "DOM:ADM1:DO-01": [
+          "DOM:ADM2:DO-01.distrito-nacional"
+        ],
+        "DOM:ADM1:DO-02": [
+          "DOM:ADM2:DO-02.azua-de-compostela",
+          "DOM:ADM2:DO-02.estebania",
+          "DOM:ADM2:DO-02.guayabal",
+          "DOM:ADM2:DO-02.las-charcas",
+          "DOM:ADM2:DO-02.las-yayas-de-viajama",
+          "DOM:ADM2:DO-02.padre-las-casas",
+          "DOM:ADM2:DO-02.peralta",
+          "DOM:ADM2:DO-02.pueblo-viejo",
+          "DOM:ADM2:DO-02.sabana-yegua",
+          "DOM:ADM2:DO-02.villa-tabara-arriba"
+        ],
+        "DOM:ADM1:DO-03": [],
+        "DOM:ADM1:DO-04": [],
+        "DOM:ADM1:DO-05": [],
+        "DOM:ADM1:DO-06": [],
+        "DOM:ADM1:DO-07": [],
+        "DOM:ADM1:DO-08": [],
+        "DOM:ADM1:DO-09": [],
+        "DOM:ADM1:DO-10": [],
+        "DOM:ADM1:DO-11": [],
+        "DOM:ADM1:DO-12": [],
+        "DOM:ADM1:DO-13": [],
+        "DOM:ADM1:DO-14": [],
+        "DOM:ADM1:DO-15": [],
+        "DOM:ADM1:DO-16": [],
+        "DOM:ADM1:DO-17": [],
+        "DOM:ADM1:DO-18": [],
+        "DOM:ADM1:DO-19": [],
+        "DOM:ADM1:DO-20": [],
+        "DOM:ADM1:DO-21": [],
+        "DOM:ADM1:DO-22": [],
+        "DOM:ADM1:DO-23": [],
+        "DOM:ADM1:DO-24": [],
+        "DOM:ADM1:DO-25": [],
+        "DOM:ADM1:DO-26": [],
+        "DOM:ADM1:DO-27": [],
+        "DOM:ADM1:DO-28": [],
+        "DOM:ADM1:DO-29": [],
+        "DOM:ADM1:DO-30": [],
+        "DOM:ADM1:DO-31": [],
+        "DOM:ADM1:DO-32": []
+      }
+    }
+  },
+  "totals": {
+    "bytes": 121442,
+    "countries": 3,
+    "datasets": 6,
+    "features": 57
+  }
+}

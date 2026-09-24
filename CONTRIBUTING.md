@@ -17,19 +17,20 @@ is the short version and points there.
    [Add a country](https://andresgmg.github.io/World-GeoJSON/contributing/add-a-country/)
    and the [review checklist](https://andresgmg.github.io/World-GeoJSON/contributing/checklist/).
 
-## Local setup for the pipeline and its tests
+## Local setup for the pipeline, the client libraries and their tests
 
 ```sh
 python -m venv .venv && . .venv/bin/activate   # Windows: .\.venv\Scripts\activate
-pip install -r requirements-dev.txt
-npm ci                                          # pinned mapshaper
+pip install -r requirements-dev.txt             # pipeline + Python client, editable
+npm ci                                          # pinned mapshaper + TypeScript
 ```
 
 Then, before opening a PR:
 
 ```sh
 ruff check . && ruff format --check . && mypy   # lint, format, types
-pytest                                          # unit tests (no network needed)
+pytest                                          # pipeline + Python client tests (no network)
+npm test -w packages/js/geoworld                # JavaScript client tests
 wgj validate --checksums                        # every dataset under data/
 ```
 
@@ -41,6 +42,22 @@ The pipeline itself is the `wgj` command (`wgj fetch` → `wgj build` →
 `wgj previews` → `wgj manifest` → `wgj index` → `wgj validate`), installed
 by `requirements-dev.txt` from `pipeline/`; it is documented in
 [Pipeline](https://andresgmg.github.io/World-GeoJSON/contributing/pipeline/).
+
+## Where things live
+
+| Path | What |
+|---|---|
+| `data/` | The published GeoJSON, manifests and `index.json` |
+| `schemas/` | JSON Schemas for the data contract |
+| `pipeline/` | The `wgj` pipeline package (not published) |
+| `packages/python/geoworld/` | The Python client, `geoworld` on PyPI |
+| `packages/js/geoworld/` | The JavaScript/TypeScript client, `geoworld` on npm |
+| `fixtures/` | Three small territories, their index and the cross-language goldens the client tests run on |
+| `docs/` | The MkDocs site (English, with a `.es.md` twin per page) |
+
+The two clients mirror each other method for method; a change to one is a
+change to both, and `fixtures/expected/fixtures.json` (regenerated with
+`python packages/python/geoworld/tests/goldens.py`) is what keeps them honest.
 
 ## Pull requests
 

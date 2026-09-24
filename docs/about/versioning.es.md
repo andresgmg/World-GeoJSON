@@ -133,9 +133,8 @@ pesa 72 MB.
 
 ## Versionado de las bibliotecas
 
-Las bibliotecas cliente previstas en la Fase 3 de la
-[Hoja de ruta](roadmap.md) — Python `world-geojson`, TypeScript
-`@world-geojson/core` — se versionan **con independencia de los datos**:
+Las [bibliotecas cliente](../libraries/index.md) — `geoworld` en PyPI y en
+npm — se versionan **con independencia de los datos**:
 
 - El semver de una biblioteca describe su propia API. Su mayor sube cuando se
   rompe la firma de una función, no cuando se mueve un límite.

@@ -17,13 +17,18 @@ __pycache__/
 *.egg-info/
 /pipeline/dist/
 /pipeline/build/
+/packages/python/*/dist/
+/packages/python/*/build/
 .mypy_cache/
 .ruff_cache/
 .pytest_cache/
 
-# --- Node (mapshaper via npx) -----------------------------------------
+# --- Node (mapshaper, the JavaScript client) ---------------------------
 node_modules/
 npm-debug.log*
+/packages/js/*/dist/
+/packages/js/*/build-test/
+*.tgz
 
 # --- OS / editors -----------------------------------------------------
 .DS_Store

@@ -2,16 +2,22 @@
   "name": "world-geojson-tools",
   "version": "0.0.0",
   "private": true,
-  "description": "Geometry tooling for the World GeoJSON data pipeline. Not published.",
+  "description": "World GeoJSON monorepo: the JavaScript client (packages/js/*) and the pinned mapshaper the data pipeline runs. The root is not published.",
   "type": "module",
   "scripts": {
     "previews": "wgj previews",
-    "validate": "wgj validate"
+    "validate": "wgj validate",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "test": "npm test --workspaces"
   },
   "devDependencies": {
     "mapshaper": "0.7.63"
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "workspaces": [
+    "packages/js/*"
+  ]
 }

@@ -25,6 +25,22 @@ Every dataset lives at the same kind of path and carries the same four
 properties — `shapeName`, `shapeISO`, `shapeGroup`, `shapeType` — so code
 written against one country works against all of them.
 
+Or let a client do the fetching, caching and checksum verification, pinned
+to a data release — `geoworld` has the same API in Python and JavaScript:
+
+```python
+from geoworld import GeoWorld            # pip install geoworld
+world = GeoWorld("1.0.0")
+world.get("CHL", "ADM1")["features"][0]["id"]      # "CHL:ADM1:CL-CO"
+world.children("CHL:ADM1:CL-TA")                   # the provinces of Tarapacá
+```
+
+```js
+import { createClient } from "geoworld";  // npm install geoworld
+const world = createClient({ version: "1.0.0" });
+(await world.get("CHL", "ADM1")).features[0].id;   // "CHL:ADM1:CL-CO"
+```
+
 ## What is here
 
 | | |
@@ -66,10 +82,14 @@ All four stay unchanged through the 1.x series and are removed in v2.0.0. See
 2. **Pipeline as a package** — done: the `wgj` command, installed from
    `pipeline/`, with tests that run on `fixtures/data/` and previews cut from
    Python.
-3. **Client libraries** — Python `world-geojson` (PyPI) and TypeScript
-   `@world-geojson/core` (npm): thin clients that read `index.json` at a pinned
-   data version, download on demand and verify checksums.
-4. **Framework adapters** — `@world-geojson/react`, `/leaflet`, `/maplibre`.
+3. **Client libraries** — done: `geoworld` for Python (`pip install geoworld`)
+   and for JavaScript/TypeScript (`npm install geoworld`), in `packages/`.
+   Thin clients with the same API that read `index.json` at a pinned data
+   version, download on demand, cache, verify checksums and navigate by
+   feature `id`. See
+   [Client libraries](https://andresgmg.github.io/World-GeoJSON/libraries/).
+4. **Framework adapters** — React, Leaflet and MapLibre helpers on top of
+   `geoworld`.
 
 Other continents follow the same pipeline. There is no hosted API, tile
 service or geocoder, and no historical boundaries. The
@@ -122,6 +142,22 @@ Todos los datasets viven en el mismo tipo de ruta y llevan las mismas cuatro
 propiedades — `shapeName`, `shapeISO`, `shapeGroup`, `shapeType` — así que el
 código escrito para un país sirve para todos.
 
+O deja que un cliente descargue, cachee y verifique los checksums, fijado a
+una release de datos — `geoworld` tiene la misma API en Python y JavaScript:
+
+```python
+from geoworld import GeoWorld            # pip install geoworld
+world = GeoWorld("1.0.0")
+world.get("CHL", "ADM1")["features"][0]["id"]      # "CHL:ADM1:CL-CO"
+world.children("CHL:ADM1:CL-TA")                   # las provincias de Tarapacá
+```
+
+```js
+import { createClient } from "geoworld";  // npm install geoworld
+const world = createClient({ version: "1.0.0" });
+(await world.get("CHL", "ADM1")).features[0].id;   // "CHL:ADM1:CL-CO"
+```
+
 ## Qué hay aquí
 
 | | |
@@ -167,11 +203,14 @@ v2.0.0. Ver
 2. **Pipeline como paquete** — hecho: el comando `wgj`, instalado desde
    `pipeline/`, con tests que corren sobre `fixtures/data/` y previews
    generados desde Python.
-3. **Bibliotecas cliente** — `world-geojson` en Python (PyPI) y
-   `@world-geojson/core` en TypeScript (npm): clientes ligeros que leen
-   `index.json` de una versión de datos fijada, descargan bajo demanda y
-   verifican checksums.
-4. **Adaptadores** — `@world-geojson/react`, `/leaflet`, `/maplibre`.
+3. **Bibliotecas cliente** — hecho: `geoworld` para Python
+   (`pip install geoworld`) y para JavaScript/TypeScript
+   (`npm install geoworld`), en `packages/`. Clientes ligeros con la misma API
+   que leen `index.json` de una versión de datos fijada, descargan bajo
+   demanda, cachean, verifican checksums y navegan por el `id` de cada
+   feature. Ver
+   [Bibliotecas cliente](https://andresgmg.github.io/World-GeoJSON/es/libraries/).
+4. **Adaptadores** — helpers para React, Leaflet y MapLibre sobre `geoworld`.
 
 Los demás continentes siguen el mismo pipeline. No hay API alojada, servidor
 de teselas ni geocodificador, y no hay límites históricos. La

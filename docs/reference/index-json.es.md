@@ -3,7 +3,7 @@
 `data/index.json` es el catálogo entero en un solo archivo: cada territorio y
 cada dataset, con el [manifiesto](manifest.md) de cada país incrustado tal
 cual. Una petición en vez de cincuenta y cinco, y el punto de entrada que
-leerán las [bibliotecas cliente](../about/roadmap.md) de la hoja de ruta.
+leen las [bibliotecas cliente](../libraries/index.md).
 
 ## Qué es
 

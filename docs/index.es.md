@@ -26,6 +26,11 @@ en medio: pides una URL y tienes los límites.
     de propiedades, política de CRS y en qué se diferencian los cuerpos
     planetarios.
 
+-   :material-package-variant: **[Bibliotecas](libraries/index.md)**
+
+    `geoworld` para Python y JavaScript: lee el índice de una release de datos
+    fijada, descarga bajo demanda, verifica checksums, navega por `id`.
+
 -   :material-source-pull: **[Contribuir](contributing/index.md)**
 
     Cómo añadir un país — incluyendo qué fuentes son legalmente seguras.

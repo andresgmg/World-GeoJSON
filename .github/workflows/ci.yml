@@ -1,7 +1,9 @@
 name: CI
 
-# Lint, type-check and test the pipeline scripts. Data validation has its own
-# workflow (validate-data.yml); the docs build has docs.yml.
+# Lint, type-check and test the pipeline package (pipeline/), the Python client
+# (packages/python/geoworld) and the JavaScript client (packages/js/geoworld).
+# Data validation has its own workflow (validate-data.yml); the docs build has
+# docs.yml; publishing the clients has publish-python.yml and publish-js.yml.
 
 on:
   push:
@@ -59,8 +61,9 @@ jobs:
       - name: Checkout (manifests + fixture countries only)
         uses: actions/checkout@v7
         with:
-          # The tests use three small countries as fixtures and every
-          # manifest; the rest of the 160 MB data tree is not needed.
+          # The pipeline tests use three small countries as fixtures and every
+          # manifest; the client tests use fixtures/ only. The rest of the
+          # 160 MB data tree is not needed.
           sparse-checkout: |
             /*
             !/data/**
@@ -128,3 +131,41 @@ jobs:
             exit 1
           fi
           echo "previews reproduce"
+
+  js-client:
+    name: JavaScript client (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["20", "22"]
+    steps:
+      - name: Checkout (no data)
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            /*
+            !/data/**
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install (workspace)
+        run: npm ci
+
+      - name: Type-check sources and tests
+        run: npm run lint -w packages/js/geoworld
+
+      - name: Tests (node:test on fixtures/, incl. the cross-language golden)
+        run: npm test -w packages/js/geoworld
+
+      - name: Build ESM + CJS and check the tarball
+        run: |
+          npm run build -w packages/js/geoworld
+          node -e "require('geoworld'); require('geoworld/node')"
+          node --input-type=module -e "import 'geoworld'; import 'geoworld/node'"
+          npm pack --dry-run -w packages/js/geoworld
