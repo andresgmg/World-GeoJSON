@@ -9,7 +9,7 @@
     "validate": "python scripts/validate_data.py"
   },
   "devDependencies": {
-    "mapshaper": "0.6.109"
+    "mapshaper": "0.7.63"
   },
   "engines": {
     "node": ">=18"
