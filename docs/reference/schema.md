@@ -169,9 +169,10 @@ repository.
 
 The key is the `shapeISO` when that is a real, unique code (`CHL:ADM3:01402`,
 `USA:ADM1:US-SD`) and a name-based key otherwise (`USA:ADM2:US-SD.davison`,
-`COL:ADM2:san-rafael`). The full five-step rule, the measured split between
-the two, the numeric-suffix behaviour on name collisions and its stability
-caveat, and the `scripts/id_overrides.json` registry are documented once, in
+`COL:ADM2:san-rafael`). The full five-step rule, the measured split between the
+two, the numeric-suffix behaviour on name collisions and its stability caveat,
+and the `pipeline/src/wgj/tables/id_overrides.json` registry are documented
+once, in
 [Property dictionary → The feature `id`](properties.md#the-feature-id).
 
 The rule behind it: either every feature in a file has a stable, meaningful
@@ -184,7 +185,7 @@ it carries `id` on only **5 of 343** commune features, with values (`0`, `1`,
 
 ## File layout
 
-Every full-resolution file is written by `scripts/finalize_geojson.py` in one
+Every full-resolution file is written by `wgj finalize` in one
 canonical form, so that the same data always produces the same bytes:
 
 ```
@@ -217,7 +218,7 @@ The contract on this page is machine-readable. Two schemas, JSON Schema
 | `feature.schema.json` | One Feature: `type`, a required `id` matching `^[A-Z]{3}:(ADM[0-4]\|QUAD):\S+$`, `properties` (by reference to the next schema), a `Polygon` or `MultiPolygon` geometry | <https://andresgmg.github.io/World-GeoJSON/schemas/feature.schema.json> |
 | `feature-properties.schema.json` | The `properties` object: the four required keys, the three hierarchy keys, `src_*` by pattern, nothing else | <https://andresgmg.github.io/World-GeoJSON/schemas/feature-properties.schema.json> |
 
-`scripts/validate_data.py` applies them to every feature of every
+`wgj validate` applies them to every feature of every
 full-resolution file in CI. The manifest, index and registry schemas are on
 [Global index & schemas](index-json.md#schemas).
 

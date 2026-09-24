@@ -7,13 +7,13 @@ leerán las [bibliotecas cliente](../about/roadmap.md) de la hoja de ruta.
 
 ## Qué es
 
-`scripts/build_index.py` recorre los manifiestos y escribe un único documento
+`wgj index` recorre los manifiestos y escribe un único documento
 JSON que los contiene, más unos pocos campos derivados que un cliente necesita
 antes de haber descargado nada: los niveles publicados, las licencias que
 realmente rigen los archivos, qué nivel es el tier municipal y cómo se llaman
 los niveles localmente. Como los manifiestos van incrustados y no resumidos, el
 índice nunca puede discrepar de un manifiesto — y el CI lo regenera en cada
-cambio (`build_index.py --check`) para asegurarse de que la copia commiteada
+cambio (`wgj index --check`) para asegurarse de que la copia commiteada
 está al día.
 
 ## Forma
@@ -75,7 +75,7 @@ La entrada de Chile, con los datasets abreviados:
 | `license`, `licenses` | Consolidado de `datasets[].license`: el valor único, o `"mixed"`, y los valores distintos ordenados |
 | `levels` | Los niveles publicados, en orden |
 | `municipal_level` | Qué nivel es el tier municipal, o `null` si no se publica ninguno |
-| `terms` | Nombres locales de los niveles en ambos idiomas — `adm1`, `adm2` donde exista, `municipal` — desde `scripts/countries.json`. Presente cuando el registro los define |
+| `terms` | Nombres locales de los niveles en ambos idiomas — `adm1`, `adm2` donde exista, `municipal` — desde `pipeline/src/wgj/tables/countries.json`. Presente cuando el registro los define |
 | `crs`, `source`, `notes` | Como en el manifiesto; `notes` solo donde el manifiesto lo tiene |
 | `datasets` | El array `datasets` del manifiesto, **tal cual** — rutas, `bytes`, `sha256`, `features`, `bbox`, `properties`, previews y `parts` de los niveles partidos, exactamente como describe [Formato del manifiesto](manifest.md#por-dataset-datasets) |
 
@@ -159,9 +159,9 @@ en línea:
 | `index.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/index.schema.json> | `data/index.json`, esta página |
 | `feature.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/feature.schema.json> | Una Feature de un archivo a resolución completa: `type`, el `id` obligatorio, `properties`, una geometría poligonal |
 | `feature-properties.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/feature-properties.schema.json> | El objeto `properties` de una feature — el [contrato](properties.md); no se admite ninguna clave fuera de él |
-| `countries.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/countries.schema.json> | `scripts/countries.json`, el registro que lee el pipeline |
+| `countries.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/countries.schema.json> | `pipeline/src/wgj/tables/countries.json`, el registro que lee el pipeline |
 
-`scripts/validate_data.py` aplica los cinco en el CI: cada manifiesto, el
+`wgj validate` aplica los cinco en el CI: cada manifiesto, el
 índice, el registro y cada feature de cada archivo a resolución completa. Los
 previews no están cubiertos — llevan un subconjunto de las propiedades.
 
@@ -183,7 +183,7 @@ print('ok')
 Para los esquemas que se referencian entre sí (`feature.schema.json` →
 `feature-properties.schema.json`; `index.schema.json` y
 `countries.schema.json` → definiciones de `manifest.schema.json`) ejecuta
-`python scripts/validate_data.py`, que los resuelve desde el directorio local
+`wgj validate`, que los resuelve desde el directorio local
 `schemas/` y añade las comprobaciones que un esquema no puede expresar —
 unicidad de ids, resolución de `parentID`, bbox contra coordenadas, checksums.
 

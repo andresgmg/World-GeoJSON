@@ -176,7 +176,7 @@ La clave es el `shapeISO` cuando es un código real y único
 contrario (`USA:ADM2:US-SD.davison`, `COL:ADM2:san-rafael`). La regla completa
 de cinco pasos, el reparto medido entre ambas, el comportamiento del sufijo
 numérico ante colisiones de nombre y su salvedad de estabilidad, y el registro
-`scripts/id_overrides.json` están documentados una sola vez, en
+`pipeline/src/wgj/tables/id_overrides.json` están documentados una sola vez, en
 [Diccionario de propiedades → El `id` de la feature](properties.md#el-id-de-la-feature).
 
 La regla de fondo: o todas las features de un archivo tienen un `id` estable y
@@ -190,7 +190,7 @@ el CI valida cada feature contra él.
 
 ## Formato del archivo
 
-Cada archivo a resolución completa lo escribe `scripts/finalize_geojson.py` en
+Cada archivo a resolución completa lo escribe `wgj finalize` en
 una única forma canónica, para que los mismos datos produzcan siempre los
 mismos bytes:
 
@@ -227,7 +227,7 @@ El contrato de esta página es legible por máquina. Dos esquemas, JSON Schema
 | `feature.schema.json` | Una Feature: `type`, un `id` obligatorio que cumple `^[A-Z]{3}:(ADM[0-4]\|QUAD):\S+$`, `properties` (por referencia al esquema siguiente), una geometría `Polygon` o `MultiPolygon` | <https://andresgmg.github.io/World-GeoJSON/schemas/feature.schema.json> |
 | `feature-properties.schema.json` | El objeto `properties`: las cuatro claves obligatorias, las tres claves de jerarquía, `src_*` por patrón, nada más | <https://andresgmg.github.io/World-GeoJSON/schemas/feature-properties.schema.json> |
 
-`scripts/validate_data.py` los aplica a cada feature de cada archivo a
+`wgj validate` los aplica a cada feature de cada archivo a
 resolución completa en el CI. Los esquemas del manifiesto, del índice y del
 registro están en [Índice global y esquemas](index-json.md#esquemas).
 

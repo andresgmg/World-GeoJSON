@@ -63,8 +63,9 @@ All four stay unchanged through the 1.x series and are removed in v2.0.0. See
    and `parentID`/`parentISO`/`adm1ISO` on every sub-national feature are on
    `main`. `v1.0.0` is tagged from the merge of that change, and its GitHub
    Release carries per-country zips, `index.json` and `SHA256SUMS`.
-2. **Pipeline as a package** — an installable Python package with a `wgj` CLI,
-   tests and fixtures.
+2. **Pipeline as a package** — done: the `wgj` command, installed from
+   `pipeline/`, with tests that run on `fixtures/data/` and previews cut from
+   Python.
 3. **Client libraries** — Python `world-geojson` (PyPI) and TypeScript
    `@world-geojson/core` (npm): thin clients that read `index.json` at a pinned
    data version, download on demand and verify checksums.
@@ -85,9 +86,9 @@ is not.
 Then follow
 [Add a country](https://andresgmg.github.io/World-GeoJSON/contributing/add-a-country/).
 
-To run the checks locally: `pip install -r requirements-dev.txt`, then
-`ruff check . && mypy && pytest` for the code and
-`python scripts/validate_data.py` for the data. See [CONTRIBUTING](CONTRIBUTING.md).
+To run the checks locally: `pip install -r requirements-dev.txt && npm ci`,
+then `ruff check . && mypy && pytest` for the code and
+`wgj validate --checksums` for the data. See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Licence
 
@@ -163,8 +164,9 @@ v2.0.0. Ver
    feature subnacional están en `main`. `v1.0.0` se etiqueta desde el merge de
    ese cambio, y su GitHub Release lleva zips por país, `index.json` y
    `SHA256SUMS`.
-2. **Pipeline como paquete** — un paquete Python instalable con CLI `wgj`,
-   tests y fixtures.
+2. **Pipeline como paquete** — hecho: el comando `wgj`, instalado desde
+   `pipeline/`, con tests que corren sobre `fixtures/data/` y previews
+   generados desde Python.
 3. **Bibliotecas cliente** — `world-geojson` en Python (PyPI) y
    `@world-geojson/core` en TypeScript (npm): clientes ligeros que leen
    `index.json` de una versión de datos fijada, descargan bajo demanda y
@@ -182,9 +184,10 @@ tiene el detalle.
 cómoda, no es utilizable aquí. Después sigue
 [Añadir un país](https://andresgmg.github.io/World-GeoJSON/es/contributing/add-a-country/).
 
-Para ejecutar las comprobaciones en local: `pip install -r requirements-dev.txt`,
-después `ruff check . && mypy && pytest` para el código y
-`python scripts/validate_data.py` para los datos. Ver [CONTRIBUTING](CONTRIBUTING.md).
+Para ejecutar las comprobaciones en local:
+`pip install -r requirements-dev.txt && npm ci`, después
+`ruff check . && mypy && pytest` para el código y `wgj validate --checksums`
+para los datos. Ver [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Licencia
 

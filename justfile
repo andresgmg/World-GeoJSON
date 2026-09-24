@@ -14,7 +14,7 @@ setup:
     python -m pip install -r requirements-dev.txt
     npm ci
 
-# Lint, format-check and type-check scripts/ and tests/.
+# Lint, format-check and type-check the pipeline package, its tests and the shims.
 lint:
     ruff check .
     ruff format --check .

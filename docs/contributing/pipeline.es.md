@@ -1,35 +1,54 @@
 # Pipeline de datos
 
 Cómo los datos de origen se convierten en un archivo que este repositorio
-acepta. Seis scripts, en este orden:
+acepta. Un solo comando, `wgj`, con un subcomando por paso, en este orden:
 
 ```
-fetch_sources.py → build_data.py → make_previews.mjs → build_manifest.py → build_index.py → validate_data.py
-.cache/sources/    data/earth/XXX/   preview/            manifest datasets[]   data/index.json    checks de CI
-                   + finalize
+wgj fetch → wgj build → wgj previews → wgj manifest → wgj index → wgj validate
+.cache/sources/  data/earth/XXX/  preview/       manifest datasets[]  data/index.json  checks de CI
+                 + finalize
 ```
 
-El orden no es negociable: `build_manifest.py` registra la ruta y el tamaño de
-un preview solo si el preview ya existe, así que los previews van antes que el
-manifiesto; `build_index.py` incrusta los manifiestos, así que va después de
-ellos. `build_data.py` ejecuta él mismo el
+El orden no es negociable: `wgj manifest` registra la ruta y el tamaño de un
+preview solo si el preview ya existe, así que los previews van antes que el
+manifiesto; `wgj index` incrusta los manifiestos, así que va después de
+ellos. `wgj build` ejecuta él mismo el
 [paso de finalización](#el-paso-de-finalizacion), así que un país recién
 construido ya lleva sus ids, su jerarquía y su formato canónico antes de que
-se recorten los previews.
+se recorten los previews — y los previews llevan esos mismos ids.
+
+Con las fuentes ya descargadas, `wgj all ARG` ejecuta los pasos 2 a 6 —
+build, previews, manifiesto, índice, validación — para los países que
+indiques, y se detiene en el primer fallo. Cada subcomando tiene `--help`, y
+`python -m wgj …` es lo mismo que `wgj …`.
 
 ## Requisitos
 
-- Python 3.11 o superior (el CI usa 3.12) y `pip install -r
-  requirements-dev.txt` — `ijson`, con el que `build_manifest.py` lee los
-  archivos en streaming en vez de parsearlos enteros, y `jsonschema`, con el
-  que `validate_data.py` lo comprueba todo contra los esquemas.
-- Node 18 o superior (el CI usará 20) y `npm install`, que fija mapshaper
-  0.6.109. Todo el trabajo de geometría se delega en él.
+- Python 3.11 o superior (el CI prueba de 3.11 a 3.13 y valida los datos con
+  3.12) y `pip install -r requirements-dev.txt`. Eso instala el propio
+  pipeline como paquete editable — el archivo contiene
+  `-e ./pipeline[pipeline]` — lo que deja el comando `wgj` en tu path, junto
+  con sus dependencias (`ijson`, con el que `wgj manifest` lee los archivos en
+  streaming en vez de parsearlos enteros, y `jsonschema`, con el que
+  `wgj validate` lo comprueba todo contra los esquemas) y la cadena de lint y
+  tests. `pip install -e ./pipeline[pipeline]` a secas te da el comando sin la
+  cadena de herramientas.
+- Node 18 o superior (el CI usa 20) y `npm ci`, que instala la versión de
+  mapshaper fijada en `package.json`. Todo el trabajo de geometría se delega
+  en él: `wgj build` y `wgj previews` lo ejecutan por debajo.
+
+`just setup` hace las dos cosas si tienes
+[`just`](https://github.com/casey/just); el `justfile` también trae `lint`,
+`fmt`, `test`, `validate`, `finalize`, `previews`, `manifest`, `index`,
+`check-data` (todo lo que el CI comprueba sobre los datos commiteados),
+`docs`, `serve` y `ci`.
 
 ## 0. Declara el país
 
-`scripts/countries.json` es el registro que leen todos los scripts. Un país
-que no esté ahí no se puede descargar ni construir. La entrada de Argentina:
+`pipeline/src/wgj/tables/countries.json` es el registro que leen todos los
+pasos. Un país que no esté ahí no se puede descargar ni construir. El archivo
+va dentro del paquete, y como la instalación es editable, cualquier edición
+se aplica al momento. La entrada de Argentina:
 
 ```json
 "ARG": {
@@ -46,7 +65,7 @@ que no esté ahí no se puede descargar ni construir. La entrada de Argentina:
 | Campo | Significado |
 |---|---|
 | `iso_a2`, `m49_region`, `name` | Identidad, copiada al manifiesto |
-| `source` | Qué proveedor usa `build_data.py`: `geoboundaries` o `ide-chile` |
+| `source` | Qué proveedor usa `wgj build`: `geoboundaries` o `ide-chile` |
 | `municipal_level` | Qué nivel ADM es el tier municipal (`ADM2`, `ADM3` o `ADM4`), o `null` si no se publica ninguno. No se puede inferir de los datos: una comuna chilena es ADM3, un municipio mexicano ADM2 |
 | `adm1_term`, `adm2_term`, `municipal_term` | Nombres locales de los niveles, en ambos idiomas. Viven solo aquí, no en los manifiestos |
 | `verify` | `true` marca una entrada cuya asignación de niveles o número de unidades no se ha contrastado con una fuente oficial; su manifiesto sale con `status: "review"` |
@@ -55,9 +74,9 @@ que no esté ahí no se puede descargar ni construir. La entrada de Argentina:
 ## 1. Descarga las fuentes
 
 ```bash
-python scripts/fetch_sources.py --iso3 ARG          # uno o varios países
-python scripts/fetch_sources.py --continent americas
-python scripts/fetch_sources.py --continent americas --dry-run
+wgj fetch --iso3 ARG          # uno o varios países
+wgj fetch --continent americas
+wgj fetch --continent americas --dry-run
 ```
 
 Descarga a `.cache/sources/`, que está en `.gitignore`. El archivo admin-0 de
@@ -76,8 +95,8 @@ muestra qué se aceptaría y qué se rechazaría sin descargar nada.
 ## 2. Construye los datos
 
 ```bash
-python scripts/build_data.py ARG
-python scripts/build_data.py --continent americas --skip-existing
+wgj build ARG
+wgj build --continent americas --skip-existing
 ```
 
 Lee la caché y escribe `data/earth/ARG/`. Para cada nivel:
@@ -109,22 +128,22 @@ cuatro espacios existe únicamente en los archivos heredados de la raíz.
     `shapeISO` debe ser una cadena. Los códigos oficiales llevan con
     frecuencia ceros a la izquierda que un número JSON no puede representar —
     Camiña, en Chile, es `01402`, no `1402`. Equivocarse aquí hace que todos
-    los joins posteriores fallen en silencio, y `validate_data.py` rechaza el
+    los joins posteriores fallen en silencio, y `wgj validate` rechaza el
     archivo.
 
 ### El paso de finalización
 
-`scripts/finalize_geojson.py` es lo último que hace `build_data.py`, y el paso
-que convierte la salida de mapshaper en el
-[contrato de datos](../reference/properties.md). Es Python puro — sin
-mapshaper, sin red. Lee los archivos a resolución completa del país (los
-combinados de nivel y las partes partidas) y los reescribe para que cada
-feature lleve:
+`wgj finalize` es lo último que hace `wgj build`, y el paso que convierte la
+salida de mapshaper en el [contrato de datos](../reference/properties.md). Es
+Python puro — sin mapshaper, sin red. Lee los archivos a resolución completa
+del país (los combinados de nivel y las partes partidas) y los reescribe para
+que cada feature lleve:
 
 - `id` — `{ISO3}:{LEVEL}:{clave}`, según la
   [regla de la clave](../reference/properties.md#el-id-de-la-feature);
-- `shapeISO` corregido desde `scripts/shapeiso_fixes.json`, y vaciado a `""`
-  donde la fuente entregó su id opaco en vez de un código;
+- `shapeISO` corregido desde
+  `pipeline/src/wgj/tables/shapeiso_fixes.json`, y vaciado a `""` donde la
+  fuente entregó su id opaco en vez de un código;
 - `adm1ISO`, `parentISO` y `parentID` — la jerarquía, derivada de las partes
   partidas y del nivel superior;
 - un `bbox` recalculado desde las coordenadas;
@@ -134,13 +153,14 @@ separadores compactos, como máximo 6 decimales — de modo que ejecutarlo dos
 veces no cambia nada. Se niega a ejecutarse mientras dos features fueran a
 recibir el mismo `id`, y las nombra.
 
-Lo alimentan dos registros. Son los dos archivos que un contribuidor puede
+Lo alimentan dos registros. Viven en el directorio `tables/` del paquete,
+junto a `countries.json`, y son los dos archivos que un contribuidor puede
 tener que editar a mano:
 
 | Registro | Qué contiene |
 |---|---|
-| `scripts/shapeiso_fixes.json` | Correcciones a valores de `shapeISO` de origen, indexadas por ISO3, nivel y el `src_shape_id` de la feature (`"*"` señala todas las features de un nivel; el valor `""` vacía el código). Solo errores documentados de la fuente: el valor corregido es el código ISO 3166-2 de la unidad que nombra `shapeName`. Cuatro entradas hoy — `SU-SD` → `US-SD`, `MX-MEX` → `MX-CMX`, `EC-H` → `EC-X`, y los códigos ADM2 de Belice vaciados |
-| `scripts/id_overrides.json` | Claves de `id` manuales, señaladas de la misma forma, con la parte posterior a `{ISO3}:{LEVEL}:` como valor. Para cuando la regla automática colisionaría o induciría a error. Vacío hoy |
+| `pipeline/src/wgj/tables/shapeiso_fixes.json` | Correcciones a valores de `shapeISO` de origen, indexadas por ISO3, nivel y el `src_shape_id` de la feature (`"*"` señala todas las features de un nivel; el valor `""` vacía el código). Solo errores documentados de la fuente: el valor corregido es el código ISO 3166-2 de la unidad que nombra `shapeName`. Cuatro entradas hoy — `SU-SD` → `US-SD`, `MX-MEX` → `MX-CMX`, `EC-H` → `EC-X`, y los códigos ADM2 de Belice vaciados |
+| `pipeline/src/wgj/tables/id_overrides.json` | Claves de `id` manuales, señaladas de la misma forma, con la parte posterior a `{ISO3}:{LEVEL}:` como valor. Para cuando la regla automática colisionaría o induciría a error. Vacío hoy |
 
 No uses ninguno de los dos para inventar un código: una unidad sin código
 ISO 3166-2 se queda con `shapeISO: ""` y recibe un `id` basado en el nombre.
@@ -148,9 +168,9 @@ ISO 3166-2 se queda con `shapeISO: ""` y recibe un `id` basado en el nombre.
 El paso también se ejecuta por sí solo, sobre datos ya commiteados:
 
 ```bash
-python scripts/finalize_geojson.py data/earth/ARG           # un país
-python scripts/finalize_geojson.py data/earth/*/            # todo
-python scripts/finalize_geojson.py --check data/earth/*/    # CI: sale con 1 si algo está desactualizado
+wgj finalize data/earth/ARG           # un país
+wgj finalize data/earth/*/            # todo
+wgj finalize --check data/earth/*/    # CI: sale con 1 si algo está desactualizado
 ```
 
 Cuando cambia un código ADM1 — una entrada nueva en `shapeiso_fixes.json` —
@@ -160,8 +180,8 @@ partes desde los archivos commiteados sin tocar `.cache/sources` (la fuente
 puede haber cambiado, y un rebuild completo removería todos los checksums):
 
 ```bash
-python scripts/build_data.py --resplit USA
-python scripts/finalize_geojson.py data/earth/USA
+wgj build --resplit USA
+wgj finalize data/earth/USA
 ```
 
 y después previews, manifiesto, índice y validación como siempre. Así es como
@@ -170,18 +190,22 @@ y después previews, manifiesto, índice y validación como siempre. Así es com
 ## 3. Previews
 
 ```bash
-node scripts/make_previews.mjs data/earth/ARG
-npm run previews                                   # todos los países
+wgj previews data/earth/ARG
+wgj previews                                   # todos los países
+npm run previews                               # lo mismo, para quien venga de Node
 ```
 
 Escribe `data/earth/ARG/preview/ARG_{LEVEL}.preview.geojson`, uniendo antes
-las partes de los niveles partidos. El detalle y el presupuesto de tamaño están
-en [Simplificación y previews](previews.md).
+las partes de los niveles partidos. El comando es Python, pero la
+simplificación la hace mapshaper, ejecutado vía Node — de ahí `npm ci`. Cada
+feature del preview conserva el `id` de su feature a resolución completa, y
+por eso este paso va después de finalize. El detalle y el presupuesto de
+tamaño están en [Simplificación y previews](previews.md).
 
 ## 4. Manifiesto
 
 ```bash
-python scripts/build_manifest.py data/earth/ARG
+wgj manifest data/earth/ARG
 ```
 
 Escanea el directorio y escribe el array `datasets` — ruta, bytes, SHA-256,
@@ -195,8 +219,8 @@ claves por dataset que no calcula él mismo (`license`, `src_provider`,
 ## 5. Índice
 
 ```bash
-python scripts/build_index.py
-python scripts/build_index.py --check      # CI: sale con 1 si el archivo commiteado está desactualizado
+wgj index
+wgj index --check      # CI: sale con 1 si el archivo commiteado está desactualizado
 ```
 
 Reconstruye `data/index.json` a partir de todos los manifiestos. Cada cambio
@@ -207,16 +231,16 @@ cual; el CI comprueba que el índice commiteado está al día. Ver
 ## 6. Valida
 
 ```bash
-python scripts/validate_data.py                 # todo
-python scripts/validate_data.py data/earth/ARG  # un país
-python scripts/validate_data.py --checksums     # además recalcula el hash de cada archivo, como el CI
+wgj validate                 # todo
+wgj validate data/earth/ARG  # un país
+wgj validate --checksums     # además recalcula el hash de cada archivo, como el CI
 ```
 
 Las mismas comprobaciones que el CI ejecuta en cada pull request que toca
-`data/`, `schemas/` o `scripts/`. Cada manifiesto, `data/index.json`,
-`scripts/countries.json` y cada feature de cada archivo a resolución completa
-se valida contra los [JSON Schemas](../reference/index-json.md#esquemas) —
-que es donde viven ahora la lista blanca de licencias, las propiedades
+`data/`, `schemas/` o `pipeline/`. Cada manifiesto, `data/index.json`, el
+registro de países y cada feature de cada archivo a resolución completa se
+valida contra los [JSON Schemas](../reference/index-json.md#esquemas) — que
+es donde viven ahora la lista blanca de licencias, las propiedades
 obligatorias, `shapeISO` como cadena y el patrón del `id` — más lo que un
 esquema no puede expresar: ids de feature únicos por archivo, cada `parentID`
 resolviendo a una feature del país, el `bbox` del archivo igual a las
@@ -226,13 +250,15 @@ debajo de 50 MB, y con `--checksums` cada recuento de bytes y SHA-256
 coincidiendo con el manifiesto. Las coordenadas con más de 6 decimales son un
 aviso.
 
-El CI ejecuta dos comprobaciones más junto a esta — `finalize_geojson.py
---check data/earth/*/` y `build_index.py --check` — y regenera los
-manifiestos para asegurarse de que los commiteados coinciden. El
+El CI ejecuta tres comprobaciones más junto a esta —
+`wgj finalize --check data/earth/*/`, `wgj index --check`, y
+`wgj manifest data/earth/*/` seguido de `git diff --quiet` para asegurarse de
+que los manifiestos commiteados coinciden con una regeneración limpia.
+`just check-data` ejecuta las cuatro. El
 [Checklist de revisión](checklist.md) dice qué está automatizado y qué
 necesita ojos.
 
-Después confirma a ojo lo que ningún script puede:
+Después confirma a ojo lo que ninguna comprobación puede:
 
 - [ ] el número de features coincide con el número oficial de unidades
 - [ ] los valores de `shapeName` llevan las tildes correctas y no hay mojibake
@@ -243,11 +269,10 @@ codificación se leyó mal — vuelve al origen y fuerza UTF-8.
 
 ## Construir a mano
 
-Si la fuente es un proveedor que `build_data.py` no conoce, los archivos se
-pueden producir con ogr2ogr o mapshaper y dejar en `data/earth/XXX/`, y luego
-finalizarlos — `python scripts/finalize_geojson.py data/earth/XXX` les da sus
-ids, su jerarquía y su formato canónico — y ejecutar los pasos 3 a 6 como
-siempre.
+Si la fuente es un proveedor que `wgj build` no conoce, los archivos se pueden
+producir con ogr2ogr o mapshaper y dejar en `data/earth/XXX/`, y luego
+finalizarlos — `wgj finalize data/earth/XXX` les da sus ids, su jerarquía y
+su formato canónico — y ejecutar los pasos 3 a 6 como siempre.
 
 === "ogr2ogr"
 
@@ -282,21 +307,53 @@ ausente o incorrecto pasa sin cambios y deja tu país en el Golfo de Guinea.
 territorio cerca del antimeridiano o de los polos: RFC 7946 exige orientación
 según la regla de la mano derecha y geometrías cortadas en los 180°.
 
-Dos cosas que `build_data.py` habría hecho por ti ahora toca hacerlas a mano:
+Dos cosas que `wgj build` habría hecho por ti ahora toca hacerlas a mano:
 
-- **El `license` de cada dataset en el manifiesto.** `build_manifest.py`
-  escribe `datasets[]` pero no sabe de dónde salieron los archivos, y
-  `validate_data.py` rechaza cualquier dataset sin un `license` de la lista
-  blanca. Añade `license` (y `src_provider`) a cada entrada tras la primera
-  ejecución de `build_manifest.py`; las siguientes lo arrastran.
+- **El `license` de cada dataset en el manifiesto.** `wgj manifest` escribe
+  `datasets[]` pero no sabe de dónde salieron los archivos, y `wgj validate`
+  rechaza cualquier dataset sin un `license` de la lista blanca. Añade
+  `license` (y `src_provider`) a cada entrada tras la primera ejecución de
+  `wgj manifest`; las siguientes lo arrastran.
 - **El bloque de identidad** — `body`, `iso_a3`, `iso_a2`, `m49_region`,
   `name`, `crs`, `source`, `status` — que muestra
   [Añadir un país](add-a-country.md).
 
-El tamaño es la última comprobación: `validate_data.py` falla con cualquier
+El tamaño es la última comprobación: `wgj validate` falla con cualquier
 archivo de más de 50 MB, y GitHub rechaza pushes por encima de 100 MB. Antes de
 recurrir a Git LFS — [no lo hagas](../about/versioning.md#por-que-no-git-lfs)
 — confirma que el archivo está simplificado y recortado a 6 decimales, y
 pártelo por ADM1 si sigue siendo demasiado grande.
+
+## Dónde vive el código
+
+El pipeline es el paquete Python `wgj` bajo `pipeline/` —
+`pipeline/pyproject.toml` y `pipeline/src/wgj/` — con un módulo por
+responsabilidad:
+
+| Módulo | Función |
+|---|---|
+| `wgj.cli` | El comando `wgj`: un subcomando por paso, más `all` |
+| `wgj.paths` | Dónde vive cada cosa; `WGJ_DATA` apunta el paquete a otro árbol de datos |
+| `wgj.registry` | Carga las tablas de `pipeline/src/wgj/tables/` — `countries.json`, `shapeiso_fixes.json`, `id_overrides.json`, `iso3166_2.json` |
+| `wgj.licensing` | El texto de licencia de origen mapeado a ids SPDX, y la lista blanca |
+| `wgj.levels`, `wgj.text` | Los niveles ADM y los nombres de archivo construidos sobre ellos; pequeños helpers de texto |
+| `wgj.geojson_io` | Lectura en streaming, SHA-256, el escritor canónico |
+| `wgj.mapshaper`, `wgj.simplify` | El subproceso de mapshaper; la regla de tolerancia y su presupuesto de tamaño |
+| `wgj.sources.natural_earth`, `wgj.sources.geoboundaries`, `wgj.sources.ide_chile` | Un módulo por proveedor |
+| `wgj.fetch`, `wgj.build`, `wgj.finalize`, `wgj.previews`, `wgj.manifest`, `wgj.index`, `wgj.validate` | Los seis pasos de arriba, en orden |
+| `wgj.schema` | Los JSON Schemas de `schemas/`, cargados una vez con sus `$ref` resueltos en local |
+| `wgj.catalog` | El hook de MkDocs que genera las páginas del catálogo; `pipeline/mkdocs_hook.py` lo reexporta, así que construir la documentación no requiere instalar nada |
+
+Los tests están en `pipeline/tests/` y se ejecutan con `pytest` desde la raíz
+del repositorio. No necesitan un checkout de los datos: `fixtures/data/`
+contiene tres territorios pequeños — Aruba, Barbados y una República
+Dominicana reducida — más su `index.json`, y la suite apunta el paquete a él
+con `WGJ_DATA`. Define `WGJ_DATA=<dir>` tú mismo para ejecutar cualquier
+comando `wgj` contra otro árbol de datos.
+
+`scripts/*.py` siguen existiendo como shims de diez líneas que llaman al
+paquete, de modo que `python scripts/validate_data.py` y sus hermanos siguen
+funcionando durante una release. Se retiran en la Fase 4 de la
+[Hoja de ruta](../about/roadmap.md); a partir de ahora escribe `wgj`.
 
 --8<-- "abbreviations.md"

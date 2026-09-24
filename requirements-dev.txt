@@ -1,4 +1,4 @@
-# World GeoJSON — lint, type-check and test toolchain for scripts/ and tests/.
+# World GeoJSON — the pipeline package and its lint, type-check and test toolchain.
 #
 #   pip install -r requirements-dev.txt
 #   ruff check . && ruff format --check . && mypy && pytest

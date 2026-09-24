@@ -6,4 +6,4 @@ Not published. Installed into a contributor's environment with
 
 which puts the `wgj` command on the path. `wgj --help` lists the steps in
 pipeline order: `fetch`, `build`, `finalize`, `previews`, `manifest`, `index`,
-`validate`, `catalog`. See docs/contributing/pipeline.md.
+`validate`, `all`. See docs/contributing/pipeline.md.

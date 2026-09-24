@@ -62,7 +62,7 @@ If you hit rebuild loops, `mkdocs serve --no-livereload` is the escape hatch.
 |---|---|
 | `docs/` | Hand-written pages. **Contains no data.** |
 | `includes/abbreviations.md` | Glossary tooltips, appended to every page |
-| `scripts/gen_catalog.py` | Generates catalog pages from manifests at build time |
+| `pipeline/mkdocs_hook.py` | The MkDocs hook that generates catalog pages from manifests at build time. It re-exports `wgj.catalog` from the pipeline package, so building the docs needs nothing beyond `requirements-docs.txt` |
 | `mkdocs.yml` | Configuration and navigation |
 | `data/` | The GeoJSON tree — deliberately outside `docs/` |
 
@@ -74,8 +74,9 @@ If you hit rebuild loops, `mkdocs serve --no-livereload` is the escape hatch.
 
 ## Catalog pages are generated
 
-Pages under **Catalog** do not exist on disk. `scripts/gen_catalog.py` builds
-them from each dataset's `manifest.json` on every build.
+Pages under **Catalog** do not exist on disk. `wgj.catalog`, wired in through
+the `pipeline/mkdocs_hook.py` hook, builds them from each dataset's
+`manifest.json` on every build.
 
 To correct a fact on a catalog page, **edit the manifest**. The page's edit
 button already points there.

@@ -235,7 +235,7 @@ extra_javascript:
   - assets/javascripts/geojson-map.js
 
 # ---------------------------------------------------------------------------
-# Extra — also read by scripts/gen_catalog.py
+# Extra — also read by wgj.catalog (pipeline/mkdocs_hook.py)
 # ---------------------------------------------------------------------------
 
 extra:

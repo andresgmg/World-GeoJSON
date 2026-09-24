@@ -28,8 +28,8 @@ ADM3 and all 66 ADM4. The upstream id is still there, as `src_shape_id`, and
 the feature's identity is its [`id`](#the-feature-id).
 
 **Documented upstream errors are corrected**, from
-`scripts/shapeiso_fixes.json`. Every entry there is an ISO 3166-2 code the
-upstream got wrong for the unit named in `shapeName`:
+`pipeline/src/wgj/tables/shapeiso_fixes.json`. Every entry there is an ISO
+3166-2 code the upstream got wrong for the unit named in `shapeName`:
 
 | Where | Unit | Upstream | Corrected |
 |---|---|---|---|
@@ -77,7 +77,7 @@ Chile's commune Camiña carries all three at once: `adm1ISO` is its region
 Every feature carries a top-level GeoJSON `id` — a member of the Feature, not
 a property — of the form `{ISO3}:{LEVEL}:{key}`, unique across the whole
 repository. The key is chosen by one rule, implemented once in
-`scripts/finalize_geojson.py`:
+`wgj finalize`:
 
 1. **ADM0** → the ISO3: `ABW:ADM0:ABW`.
 2. **`shapeISO`, when it is a real code and unique within the level**:
@@ -105,12 +105,12 @@ HND 28, SLV 18, ARG 16, GTM 6, USA 6, MEX 4, BLZ 2, BRA 2, VIR 2, SUR 1).
     breaking change it is — see
     [Versioning & stability](../about/versioning.md).
 
-A key can be pinned by hand in `scripts/id_overrides.json` — keyed by ISO3,
-level and the feature's `src_shape_id` (or `shapeISO` for national sources),
-the value being the key part after `{ISO3}:{LEVEL}:`. It is empty today: the
-`shapeISO` corrections resolved every known collision. `finalize_geojson.py`
-refuses to run while a collision remains and names the features, so a new
-entry there is the way to resolve one.
+A key can be pinned by hand in `pipeline/src/wgj/tables/id_overrides.json` —
+keyed by ISO3, level and the feature's `src_shape_id` (or `shapeISO` for
+national sources), the value being the key part after `{ISO3}:{LEVEL}:`. It is
+empty today: the `shapeISO` corrections resolved every known collision.
+`wgj finalize` refuses to run while a collision remains and names the features,
+so a new entry there is the way to resolve one.
 
 Previews carry the same `id` as the full files, so a map drawn from a preview
 joins to anything keyed on the full data.

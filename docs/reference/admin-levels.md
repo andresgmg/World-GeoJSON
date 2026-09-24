@@ -19,8 +19,8 @@ project can be cross-referenced against them without a translation step.
 This is the rule that causes the most confusion, so it is worth stating
 plainly: **ADM1 does not mean "province".** It means "whatever the first level
 of subdivision is in this country". The local term is recorded separately, as
-`adm1_term` and `municipal_term` in `scripts/countries.json` — not in the
-manifests.
+`adm1_term` and `municipal_term` in `pipeline/src/wgj/tables/countries.json` —
+not in the manifests.
 
 | Country | ADM1 | ADM2 | ADM3 |
 |---|---|---|---|
@@ -67,8 +67,8 @@ varies:
 | Guadeloupe, Martinique | Commune | **ADM4** |
 
 Because it cannot be inferred from the data, the mapping is curated by hand in
-`scripts/countries.json` and is the one piece of this pipeline that will always
-need human judgement.
+`pipeline/src/wgj/tables/countries.json` and is the one piece of this pipeline
+that will always need human judgement.
 
 Deeper levels — Panama's *corregimientos*, Costa Rica's *distritos* — are out
 of scope. They exist in few countries, the file sizes grow sharply, and almost

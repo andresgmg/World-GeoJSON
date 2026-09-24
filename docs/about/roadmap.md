@@ -76,17 +76,24 @@ then libraries that speak it. In order:
       not only Chile's
 - [x] `shapeISO` no longer filled with opaque geoBoundaries ids, and the
       duplicated codes resolved (`US-SD`, `MX-CMX`, `EC-X`, Belize cleared)
-- [x] A finalize step (`scripts/finalize_geojson.py`) that writes all of the
+- [x] A finalize step (now `wgj finalize`) that writes all of the
       above and the canonical file layout, checked in CI
 - [x] Tagged data releases: a release workflow that publishes a GitHub Release
       with per-country zips, `index.json` and `SHA256SUMS` on every tag
       (tag pending merge)
 
-**Phase 2 — the pipeline as a package**
+**Phase 2 — the pipeline as a package** (done)
 
-- [ ] The scripts become an installable Python package with a `wgj` CLI, tests
-      and fixtures
-- [ ] Previews generated from Python (mapshaper still runs through Node)
+- [x] The scripts became an installable Python package, `wgj` under
+      `pipeline/`, with a CLI — `wgj fetch`, `build`, `finalize`, `previews`,
+      `manifest`, `index`, `validate` and `all` — documented in
+      [Data pipeline](../contributing/pipeline.md)
+- [x] Tests that run on `fixtures/data/` — three small territories and their
+      index — so CI needs no data checkout
+- [x] Previews generated from Python (mapshaper still runs through Node)
+
+`scripts/*.py` stay as compatibility shims for one release and retire in
+Phase 4, as planned.
 
 **Phase 3 — client libraries**
 
@@ -101,6 +108,7 @@ on demand, cache, verify `sha256`. No server involved — they fetch static file
 - [ ] `@world-geojson/react`, `@world-geojson/leaflet`, `@world-geojson/maplibre`
 - [ ] Worked examples
 - [ ] Issue and PR templates for country submissions
+- [ ] Remove the `scripts/*.py` compatibility shims kept since Phase 2
 
 ## Next — the other continents
 
@@ -139,7 +147,7 @@ Tracked, not hidden.
 | Most municipal units have no official code upstream, so `shapeISO` is `""` on 15,364 features | 22 municipal datasets from geoBoundaries | By design since 1.0.0 — an empty code is honest, an opaque id was not. Use `id`; a national source with codes would close it |
 | 169 name-keyed ids carry a numeric suffix (`COL:ADM2:albania-2`) because the upstream has several units with the same name and no code | COL 84, HND 28, SLV 18, ARG 16, GTM 6, USA 6, MEX 4, BLZ 2, BRA 2, VIR 2, SUR 1 | Stable per data version; may renumber on an upstream refresh — pin a version |
 | 12 municipal units overlap no ADM1 parent | ARG ADM2 (8, Buenos Aires city), BRA ADM2 (3), USA ADM2 (1) | Kept in `unassigned` parts with `adm1ISO: "unassigned"` and no `parentID` |
-| Municipal tier assignment unverified for 19 territories | `scripts/countries.json` | Marked `verify` and shipped as `review` |
+| Municipal tier assignment unverified for 19 territories | `pipeline/src/wgj/tables/countries.json` | Marked `verify` and shipped as `review` |
 | Peru's districts unavailable — geoBoundaries stops at provinces | Peru | Awaiting a source |
 | Legacy files still at the repository root | `comunas.geojson` and friends | Deprecated; stay through 1.x, removed in v2.0.0 |
 

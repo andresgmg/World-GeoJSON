@@ -151,7 +151,7 @@ full hash is in the country's `manifest.json` — and therefore in
 `data/index.json` — as `datasets[].sha256` and, for split levels,
 `parts[].sha256`. Release assets come with a `SHA256SUMS` that
 `sha256sum -c SHA256SUMS` checks in one go, and a full checkout is verified
-with `python scripts/validate_data.py --checksums`, which re-hashes every file
+with `wgj validate --checksums`, which re-hashes every file
 against its manifest. Verify a single download with:
 
 === "PowerShell"

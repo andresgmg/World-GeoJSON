@@ -3,17 +3,19 @@
 Work through this before opening a PR. Reviewers use the same list.
 
 Items marked **CI** are checked automatically on every pull request that
-touches `data/`, `schemas/` or `scripts/` — by `scripts/validate_data.py`
-(run with `--checksums`), `finalize_geojson.py --check` and
-`build_index.py --check`. Run them locally first:
+touches `data/`, `schemas/` or `pipeline/` — by `wgj validate --checksums`,
+`wgj finalize --check` and `wgj index --check`, plus a `wgj manifest`
+regeneration that must leave no diff. Run them locally first:
 
 ```bash
-python scripts/validate_data.py --checksums data/earth/XXX
-python scripts/finalize_geojson.py --check data/earth/XXX
-python scripts/build_index.py --check
+wgj validate --checksums data/earth/XXX
+wgj finalize --check data/earth/XXX
+wgj index --check
+wgj manifest data/earth/XXX && git diff --quiet -- data/earth/XXX/manifest.json
 ```
 
-Everything else needs a human.
+`just check-data` runs the same four over the whole tree. Everything else
+needs a human.
 
 ## Licensing
 
@@ -40,7 +42,7 @@ Everything else needs a human.
 - [ ] Split parts, if any, are in `{LEVEL}/{code}.geojson`
 - [ ] Previews are in `preview/` named `{stem}.preview.geojson`
 - [ ] No spaces, accents or non-ASCII characters in any path
-- [ ] The country has an entry in `scripts/countries.json`
+- [ ] The country has an entry in `pipeline/src/wgj/tables/countries.json`
 
 ## File contents
 
@@ -50,7 +52,7 @@ Everything else needs a human.
 - [ ] **CI** — at least one feature, and no `null` geometries
 - [ ] **CI** — under 50 MB
 - [ ] **CI** — canonical layout: one feature per line, compact, coordinates
-      at most 6 decimals — `finalize_geojson.py --check` passes
+      at most 6 decimals — `wgj finalize --check` passes
 - [ ] **CI** — `bbox` equals the extent of the coordinates
 - [ ] Coordinates are longitude-first, EPSG:4326 / CRS84
 - [ ] Right-hand-rule winding
@@ -83,7 +85,7 @@ Everything else needs a human.
       country
 - [ ] Every feature below ADM1 carries `adm1ISO` (or `"unassigned"`), and
       every feature with a published parent level carries `parentISO` and
-      `parentID` — `finalize_geojson.py` writes them; an `unassigned` count
+      `parentID` — `wgj finalize` writes them; an `unassigned` count
       is explained in `notes`
 - [ ] All levels come from the same vintage
 
@@ -96,10 +98,10 @@ Everything else needs a human.
 - [ ] **CI** — feature counts match the files, and for split levels
       `parts[].features` sum to the level's `features`
 - [ ] **CI** — `bytes` and `sha256` of every file match (`--checksums`)
-- [ ] **CI** — `data/index.json` was regenerated (`build_index.py --check`)
+- [ ] **CI** — `data/index.json` was regenerated (`wgj index --check`)
 - [ ] **CI** — `notes`, if present, is a single line
 - [ ] `iso_a3`, `iso_a2` and `m49_region` match the registry
-- [ ] `datasets` regenerated with `build_manifest.py`, not hand-edited
+- [ ] `datasets` regenerated with `wgj manifest`, not hand-edited
 - [ ] Feature count matches the official number of units, or `notes` explains
       the discrepancy
 - [ ] Bounding box is in the correct hemisphere
@@ -109,10 +111,10 @@ Everything else needs a human.
 - [ ] **CI** — every preview recorded in the manifest exists and is under
       2 MB. A dataset with no preview recorded is a warning, not an error —
       but the catalog map will be empty, so fix it
-- [ ] Previews were generated **before** `build_manifest.py`, so the manifest
+- [ ] Previews were generated **before** `wgj manifest`, so the manifest
       records their path and size
 - [ ] Preview feature count equals the source feature count
-      (`make_previews.mjs` refuses to write one that does not)
+      (`wgj previews` refuses to write one that does not)
 - [ ] Rendered preview looks like the country — no missing islands, no slivers
 
 ## Size
@@ -122,12 +124,14 @@ Everything else needs a human.
 
 ## Registries
 
-- [ ] A new entry in `scripts/shapeiso_fixes.json` corrects a documented
-      upstream error to the unit's real ISO 3166-2 code, and the PR says where
-      the error is documented — the file is not for inventing codes
-- [ ] A new entry in `scripts/id_overrides.json` is explained in the PR
+- [ ] A new entry in `pipeline/src/wgj/tables/shapeiso_fixes.json` corrects
+      a documented upstream error to the unit's real ISO 3166-2 code, and the
+      PR says where the error is documented — the file is not for inventing
+      codes
+- [ ] A new entry in `pipeline/src/wgj/tables/id_overrides.json` is explained
+      in the PR
 - [ ] If an ADM1 code was corrected, the municipal parts were re-derived
-      (`build_data.py --resplit XXX`, then `finalize_geojson.py`) and the
+      (`wgj build --resplit XXX`, then `wgj finalize`) and the
       part under the old code is gone
 
 ## Documentation

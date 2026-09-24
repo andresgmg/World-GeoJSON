@@ -68,7 +68,7 @@ salida de emergencia.
 |---|---|
 | `docs/` | Páginas escritas a mano. **No contiene datos.** |
 | `includes/abbreviations.md` | Tooltips del glosario, añadidos a cada página |
-| `scripts/gen_catalog.py` | Genera las páginas del catálogo desde los manifiestos |
+| `pipeline/mkdocs_hook.py` | El hook de MkDocs que genera las páginas del catálogo desde los manifiestos en cada build. Reexporta `wgj.catalog` del paquete del pipeline, así que construir la documentación no necesita nada más que `requirements-docs.txt` |
 | `mkdocs.yml` | Configuración y navegación |
 | `data/` | El árbol GeoJSON — deliberadamente fuera de `docs/` |
 
@@ -80,8 +80,9 @@ salida de emergencia.
 
 ## Las páginas del catálogo se generan
 
-Las páginas bajo **Catálogo** no existen en disco. `scripts/gen_catalog.py` las
-construye desde el `manifest.json` de cada dataset en cada build.
+Las páginas bajo **Catálogo** no existen en disco. `wgj.catalog`, conectado a
+través del hook `pipeline/mkdocs_hook.py`, las construye desde el
+`manifest.json` de cada dataset en cada build.
 
 Para corregir un dato de una página de catálogo, **edita el manifiesto**. El
 botón de edición de la página ya apunta ahí.

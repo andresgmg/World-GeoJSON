@@ -6,7 +6,7 @@ Un archivo de límites con una licencia incompatible no se puede mergear, por
 buena que sea la geometría. Y una vez que está en la historia de git es
 genuinamente difícil de quitar — reescribir la historia rompe todos los clones y
 forks existentes. Así que la verificación se hace en la puerta, y la aplica el
-CI mediante `scripts/validate_data.py`.
+CI mediante `wgj validate`.
 
 ## La cuestión de la compatibilidad
 
