@@ -4,7 +4,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versioning follows [Semantic Versioning](https://semver.org/) as adapted for
 data in [Versioning & stability](versioning.md).
 
-## [1.0.0] — Unreleased
+## Unreleased
+
+### Removed
+
+- The documentation site no longer shows "last updated" stamps or renders
+  social (Open Graph) preview cards. Together they cost GitPython, Cairo,
+  Pillow, an `apt` step and a full-history clone on every docs build; the
+  docs toolchain drops from 46 to about 30 packages and CI uses a shallow
+  clone.
+
+## [1.0.0] — 2026-09-24
 
 The first tagged release, cut from `main` once the data contract merges.
 Everything in this section ships in it: the contract, the engineering hygiene,

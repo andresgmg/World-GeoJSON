@@ -20,6 +20,7 @@ repository-code: https://github.com/andresgmg/World-GeoJSON
 url: https://andresgmg.github.io/World-GeoJSON/
 license: MIT
 version: 1.0.0
+date-released: 2026-09-24
 keywords:
   - geojson
   - administrative boundaries

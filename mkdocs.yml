@@ -170,27 +170,10 @@ plugins:
   - literate-nav:
       nav_file: SUMMARY.md
 
-  # Generated catalog pages have no git history, which emits warnings that
-  # --strict turns into build failures. Hence the exclude.
-  #
-  # `strict: false` downgrades this plugin's own "no git logs" warnings to
-  # info. Uncommitted files legitimately have no history, and without this a
-  # contributor cannot run `mkdocs build --strict` until after committing.
-  - git-revision-date-localized:
-      type: timeago
-      enable_creation_date: false
-      fallback_to_build_date: true
-      strict: false
-      exclude:
-        - catalog/*
-
-  # Social cards need the Cairo native library. GitHub Actions sets CI=true,
-  # so cards render in CI and are skipped locally. This one line is what
-  # keeps Windows contributors from having to install Cairo.
-  - social:
-      enabled: !ENV [CI, false]
-      cards_layout_options:
-        background_color: "#00695c"
+  # Deliberately absent: `git-revision-date-localized` (needed the full git
+  # history in CI and GitPython for a "last updated" stamp) and `social`
+  # (Cairo, Pillow and an apt step for Open Graph images). Both were dropped
+  # after 1.0.0 to keep the docs toolchain small; see docs/about/changelog.md.
 
 # ---------------------------------------------------------------------------
 # Markdown extensions
