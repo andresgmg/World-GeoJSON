@@ -8,7 +8,7 @@
 
 ruff==0.16.8
 mypy==1.19.1
-pytest==9.0.2
+pytest==9.1.1
 
 # Streaming JSON scanner used by scripts/build_manifest.py (and its tests).
 ijson==3.5.1
