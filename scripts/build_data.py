@@ -778,6 +778,12 @@ def build_geoboundaries(iso3: str, entry: dict) -> list[dict]:
     adm1_result, adm1_path = build_gb_adm1(iso3, out_dir)
     if adm1_result:
         results.append(adm1_result)
+        # The municipal split joins on ADM1's shapeISO, so documented upstream
+        # errors (a duplicated or mistyped code) must be corrected before it.
+        assert adm1_path is not None
+        fixed = apply_shapeiso_fixes(adm1_path, iso3, "ADM1")
+        if fixed:
+            print(f"      {fixed} shapeISO value(s) corrected from shapeiso_fixes.json")
     else:
         print("      not available under a permissive licence")
 
