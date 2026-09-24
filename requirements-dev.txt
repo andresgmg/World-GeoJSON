@@ -6,7 +6,7 @@
 # Pinned for reproducible CI; Dependabot opens PRs for bumps. The docs
 # toolchain lives in requirements-docs.txt and is not needed here.
 
-ruff==0.15.8
+ruff==0.16.8
 mypy==1.19.1
 pytest==9.0.2
 
