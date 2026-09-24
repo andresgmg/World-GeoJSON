@@ -1,7 +1,8 @@
 # Añadir un país
 
 Runbook completo. Calcula una hora para el primero. Los scripts hacen casi
-todo el trabajo; el orden importa — previews antes que manifiesto.
+todo el trabajo; el orden importa — previews antes que manifiesto, el índice
+después.
 
 ## 0. Verifica la licencia
 
@@ -17,7 +18,7 @@ nada.
 git clone https://github.com/andresgmg/World-GeoJSON.git
 cd World-GeoJSON
 python -m venv .venv && source .venv/bin/activate   # Windows: .\.venv\Scripts\activate
-pip install -r requirements-docs.txt                 # mkdocs + ijson
+pip install -r requirements-docs.txt -r requirements-dev.txt   # mkdocs, ijson, jsonschema
 npm install                                          # mapshaper, fijado
 git checkout -b add-nzl
 ```
@@ -70,9 +71,13 @@ python scripts/build_data.py NZL
 Escribe `data/earth/NZL/NZL_ADM0.geojson`, `NZL_ADM1.geojson`, … —
 reproyectados, renombrados al [esquema estándar](../reference/schema.md),
 simplificados a una tolerancia de 100 m, partidos por ADM1 donde el tier
-municipal lo necesite — y la identidad y procedencia del manifiesto. Antes de
-los dos pasos siguientes el manifiesto se ve así, con `license` y
-`simplification` ya en cada entrada de `datasets`:
+municipal lo necesite, y **finalizados**: cada feature recibe su `id`, sus
+`adm1ISO`, `parentISO` y `parentID`, un `shapeISO` corregido desde
+`scripts/shapeiso_fixes.json` (o `""` donde la fuente no tiene código) y un
+`bbox` recalculado, en el formato canónico de una feature por línea — más la
+identidad y procedencia del manifiesto. Antes de los pasos siguientes el
+manifiesto se ve así, con `license` y `simplification` ya en cada entrada de
+`datasets`:
 
 ```json
 {
@@ -98,6 +103,14 @@ los dos pasos siguientes el manifiesto se ve así, con `license` y
 rellenan si faltan, así que puedes editarlos y volver a ejecutar sin miedo.
 `iso_a2`, `m49_region` y `crs` se sobrescriben desde el registro — cámbialos
 ahí.
+
+!!! note "Si el build se detiene por un `id` duplicado"
+
+    Dos unidades con el mismo nombre y sin código recibirían el mismo `id`;
+    `finalize_geojson.py` se niega y las nombra. Arregla la causa: una entrada
+    en `scripts/shapeiso_fixes.json` si el código de origen está mal, o una
+    clave fijada en `scripts/id_overrides.json` en caso contrario. Ver
+    [Pipeline de datos → El paso de finalización](pipeline.md#el-paso-de-finalizacion).
 
 !!! tip "Nueva Zelanda cruza el antimeridiano"
 
@@ -125,17 +138,29 @@ Rellena `datasets` con rutas, tamaños, checksums, número de features, bounding
 boxes, listas de propiedades y tamaños de preview. Los campos escritos a mano
 se dejan intactos.
 
-## 7. Valida
+## 7. Regenera el índice
 
 ```bash
-python scripts/validate_data.py data/earth/NZL
+python scripts/build_index.py
 ```
 
-Cero errores antes de abrir el PR. Los avisos — un dataset sin preview,
-coordenadas con más de 6 decimales — no hacen fallar el CI, pero sí reciben
-comentarios de revisión.
+`data/index.json` incrusta todos los manifiestos, así que cambia cada vez que
+cambia uno. El CI falla si el índice commiteado está desactualizado.
+Commitéalo con el resto.
 
-## 8. Comprueba que se ve bien
+## 8. Valida
+
+```bash
+python scripts/validate_data.py --checksums data/earth/NZL
+python scripts/finalize_geojson.py --check data/earth/NZL
+python scripts/build_index.py --check
+```
+
+Cero errores antes de abrir el PR — son las tres comprobaciones que ejecuta el
+CI. Los avisos — un dataset sin preview, coordenadas con más de 6 decimales —
+no hacen fallar el CI, pero sí reciben comentarios de revisión.
+
+## 9. Comprueba que se ve bien
 
 ```bash
 mkdocs serve
@@ -145,18 +170,18 @@ Tu país aparece bajo **Catálogo** automáticamente. Confirma que el número de
 features es plausible, que el bounding box está en el hemisferio correcto y que
 el mapa de preview se parece al país.
 
-## 9. Abre el PR
+## 10. Abre el PR
 
 Repasa antes el [Checklist de revisión](checklist.md).
 
 Tu PR debe contener la entrada del registro, el archivo o archivos de datos,
-el manifiesto y los previews. **No** debe contener nada de `.cache/` ni
-páginas de documentación generadas — para git, ninguna de las dos cosas
-existe.
+el manifiesto, los previews y el `data/index.json` regenerado. **No** debe
+contener nada de `.cache/` ni páginas de documentación generadas — para git,
+ninguna de las dos cosas existe.
 
 ## Añadir un nivel a un país existente
 
-Vuelve a ejecutar los pasos 3 a 7 para ese país. `build_data.py` deja intactos
+Vuelve a ejecutar los pasos 3 a 8 para ese país. `build_data.py` deja intactos
 los campos escritos a mano del manifiesto; `build_manifest.py` reescribe
 `datasets` y arrastra el `license` de cada entrada.
 
@@ -165,7 +190,9 @@ los campos escritos a mano del manifiesto; `build_manifest.py` reescribe
 Si los datos del país vienen de un SDI nacional y no de geoBoundaries,
 construye los archivos con mapshaper u ogr2ogr como describe
 [Pipeline de datos](pipeline.md#construir-a-mano), déjalos en
-`data/earth/XXX/` y ejecuta los pasos 5 a 7. Después añade `license` a mano a
+`data/earth/XXX/`, ejecuta `python scripts/finalize_geojson.py data/earth/XXX`
+para darles sus ids, su jerarquía y su formato canónico, y ejecuta los pasos
+5 a 8. Después añade `license` a mano a
 cada entrada de `datasets` — `validate_data.py` rechaza un dataset sin él, y
 solo `build_data.py` lo escribe — más el bloque de identidad del paso 4.
 Enseñar el nuevo proveedor a `build_data.py` es la mejor contribución si

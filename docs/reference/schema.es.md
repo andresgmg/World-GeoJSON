@@ -8,7 +8,7 @@ haya aportado la fuente original.
 | Propiedad | Tipo | Significado |
 |---|---|---|
 | `shapeName` | cadena | Nombre de la unidad, en el idioma local, con las tildes correctas |
-| `shapeISO` | cadena | Código oficial de la unidad — ISO 3166-2 si existe, si no el código nacional |
+| `shapeISO` | cadena | Código oficial de la unidad — ISO 3166-2 si existe, si no el código nacional; `""` cuando la fuente no tiene ninguno |
 | `shapeGroup` | cadena | ISO 3166-1 alpha-3 del país que la contiene, o código de cuerpo |
 | `shapeType` | cadena | `ADM0`, `ADM1`, `ADM2`, `ADM3`, `ADM4` o `QUAD` |
 
@@ -19,34 +19,40 @@ estos archivos sin cambios, y elimina toda una categoría de discusión estéril
 en la revisión.
 
 Las cuatro están presentes en cada feature de cada archivo bajo `data/`; el CI
-lo comprueba.
+valida cada feature contra el JSON Schema que lo exige
+([`feature-properties.schema.json`](#json-schemas)). `shapeISO` es `""` en la
+mayoría de las unidades municipales — geoBoundaries no tiene código para
+ellas — y nunca es un id opaco de origen; donde no está vacío es único dentro
+de su nivel.
 
 ## Propiedades opcionales
 
-| Propiedad | Tipo | Significado | Presente hoy |
+| Propiedad | Tipo | Significado | Presente en |
 |---|---|---|---|
-| `adm1ISO` | cadena | `shapeISO` del ADM1 al que pertenece la feature | Cada parte partida; el ADM3 combinado de Chile |
-| `parentISO` | cadena | `shapeISO` de la unidad padre inmediata, para el anidamiento | Solo ADM2 y ADM3 de Chile |
+| `adm1ISO` | cadena | Clave del ADM1 al que pertenece la feature | Cada feature por debajo de ADM1 cuando el país publica ADM1, archivos combinados incluidos; `"unassigned"` donde no se pudo determinar el padre |
+| `parentISO` | cadena | Clave del padre en el nivel publicado anterior | Cada feature que tiene un nivel padre en el catálogo — ADM1 (el ISO3) e inferiores |
+| `parentID` | cadena | El `id` de la feature padre | Las mismas, salvo las features `"unassigned"` |
 | `src_shape_id` | cadena | Identificador opaco de origen de geoBoundaries | Cada feature de geoBoundaries (ADM1 e inferiores) |
 | `src_*` | cadena o número | Otros atributos de origen, con prefijo | Chile: códigos CUT, nombres de región y provincia, superficie oficial |
 
-La lista completa, con exactamente qué archivos llevan qué, está en el
-[Diccionario de propiedades](properties.md).
+No se permite ninguna otra propiedad: el esquema fija
+`additionalProperties: false`, así que un archivo con una clave extraña falla
+el CI. Las reglas de presencia completas, con recuentos, están en el
+[Diccionario de propiedades](properties.md#propiedades-de-jerarquia).
 
-!!! warning "Problemas conocidos (corregidos en v1.0.0)"
+!!! tip "Join por `id`, anidamiento por `parentID`"
 
-    En 22 datasets municipales `shapeISO` contiene el id opaco de geoBoundaries
-    en vez de un código territorial, está duplicado en BLZ ADM2, MEX ADM1 y
-    ECU ADM1, y ninguna feature tiene todavía un `id` de nivel Feature. No
-    dependas de `shapeISO` como clave única en todo el corpus hasta v1.0.0,
-    que añade `id` = `{ISO3}:{LEVEL}:{código}`, `parentID` y `adm1ISO` en
-    cada feature. Detalles en el
-    [Diccionario de propiedades](properties.md#problemas-conocidos-corregidos-en-v100).
+    Cada feature tiene un `id` de nivel Feature (más abajo) y cada feature
+    subnacional nombra el id de su padre en `parentID`, en todos los países.
+    `shapeISO` es la clave para unir *estadísticas oficiales* donde existe un
+    código; `id` es la clave para todo lo demás.
 
 ## Las propiedades de origen se preservan, no se borran
 
 Los atributos originales se conservan con el prefijo `src_`. Esta es Camiña,
-de `data/earth/CHL/ADM3/CL-TA.geojson`, tal cual está almacenada:
+de `data/earth/CHL/ADM3/CL-TA.geojson` — `id` de feature `CHL:ADM3:01402` —
+con sus propiedades tal cual están almacenadas, en el orden en que se
+almacenan:
 
 ```json
 {
@@ -54,8 +60,9 @@ de `data/earth/CHL/ADM3/CL-TA.geojson`, tal cual está almacenada:
   "shapeISO": "01402",
   "shapeGroup": "CHL",
   "shapeType": "ADM3",
-  "parentISO": "014",
   "adm1ISO": "CL-TA",
+  "parentISO": "014",
+  "parentID": "CHL:ADM2:014",
   "src_cut_com": "01402",
   "src_cut_prov": "014",
   "src_cut_reg": "01",
@@ -122,12 +129,15 @@ Los nombres de región llegan **sin** el prefijo "Región de": `Ñuble`,
   "shapeISO": "CL-CO",
   "shapeGroup": "CHL",
   "shapeType": "ADM1",
+  "parentISO": "CHL",
+  "parentID": "CHL:ADM0:CHL",
   "src_cut_reg": "04",
   "src_superficie_km2": 40587.8
 }
 ```
 
-y una comuna como el ejemplo de Camiña de arriba.
+— `id` de feature `CHL:ADM1:CL-CO`, con el contorno del país como padre — y
+una comuna como el ejemplo de Camiña de arriba.
 
 ### `shapeISO` es siempre una cadena
 
@@ -153,20 +163,73 @@ numérico.
 
 ## El `id` a nivel de feature
 
-Ningún archivo bajo `data/` fija hoy el miembro `id` de nivel superior de
-GeoJSON.
+Cada feature de cada archivo bajo `data/` — previews incluidos — fija el
+miembro `id` de nivel superior de GeoJSON: `{ISO3}:{LEVEL}:{clave}`, único en
+todo el repositorio.
 
-El `comunas.geojson` heredado de la raíz es el ejemplo de lo que no hay que
-hacer: lleva `id` en solo **5 de 343** features de comunas, con valores no
-correlativos (`0`, `1`, `3`, `142`, `155`) que no se corresponden con la
-posición, así que quien se apoye en `feature.id` obtiene `undefined` el 98,5%
-de las veces — y `regiones.geojson` no tiene ninguno.
+```json
+{"type":"Feature","id":"CHL:ADM3:01402","properties":{…},"geometry":{…}}
+```
 
-La regla: o todas las features de un archivo tienen un `id` estable y
-significativo, o ninguna lo tiene. v1.0.0 da a cada feature un
-`id` = `{ISO3}:{LEVEL}:{código}`. Hasta entonces, la identidad vive en las
-propiedades: `shapeISO` donde sea un código real, y `src_shape_id` en los datos
-de geoBoundaries donde no lo sea.
+La clave es el `shapeISO` cuando es un código real y único
+(`CHL:ADM3:01402`, `USA:ADM1:US-SD`) y una clave basada en el nombre en caso
+contrario (`USA:ADM2:US-SD.davison`, `COL:ADM2:san-rafael`). La regla completa
+de cinco pasos, el reparto medido entre ambas, el comportamiento del sufijo
+numérico ante colisiones de nombre y su salvedad de estabilidad, y el registro
+`scripts/id_overrides.json` están documentados una sola vez, en
+[Diccionario de propiedades → El `id` de la feature](properties.md#el-id-de-la-feature).
+
+La regla de fondo: o todas las features de un archivo tienen un `id` estable y
+significativo, o ninguna lo tiene. El `comunas.geojson` heredado de la raíz es
+el ejemplo de lo que no hay que hacer — lleva `id` en solo **5 de 343**
+features de comunas, con valores (`0`, `1`, `3`, `142`, `155`) que no se
+corresponden con nada, así que quien se apoyara en `feature.id` obtenía
+`undefined` el 98,5% de las veces. Por eso el contrato hace el `id`
+obligatorio: [`feature.schema.json`](#json-schemas) lo lista en `required`, y
+el CI valida cada feature contra él.
+
+## Formato del archivo
+
+Cada archivo a resolución completa lo escribe `scripts/finalize_geojson.py` en
+una única forma canónica, para que los mismos datos produzcan siempre los
+mismos bytes:
+
+```
+{"type":"FeatureCollection","bbox":[oeste,sur,este,norte],"features":[
+{"type":"Feature","id":"CHL:ADM1:CL-CO","properties":{…},"geometry":{…}},
+{"type":"Feature","id":"CHL:ADM1:CL-NB","properties":{…},"geometry":{…}},
+…
+]}
+```
+
+- la cabecera de la colección y su `bbox` en la primera línea, y después
+  **una feature por línea** — `grep`, `head` y los parsers en streaming
+  funcionan;
+- separadores compactos, sin indentación;
+- coordenadas con como máximo **6 decimales** (4 en los previews), sin
+  exponentes ni ceros finales;
+- `bbox` recalculado desde las coordenadas, así que siempre coincide con la
+  geometría;
+- propiedades en el [orden fijo](properties.md#orden-de-las-propiedades).
+
+Ejecutar dos veces el paso de finalización no cambia nada, y el CI lo ejecuta
+con `--check` para asegurarse de que cada archivo commiteado tiene esta forma.
+Los previews usan el mismo formato y llevan el mismo `id`, con solo
+`shapeName`, `shapeISO` y `shapeType`.
+
+## JSON Schemas
+
+El contrato de esta página es legible por máquina. Dos esquemas, JSON Schema
+2020-12, en `schemas/` y servidos desde este sitio:
+
+| Esquema | Valida | Publicado en |
+|---|---|---|
+| `feature.schema.json` | Una Feature: `type`, un `id` obligatorio que cumple `^[A-Z]{3}:(ADM[0-4]\|QUAD):\S+$`, `properties` (por referencia al esquema siguiente), una geometría `Polygon` o `MultiPolygon` | <https://andresgmg.github.io/World-GeoJSON/schemas/feature.schema.json> |
+| `feature-properties.schema.json` | El objeto `properties`: las cuatro claves obligatorias, las tres claves de jerarquía, `src_*` por patrón, nada más | <https://andresgmg.github.io/World-GeoJSON/schemas/feature-properties.schema.json> |
+
+`scripts/validate_data.py` los aplica a cada feature de cada archivo a
+resolución completa en el CI. Los esquemas del manifiesto, del índice y del
+registro están en [Índice global y esquemas](index-json.md#esquemas).
 
 ## Nombres y codificación
 

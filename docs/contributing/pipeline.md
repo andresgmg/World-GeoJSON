@@ -1,21 +1,27 @@
 # Data pipeline
 
-How source data becomes a file this repository will accept. Five scripts, run
+How source data becomes a file this repository will accept. Six scripts, run
 in this order:
 
 ```
-fetch_sources.py → build_data.py → make_previews.mjs → build_manifest.py → validate_data.py
-.cache/sources/    data/earth/XXX/   preview/            manifest datasets[]   CI checks
+fetch_sources.py → build_data.py → make_previews.mjs → build_manifest.py → build_index.py → validate_data.py
+.cache/sources/    data/earth/XXX/   preview/            manifest datasets[]   data/index.json    CI checks
+                   + finalize
 ```
 
 The order is not negotiable: `build_manifest.py` records a preview's path and
-size only if the preview already exists, so previews come before the manifest.
+size only if the preview already exists, so previews come before the manifest;
+`build_index.py` embeds the manifests, so it comes after them. `build_data.py`
+runs the [finalize step](#the-finalize-step) itself, so a freshly built
+country already carries its ids, hierarchy and canonical layout before the
+previews are cut from it.
 
 ## Requirements
 
-- Python 3.11 or newer (CI uses 3.12) and `pip install ijson` —
-  `build_manifest.py` streams files rather than parsing them whole.
-  `requirements-docs.txt` includes it.
+- Python 3.11 or newer (CI uses 3.12) and `pip install -r
+  requirements-dev.txt` — `ijson`, with which `build_manifest.py` streams
+  files rather than parsing them whole, and `jsonschema`, with which
+  `validate_data.py` checks everything against the schemas.
 - Node 18 or newer (CI will use 20) and `npm install`, which pins
   mapshaper 0.6.109. All geometry work is delegated to it.
 
@@ -84,13 +90,16 @@ Reads the cache and writes `data/earth/ARG/`. For each level it:
   manifest's `simplification` block;
 - writes coordinates at 6 decimals, one feature per line;
 - splits the municipal tier by ADM1 into `{LEVEL}/{code}.geojson` when an
-  ADM1 exists, adding `adm1ISO` to each part. Features whose parent cannot be
-  determined land in `{LEVEL}/unassigned.geojson`;
+  ADM1 exists. Features whose parent cannot be determined land in
+  `{LEVEL}/unassigned.geojson`;
 - writes the manifest's identity, `source` and `status`, and each dataset's
-  `license` and `simplification`.
+  `license` and `simplification`;
+- **finalizes** every file it wrote — ids, hierarchy, `shapeISO` corrections,
+  bbox, canonical layout. See the next section.
 
-Only mapshaper's output goes into `data/`; nothing is pretty-printed. The
-14-decimal, four-space-indented format exists only in the legacy root files.
+Nothing under `data/` is pretty-printed: mapshaper's output is rewritten by
+the finalize step into one canonical layout. The 14-decimal, four-space-
+indented format exists only in the legacy root files.
 
 !!! danger "Zero-pad codes as strings"
 
@@ -98,6 +107,59 @@ Only mapshaper's output goes into `data/`; nothing is pretty-printed. The
     that a JSON number cannot represent — Chile's Camiña is `01402`, not
     `1402`. Getting this wrong makes every downstream join fail silently, and
     `validate_data.py` rejects the file.
+
+### The finalize step
+
+`scripts/finalize_geojson.py` is the last thing `build_data.py` does, and the
+step that turns mapshaper's output into the
+[data contract](../reference/properties.md). It is pure Python — no mapshaper,
+no network. It reads the country's full-resolution files (combined level files
+and split parts) and rewrites them so that every feature carries:
+
+- `id` — `{ISO3}:{LEVEL}:{key}`, by the
+  [key rule](../reference/properties.md#the-feature-id);
+- `shapeISO` corrected from `scripts/shapeiso_fixes.json`, and cleared to
+  `""` where the upstream shipped its opaque id instead of a code;
+- `adm1ISO`, `parentISO` and `parentID` — the hierarchy, derived from the
+  split parts and the level above;
+- a `bbox` recomputed from the coordinates;
+
+and writes the file in the canonical layout — one feature per line, compact
+separators, at most 6 decimals — so running it twice is a no-op. It refuses
+to run while two features would get the same `id`, and names them.
+
+Two registries feed it. They are the two files a contributor may need to edit
+by hand:
+
+| Registry | What goes in it |
+|---|---|
+| `scripts/shapeiso_fixes.json` | Corrections to upstream `shapeISO` values, keyed by ISO3, level and the feature's `src_shape_id` (`"*"` addresses every feature of a level; a value of `""` clears the code). Only documented upstream errors: the corrected value is the ISO 3166-2 code of the unit named in `shapeName`. Four entries today — `SU-SD` → `US-SD`, `MX-MEX` → `MX-CMX`, `EC-H` → `EC-X`, and Belize's ADM2 codes cleared |
+| `scripts/id_overrides.json` | Manual `id` keys, addressed the same way, the value being the part after `{ISO3}:{LEVEL}:`. For when the automatic rule would collide or mislead. Empty today |
+
+Do not use either to invent a code: a unit without an ISO 3166-2 code keeps
+`shapeISO: ""` and gets a name-based `id`.
+
+The step also runs on its own, over already-committed data:
+
+```bash
+python scripts/finalize_geojson.py data/earth/ARG           # one country
+python scripts/finalize_geojson.py data/earth/*/            # everything
+python scripts/finalize_geojson.py --check data/earth/*/    # CI: exit 1 if anything is stale
+```
+
+When an ADM1 code changes — a new entry in `shapeiso_fixes.json` — the
+municipal parts must follow, because the part files are named after the ADM1
+key. `--resplit` re-derives the parents and the parts from the committed
+files without touching `.cache/sources` (the upstream may have moved on, and a
+full rebuild would churn every checksum):
+
+```bash
+python scripts/build_data.py --resplit USA
+python scripts/finalize_geojson.py data/earth/USA
+```
+
+then previews, manifest, index and validation as usual. That is how
+`USA/ADM2/SU-SD.geojson` became `US-SD.geojson`.
 
 ## 3. Previews
 
@@ -117,26 +179,48 @@ python scripts/build_manifest.py data/earth/ARG
 ```
 
 Scans the directory and writes the `datasets` array — path, bytes, SHA-256,
-feature count, bbox, geometry types, property list, preview and its size, and
-for split levels the `parts`. Everything outside `datasets` is preserved
-verbatim, and the per-dataset keys it does not compute itself (`license`,
-`src_provider`, `simplification`) are carried forward from the previous run.
-See [Manifest format](../reference/manifest.md).
+feature count, bbox, geometry types, property list (the hierarchy fields
+included), preview and its size, and for split levels the `parts`. Everything
+outside `datasets` is preserved verbatim, and the per-dataset keys it does not
+compute itself (`license`, `src_provider`, `simplification`) are carried
+forward from the previous run. See [Manifest format](../reference/manifest.md).
 
-## 5. Validate
+## 5. Index
+
+```bash
+python scripts/build_index.py
+python scripts/build_index.py --check      # CI: exit 1 if the committed file is stale
+```
+
+Rebuilds `data/index.json` from all the manifests. Every manifest change must
+be followed by this, because the index embeds them verbatim; CI checks that
+the committed index is current. See
+[Global index & schemas](../reference/index-json.md).
+
+## 6. Validate
 
 ```bash
 python scripts/validate_data.py                 # everything
 python scripts/validate_data.py data/earth/ARG  # one country
+python scripts/validate_data.py --checksums     # also re-hash every file, as CI does
 ```
 
-The same checks CI runs on every pull request that touches `data/`: manifest
-keys, the licence allow-list, `parts` summing to the level's feature count,
-previews under 2 MB, files under 50 MB, `FeatureCollection` with a `bbox` and
-no `crs`, the four required properties on every feature, `shapeISO` a string.
-Coordinates beyond 6 decimals are a warning. The
-[Review checklist](checklist.md) says which items are automated and which
-need eyes.
+The same checks CI runs on every pull request that touches `data/`,
+`schemas/` or `scripts/`. Every manifest, `data/index.json`,
+`scripts/countries.json` and every feature of every full-resolution file is
+validated against the [JSON Schemas](../reference/index-json.md#schemas) —
+which is where the licence allow-list, the required properties, `shapeISO` as
+a string and the `id` pattern now live — plus what a schema cannot say: feature
+ids unique per file, every `parentID` resolving to a feature in the country,
+the in-file `bbox` equal to the coordinates, manifest feature counts equal to
+the files, `parts` summing to the level, previews present and under 2 MB,
+files under 50 MB, and with `--checksums` every byte count and SHA-256
+matching the manifest. Coordinates beyond 6 decimals are a warning.
+
+CI runs two more checks beside it — `finalize_geojson.py --check
+data/earth/*/` and `build_index.py --check` — and regenerates the manifests to
+make sure the committed ones match. The [Review checklist](checklist.md) says
+which items are automated and which need eyes.
 
 Then confirm by eye what no script can:
 
@@ -151,7 +235,8 @@ misread — go back to the source and force UTF-8.
 
 If the source is a provider `build_data.py` does not know, the files can be
 produced with ogr2ogr or mapshaper and dropped into `data/earth/XXX/`, then
-steps 3 to 5 run as usual.
+finalized — `python scripts/finalize_geojson.py data/earth/XXX` gives them
+their ids, hierarchy and canonical layout — and steps 3 to 6 run as usual.
 
 === "ogr2ogr"
 

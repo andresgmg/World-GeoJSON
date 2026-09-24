@@ -16,6 +16,7 @@ Worked example — this is what `data/earth/CHL/` actually contains:
 
 ```
 data/
+├─ index.json                   # global index: every manifest, embedded
 └─ earth/
    └─ CHL/
       ├─ manifest.json
@@ -66,19 +67,27 @@ geoBoundaries ADM1 is copyleft; see the [Roadmap](../about/roadmap.md).)
 
 ### Part codes
 
-The part code is the ADM1 unit's **ISO 3166-2 code** as the upstream source
-ships it (`CL-RM`, `US-CA`). The manifest's `parts[].code` records the mapping
-so consumers never have to guess. Two things to know:
+The part code is the ADM1 unit's **key** — its `shapeISO`, an ISO 3166-2 code
+(`CL-RM`, `US-CA`) — and it is the same string three times over: the file
+name, the `adm1ISO` value on every feature inside the part, and the key of the
+ADM1's own `id` (`USA:ADM1:US-SD` ↔ `USA/ADM2/US-SD.geojson`). The manifest's
+`parts[].code` records the mapping so consumers never have to guess. Two
+things to know:
 
-- **Upstream typos are passed through, not corrected.** geoBoundaries codes
-  South Dakota as `SU-SD` instead of `US-SD`, so its 66 counties live in
-  `USA/ADM2/SU-SD.geojson`. The USA manifest's `notes` says so; the file is
-  renamed in v1.0.0 along with the other `shapeISO` fixes.
+- **Documented upstream errors are corrected, not passed through.** The
+  corrections live in `scripts/shapeiso_fixes.json` and the parts follow
+  them: South Dakota's 66 counties are in `USA/ADM2/US-SD.geojson` although
+  geoBoundaries codes the state `SU-SD`; Mexico's `MX-CMX.geojson` (the 16
+  alcaldías of Ciudad de México) and Ecuador's `EC-X.geojson` (the 7 cantons
+  of Cotopaxi) exist because the upstream had given each of those units a
+  neighbour's code, so `MX-MEX.geojson` now holds the 125 municipios of the
+  State of Mexico and `EC-H.geojson` the 10 cantons of Chimborazo. See
+  [Property dictionary → `shapeISO`](properties.md#shapeiso-in-detail).
 - **Units whose parent could not be determined** go to
-  `{LEVEL}/unassigned.geojson` rather than being dropped, and the manifest
-  records the count in `unassigned`. Today: ARG ADM2 (8 — the comunas of
-  Buenos Aires city, which the upstream ADM1 omits), BRA ADM2 (3) and USA
-  ADM2 (1).
+  `{LEVEL}/unassigned.geojson` rather than being dropped, with
+  `adm1ISO: "unassigned"` and no `parentID`, and the manifest records the
+  count in `unassigned`. Today: ARG ADM2 (8 — the comunas of Buenos Aires
+  city, which the upstream ADM1 omits), BRA ADM2 (3) and USA ADM2 (1).
 
 The pipeline falls back to a slug of the ADM1 name if the upstream code is
 empty; no part currently needs it.
@@ -104,9 +113,12 @@ official hierarchy — even though the file it lives in is keyed by *region*.
 Those are different things and both are useful, so both are recorded:
 `parentISO` for the hierarchy, `adm1ISO` for the file it belongs to.
 
-Today only Chile carries `parentISO`; every split part carries `adm1ISO`. The
-v1.0.0 contract adds `parentID` and `adm1ISO` to every sub-national feature —
-see the [Property dictionary](properties.md).
+Every sub-national feature carries them, in every country: `adm1ISO` wherever
+the country has an ADM1 (combined files included), and `parentISO` together
+with `parentID` — the parent's feature `id` — wherever a parent level is
+published. Where the parent level *is* the ADM1, as for US counties,
+`parentISO` and `adm1ISO` coincide. See the
+[Property dictionary](properties.md#hierarchy-properties).
 
 ## Rules
 

@@ -65,12 +65,18 @@ Cada `FeatureCollection` **debe** llevar un `bbox` de nivel superior, y todos
 los archivos bajo `data/` lo llevan — el CI lo comprueba:
 
 ```json
-"bbox": [-109.453137, -56.537671, -66.415932, -17.498399]
+"bbox": [-109.449861, -56.525107, -66.416176, -17.498399]
 ```
 
 El orden es `[oeste, sur, este, norte]`. Permite a un consumidor decidir si
 descargar el archivo siquiera, y a un mapa ajustar su vista sin parsear toda la
 geometría. (Los archivos heredados de la raíz no lo tienen.)
+
+Siempre coincide con las coordenadas del archivo: el paso de finalización lo
+recalcula desde la geometría tal como se escribe — mapshaper había dejado la
+extensión previa a la simplificación en 13 archivos — y el CI falla con
+cualquier archivo cuyo `bbox` discrepe de sus coordenadas. Es el mínimo y
+máximo ingenuo de cada coordenada, lo que tiene una consecuencia, más abajo.
 
 ## Sentido de giro
 
@@ -91,14 +97,13 @@ rango −180…180.
 Esto no es hipotético:
 
 - **Estados Unidos** lo cruza — las islas Aleutianas de Alaska pasan de los
-  180°. La RFC 7946 §5.2 dice que el `bbox` de una geometría así tiene el
-  oeste *mayor* que el este, y los archivos lo cumplen: `USA_ADM0.geojson`
-  lleva `[172,47…, 18,90…, -66,97…, 71,41…]`. El `bbox` del **manifiesto**,
-  en cambio, es un mínimo/máximo ingenuo y lee
-  `[-179,14…, 18,90…, 179,78…, 71,41…]` — casi el globo entero. Ajusta los
-  mapas al `bbox` del archivo, no al del manifiesto, y no uses el `bbox` del
-  manifiesto para decidir si un país toca tu zona de interés cerca de los
-  180°.
+  180°. La RFC 7946 §5.2 permite un `bbox` con el oeste *mayor* que el este
+  para una geometría así, pero los archivos de aquí no usan esa forma: el
+  `bbox` del archivo y el del manifiesto son ambos un mínimo/máximo ingenuo,
+  y tanto `USA_ADM0.geojson` como su entrada del manifiesto leen
+  `[-179,14…, 18,90…, 179,78…, 71,41…]` — casi el globo entero. Ajustar un
+  mapa a él funciona, pero aleja la vista al mundo entero; no uses el `bbox`
+  para decidir si un país toca tu zona de interés cerca de los 180°.
 - **Isla de Pascua** está a unos 109°O — dentro de rango, pero lo bastante
   lejos del continente como para que el bounding box de Chile abarque un
   tercio del planeta.

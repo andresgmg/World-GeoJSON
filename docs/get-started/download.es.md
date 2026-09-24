@@ -1,6 +1,6 @@
 # Descarga y CDN
 
-Hay tres formas de obtener un archivo. No son intercambiables.
+Hay varias formas de obtener los datos. No son intercambiables.
 
 ## CDN de jsDelivr
 
@@ -19,8 +19,8 @@ https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@main/<ruta>
     que lo superarían se parten por ADM1. El repositorio en conjunto supera
     actualmente el segundo, así que jsDelivr puede negarse a servirlo. Trata
     el CDN como una optimización que probar, no como una dependencia: las URLs
-    raw de GitHub son la ruta fiable hoy, y los assets de la GitHub Release lo
-    serán a partir de v1.0.0.
+    raw de GitHub son la ruta fiable hoy, y los
+    [assets de la release](#assets-de-la-release) lo son a partir de v1.0.0.
 
     El `comunas.geojson` heredado de 72 MB en la raíz del repositorio supera
     el límite por archivo en cualquier caso. Usa
@@ -36,10 +36,10 @@ aplicación, en silencio.
     https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<ruta>
     ```
 
-    Todavía no hay ninguna etiqueta — `v1.0.0` es lo siguiente previsto, ver
-    la [Hoja de ruta](../about/roadmap.md). Hasta entonces solo resuelve
-    `@main`. A partir de v1.0.0, los zips por país adjuntos a la GitHub
-    Release son la descarga fijada recomendada.
+    `v1.0.0` se etiqueta desde el merge del contrato de datos — ver
+    [Versionado y estabilidad](../about/versioning.md). Hasta entonces solo
+    resuelve `@main`. A partir de v1.0.0, los zips por país adjuntos a la
+    GitHub Release son la descarga fijada recomendada.
 
 === "Última versión"
 
@@ -58,6 +58,45 @@ Funciona con archivos de cualquier tamaño y envía
 Pero **no es un CDN**: sin caché de borde, y con límite de peticiones. Bien
 para desarrollo, scripts y descargas desde servidor; mal para tráfico de
 navegador en producción.
+
+La misma URL con una etiqueta en lugar de `main` fija una versión de los datos
+— una vez etiquetada `v1.0.0`:
+
+```
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.0.0/<ruta>
+```
+
+## Assets de la release
+
+Cada etiqueta `vX.Y.Z` publica una GitHub Release con los datos como assets
+descargables — el canal para descargas masivas y sin conexión, y el respaldo
+cuando un CDN rechaza el repositorio por su tamaño:
+
+| Asset | Contenido |
+|---|---|
+| `world-geojson-vX.Y.Z-{ISO3}.zip` | Uno por territorio: la carpeta del país con sus archivos, `manifest.json` y `preview/` |
+| `world-geojson-vX.Y.Z-all.zip` | Todo lo que hay bajo `data/` |
+| `index.json` | El [índice global](../reference/index-json.md) |
+| `SHA256SUMS` | Hashes de todos los assets |
+
+La primera es `v1.0.0`, etiquetada desde el merge del contrato de datos:
+<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.0.0>. Las notas
+de la release son la sección correspondiente del
+[Registro de cambios](../about/changelog.md).
+
+## El índice global
+
+Descarga primero `data/index.json` y después solo los archivos que necesites:
+enumera cada territorio y dataset con `path`, `bytes`, `sha256`, `bbox` y
+licencia, e incrusta todos los manifiestos, en 340 KB (39 KB con gzip). Se
+sirve desde las mismas URLs que los datos —
+
+```
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/index.json
+```
+
+— y va adjunto a cada release. Su forma, y fragmentos que lo usan, están en
+[Índice global y esquemas](../reference/index-json.md).
 
 ## Previews
 
@@ -78,7 +117,7 @@ mismas URLs que los archivos completos y apto para cargarlo directamente. Las
 Para trabajar con los datos localmente o en un pipeline.
 
 El pack del repositorio pesa unos 56 MiB y el working tree unos 309 MB —
-164 MB bajo `data/` y casi todo el resto los cuatro archivos heredados de la
+166 MB bajo `data/` y casi todo el resto los cuatro archivos heredados de la
 raíz. Un clon completo no es enorme, pero un sparse checkout de un solo país es
 bastante más pequeño.
 
@@ -116,9 +155,13 @@ bastante más pequeño.
 ## Checksums
 
 Cada página del catálogo muestra los primeros 16 caracteres hexadecimales del
-SHA-256 del archivo; el hash completo está en el `manifest.json` del país, en
-`datasets[].sha256` y, para los niveles partidos, en `parts[].sha256`.
-Verifica una descarga con:
+SHA-256 del archivo; el hash completo está en el `manifest.json` del país — y
+por tanto en `data/index.json` — en `datasets[].sha256` y, para los niveles
+partidos, en `parts[].sha256`. Los assets de la release traen un `SHA256SUMS`
+que `sha256sum -c SHA256SUMS` comprueba de una vez, y un checkout completo se
+verifica con `python scripts/validate_data.py --checksums`, que vuelve a
+calcular el hash de cada archivo contra su manifiesto. Verifica una descarga
+suelta con:
 
 === "PowerShell"
 

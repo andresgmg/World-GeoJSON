@@ -148,6 +148,7 @@ plugins:
             Coordinate reference systems: Sistemas de referencia de coordenadas
             Planetary bodies: Cuerpos planetarios
             Manifest format: Formato del manifiesto
+            Global index & schemas: Índice global y esquemas
             Contributing: Contribuir
             Add a country: Añadir un país
             Data pipeline: Pipeline de datos
@@ -298,6 +299,7 @@ nav:
       - Coordinate reference systems: reference/crs.md
       - Planetary bodies: reference/planetary.md
       - Manifest format: reference/manifest.md
+      - Global index & schemas: reference/index-json.md
   - Contributing:
       - contributing/index.md
       - Add a country: contributing/add-a-country.md

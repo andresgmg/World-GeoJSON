@@ -16,6 +16,7 @@ Ejemplo — esto es lo que contiene realmente `data/earth/CHL/`:
 
 ```
 data/
+├─ index.json                   # índice global: todos los manifiestos, incrustados
 └─ earth/
    └─ CHL/
       ├─ manifest.json
@@ -67,18 +68,27 @@ cuyo ADM1 en geoBoundaries es copyleft; ver la
 
 ### Códigos de parte
 
-El código de parte es el **ISO 3166-2** de la unidad ADM1 tal como lo entrega
-la fuente (`CL-RM`, `US-CA`). El `parts[].code` del manifiesto registra la
-correspondencia para que nadie tenga que adivinarla. Dos cosas a saber:
+El código de parte es la **clave** de la unidad ADM1 — su `shapeISO`, un
+código ISO 3166-2 (`CL-RM`, `US-CA`) — y es la misma cadena tres veces: el
+nombre del archivo, el valor de `adm1ISO` en cada feature de la parte y la
+clave del propio `id` del ADM1 (`USA:ADM1:US-SD` ↔ `USA/ADM2/US-SD.geojson`).
+El `parts[].code` del manifiesto registra la correspondencia para que nadie
+tenga que adivinarla. Dos cosas a saber:
 
-- **Las erratas de origen se pasan tal cual, no se corrigen.** geoBoundaries
-  codifica Dakota del Sur como `SU-SD` en vez de `US-SD`, así que sus 66
-  condados viven en `USA/ADM2/SU-SD.geojson`. El campo `notes` del manifiesto
-  de USA lo indica; el archivo se renombra en v1.0.0 junto con las demás
-  correcciones de `shapeISO`.
+- **Los errores documentados de la fuente se corrigen, no se pasan tal cual.**
+  Las correcciones viven en `scripts/shapeiso_fixes.json` y las partes las
+  siguen: los 66 condados de Dakota del Sur están en
+  `USA/ADM2/US-SD.geojson` aunque geoBoundaries codifique el estado como
+  `SU-SD`; `MX-CMX.geojson` de México (las 16 alcaldías de la Ciudad de
+  México) y `EC-X.geojson` de Ecuador (los 7 cantones de Cotopaxi) existen
+  porque la fuente había dado a cada una de esas unidades el código de una
+  vecina, así que `MX-MEX.geojson` contiene ahora los 125 municipios del
+  Estado de México y `EC-H.geojson` los 10 cantones de Chimborazo. Ver
+  [Diccionario de propiedades → `shapeISO`](properties.md#shapeiso-en-detalle).
 - **Las unidades cuyo padre no se pudo determinar** van a
-  `{LEVEL}/unassigned.geojson` en vez de descartarse, y el manifiesto registra
-  el recuento en `unassigned`. Hoy: ARG ADM2 (8 — las comunas de la ciudad de
+  `{LEVEL}/unassigned.geojson` en vez de descartarse, con
+  `adm1ISO: "unassigned"` y sin `parentID`, y el manifiesto registra el
+  recuento en `unassigned`. Hoy: ARG ADM2 (8 — las comunas de la ciudad de
   Buenos Aires, que el ADM1 de origen omite), BRA ADM2 (3) y USA ADM2 (1).
 
 El pipeline recurre a un slug del nombre del ADM1 si el código de origen viene
@@ -107,9 +117,12 @@ jerarquía oficial — aunque el archivo en el que vive esté indexado por
 *región*. Son cosas distintas y ambas son útiles, así que se registran las dos:
 `parentISO` para la jerarquía y `adm1ISO` para el archivo al que pertenece.
 
-Hoy solo Chile lleva `parentISO`; todas las partes partidas llevan `adm1ISO`.
-El contrato de v1.0.0 añade `parentID` y `adm1ISO` a cada feature subnacional
-— ver el [Diccionario de propiedades](properties.md).
+Cada feature subnacional los lleva, en todos los países: `adm1ISO` siempre
+que el país tenga ADM1 (archivos combinados incluidos), y `parentISO` junto
+con `parentID` — el `id` de la feature padre — siempre que se publique un
+nivel padre. Donde el nivel padre *es* el ADM1, como en los condados de
+EE.UU., `parentISO` y `adm1ISO` coinciden. Ver el
+[Diccionario de propiedades](properties.md#propiedades-de-jerarquia).
 
 ## Reglas
 

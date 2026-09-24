@@ -33,6 +33,7 @@ written against one country works against all of them.
 | **Layout** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` with `LEVEL` from `ADM0` to `ADM4`, plus `manifest.json` (sizes, SHA-256, licence) and `preview/` (simplified, at most 2 MB) per country |
 | **Sizes** | Largest file 14.9 MB (`CAN_ADM1`); nothing over 20 MB. Municipal tiers that would be bigger are split by ADM1 into `{LEVEL}/{code}.geojson` |
 | **Sources** | Natural Earth (every ADM0), geoBoundaries gbOpen under permissive licences only (ADM1 and municipal tiers), IDE Chile / SUBDERE DPA 2023 (Chile) |
+| **Index & ids** | `data/index.json` lists every territory and dataset — paths, sizes, SHA-256, bbox, licence, every manifest embedded — in one 340 KB file. Every feature has a stable `id` (`{ISO3}:{LEVEL}:{key}`, e.g. `CHL:ADM3:01402`) and, below the country outline, its parent's id in `parentID` |
 
 The [Catalog](https://andresgmg.github.io/World-GeoJSON/catalog/) lists every
 dataset with feature counts, bounding boxes, properties and download links.
@@ -57,10 +58,11 @@ All four stay unchanged through the 1.x series and are removed in v2.0.0. See
 
 ## Where things are going
 
-1. **Data contract v1** — one `data/index.json` listing every file with bytes,
-   SHA-256, bbox and licence; JSON Schemas under `schemas/`; a stable Feature
-   `id` (`{ISO3}:{LEVEL}:{code}`) and `parentID`/`adm1ISO` on every
-   sub-national feature; tag `v1.0.0` with a GitHub Release of per-country zips.
+1. **Data contract v1** — done, tag pending: `data/index.json`, the JSON
+   Schemas under `schemas/`, a stable Feature `id` (`{ISO3}:{LEVEL}:{key}`)
+   and `parentID`/`parentISO`/`adm1ISO` on every sub-national feature are on
+   `main`. `v1.0.0` is tagged from the merge of that change, and its GitHub
+   Release carries per-country zips, `index.json` and `SHA256SUMS`.
 2. **Pipeline as a package** — an installable Python package with a `wgj` CLI,
    tests and fixtures.
 3. **Client libraries** — Python `world-geojson` (PyPI) and TypeScript
@@ -127,6 +129,7 @@ código escrito para un país sirve para todos.
 | **Estructura** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` con `LEVEL` de `ADM0` a `ADM4`, más `manifest.json` (tamaños, SHA-256, licencia) y `preview/` (simplificados, como máximo 2 MB) por país |
 | **Tamaños** | El archivo más grande pesa 14,9 MB (`CAN_ADM1`); ninguno supera 20 MB. Los niveles municipales que lo superarían se parten por ADM1 en `{LEVEL}/{código}.geojson` |
 | **Fuentes** | Natural Earth (todos los ADM0), geoBoundaries gbOpen solo con licencias permisivas (ADM1 y niveles municipales), IDE Chile / SUBDERE DPA 2023 (Chile) |
+| **Índice e ids** | `data/index.json` enumera cada territorio y dataset — rutas, tamaños, SHA-256, bbox, licencia, todos los manifiestos incrustados — en un único archivo de 340 KB. Cada feature tiene un `id` estable (`{ISO3}:{LEVEL}:{clave}`, p. ej. `CHL:ADM3:01402`) y, por debajo del contorno del país, el id de su padre en `parentID` |
 
 El [Catálogo](https://andresgmg.github.io/World-GeoJSON/es/catalog/) lista cada
 dataset con número de features, bounding box, propiedades y enlaces de
@@ -154,11 +157,12 @@ v2.0.0. Ver
 
 ## Hacia dónde va
 
-1. **Contrato de datos v1** — un único `data/index.json` que lista cada archivo
-   con bytes, SHA-256, bbox y licencia; JSON Schemas en `schemas/`; un `id` de
-   Feature estable (`{ISO3}:{LEVEL}:{código}`) y `parentID`/`adm1ISO` en cada
-   feature subnacional; etiqueta `v1.0.0` con una GitHub Release de zips por
-   país.
+1. **Contrato de datos v1** — hecho, etiqueta pendiente: `data/index.json`,
+   los JSON Schemas en `schemas/`, un `id` de Feature estable
+   (`{ISO3}:{LEVEL}:{clave}`) y `parentID`/`parentISO`/`adm1ISO` en cada
+   feature subnacional están en `main`. `v1.0.0` se etiqueta desde el merge de
+   ese cambio, y su GitHub Release lleva zips por país, `index.json` y
+   `SHA256SUMS`.
 2. **Pipeline como paquete** — un paquete Python instalable con CLI `wgj`,
    tests y fixtures.
 3. **Bibliotecas cliente** — `world-geojson` en Python (PyPI) y

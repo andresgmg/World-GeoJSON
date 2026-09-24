@@ -2,11 +2,15 @@
 
 Repásalo antes de abrir un PR. Los revisores usan la misma lista.
 
-Los puntos marcados **CI** los comprueba `scripts/validate_data.py`, que se
-ejecuta en cada pull request que toca `data/`. Ejecútalo antes en local:
+Los puntos marcados **CI** se comprueban automáticamente en cada pull request
+que toca `data/`, `schemas/` o `scripts/` — con `scripts/validate_data.py`
+(ejecutado con `--checksums`), `finalize_geojson.py --check` y
+`build_index.py --check`. Ejecútalos antes en local:
 
 ```bash
-python scripts/validate_data.py data/earth/XXX
+python scripts/validate_data.py --checksums data/earth/XXX
+python scripts/finalize_geojson.py --check data/earth/XXX
+python scripts/build_index.py --check
 ```
 
 Todo lo demás necesita una persona.
@@ -16,9 +20,10 @@ Todo lo demás necesita una persona.
 - [ ] **CI** — `source.name`, `source.url`, `source.license` y
       `source.retrieved` están todos rellenos
 - [ ] **CI** — `source.license` y cada `datasets[].license` están en la lista
-      blanca permisiva: `CC0-1.0`, `CC-BY-2.5`, `CC-BY-3.0`, `CC-BY-3.0-IGO`,
-      `CC-BY-4.0`, `Etalab-2.0`, `OGL-Canada-2.0`, `public-domain`. Cualquier
-      otra cosa — incluida toda variante ODbL y CC-BY-SA — se rechaza
+      blanca permisiva — el enum `license` de `schemas/manifest.schema.json`:
+      `CC0-1.0`, `CC-BY-2.5`, `CC-BY-3.0`, `CC-BY-3.0-IGO`, `CC-BY-4.0`,
+      `Etalab-2.0`, `OGL-Canada-2.0`, `public-domain`. Cualquier otra cosa —
+      incluida toda variante ODbL y CC-BY-SA — se rechaza
 - [ ] **CI** — si `source.license` es `mixed`, `source.licenses` lista las
       licencias reales
 - [ ] La fuente está en la [lista verde](sources.md#verde-usar-libremente), o
@@ -46,19 +51,25 @@ Todo lo demás necesita una persona.
 - [ ] **CI** — **sin miembro `crs`** — prohibido por RFC 7946
 - [ ] **CI** — al menos una feature, y sin geometrías `null`
 - [ ] **CI** — menos de 50 MB
-- [ ] **CI, solo aviso** — no más de 6 decimales de precisión en las
-      coordenadas
+- [ ] **CI** — formato canónico: una feature por línea, compacto, coordenadas
+      con como máximo 6 decimales — `finalize_geojson.py --check` pasa
+- [ ] **CI** — `bbox` igual a la extensión de las coordenadas
 - [ ] Coordenadas con longitud primero, EPSG:4326 / CRS84
-- [ ] Una feature por línea, sin indentación
 - [ ] Orientación según la regla de la mano derecha
 - [ ] Cruces del antimeridiano cortados en 180°, si aplica
 - [ ] `npx @mapbox/geojsonhint archivo.geojson` no reporta nada
 
 ## Propiedades
 
-- [ ] **CI** — `shapeName`, `shapeISO`, `shapeGroup`, `shapeType` en cada
-      feature
-- [ ] **CI** — `shapeISO` es una **cadena** en cada feature
+- [ ] **CI** — cada feature valida contra
+      `schemas/feature-properties.schema.json`: `shapeName`, `shapeISO`,
+      `shapeGroup`, `shapeType` presentes, solo las claves opcionales
+      conocidas, `src_*` para todo lo demás
+- [ ] **CI** — `shapeISO` es una **cadena** en cada feature; `""` donde la
+      fuente no tiene código, nunca un id opaco; único dentro del nivel donde
+      no está vacío
+- [ ] **CI** — cada feature tiene un `id` con la forma
+      `{ISO3}:{LEVEL}:{clave}`, único dentro del archivo
 - [ ] `shapeISO` lleva ceros a la izquierda donde el código oficial los exija
 - [ ] `shapeType` coincide con el nivel del archivo
 - [ ] Atributos de origen preservados bajo `src_`
@@ -71,18 +82,24 @@ Todo lo demás necesita una persona.
 ## Anidamiento, si hay varios niveles
 
 - [ ] Cada feature ADM*n* anida dentro de exactamente una feature ADM*n-1*
-- [ ] Las partes de un nivel partido llevan `adm1ISO`, y `parentISO` resuelve
-      donde exista (hoy solo lo lleva Chile; v1.0.0 lo añade en todos)
+- [ ] **CI** — cada `parentID` resuelve a una feature que existe en el país
+- [ ] Cada feature por debajo de ADM1 lleva `adm1ISO` (o `"unassigned"`), y
+      cada feature con nivel padre publicado lleva `parentISO` y `parentID` —
+      los escribe `finalize_geojson.py`; un recuento `unassigned` se explica
+      en `notes`
 - [ ] Todos los niveles vienen de la misma añada
 
 ## Manifiesto
 
-- [ ] **CI** — `manifest.json` existe en el directorio del país y es un
-      objeto JSON
+- [ ] **CI** — `manifest.json` existe en el directorio del país y valida
+      contra `schemas/manifest.schema.json`
 - [ ] **CI** — `body`, `name`, `crs`, `source` y `status` están presentes
 - [ ] **CI** — cada entrada de dataset tiene número de features y `license`
-- [ ] **CI** — en los niveles partidos, `parts[].features` suman el
-      `features` del nivel
+- [ ] **CI** — los recuentos de features coinciden con los archivos, y en los
+      niveles partidos `parts[].features` suman el `features` del nivel
+- [ ] **CI** — los `bytes` y el `sha256` de cada archivo coinciden
+      (`--checksums`)
+- [ ] **CI** — `data/index.json` se regeneró (`build_index.py --check`)
 - [ ] **CI** — `notes`, si existe, es una sola línea
 - [ ] `iso_a3`, `iso_a2` y `m49_region` coinciden con el registro
 - [ ] `datasets` regenerado con `build_manifest.py`, no editado a mano
@@ -106,6 +123,17 @@ Todo lo demás necesita una persona.
 
 - [ ] **CI** — cada `.geojson` pesa menos de 50 MB
 - [ ] Sin Git LFS
+
+## Registros
+
+- [ ] Una entrada nueva en `scripts/shapeiso_fixes.json` corrige un error
+      documentado de la fuente al código ISO 3166-2 real de la unidad, y el
+      PR dice dónde está documentado el error — el archivo no sirve para
+      inventar códigos
+- [ ] Una entrada nueva en `scripts/id_overrides.json` se explica en el PR
+- [ ] Si se corrigió un código ADM1, las partes municipales se volvieron a
+      derivar (`build_data.py --resplit XXX`, y después
+      `finalize_geojson.py`) y la parte con el código antiguo ya no existe
 
 ## Documentación
 
