@@ -35,9 +35,9 @@ jobs:
 
       - name: Refuse to release stale or invalid data
         run: |
-          python scripts/validate_data.py --checksums
-          python scripts/finalize_geojson.py --check data/earth/*/
-          python scripts/build_index.py --check
+          wgj validate --checksums
+          wgj finalize --check data/earth/*/
+          wgj index --check
 
       - name: Build assets
         run: |
