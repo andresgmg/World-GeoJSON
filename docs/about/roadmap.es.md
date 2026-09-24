@@ -50,8 +50,57 @@ Pendiente en este continente:
       Bahamas (32/34) son casi idénticos
 - [ ] Guadalupe, Martinica, Guayana Francesa e Islas Vírgenes de EE.UU. tienen
       tier municipal pero no ADM1 aguas arriba, así que no se pueden partir
-- [ ] Plantillas de issue y PR para envío de países
 - [ ] Traducir al español las páginas generadas del catálogo
+
+## Siguiente — de repositorio de datos a plataforma
+
+América demostró el pipeline. Las próximas releases convierten el repositorio en
+algo de lo que un programa pueda depender: primero un contrato estable, luego el
+tooling, luego bibliotecas que lo hablen. En orden:
+
+**Fase 0 — higiene de ingeniería** (este pull request)
+
+- [x] Lint, comprobación de tipos y tests — `ruff`, `mypy`, `pytest` —
+      ejecutados por un workflow de CI en cada pull request
+- [x] Corrección de bugs del pipeline, listados en el
+      [Registro de cambios](changelog.md)
+- [x] Todas las páginas de documentación alineadas con lo que contienen los
+      datos
+
+**Fase 1 — contrato de datos v1**
+
+- [ ] `data/index.json`: un único archivo que enumera cada territorio, nivel y
+      archivo con `bytes`, `sha256`, `bbox` y licencia
+- [ ] JSON Schemas en `schemas/` para el manifiesto, el índice y las
+      propiedades de las features
+- [ ] Un `id` de Feature estable en cada feature: `{ISO3}:{LEVEL}:{código}`
+- [ ] `parentID` y `adm1ISO` en cada feature subnacional, no solo en las de
+      Chile
+- [ ] `shapeISO` deja de rellenarse con ids opacos de geoBoundaries, y se
+      resuelven los códigos duplicados
+- [ ] Releases de datos etiquetadas: etiqueta `v1.0.0` y una GitHub Release
+      con zips por país
+
+**Fase 2 — el pipeline como paquete**
+
+- [ ] Los scripts pasan a ser un paquete Python instalable con una CLI `wgj`,
+      tests y fixtures
+- [ ] Previews generados desde Python (mapshaper sigue corriendo vía Node)
+
+**Fase 3 — bibliotecas cliente**
+
+- [ ] Python `world-geojson` en PyPI
+- [ ] TypeScript `@world-geojson/core` en npm
+
+Ambas son clientes ligeros: leen `index.json` de una versión de datos fijada,
+descargan bajo demanda, cachean y verifican `sha256`. Sin servidor de por
+medio — descargan archivos estáticos.
+
+**Fase 4 — adaptadores para frameworks e incorporación**
+
+- [ ] `@world-geojson/react`, `@world-geojson/leaflet`, `@world-geojson/maplibre`
+- [ ] Ejemplos trabajados
+- [ ] Plantillas de issue y PR para envío de países
 
 ## Siguiente — los demás continentes
 
@@ -63,7 +112,8 @@ Un PR cada uno, reutilizando el pipeline: Europa, África, Asia y Oceanía.
 - [ ] ADM1 de todos los países (geoBoundaries)
 - [ ] ADM2 donde existan fuentes con licencia abierta
 - [ ] TopoJSON junto a GeoJSON
-- [ ] Releases de datos etiquetadas, y documentación versionada
+- [ ] Documentación versionada (las releases de datos etiquetadas suben a la
+      Fase 1)
 
 ADM3 explícitamente no es un objetivo a escala global. Muy pocos países lo
 publican abiertamente y los tamaños de archivo se vuelven inmanejables.
@@ -86,15 +136,19 @@ Registrados, no escondidos.
 | Problema | Dónde | Estado |
 |---|---|---|
 | Falta la comuna Antártica (12202) — 345 de 346 | Chile ADM3 | No se corrige; el paquete DPA oficial excluye la reclamación antártica |
-| 13 países sin ADM1 con licencia permisiva | América | Pendiente de fuente permisiva |
-| Asignación del tier municipal sin verificar en ~15 territorios | `scripts/countries.json` | Marcados `verify` y publicados como `review` |
+| 15 países sin ADM1 con licencia permisiva | América | Pendiente de fuente permisiva |
+| `shapeISO` contiene el id opaco de geoBoundaries en vez de un código en 22 datasets municipales | p. ej. USA ADM2, MEX ADM2, BRA ADM2 — lista completa en el [Diccionario de propiedades](../reference/properties.md#problemas-conocidos-corregidos-en-v100) | Corregido en v1.0.0 (previsto) |
+| `shapeISO` no es único | BLZ ADM2; MEX ADM1 (`MX-MEX` ×2); ECU ADM1 (`EC-H` ×2) | Corregido en v1.0.0 (previsto) |
+| Los condados de Dakota del Sur archivados bajo la errata `SU-SD` de geoBoundaries | USA ADM2 | Se pasa tal cual y se anota en el manifiesto; corregido en v1.0.0 (previsto) |
+| Asignación del tier municipal sin verificar en 19 territorios | `scripts/countries.json` | Marcados `verify` y publicados como `review` |
 | Los distritos de Perú no están disponibles — geoBoundaries se detiene en provincias | Perú | Pendiente de fuente |
-| Archivos heredados aún en la raíz | `comunas.geojson` y compañía | Obsoletos, se retiran en la próxima mayor |
+| Archivos heredados aún en la raíz | `comunas.geojson` y compañía | Obsoletos; se mantienen durante la serie 1.x y se retiran en v2.0.0 |
 
 ## No previsto
 
-- **Una API alojada o servicio de teselas.** Esto es un repositorio de datos.
-  Cloudflare, jsDelivr y tu propio CDN sirven mejor.
+- **Una API alojada o servicio de teselas.** Esto es un repositorio de datos,
+  y las bibliotecas de la Fase 3 son del lado del cliente: descargan archivos
+  estáticos. Cloudflare, jsDelivr y tu propio CDN sirven mejor.
 - **Geocodificación o datos de direcciones.** Otro problema, otras fuentes.
 - **Límites históricos.** Interesante, y un proyecto en sí mismo.
 - **Exactitud submétrica.** Son límites administrativos, no levantamientos

@@ -37,13 +37,8 @@ where the coordinates are *not* WGS 84 and the file cannot say so. See
 ## Coordinate precision
 
 Coordinates **must not** exceed **6 decimal places** — approximately 11 cm at
-the equator.
-
-The current Chile files store around **14** decimal places
-(`-68.95020116247055`). That is nanometre precision on boundaries surveyed to,
-at best, metre accuracy. It is not more accurate; it is the same accuracy with
-eight digits of noise attached, and those digits occupy real bytes in a 70 MB
-file.
+the equator. Every file under `data/` complies: full files are written at 6
+decimals, previews at 4, one feature per line.
 
 | Decimals | Precision at equator |
 |---|---|
@@ -52,21 +47,30 @@ file.
 | 5 | 1.1 m |
 | 6 | 11 cm |
 
-Six is generous for administrative boundaries. Previews use four.
+Six is generous for administrative boundaries.
+
+!!! note "The legacy root files are the counter-example"
+
+    `regiones.geojson` and `comunas.geojson` at the repository root store
+    around **14** decimal places (`-69.31688314070382`), pretty-printed with
+    4-space indentation. That is nanometre precision on boundaries surveyed
+    to, at best, metre accuracy — the same accuracy with eight digits of noise
+    attached, and those digits are a large part of why `comunas.geojson` is
+    72 MB where `CHL_ADM3.geojson` is 7 MB. They are deprecated; see
+    [Versioning & stability](../about/versioning.md).
 
 ## The `bbox` member
 
-Every `FeatureCollection` **should** carry a top-level `bbox`:
+Every `FeatureCollection` **must** carry a top-level `bbox`, and every file
+under `data/` does — CI checks for it:
 
 ```json
-"bbox": [-109.4548, -56.5333, -66.4177, -17.4983]
+"bbox": [-109.453137, -56.537671, -66.415932, -17.498399]
 ```
 
 Order is `[west, south, east, north]`. It lets a consumer decide whether to
 download the file at all, and lets a map fit its view without parsing the whole
-geometry.
-
-Neither current Chile file has one. Adding them is part of the migration.
+geometry. (The legacy root files have none.)
 
 ## Winding order
 
@@ -83,13 +87,23 @@ your shape.
 RFC 7946 §3.1.9: geometries crossing 180° longitude **should** be cut in two at
 the antimeridian rather than using coordinates outside the −180…180 range.
 
-This is not hypothetical for Chile:
+This is not hypothetical:
 
+- **The United States** crosses it — Alaska's Aleutian Islands extend past
+  180°. RFC 7946 §5.2 says a `bbox` for such geometry has west *greater* than
+  east, and the files follow it: `USA_ADM0.geojson` carries
+  `[172.47…, 18.90…, -66.97…, 71.41…]`. The **manifest's** `bbox`, however,
+  is a naive min/max and reads `[-179.14…, 18.90…, 179.78…, 71.41…]` — nearly
+  the whole globe. Fit maps to the file's `bbox`, not the manifest's, and do
+  not use the manifest `bbox` to decide whether a country touches your area
+  of interest near 180°.
 - **Isla de Pascua** sits at about 109°W — well inside range, but far enough
-  from the mainland that a naive bounding box spans a third of the planet.
-- **The Chilean Antarctic Territory** extends to the South Pole. Polygons that
-  include a pole are a known failure mode for renderers and for
-  point-in-polygon tests, quite separately from the antimeridian question.
+  from the mainland that Chile's bounding box spans a third of the planet.
+- **Polar geometry.** Chile's Antarctic claim would extend to the South Pole,
+  but the DPA package excludes it, so nothing in the current files reaches
+  beyond 56.6°S. Polygons that include a pole are a known failure mode for
+  renderers and for point-in-polygon tests, quite separately from the
+  antimeridian question.
 
 Any dataset including polar or antimeridian-crossing geometry **must** note it
 in the manifest so consumers are not surprised.

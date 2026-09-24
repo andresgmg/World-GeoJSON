@@ -1,64 +1,78 @@
 # Add a country
 
-End-to-end runbook. Budget an hour for your first one.
+End-to-end runbook. Budget an hour for your first one. The scripts do most of
+the work; the order matters — previews before the manifest.
 
 ## 0. Check the licence
 
 [Approved sources & licensing](sources.md). Do this first — it is the step most
 likely to stop the contribution, and everything after it is wasted effort if
-the source turns out to be unusable.
+the source turns out to be unusable. `fetch_sources.py --dry-run` (step 3)
+tells you what geoBoundaries offers for a country and under which licence,
+without downloading anything.
 
 ## 1. Set up
 
-```powershell
+```bash
 git clone https://github.com/andresgmg/World-GeoJSON.git
 cd World-GeoJSON
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-docs.txt
+python -m venv .venv && source .venv/bin/activate   # Windows: .\.venv\Scripts\activate
+pip install -r requirements-docs.txt                 # mkdocs + ijson
+npm install                                          # mapshaper, pinned
 git checkout -b add-nzl
 ```
 
-You also need [mapshaper](https://github.com/mbloch/mapshaper), which runs via
-`npx` with no install step. Node 18 or newer.
+Python 3.11 or newer, Node 18 or newer.
 
-## 2. Get the data
+## 2. Declare it in the registry
 
-Using New Zealand and geoBoundaries as the worked example:
+Add an entry to `scripts/countries.json`. Using New Zealand and geoBoundaries
+as the worked example:
 
-```bash
-curl -LO https://www.geoboundaries.org/data/geoBoundaries-3_0_0/NZL/ADM1/geoBoundaries-3_0_0-NZL-ADM1.geojson
+```json
+"NZL": {
+  "iso_a2": "NZ",
+  "m49_region": "Australia and New Zealand",
+  "name": { "en": "New Zealand", "es": "Nueva Zelanda" },
+  "adm1_term": { "en": "Region", "es": "Región" },
+  "municipal_level": "ADM2",
+  "municipal_term": { "en": "Territorial authority", "es": "Autoridad territorial" },
+  "source": "geoboundaries",
+  "verify": true,
+  "note": "The Chatham Islands sit east of 180°; geometry is cut at the antimeridian."
+}
 ```
 
-## 3. Normalise it
+`municipal_level` is the one field you have to research: which ADM level is
+the municipal tier is a fact about the country, not something the data
+reveals. `verify: true` ships the manifest with `status: "review"` until
+someone has checked the level assignment and unit count against an official
+source. [Data pipeline](pipeline.md#0-declare-the-country) documents every
+field.
 
-The full detail is in [Data pipeline](pipeline.md). The short version:
+## 3. Fetch the sources
 
 ```bash
-npx mapshaper geoBoundaries-3_0_0-NZL-ADM1.geojson \
-  -rename-fields shapeName=shapeName \
-  -each 'shapeGroup="NZL", shapeType="ADM1"' \
-  -o precision=0.000001 format=geojson \
-     data/earth/NZL/NZL_ADM1.geojson
+python scripts/fetch_sources.py --iso3 NZL --dry-run
+python scripts/fetch_sources.py --iso3 NZL
 ```
 
-Then confirm against [Property schema](../reference/schema.md):
+The dry run lists each level with its licence and unit count and marks what is
+rejected. Anything copyleft never reaches your disk. Accepted files land in
+`.cache/sources/`, which is git-ignored.
 
-- `shapeName`, `shapeISO`, `shapeGroup`, `shapeType` present on every feature
-- source attributes preserved under `src_`
-- Esri artifacts (`objectid`, `st_area_sh`, …) removed
-- `shapeISO` is a **string**, zero-padded where the official code is
+## 4. Build the data
 
-And against [CRS](../reference/crs.md):
+```bash
+python scripts/build_data.py NZL
+```
 
-- EPSG:4326 / CRS84, longitude first
-- no `crs` member in the file
-- coordinates at 6 decimal places or fewer
-- top-level `bbox` present
-
-## 4. Write the manifest
-
-Create `data/earth/NZL/manifest.json` with the hand-authored fields. Leave
-`datasets` out — the scanner writes it.
+Writes `data/earth/NZL/NZL_ADM0.geojson`, `NZL_ADM1.geojson`, … — reprojected,
+renamed onto the [standard schema](../reference/schema.md), simplified to a
+100 m tolerance, split by ADM1 where the municipal tier needs it — and the
+manifest's identity and provenance. Before the next two steps the manifest
+looks like this, with `license` and `simplification` already on each entry of
+`datasets`:
 
 ```json
 {
@@ -69,56 +83,90 @@ Create `data/earth/NZL/manifest.json` with the hand-authored fields. Leave
   "m49_region": "Australia and New Zealand",
   "name": { "en": "New Zealand", "es": "Nueva Zelanda" },
   "crs": { "authority": "OGC", "code": "CRS84", "epsg": 4326 },
+  "status": "review",
   "source": {
-    "name": "geoBoundaries",
+    "name": "geoBoundaries (gbOpen)",
     "url": "https://www.geoboundaries.org/",
     "license": "CC-BY-4.0",
-    "retrieved": "2026-08-10"
+    "retrieved": "2026-09-24"
   },
-  "status": "review"
+  "notes": "The Chatham Islands sit east of 180°; geometry is cut at the antimeridian."
 }
 ```
 
+`status`, `notes` and the `source` block's `name`, `url` and `retrieved` are
+only filled in when absent, so you can edit them and re-run safely. `iso_a2`,
+`m49_region` and `crs` are overwritten from the registry — change them there.
+
 !!! tip "New Zealand crosses the antimeridian"
 
-    The Chatham Islands sit east of 180°. Check that your geometry is cut at
-    the antimeridian rather than using longitudes beyond 180, and note it in
+    The Chatham Islands sit east of 180°. Check that the output is cut at the
+    antimeridian rather than using longitudes beyond 180, and say so in
     `notes`. See [CRS](../reference/crs.md#the-antimeridian).
 
-## 5. Generate the manifest and preview
+## 5. Generate the previews
 
-```powershell
-.\.venv\Scripts\python.exe scripts\build_manifest.py data\earth\NZL
-node scripts\make_previews.mjs data/earth/NZL
+```bash
+node scripts/make_previews.mjs data/earth/NZL
 ```
 
-The first fills in `datasets` with feature counts, bbox, checksums and property
-lists. The second writes simplified preview files — see
-[Simplification & previews](previews.md) for the size budget.
+Before the manifest, not after: `build_manifest.py` records a preview only if
+it already exists. See [Simplification & previews](previews.md) for the size
+budget.
 
-## 6. Check it renders
+## 6. Generate the manifest
 
-```powershell
-.\.venv\Scripts\python.exe -m mkdocs serve
+```bash
+python scripts/build_manifest.py data/earth/NZL
+```
+
+Fills in `datasets` with paths, sizes, checksums, feature counts, bounding
+boxes, property lists and preview sizes. The hand-authored fields are left
+alone.
+
+## 7. Validate
+
+```bash
+python scripts/validate_data.py data/earth/NZL
+```
+
+Zero errors before you open the PR. Warnings — a dataset without a preview,
+coordinates beyond 6 decimals — do not fail CI but do get review comments.
+
+## 8. Check it renders
+
+```bash
+mkdocs serve
 ```
 
 Your country appears under **Catalog** automatically. Confirm the feature count
 is plausible, the bounding box is in the right hemisphere, and the preview map
 looks like the country.
 
-## 7. Open the PR
+## 9. Open the PR
 
 Work through the [Review checklist](checklist.md) first.
 
-Your PR should contain the data file(s), the manifest, and the preview file(s).
-It should **not** contain generated documentation pages — those do not exist on
-disk.
+Your PR should contain the registry entry, the data file(s), the manifest and
+the preview file(s). It should **not** contain anything from `.cache/` or
+generated documentation pages — neither exists as far as git is concerned.
 
 ## Adding a level to an existing country
 
-Same process, minus the manifest creation: drop the new file into the existing
-directory and re-run `build_manifest.py`. It rewrites the `datasets` array and
-leaves the curated fields alone.
+Re-run steps 3 to 7 for that country. `build_data.py` leaves the manifest's
+hand-authored fields alone; `build_manifest.py` rewrites `datasets` and
+carries each entry's `license` forward.
+
+## A source the scripts do not know
+
+If the country's data comes from a national SDI rather than geoBoundaries,
+build the files with mapshaper or ogr2ogr as
+[Data pipeline](pipeline.md#building-by-hand) describes, drop them into
+`data/earth/XXX/`, and run steps 5 to 7. Then add `license` to every entry in
+`datasets` by hand — `validate_data.py` rejects a dataset without one, and
+only `build_data.py` writes it — plus the identity block shown in step 4.
+Teaching `build_data.py` the new provider is the better contribution if you
+expect to repeat it.
 
 ## Correcting existing geometry
 

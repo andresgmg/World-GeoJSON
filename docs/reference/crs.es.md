@@ -37,13 +37,8 @@ donde las coordenadas *no* son WGS 84 y el archivo no puede decirlo. Ver
 ## Precisión de coordenadas
 
 Las coordenadas **no deben** exceder los **6 decimales** — unos 11 cm en el
-ecuador.
-
-Los archivos actuales de Chile guardan unos **14** decimales
-(`-68.95020116247055`). Eso es precisión de nanómetro sobre límites
-levantados, en el mejor de los casos, con exactitud métrica. No es más exacto;
-es la misma exactitud con ocho dígitos de ruido pegados, y esos dígitos ocupan
-bytes reales en un archivo de 70 MB.
+ecuador. Todos los archivos bajo `data/` cumplen: los archivos completos se
+escriben con 6 decimales, los previews con 4, una feature por línea.
 
 | Decimales | Precisión en el ecuador |
 |---|---|
@@ -52,22 +47,30 @@ bytes reales en un archivo de 70 MB.
 | 5 | 1,1 m |
 | 6 | 11 cm |
 
-Seis es generoso para límites administrativos. Los previews usan cuatro.
+Seis es generoso para límites administrativos.
+
+!!! note "Los archivos heredados de la raíz son el contraejemplo"
+
+    `regiones.geojson` y `comunas.geojson` en la raíz del repositorio guardan
+    unos **14** decimales (`-69.31688314070382`), con indentación de 4
+    espacios. Eso es precisión de nanómetro sobre límites levantados, en el
+    mejor de los casos, con exactitud métrica — la misma exactitud con ocho
+    dígitos de ruido pegados, y esos dígitos son buena parte de por qué
+    `comunas.geojson` pesa 72 MB donde `CHL_ADM3.geojson` pesa 7 MB. Están
+    obsoletos; ver [Versionado y estabilidad](../about/versioning.md).
 
 ## El miembro `bbox`
 
-Cada `FeatureCollection` **debería** llevar un `bbox` de nivel superior:
+Cada `FeatureCollection` **debe** llevar un `bbox` de nivel superior, y todos
+los archivos bajo `data/` lo llevan — el CI lo comprueba:
 
 ```json
-"bbox": [-109.4548, -56.5333, -66.4177, -17.4983]
+"bbox": [-109.453137, -56.537671, -66.415932, -17.498399]
 ```
 
 El orden es `[oeste, sur, este, norte]`. Permite a un consumidor decidir si
 descargar el archivo siquiera, y a un mapa ajustar su vista sin parsear toda la
-geometría.
-
-Ninguno de los archivos actuales de Chile lo tiene. Añadirlos es parte de la
-migración.
+geometría. (Los archivos heredados de la raíz no lo tienen.)
 
 ## Sentido de giro
 
@@ -85,15 +88,25 @@ RFC 7946 §3.1.9: las geometrías que cruzan los 180° de longitud **deberían**
 cortarse en dos en el antimeridiano, en lugar de usar coordenadas fuera del
 rango −180…180.
 
-Esto no es hipotético para Chile:
+Esto no es hipotético:
 
+- **Estados Unidos** lo cruza — las islas Aleutianas de Alaska pasan de los
+  180°. La RFC 7946 §5.2 dice que el `bbox` de una geometría así tiene el
+  oeste *mayor* que el este, y los archivos lo cumplen: `USA_ADM0.geojson`
+  lleva `[172,47…, 18,90…, -66,97…, 71,41…]`. El `bbox` del **manifiesto**,
+  en cambio, es un mínimo/máximo ingenuo y lee
+  `[-179,14…, 18,90…, 179,78…, 71,41…]` — casi el globo entero. Ajusta los
+  mapas al `bbox` del archivo, no al del manifiesto, y no uses el `bbox` del
+  manifiesto para decidir si un país toca tu zona de interés cerca de los
+  180°.
 - **Isla de Pascua** está a unos 109°O — dentro de rango, pero lo bastante
-  lejos del continente como para que un bounding box ingenuo abarque un tercio
-  del planeta.
-- **El Territorio Antártico Chileno** se extiende hasta el Polo Sur. Los
-  polígonos que incluyen un polo son un modo de fallo conocido para
-  renderizadores y para pruebas de punto-en-polígono, con total independencia
-  de la cuestión del antimeridiano.
+  lejos del continente como para que el bounding box de Chile abarque un
+  tercio del planeta.
+- **Geometría polar.** La reclamación antártica de Chile llegaría hasta el
+  Polo Sur, pero el paquete DPA la excluye, así que nada en los archivos
+  actuales pasa de los 56,6°S. Los polígonos que incluyen un polo son un modo
+  de fallo conocido para renderizadores y para pruebas de punto-en-polígono,
+  con total independencia de la cuestión del antimeridiano.
 
 Cualquier dataset que incluya geometría polar o que cruce el antimeridiano
 **debe** indicarlo en el manifiesto, para que no sorprenda a los consumidores.

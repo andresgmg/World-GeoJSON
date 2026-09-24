@@ -1,8 +1,8 @@
 # World GeoJSON
 
-Límites administrativos en GeoJSON, abiertos y versionados — empezando por
-Chile, creciendo hacia todos los países del mundo y, con el tiempo, hacia la
-Luna y Marte.
+Límites administrativos en GeoJSON, abiertos y versionados — hoy América,
+creciendo hacia todos los países del mundo y, con el tiempo, hacia la Luna y
+Marte.
 
 Todos los datos son GeoJSON según [RFC 7946](https://www.rfc-editor.org/rfc/rfc7946)
 en WGS 84. Sin API key, sin registro, sin un servicio con límite de peticiones
@@ -36,11 +36,18 @@ en medio: pides una URL y tienes los límites.
 
 ```js
 const url =
-  "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/regiones.geojson";
+  "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/earth/CHL/CHL_ADM1.geojson";
 
 const regiones = await fetch(url).then((r) => r.json());
 console.log(regiones.features.length); // 16
+console.log(regiones.features.map((f) => f.properties.shapeName));
+// ["Coquimbo", "Ñuble", "Los Lagos", …]
 ```
+
+Todos los datasets están en `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` y
+llevan las mismas cuatro propiedades — `shapeName`, `shapeISO`, `shapeGroup`,
+`shapeType` — así que el fragmento sirve para cualquier país del
+[Catálogo](catalog/index.md).
 
 ## Qué es este proyecto
 

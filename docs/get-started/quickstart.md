@@ -1,7 +1,8 @@
 # Quick start
 
-Every snippet below loads Chile's 16 regions. Swap the URL for any dataset from
-the [Catalog](../catalog/index.md).
+Every snippet below loads Chile's 16 regions from
+`data/earth/CHL/CHL_ADM1.geojson`. Swap the URL for any dataset from the
+[Catalog](../catalog/index.md) — the property names are the same everywhere.
 
 !!! tip "Tab choice is remembered"
 
@@ -21,14 +22,14 @@ the [Catalog](../catalog/index.md).
       }).addTo(map);
 
       const url =
-        "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/regiones.geojson";
+        "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/earth/CHL/CHL_ADM1.geojson";
 
       fetch(url)
         .then((r) => r.json())
         .then((data) => {
           const layer = L.geoJSON(data, {
             style: { weight: 1, color: "#00695c", fillOpacity: 0.15 },
-            onEachFeature: (f, l) => l.bindTooltip(f.properties.Region),
+            onEachFeature: (f, l) => l.bindTooltip(f.properties.shapeName),
           }).addTo(map);
           map.fitBounds(layer.getBounds());
         });
@@ -50,7 +51,7 @@ the [Catalog](../catalog/index.md).
     map.on("load", () => {
       map.addSource("regions", {
         type: "geojson",
-        data: "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/regiones.geojson",
+        data: "https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/earth/CHL/CHL_ADM1.geojson",
       });
 
       map.addLayer({
@@ -76,14 +77,16 @@ the [Catalog](../catalog/index.md).
 
     URL = (
         "https://raw.githubusercontent.com/andresgmg/World-GeoJSON"
-        "/main/regiones.geojson"
+        "/main/data/earth/CHL/CHL_ADM1.geojson"
     )
 
     regions = gpd.read_file(URL)
 
-    print(len(regions))                    # 16
-    print(regions.crs)                     # EPSG:4326
-    print(regions["Region"].tolist()[:3])
+    print(len(regions))                        # 16
+    print(regions.crs)                         # EPSG:4326
+    print(regions["shapeName"].tolist()[:3])   # ['Coquimbo', 'Ñuble', 'Los Lagos']
+    print(regions.set_index("shapeISO").loc["CL-RM", "shapeName"])
+    # Metropolitana de Santiago
 
     # Area needs a projected CRS. Computing it in degrees is meaningless.
     # EPSG:5361 (SIRGAS-Chile) is appropriate for Chile specifically.
@@ -100,29 +103,32 @@ the [Catalog](../catalog/index.md).
         data = json.load(fh)
 
     for feature in data["features"]:
-        print(feature["properties"]["Region"])
+        p = feature["properties"]
+        print(p["shapeISO"], p["shapeName"])
     ```
 
-    !!! warning "Do not `json.load` a 70 MB file casually"
+    !!! warning "Mind `json.load` on big files"
 
-        `comunas.geojson` will expand to well over a gigabyte of Python
-        objects. Use `ijson` to stream it, or GeoPandas, which parses via
-        GDAL rather than into Python dicts.
+        `json.load` builds a Python object for every coordinate pair. The
+        5–15 MB files under `data/` are fine; the legacy 72 MB
+        `comunas.geojson` in the repository root is not — it expands to well
+        over a gigabyte of Python objects. Use `ijson` to stream it, or
+        GeoPandas, which parses via GDAL rather than into Python dicts.
 
 === "QGIS"
 
     1. **Layer → Add Layer → Add Vector Layer**
     2. Set **Source Type** to *Protocol: HTTP(S), cloud, etc.*
     3. Paste the raw URL:
-       `https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/regiones.geojson`
+       `https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/earth/CHL/CHL_ADM1.geojson`
     4. Click **Add**.
 
     QGIS reads the CRS as EPSG:4326 automatically. To measure areas or
     distances, reproject to a projected CRS appropriate for your area of
     interest first — for Chile, EPSG:5361.
 
-    For the 70 MB communes file, download it locally rather than streaming it
-    over HTTP; QGIS will re-request ranges repeatedly otherwise.
+    For the larger files — Canada's ADM1 is 14.9 MB — download locally rather
+    than streaming over HTTP; QGIS will re-request ranges repeatedly otherwise.
 
 === "R"
 
@@ -131,39 +137,47 @@ the [Catalog](../catalog/index.md).
 
     url <- paste0(
       "https://raw.githubusercontent.com/andresgmg/World-GeoJSON",
-      "/main/regiones.geojson"
+      "/main/data/earth/CHL/CHL_ADM1.geojson"
     )
 
     regions <- st_read(url)
 
-    nrow(regions)        # 16
-    st_crs(regions)      # EPSG:4326
+    nrow(regions)          # 16
+    st_crs(regions)        # EPSG:4326
+    regions$shapeName[1:3] # "Coquimbo" "Ñuble" "Los Lagos"
     plot(st_geometry(regions))
     ```
 
 ## What you get back
 
-A standard `FeatureCollection`. Chile's regions carry these properties today:
+A standard `FeatureCollection` with a top-level `bbox`, one feature per line.
+Región Metropolitana looks like this:
 
 ```json
 {
-  "objectid": 1084,
-  "cir_sena": 1,
-  "codregion": 15,
-  "area_km": 16866.81984442,
-  "st_area_sh": 18868687743.9,
-  "st_length_": 750529.550114,
-  "Region": "Región de Arica y Parinacota"
+  "shapeName": "Metropolitana de Santiago",
+  "shapeISO": "CL-RM",
+  "shapeGroup": "CHL",
+  "shapeType": "ADM1",
+  "src_cut_reg": "13",
+  "src_superficie_km2": 15398.38
 }
 ```
 
-!!! note "These property names are not final"
+The first four properties are on every feature in the catalog: the name, the
+ISO 3166-2 code where one exists (otherwise the official national code), the
+country, and the level. Anything prefixed `src_` is carried over from the
+upstream source and differs by country — Chile's regions carry their DPA code
+and official area, geoBoundaries datasets carry `src_shape_id`. Names have no
+"Región de" prefix. The full list is in
+[Property schema](../reference/schema.md).
 
-    They come straight from the upstream Esri shapefile and are inconsistent —
-    three naming styles in one object, plus export artifacts like `st_area_sh`.
-    A standardised schema is defined in
-    [Property schema](../reference/schema.md) and will be applied as a
-    documented breaking change. See
-    [Versioning & stability](../about/versioning.md).
+!!! warning "`shapeISO` is not yet a guaranteed join key"
+
+    On 22 municipal datasets `shapeISO` holds geoBoundaries' opaque id rather
+    than an official code, and it is not unique in Belize ADM2, Mexico ADM1
+    and Ecuador ADM1. Check the values on the catalog page before joining on
+    it. A stable Feature `id` on every feature is planned for v1.0.0 — see
+    [Roadmap](../about/roadmap.md).
 
 --8<-- "abbreviations.md"

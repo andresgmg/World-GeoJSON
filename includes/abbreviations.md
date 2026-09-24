@@ -1,7 +1,8 @@
 *[ADM0]: Administrative level 0 — the outline of a country or body
 *[ADM1]: Administrative level 1 — first-level divisions (Chile's regiones, US states)
-*[ADM2]: Administrative level 2 — second-level divisions (Chile's comunas, US counties)
-*[ADM3]: Administrative level 3 — third-level divisions, where they exist
+*[ADM2]: Administrative level 2 — second-level divisions (Chile's provincias, US counties)
+*[ADM3]: Administrative level 3 — third-level divisions, where they exist (Chile's comunas)
+*[ADM4]: Administrative level 4 — fourth-level divisions; published upstream for Guadeloupe and Martinique
 *[BCN]: Biblioteca del Congreso Nacional de Chile
 *[CDN]: Content Delivery Network
 *[CRS]: Coordinate Reference System

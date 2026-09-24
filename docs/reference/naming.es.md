@@ -10,23 +10,26 @@ data/{body}/{CODE}/{CODE}_{LEVEL}.geojson
 |---|---|---|
 | `body` | Nombre del cuerpo en minúsculas | `earth`, `moon`, `mars` |
 | `CODE` | ISO 3166-1 alpha-3 en mayúsculas, o código específico del cuerpo | `CHL`, `NZL`, `MARS` |
-| `LEVEL` | `ADM0`–`ADM3`, o `QUAD` para cuadrángulos planetarios | `ADM2` |
+| `LEVEL` | `ADM0`–`ADM4`, o `QUAD` para cuadrángulos planetarios | `ADM2` |
 
-Ejemplo:
+Ejemplo — esto es lo que contiene realmente `data/earth/CHL/`:
 
 ```
 data/
 └─ earth/
    └─ CHL/
       ├─ manifest.json
+      ├─ CHL_ADM0.geojson          # contorno del país (Natural Earth)
       ├─ CHL_ADM1.geojson          # 16 regiones
       ├─ CHL_ADM2.geojson          # 56 provincias
       ├─ CHL_ADM3.geojson          # 345 comunas, país completo
       ├─ ADM3/                     # …y partidas por región
+      │  ├─ CL-AI.geojson
+      │  ├─ CL-AN.geojson
       │  ├─ CL-AP.geojson
-      │  ├─ CL-RM.geojson
-      │  └─ …
+      │  └─ … (16 archivos)
       └─ preview/
+         ├─ CHL_ADM0.preview.geojson
          ├─ CHL_ADM1.preview.geojson
          ├─ CHL_ADM2.preview.geojson
          └─ CHL_ADM3.preview.geojson
@@ -34,33 +37,65 @@ data/
 
 **Los huecos en la secuencia de niveles son esperables y están permitidos** —
 nombra cada archivo por el nivel que realmente representa, en vez de renumerar
-para cerrar el hueco.
+para cerrar el hueco. Guadalupe y Martinica publican `GLP_ADM4.geojson` y
+`MTQ_ADM4.geojson` sin nada entre ADM0 y ADM4, porque ese es el nivel en el que
+geoBoundaries publica sus comunas.
 
-## El nivel municipal va partido
+## El nivel municipal va partido por ADM1, cuando existe un ADM1
 
-El nivel más profundo que publica este proyecto es el **tier municipal**, y va
-siempre partido en un archivo por cada padre ADM1:
+El nivel más profundo que publica este proyecto es el **tier municipal**.
+Siempre que el país también tenga un ADM1 en este repositorio, ese tier va
+partido en un archivo por cada padre ADM1:
 
 ```
-data/{body}/{CODE}/{LEVEL}/{código del padre}.geojson
+data/{body}/{CODE}/{LEVEL}/{código ADM1}.geojson
 ```
 
 Brasil tiene 5.570 municipios y México 2.457; un único archivo por país sería
 de decenas de megabytes e inutilizable en un navegador. Partir por la primera
 división mantiene todos los archivos pequeños, permite descargar solo el estado
-que interesa, y deja todo por debajo del techo de 20 MB del CDN.
+que interesa, y deja todo dentro del presupuesto de tamaño por archivo.
 
-El código del padre es el **ISO 3166-2** de la unidad ADM1 cuando se conoce
-(`CL-RM`, `CL-AP`). Cuando no — geoBoundaries entrega con frecuencia un
-`shapeISO` vacío — se recurre a un slug del nombre del ADM1, y `manifest.json`
-registra la correspondencia para que nadie tenga que adivinarla.
+Hoy existen niveles partidos para ARG, BLZ, BOL, BRA, CHL, DOM, ECU, MEX, PRY y
+USA.
+
+**Catorce territorios tienen tier municipal pero ningún ADM1 por el que
+partirlo**, así que publican solo el archivo de país completo: COL, CRI, GLP,
+GTM, GUF, GUY, HND, HTI, MTQ, PAN, PRI, SLV, SUR y VIR. (La mayoría son países
+cuyo ADM1 en geoBoundaries es copyleft; ver la
+[Hoja de ruta](../about/roadmap.md).)
+
+### Códigos de parte
+
+El código de parte es el **ISO 3166-2** de la unidad ADM1 tal como lo entrega
+la fuente (`CL-RM`, `US-CA`). El `parts[].code` del manifiesto registra la
+correspondencia para que nadie tenga que adivinarla. Dos cosas a saber:
+
+- **Las erratas de origen se pasan tal cual, no se corrigen.** geoBoundaries
+  codifica Dakota del Sur como `SU-SD` en vez de `US-SD`, así que sus 66
+  condados viven en `USA/ADM2/SU-SD.geojson`. El campo `notes` del manifiesto
+  de USA lo indica; el archivo se renombra en v1.0.0 junto con las demás
+  correcciones de `shapeISO`.
+- **Las unidades cuyo padre no se pudo determinar** van a
+  `{LEVEL}/unassigned.geojson` en vez de descartarse, y el manifiesto registra
+  el recuento en `unassigned`. Hoy: ARG ADM2 (8 — las comunas de la ciudad de
+  Buenos Aires, que el ADM1 de origen omite), BRA ADM2 (3) y USA ADM2 (1).
+
+El pipeline recurre a un slug del nombre del ADM1 si el código de origen viene
+vacío; ninguna parte lo necesita actualmente.
 
 ### El archivo de país completo es condicional
 
 El archivo combinado (`CHL_ADM3.geojson`) se publica **solo si queda por debajo
-de 20 MB**, que es el mayor tamaño que sirve jsDelivr. Por encima de eso solo
-existen los archivos partidos, y la página de catálogo del dataset lo indica
+del presupuesto de 18 MiB por archivo**, que lo mantiene bajo el límite de
+20 MB por archivo que documenta jsDelivr. Por encima de eso solo existen los
+archivos partidos, y la página de catálogo del dataset lo indica
 explícitamente.
+
+Brasil es el ejemplo real: su ADM2 combinado pesaría 33 MB, así que
+`data/earth/BRA/` tiene una carpeta `ADM2/` con 28 partes y ningún
+`BRA_ADM2.geojson`. Las comunas de Chile caben (7 MB), así que existen ambas
+formas.
 
 Así que conviene consultar la página de catálogo o el manifiesto en vez de dar
 por hecho que existe un combinado.
@@ -71,6 +106,10 @@ El `parentISO` de una comuna nombra su *provincia* — el padre inmediato en la
 jerarquía oficial — aunque el archivo en el que vive esté indexado por
 *región*. Son cosas distintas y ambas son útiles, así que se registran las dos:
 `parentISO` para la jerarquía y `adm1ISO` para el archivo al que pertenece.
+
+Hoy solo Chile lleva `parentISO`; todas las partes partidas llevan `adm1ISO`.
+El contrato de v1.0.0 añade `parentID` y `adm1ISO` a cada feature subnacional
+— ver el [Diccionario de propiedades](properties.md).
 
 ## Reglas
 
@@ -87,11 +126,11 @@ jerarquía oficial — aunque el archivo en el que vive esté indexado por
 
 !!! note "¿Por qué no también `.json`?"
 
-    El repositorio incluye hoy tanto `comunas.geojson` como `comunas.json`,
-    idénticos byte a byte. Git los almacena como un único blob, así que la
-    duplicación no cuesta nada en tamaño de repositorio — pero duplica el
-    working tree y hace que el catálogo sea ambiguo sobre cuál ruta es la
-    canónica. De aquí en adelante hay exactamente un archivo por dataset.
+    La raíz del repositorio incluye todavía tanto `comunas.geojson` como
+    `comunas.json`, idénticos byte a byte. Git los almacena como un único blob,
+    así que la duplicación no cuesta nada en tamaño de repositorio — pero
+    duplica el working tree y hace que el catálogo sea ambiguo sobre cuál ruta
+    es la canónica. Bajo `data/` hay exactamente un archivo por dataset.
 
 ## Por qué ISO 3166-1 alpha-3
 

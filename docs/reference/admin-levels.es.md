@@ -8,6 +8,7 @@
 | **ADM1** | Divisiones de primer nivel |
 | **ADM2** | Divisiones de segundo nivel |
 | **ADM3** | Divisiones de tercer nivel |
+| **ADM4** | Divisiones de cuarto nivel — se publican solo donde la fuente sitúa ahí el tier municipal (Guadalupe y Martinica hoy) |
 
 Siguen la semántica de [geoBoundaries](https://www.geoboundaries.org/) y GADM,
 para que los datasets de este proyecto puedan cruzarse con los suyos sin paso
@@ -17,8 +18,9 @@ de traducción.
 
 Es la regla que más confusión causa, así que conviene decirla claro: **ADM1 no
 significa "provincia".** Significa "el primer nivel de subdivisión que tenga
-este país, se llame como se llame". El término local se registra aparte, en el
-manifiesto.
+este país, se llame como se llame". El término local se registra aparte, como
+`adm1_term` y `municipal_term` en `scripts/countries.json` — no en los
+manifiestos.
 
 | País | ADM1 | ADM2 | ADM3 |
 |---|---|---|---|
@@ -62,6 +64,7 @@ varía:
 | Bolivia | Municipio | **ADM3** |
 | Haití | Comuna | **ADM3** |
 | Costa Rica | Cantón | ADM2 |
+| Guadalupe, Martinica | Comuna | **ADM4** |
 
 Como no se puede inferir de los datos, la correspondencia se cura a mano en
 `scripts/countries.json` y es la única pieza de este pipeline que siempre
@@ -71,8 +74,11 @@ Los niveles más profundos — los *corregimientos* de Panamá, los *distritos* 
 Costa Rica — quedan fuera de alcance. Existen en pocos países, los tamaños de
 archivo crecen mucho y casi nadie los necesita.
 
-El nivel municipal va siempre **partido en un archivo por padre ADM1**; ver
-[Nombres de archivos y carpetas](naming.md#el-nivel-municipal-va-partido).
+El nivel municipal va **partido en un archivo por padre ADM1 siempre que exista
+un ADM1**. Catorce territorios tienen tier municipal pero ningún ADM1 aquí
+(sobre todo porque su ADM1 en geoBoundaries es copyleft), así que publican un
+único archivo de país completo; ver
+[Nombres de archivos y carpetas](naming.md#el-nivel-municipal-va-partido-por-adm1-cuando-existe-un-adm1).
 
 ## Expectativas de cobertura
 
@@ -98,25 +104,39 @@ Cuando se aportan varios niveles de un país:
 - Cada feature ADM2 **debe** anidar dentro de exactamente una feature ADM1.
 - La unión de las features ADM1 **debería** igualar el contorno ADM0, dentro de
   la tolerancia de la geometría de origen.
-- Las features **deben** llevar una referencia a su padre — ver
+- Las features **deberían** llevar una referencia a su padre. Hoy solo las de
+  Chile la llevan (`parentISO`); en el resto, las partes partidas llevan
+  `adm1ISO`, derivado por unión espacial de mayor solapamiento porque
+  geoBoundaries no entrega referencia al padre. El contrato de v1.0.0 hace
+  obligatorios `parentID` y `adm1ISO` en cada feature subnacional — ver
   [Esquema de propiedades](schema.md).
 
 No mezcles añadas. Los límites cambian: un archivo ADM1 de 2019 combinado con
 uno ADM2 de 2024 no anidará, y el desajuste es difícil de detectar a simple
-vista. Registra la añada en el manifiesto.
+vista. Registra la añada en el manifiesto (`src_year`).
 
-## El hueco de Chile
+## Chile, nivel por nivel
 
-Los datos actuales de Chile tienen un agujero documentado que conviene conocer:
+Chile es el único país con la escalera completa, y conviene saber exactamente
+qué hay:
 
-- Hay 343 comunas; oficialmente existen **346**. Las tres que faltan son las
-  omisiones habituales de esta fuente — Antártica, Isla de Pascua y Juan
-  Fernández.
-- **Falta ADM2 por completo.** La propiedad `Provincia` está poblada en cada
-  feature de comuna, así que el nivel intermedio se puede *leer*, pero no
-  existe archivo de límites provinciales y por tanto no se puede dibujar. Chile
-  salta hoy de ADM1 directamente a ADM3.
+| Nivel | Archivo | Contenido | Fuente |
+|---|---|---|---|
+| ADM0 | `CHL_ADM0.geojson` | Contorno del país | Natural Earth 10m |
+| ADM1 | `CHL_ADM1.geojson` | 16 regiones | IDE Chile / SUBDERE DPA 2023 |
+| ADM2 | `CHL_ADM2.geojson` | 56 provincias | IDE Chile / SUBDERE DPA 2023 |
+| ADM3 | `CHL_ADM3.geojson` + `ADM3/` (16 partes) | 345 comunas | IDE Chile / SUBDERE DPA 2023 |
 
-Ambos están en la [Hoja de ruta](../about/roadmap.md).
+- **345 de 346 comunas.** Solo falta Antártica (`12202`): el paquete DPA
+  excluye la reclamación antártica chilena, así que es una decisión de la
+  fuente, no una pérdida de procesamiento. Isla de Pascua y Juan Fernández
+  están presentes.
+- El nivel provincial existe como geometría dibujable, no solo como propiedad
+  de cada comuna — el `parentISO` de cada comuna apunta al `shapeISO` de su
+  provincia.
+
+Los archivos heredados de la raíz (BCN, 343 comunas, sin provincias) son el
+dataset más antiguo al que esto reemplaza; ver
+[Versionado y estabilidad](../about/versioning.md).
 
 --8<-- "abbreviations.md"
