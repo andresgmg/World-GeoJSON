@@ -47,7 +47,7 @@
         "shapeType"
       ],
       "preview": "data/earth/VEN/preview/VEN_ADM0.preview.geojson",
-      "preview_bytes": 3083,
+      "preview_bytes": 3084,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

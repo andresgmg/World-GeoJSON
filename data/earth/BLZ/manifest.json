@@ -81,7 +81,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/BLZ/preview/BLZ_ADM1.preview.geojson",
-      "preview_bytes": 2990,
+      "preview_bytes": 2989,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

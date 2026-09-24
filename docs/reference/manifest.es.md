@@ -92,7 +92,7 @@ no tiene `notes`.
 | `m49_region` | cadena | Subregión UN M49, usada para agrupar el catálogo |
 | `name` | objeto | Nombres para mostrar `{ "en": …, "es": … }` |
 | `crs` | objeto | Siempre `{ "authority": "OGC", "code": "CRS84", "epsg": 4326 }` para la Tierra — los archivos no pueden declararlo por sí mismos. Ver [CRS](crs.md) |
-| `status` | cadena | `ok`, o `review` cuando la asignación del tier municipal en `scripts/countries.json` sigue marcada como `verify` |
+| `status` | cadena | `ok`, o `review` cuando la asignación del tier municipal en `pipeline/src/wgj/tables/countries.json` sigue marcada como `verify` |
 | `source` | objeto | `name`, `url`, `license`, `retrieved` (fecha ISO). Cuando los datasets llevan licencias distintas, `license` es `"mixed"` y `licenses` enumera los valores distintos, ordenados |
 | `notes` | cadena | Opcional, una línea. Huecos conocidos, rarezas de origen, disputas |
 | `datasets` | array | Una entrada por nivel, ordenadas por nivel |
@@ -163,13 +163,13 @@ ADM3 de Chile, abreviado:
   bajo el presupuesto de 18 MiB. El ADM2 de Brasil tiene 28 partes y ningún
   `path`; su ausencia es normal y el catálogo lo indica.
 - `code` es la clave de la unidad ADM1: su `shapeISO` tras las correcciones de
-  `scripts/shapeiso_fixes.json`, que es también el valor de `adm1ISO` en cada
-  feature de la parte y la clave del propio `id` del ADM1. Las erratas de
-  origen se corrigen ahí en vez de pasarse tal cual — los 66 condados de
-  Dakota del Sur están en la parte codificada `US-SD` aunque geoBoundaries
-  codifique el estado como `SU-SD`. Una parte codificada `unassigned`
-  contiene las unidades a las que no se encontró padre; la entrada ADM2 de
-  USA lleva además `"unassigned": 1`.
+  `pipeline/src/wgj/tables/shapeiso_fixes.json`, que es también el valor de
+  `adm1ISO` en cada feature de la parte y la clave del propio `id` del ADM1.
+  Las erratas de origen se corrigen ahí en vez de pasarse tal cual — los 66
+  condados de Dakota del Sur están en la parte codificada `US-SD` aunque
+  geoBoundaries codifique el estado como `SU-SD`. Una parte codificada
+  `unassigned` contiene las unidades a las que no se encontró padre; la entrada
+  ADM2 de USA lleva además `"unassigned": 1`.
 
 El CI comprueba que las partes sumen exactamente el número de features del
 nivel — así es como se detecta una partición que perdió o duplicó un municipio.
@@ -214,32 +214,32 @@ segura la regeneración.
 
 | Campo | Lo escribe | Notas |
 |---|---|---|
-| `schema_version` | cualquiera de los dos scripts, si falta | Se sube a mano solo ante un cambio rompedor de formato |
-| `body`, `iso_a3`, `iso_a2`, `m49_region`, `name`, `crs` | **`build_data.py`** | Identidad, tomada de `scripts/countries.json`. Se **sobrescribe** en cada build — edita `countries.json`, no el manifiesto |
-| `source.name`, `source.url`, `source.retrieved` | `build_data.py`, si faltan | Las ediciones a mano sobreviven; `retrieved` solo se fija cuando falta |
-| `source.license`, `source.licenses` | ambos scripts | Consolidados a partir de `datasets[].license` |
-| `status` | `build_data.py`, si falta | Las ediciones a mano sobreviven. `review` cuando `countries.json` marca la entrada como `verify` |
-| `notes` | `build_data.py`, si falta | Sembrado desde el `note` de `countries.json`; las ediciones a mano sobreviven |
-| `datasets[].simplification`, `license`, `src_provider`, `src_year`, `unassigned` | **`build_data.py`** | Procedencia del build; `build_manifest.py` los arrastra sin cambios |
-| todo lo demás en `datasets[]` | **`build_manifest.py`** | Medido desde los archivos: `path`, `bytes`, `sha256`, `features`, `bbox`, `geometry_types`, `properties`, `preview`, `preview_bytes`, `split_by`, `parts` |
+| `schema_version` | cualquiera de los dos comandos, si falta | Se sube a mano solo ante un cambio rompedor de formato |
+| `body`, `iso_a3`, `iso_a2`, `m49_region`, `name`, `crs` | **`wgj build`** | Identidad, tomada de `pipeline/src/wgj/tables/countries.json`. Se **sobrescribe** en cada build — edita `countries.json`, no el manifiesto |
+| `source.name`, `source.url`, `source.retrieved` | `wgj build`, si faltan | Las ediciones a mano sobreviven; `retrieved` solo se fija cuando falta |
+| `source.license`, `source.licenses` | ambos comandos | Consolidados a partir de `datasets[].license` |
+| `status` | `wgj build`, si falta | Las ediciones a mano sobreviven. `review` cuando `countries.json` marca la entrada como `verify` |
+| `notes` | `wgj build`, si falta | Sembrado desde el `note` de `countries.json`; las ediciones a mano sobreviven |
+| `datasets[].simplification`, `license`, `src_provider`, `src_year`, `unassigned` | **`wgj build`** | Procedencia del build; `wgj manifest` los arrastra sin cambios |
+| todo lo demás en `datasets[]` | **`wgj manifest`** | Medido desde los archivos: `path`, `bytes`, `sha256`, `features`, `bbox`, `geometry_types`, `properties`, `preview`, `preview_bytes`, `split_by`, `parts` |
 
-`scripts/build_manifest.py` reemplaza el array `datasets` por completo y deja
+`wgj manifest` reemplaza el array `datasets` por completo y deja
 intacta cualquier otra clave. Los metadatos curados — `status`, `notes`,
 `source.retrieved` — sobreviven así a la regeneración, que es lo que hace
 seguro reejecutar el escáner de forma rutinaria. Los términos locales
 (`adm1_term`, `municipal_term`) **no** están en el manifiesto; viven solo en
-`scripts/countries.json`.
+`pipeline/src/wgj/tables/countries.json`.
 
 ## Regenerar
 
-Primero los previews y luego el manifiesto — `build_manifest.py` solo registra
+Primero los previews y luego el manifiesto — `wgj manifest` solo registra
 `preview` y `preview_bytes` para un preview que ya exista — y después el
 índice, que incrusta el manifiesto:
 
 ```bash
-node scripts/make_previews.mjs data/earth/CHL
-python scripts/build_manifest.py data/earth/CHL
-python scripts/build_index.py
+wgj previews data/earth/CHL
+wgj manifest data/earth/CHL
+wgj index
 ```
 
 El escáner streamea cada archivo con `ijson` en memoria constante, así que
@@ -274,12 +274,12 @@ Cada manifiesto se valida contra
 [`schemas/manifest.schema.json`](index-json.md#esquemas) — el mismo JSON Schema
 contra el que puede validar un consumidor — y su enum `license` es la
 [lista blanca de licencias](../contributing/sources.md), así que hay una única
-definición de lo que un manifiesto puede contener. `scripts/validate_data.py`
-corre en el CI en cada cambio de `data/`, `schemas/` o `scripts/` y comprueba:
+definición de lo que un manifiesto puede contener. `wgj validate`
+corre en el CI en cada cambio de `data/`, `schemas/` o `pipeline/` y comprueba:
 
-- que cada manifiesto, `data/index.json` y `scripts/countries.json` validan
-  contra su esquema, y cada feature de cada archivo a resolución completa
-  contra los esquemas de feature;
+- que cada manifiesto, `data/index.json` y
+  `pipeline/src/wgj/tables/countries.json` validan contra su esquema, y cada
+  feature de cada archivo a resolución completa contra los esquemas de feature;
 - que los ids de feature son únicos por archivo y que cada `parentID` apunta a
   un id que existe en el país;
 - que el `bbox` de cada archivo es igual a la extensión de sus coordenadas;
@@ -290,9 +290,9 @@ corre en el CI en cada cambio de `data/`, `schemas/` o `scripts/` y comprueba:
 - con `--checksums`, como lo ejecuta el CI, que los `bytes` y el `sha256` de
   cada archivo coinciden con el manifiesto.
 
-Junto a él corren dos comprobaciones más: `finalize_geojson.py --check`
+Junto a él corren dos comprobaciones más: `wgj finalize --check`
 (cada archivo está en forma canónica, con sus ids y su jerarquía) y
-`build_index.py --check`, y los manifiestos commiteados deben coincidir con
+`wgj index --check`, y los manifiestos commiteados deben coincidir con
 una regeneración limpia.
 
 ## El índice global y los assets de la release

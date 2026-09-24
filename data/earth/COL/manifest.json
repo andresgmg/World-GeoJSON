@@ -47,7 +47,7 @@
         "shapeType"
       ],
       "preview": "data/earth/COL/preview/COL_ADM0.preview.geojson",
-      "preview_bytes": 3185,
+      "preview_bytes": 3184,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

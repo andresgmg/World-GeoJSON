@@ -1,4 +1,4 @@
-{"type":"FeatureCollection","bbox":[-61.8058,15.8343,-61.002,16.5105],"features":[
+{"type":"FeatureCollection","bbox":[-61.8058,15.8399,-61.002,16.5105],"features":[
 {"type":"Feature","id":"GLP:ADM4:la-desirade","properties":{"shapeName":"La Désirade","shapeISO":"","shapeType":"ADM4"},"geometry":{"type":"Polygon","coordinates":[[[-61.0557,16.3269],[-61.0484,16.3077],[-61.002,16.334],[-61.0085,16.3491],[-61.0557,16.3269]]]}},
 {"type":"Feature","id":"GLP:ADM4:pointe-a-pitre","properties":{"shapeName":"Pointe-à-Pitre","shapeISO":"","shapeType":"ADM4"},"geometry":{"type":"Polygon","coordinates":[[[-61.5272,16.2192],[-61.5255,16.2233],[-61.5336,16.2467],[-61.549,16.2531],[-61.5272,16.2192]]]}},
 {"type":"Feature","id":"GLP:ADM4:trois-rivieres","properties":{"shapeName":"Trois-Rivières","shapeISO":"","shapeType":"ADM4"},"geometry":{"type":"Polygon","coordinates":[[[-61.6146,15.9862],[-61.633,16.019],[-61.6556,16.0334],[-61.684,15.9727],[-61.6757,15.9529],[-61.6349,15.9664],[-61.6146,15.9862]]]}},

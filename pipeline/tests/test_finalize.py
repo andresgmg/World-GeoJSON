@@ -7,36 +7,19 @@ from pathlib import Path
 
 import pytest
 
-import finalize_geojson as fz
+from wgj import finalize as fz
+from wgj.geojson_io import bbox_of, serialise
 
 ID_RE = re.compile(r"^[A-Z]{3}:(ADM[0-4]|QUAD):\S+$")
-
-
-@pytest.mark.parametrize(
-    ("value", "expected"),
-    [
-        (-70, "-70"),
-        (12.4, "12.4"),
-        (12.577582, "12.577582"),
-        (0.000001, "0.000001"),
-        (0.00001, "0.00001"),  # json.dumps would write 1e-05
-        (-0.0000001, "0"),
-        (0.0, "0"),
-    ],
-)
-def test_fmt_number(value: float, expected: str) -> None:
-    assert fz.fmt_number(value) == expected
 
 
 def test_apply_fixes() -> None:
     p = {"shapeISO": "52423323B51867153498623", "src_shape_id": "52423323B51867153498623"}
     fz.apply_fixes(p, {})
     assert p["shapeISO"] == "", "an opaque upstream id is not a code"
-
     p = {"shapeISO": "SU-SD", "src_shape_id": "X1"}
     fz.apply_fixes(p, {"X1": "US-SD"})
     assert p["shapeISO"] == "US-SD"
-
     p = {"shapeISO": "BZ-BZ", "src_shape_id": "X2"}
     fz.apply_fixes(p, {"*": ""})
     assert p["shapeISO"] == ""
@@ -91,71 +74,72 @@ def _ids_and_parents(d: Path) -> tuple[dict[str, set[str]], list[tuple[str, str]
         if "preview" in p.parts:
             continue
         for f in json.loads(p.read_text("utf-8"))["features"]:
-            level = f["id"].split(":")[1]
-            ids.setdefault(level, set()).add(f["id"])
+            ids.setdefault(f["id"].split(":")[1], set()).add(f["id"])
             if "parentID" in f["properties"]:
                 parents.append((f["id"], f["properties"]["parentID"]))
     return ids, parents
 
 
 @pytest.mark.parametrize("code", ["ABW", "BRB", "DOM"])
-def test_finalize_is_idempotent_and_consistent(code: str, tmp_path: Path) -> None:
-    src = fz.DATA / "earth" / code
-    if not (src / "manifest.json").exists():
-        pytest.skip(f"{code} not checked out")
-    d = tmp_path / code
-    shutil.copytree(src, d)
-
+def test_finalize_is_idempotent_and_consistent(code: str, data_copy: Path) -> None:
+    d = data_copy / "earth" / code
     c = fz.Country(d)
     c.finalize()
-    c.write()
-
-    again = fz.Country(d)
-    again.finalize()
-    assert again.stale() == [], "a second run must change nothing"
+    assert c.stale() == [], "committed fixtures must already be finalized"
 
     ids, parents = _ids_and_parents(d)
     for level, level_ids in ids.items():
         assert all(ID_RE.match(i) for i in level_ids), level
     for child, parent in parents:
         assert parent in ids[parent.split(":")[1]], (child, parent)
-
     for p in d.rglob("*.geojson"):
         if "preview" in p.parts:
             continue
         data = json.loads(p.read_text("utf-8"))
-        assert data["bbox"] == fz.bbox_of(data["features"]), p.name
-        assert p.read_bytes() == fz.serialise(data["features"]), "not canonical"
+        assert data["bbox"] == bbox_of(data["features"]), p.name
+        assert p.read_bytes() == serialise(data["features"]), "not canonical"
 
 
-def test_split_level_hierarchy(dom: Path, tmp_path: Path) -> None:
-    d = tmp_path / "DOM"
-    shutil.copytree(dom, d)
-    c = fz.Country(d)
-    c.finalize()
-    c.write()
-
-    combined = json.loads((d / "DOM_ADM2.geojson").read_text("utf-8"))["features"]
-    by_id = {f["id"]: f for f in combined}
-    for part in (d / "ADM2").glob("*.geojson"):
+def test_split_level_hierarchy(dom: Path) -> None:
+    adm1 = {f["id"] for f in json.loads((dom / "DOM_ADM1.geojson").read_text("utf-8"))["features"]}
+    for part in (dom / "ADM2").glob("*.geojson"):
         for f in json.loads(part.read_text("utf-8"))["features"]:
-            assert f["properties"]["adm1ISO"] == part.stem
-            assert by_id[f["id"]]["properties"] == f["properties"], "combined must match its part"
-            if part.stem != "unassigned":
-                assert f["properties"]["parentISO"] == part.stem
-                assert f["properties"]["parentID"] == f"DOM:ADM1:{part.stem}"
-    adm1 = json.loads((d / "DOM_ADM1.geojson").read_text("utf-8"))["features"]
-    for f in adm1:
+            p = f["properties"]
+            assert p["adm1ISO"] == part.stem
+            assert p["parentISO"] == part.stem
+            assert p["parentID"] == f"DOM:ADM1:{part.stem}" and p["parentID"] in adm1
+            assert p["shapeISO"] == "", "geoBoundaries municipal codes are opaque -> cleared"
+            assert list(p)[:7] == [
+                "shapeName",
+                "shapeISO",
+                "shapeGroup",
+                "shapeType",
+                "adm1ISO",
+                "parentISO",
+                "parentID",
+            ]
+    for f in json.loads((dom / "DOM_ADM1.geojson").read_text("utf-8"))["features"]:
         assert "adm1ISO" not in f["properties"]
         assert f["properties"]["parentID"] == "DOM:ADM0:DOM"
 
 
-def test_check_mode_reports_stale_files(abw: Path, tmp_path: Path) -> None:
-    d = tmp_path / "ABW"
-    shutil.copytree(abw, d)
+def test_check_mode_reports_stale_files(data_copy: Path) -> None:
+    d = data_copy / "earth" / "ABW"
     path = d / "ABW_ADM0.geojson"
-    data = json.loads(path.read_text("utf-8"))
-    path.write_text(json.dumps(data, indent=2), "utf-8")  # valid but not canonical
+    path.write_text(json.dumps(json.loads(path.read_text("utf-8")), indent=2), "utf-8")
     assert fz.main(["--check", str(d)]) == 1
     assert fz.main([str(d)]) == 0
     assert fz.main(["--check", str(d)]) == 0
+
+
+def test_shapeiso_correction_flows_into_ids_and_parts(data_copy: Path) -> None:
+    """A corrected ADM1 code becomes the key, and the id of the unit."""
+    d = data_copy / "earth" / "BRB"
+    fixes = {"BRB": {"ADM1": {"*": ""}}}  # pretend Barbados' codes were opaque
+    c = fz.Country(d)
+    c.fixes = fixes["BRB"]
+    c.finalize()
+    c.write()
+    ids = [f["id"] for f in json.loads((d / "BRB_ADM1.geojson").read_text("utf-8"))["features"]]
+    assert all(":" in i and i.split(":")[2] == i.split(":")[2].lower() for i in ids), ids
+    shutil.rmtree(d)

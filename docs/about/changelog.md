@@ -6,6 +6,49 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
+### Added — pipeline package
+
+- **The `wgj` command.** The pipeline is now an installable Python package,
+  `wgj` under `pipeline/` — `pip install -r requirements-dev.txt`, or
+  `pip install -e ./pipeline[pipeline]` on its own — with one subcommand per
+  step: `wgj fetch`, `wgj build`, `wgj finalize`, `wgj previews`,
+  `wgj manifest`, `wgj index` and `wgj validate`, each with `--help`;
+  `python -m wgj` is the same thing. Documented in
+  [Data pipeline](../contributing/pipeline.md).
+- `wgj all CHL`: build → previews → manifest → index → validate for the
+  countries named, stopping at the first failure.
+- `fixtures/data/`: three small territories — Aruba, Barbados and a reduced
+  Dominican Republic — with their `index.json`. The test suite runs on them
+  (`pytest` from the repository root, no data checkout needed;
+  `WGJ_DATA=<dir>` points the package at another tree), and the client
+  libraries will use them later.
+
+### Changed
+
+- `scripts/*.py` are now ten-line compatibility shims that call into the
+  package. They stay for one release and retire in Phase 4 of the
+  [Roadmap](roadmap.md); write `wgj` from now on.
+- `scripts/make_previews.mjs` is removed: `wgj previews` (Python) generates
+  the previews, still running mapshaper through Node, and `npm run previews`
+  now calls it.
+- The registries moved into the package: `pipeline/src/wgj/tables/` holds
+  `countries.json`, `shapeiso_fixes.json`, `id_overrides.json` and
+  `iso3166_2.json`, formerly under `scripts/`.
+- The MkDocs catalog hook is `pipeline/mkdocs_hook.py`, which re-exports
+  `wgj.catalog`; building the docs needs nothing beyond
+  `requirements-docs.txt`.
+- **Every preview was regenerated once by the Python port.** The bytes
+  changed; geometry, properties and ids are identical, so a map drawn from a
+  preview still joins to the full data. The manifests' `preview_bytes` and
+  `data/index.json` follow. A patch-level data change: nothing changed in
+  any full-resolution file.
+- CI: the data workflow runs `wgj validate --checksums`,
+  `wgj finalize --check data/earth/*/`, `wgj index --check` and a
+  `wgj manifest data/earth/*/` regeneration that must leave no diff; the
+  code workflow runs ruff, mypy and pytest on the fixtures, then regenerates
+  the ABW, BRB and DOM previews with `wgj previews` and fails on any
+  difference.
+
 ### Removed
 
 - The documentation site no longer shows "last updated" stamps or renders

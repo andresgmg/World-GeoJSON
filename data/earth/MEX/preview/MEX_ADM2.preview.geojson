@@ -1,4 +1,4 @@
-{"type":"FeatureCollection","bbox":[-118.3262,14.6184,-86.7324,32.7187],"features":[
+{"type":"FeatureCollection","bbox":[-117.1231,14.6184,-86.7324,32.7187],"features":[
 {"type":"Feature","id":"MEX:ADM2:MX-AGU.jesus-maria","properties":{"shapeName":"Jesús María","shapeISO":"","shapeType":"ADM2"},"geometry":{"type":"Polygon","coordinates":[[[-102.3103,22.0372],[-102.4166,22.0404],[-102.5763,21.9678],[-102.5408,21.8064],[-102.2788,21.9584],[-102.3103,22.0372]]]}},
 {"type":"Feature","id":"MEX:ADM2:MX-AGU.san-francisco-de-los-romo","properties":{"shapeName":"San Francisco de los Romo","shapeISO":"","shapeType":"ADM2"},"geometry":{"type":"Polygon","coordinates":[[[-102.2788,21.9584],[-102.1409,22.0753],[-102.191,22.0661],[-102.3103,22.0372],[-102.2788,21.9584]]]}},
 {"type":"Feature","id":"MEX:ADM2:MX-AGU.aguascalientes","properties":{"shapeName":"Aguascalientes","shapeISO":"","shapeType":"ADM2"},"geometry":{"type":"Polygon","coordinates":[[[-102.5408,21.8064],[-102.5831,21.7439],[-102.4196,21.6694],[-102.3844,21.6519],[-102.1047,21.7519],[-102.0645,21.7962],[-102.0978,22.0232],[-102.1409,22.0753],[-102.2788,21.9584],[-102.5408,21.8064]]]}},

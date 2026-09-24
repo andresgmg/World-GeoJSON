@@ -9,12 +9,12 @@ set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
 default:
     @just --list
 
-# Install the Python dev toolchain and the pinned mapshaper.
+# Install the pipeline (editable), the dev toolchain and the pinned mapshaper.
 setup:
     python -m pip install -r requirements-dev.txt
     npm ci
 
-# Lint, format-check and type-check scripts/ and tests/.
+# Lint, format-check and type-check the pipeline package, its tests and the shims.
 lint:
     ruff check .
     ruff format --check .
@@ -29,21 +29,32 @@ fmt:
 test *ARGS:
     pytest {{ARGS}}
 
-# Validate every dataset under data/.
-validate *DIRS:
-    python scripts/validate_data.py {{DIRS}}
+# Validate every dataset under data/ (add --checksums to re-hash every file).
+validate *ARGS:
+    wgj validate {{ARGS}}
+
+# Apply the data contract to committed files (ids, hierarchy, bbox, layout).
+finalize *DIRS:
+    wgj finalize {{DIRS}}
 
 # Regenerate previews for one or more country directories (default: all).
 previews *DIRS:
-    node scripts/make_previews.mjs {{DIRS}}
+    wgj previews {{DIRS}}
 
 # Regenerate manifest.json for the given country directories.
 manifest +DIRS:
-    python scripts/build_manifest.py {{DIRS}}
+    wgj manifest {{DIRS}}
 
-# Fail if any committed manifest disagrees with a fresh regeneration.
-check-manifests:
-    python scripts/build_manifest.py data/earth/*/
+# Regenerate data/index.json.
+index:
+    wgj index
+
+# Everything CI checks about committed data: validation, finalize, index and manifest freshness.
+check-data:
+    wgj validate --checksums
+    wgj finalize --check data/earth/*/
+    wgj index --check
+    wgj manifest data/earth/*/
     git diff --quiet -- 'data/**/manifest.json'
 
 # Build the documentation site strictly (needs requirements-docs.txt).
@@ -55,4 +66,4 @@ serve:
     mkdocs serve
 
 # Everything CI runs, in order.
-ci: lint test validate check-manifests
+ci: lint test check-data

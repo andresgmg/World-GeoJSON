@@ -22,15 +22,20 @@ de todas formas. El detalle no se está perdiendo — nunca fue visible.
 ## Generar
 
 ```bash
-node scripts/make_previews.mjs data/earth/CHL
-npm run previews                              # todos los países
+wgj previews data/earth/CHL
+wgj previews                                  # todos los países
+npm run previews                              # el mismo comando
 ```
 
-Ejecútalo **antes** que `build_manifest.py`: el manifiesto registra la ruta y
-el tamaño de un preview solo si el archivo ya existe.
+Ejecútalo **antes** que `wgj manifest`: el manifiesto registra la ruta y el
+tamaño de un preview solo si el archivo ya existe. Y después de `wgj finalize`
+(`wgj build` finaliza por ti): cada feature del preview lleva el `id` de su
+feature a resolución completa, y el comando rechaza un archivo cuyas features
+no lo tengan.
 
-Para cada nivel el script ejecuta mapshaper, empezando por el 5% de los
-vértices:
+El comando es Python, pero la simplificación la hace mapshaper, ejecutado vía
+Node — para eso está `npm ci`. Para cada nivel ejecuta mapshaper, empezando
+por el 5% de los vértices:
 
 ```bash
 npx mapshaper data/earth/CHL/CHL_ADM3.geojson \
@@ -43,7 +48,10 @@ npx mapshaper data/earth/CHL/CHL_ADM3.geojson \
 y después, mientras el resultado supere 800 KB, reduce el porcentaje a la
 mitad — 2,5%, 1,25%, 0,625% — hasta un mínimo del 0,2%. Un nivel partido se
 construye desde su archivo combinado, o uniendo las partes cuando no lo hay
-(Brasil ADM2), de modo que el preview cubre el país entero.
+(Brasil ADM2), de modo que el preview cubre el país entero. mapshaper descarta
+el `id` de una feature en cuanto edita la tabla de atributos, así que el
+comando lo arrastra como una propiedad temporal y lo devuelve a su sitio antes
+de escribir el archivo en el formato canónico del repositorio.
 
 | Paso | Efecto |
 |---|---|
@@ -61,7 +69,7 @@ Resultado típico: 7 MB → 425 KB para las 345 comunas de Chile; 4,8 MB →
 |---|---|
 | menos de 800 KB | Objetivo — el script deja de reducir aquí |
 | 800 KB – 2 MB | Aceptable para geometría inusualmente compleja que sigue por encima del objetivo al 0,2% |
-| más de 2 MB | **Rechazado.** `make_previews.mjs` se niega a escribirlo, y `validate_data.py` hace fallar el CI |
+| más de 2 MB | **Rechazado.** `wgj previews` se niega a escribirlo, y `wgj validate` hace fallar el CI |
 
 Un preview que sigue por encima de 2 MB al 0,2% significa que la geometría de
 origen es inusualmente densa; el arreglo está aguas arriba, en la tolerancia
@@ -73,7 +81,7 @@ La simplificación es con pérdida y sus modos de fallo son visuales, así que
 míralo.
 
 - **Islas que desaparecen.** `keep-shapes` evita que se esfumen polígonos
-  enteros, pero un multipolígono puede perder miembros pequeños. El script
+  enteros, pero un multipolígono puede perder miembros pequeños. El comando
   compara el número de features con el origen y se niega a escribir un
   preview que haya perdido alguna — pero un miembro de un multipolígono no es
   una feature, así que mira.
@@ -91,11 +99,11 @@ npx mapshaper data/earth/CHL/preview/CHL_ADM3.preview.geojson -info
 Son artefactos de build pequeños, y commitearlos significa que el sitio de
 documentación no necesita ningún paso de build sobre los datos. Son
 deterministas siempre que las entradas se procesen en un orden fijo, que es lo
-que hace el script — niveles y partes ordenados por nombre — así que regenerar
+que hace el comando — niveles y partes ordenados por nombre — así que regenerar
 desde fuentes sin cambios produce bytes sin cambios.
 
-Regenéralos cada vez que cambie el archivo de origen. `validate_data.py` trata
-un dataset sin preview registrado como un aviso (el mapa del catálogo queda
+Regenéralos cada vez que cambie el archivo de origen. `wgj validate` trata un
+dataset sin preview registrado como un aviso (el mapa del catálogo queda
 vacío), y un preview registrado que falta o supera 2 MB como un error;
 [`manifest.json`](../reference/manifest.md) registra la ruta y el tamaño.
 

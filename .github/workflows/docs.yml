@@ -7,6 +7,7 @@ on:
       - "docs/**"
       - "includes/**"
       - "schemas/**"
+      - "pipeline/**"
       - "scripts/**"
       - "mkdocs.yml"
       - "requirements-docs.txt"

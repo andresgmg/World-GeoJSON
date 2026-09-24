@@ -30,16 +30,17 @@ Then, before opening a PR:
 ```sh
 ruff check . && ruff format --check . && mypy   # lint, format, types
 pytest                                          # unit tests (no network needed)
-python scripts/validate_data.py                 # every dataset under data/
+wgj validate --checksums                        # every dataset under data/
 ```
 
 If you have [`just`](https://github.com/casey/just) installed, `just ci` runs
 the same sequence. Optional: `pip install pre-commit && pre-commit install`
 runs ruff on each commit.
 
-The pipeline itself (`fetch_sources.py` → `build_data.py` →
-`make_previews.mjs` → `build_manifest.py` → `validate_data.py`) is documented
-in [Pipeline](https://andresgmg.github.io/World-GeoJSON/contributing/pipeline/).
+The pipeline itself is the `wgj` command (`wgj fetch` → `wgj build` →
+`wgj previews` → `wgj manifest` → `wgj index` → `wgj validate`), installed
+by `requirements-dev.txt` from `pipeline/`; it is documented in
+[Pipeline](https://andresgmg.github.io/World-GeoJSON/contributing/pipeline/).
 
 ## Pull requests
 

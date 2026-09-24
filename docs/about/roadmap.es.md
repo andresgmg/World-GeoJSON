@@ -80,17 +80,24 @@ tooling, luego bibliotecas que lo hablen. En orden:
 - [x] `shapeISO` deja de rellenarse con ids opacos de geoBoundaries, y se
       resuelven los códigos duplicados (`US-SD`, `MX-CMX`, `EC-X`, Belice
       vaciado)
-- [x] Un paso de finalización (`scripts/finalize_geojson.py`) que escribe todo
+- [x] Un paso de finalización (hoy `wgj finalize`) que escribe todo
       lo anterior y el formato canónico de archivo, comprobado en el CI
 - [x] Releases de datos etiquetadas: un workflow de release que publica una
       GitHub Release con zips por país, `index.json` y `SHA256SUMS` en cada
       etiqueta (etiqueta pendiente del merge)
 
-**Fase 2 — el pipeline como paquete**
+**Fase 2 — el pipeline como paquete** (hecha)
 
-- [ ] Los scripts pasan a ser un paquete Python instalable con una CLI `wgj`,
-      tests y fixtures
-- [ ] Previews generados desde Python (mapshaper sigue corriendo vía Node)
+- [x] Los scripts pasaron a ser un paquete Python instalable, `wgj` bajo
+      `pipeline/`, con una CLI — `wgj fetch`, `build`, `finalize`, `previews`,
+      `manifest`, `index`, `validate` y `all` — documentada en
+      [Pipeline de datos](../contributing/pipeline.md)
+- [x] Tests que corren sobre `fixtures/data/` — tres territorios pequeños y su
+      índice — así que el CI no necesita un checkout de los datos
+- [x] Previews generados desde Python (mapshaper sigue corriendo vía Node)
+
+Los `scripts/*.py` se quedan como shims de compatibilidad durante una release
+y se retiran en la Fase 4, como estaba previsto.
 
 **Fase 3 — bibliotecas cliente**
 
@@ -106,6 +113,8 @@ medio — descargan archivos estáticos.
 - [ ] `@world-geojson/react`, `@world-geojson/leaflet`, `@world-geojson/maplibre`
 - [ ] Ejemplos trabajados
 - [ ] Plantillas de issue y PR para envío de países
+- [ ] Retirar los shims de compatibilidad `scripts/*.py` que quedaron de la
+      Fase 2
 
 ## Siguiente — los demás continentes
 
@@ -145,7 +154,7 @@ Registrados, no escondidos.
 | La mayoría de las unidades municipales no tienen código oficial en origen, así que `shapeISO` es `""` en 15.364 features | 22 datasets municipales de geoBoundaries | Por diseño desde 1.0.0 — un código vacío es honesto, un id opaco no lo era. Usa `id`; lo cerraría una fuente nacional con códigos |
 | 169 ids basados en el nombre llevan sufijo numérico (`COL:ADM2:albania-2`) porque la fuente tiene varias unidades con el mismo nombre y sin código | COL 84, HND 28, SLV 18, ARG 16, GTM 6, USA 6, MEX 4, BLZ 2, BRA 2, VIR 2, SUR 1 | Estables por versión de datos; pueden renumerarse con un refresco de la fuente — fija una versión |
 | 12 unidades municipales no solapan con ningún padre ADM1 | ARG ADM2 (8, ciudad de Buenos Aires), BRA ADM2 (3), USA ADM2 (1) | Conservadas en partes `unassigned` con `adm1ISO: "unassigned"` y sin `parentID` |
-| Asignación del tier municipal sin verificar en 19 territorios | `scripts/countries.json` | Marcados `verify` y publicados como `review` |
+| Asignación del tier municipal sin verificar en 19 territorios | `pipeline/src/wgj/tables/countries.json` | Marcados `verify` y publicados como `review` |
 | Los distritos de Perú no están disponibles — geoBoundaries se detiene en provincias | Perú | Pendiente de fuente |
 | Archivos heredados aún en la raíz | `comunas.geojson` y compañía | Obsoletos; se mantienen durante la serie 1.x y se retiran en v2.0.0 |
 

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wgj-pipeline"
+version = "0.1.0"
+description = "World GeoJSON data pipeline: fetch, build, finalize, previews, manifests, index, validation and the docs catalog hook."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Andrés Márquez" }]
+classifiers = [
+  "Private :: Do Not Upload",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: GIS",
+]
+# The docs hook (wgj.catalog) needs nothing beyond the standard library, so
+# the package itself declares no dependencies. The data commands import
+# their own lazily and name what is missing.
+dependencies = []
+
+[project.optional-dependencies]
+# Everything the data commands need (streaming scanner, JSON Schema).
+pipeline = ["ijson>=3.3", "jsonschema>=4.23"]
+
+[project.scripts]
+wgj = "wgj.cli:main"
+
+[project.urls]
+Homepage = "https://andresgmg.github.io/World-GeoJSON/"
+Repository = "https://github.com/andresgmg/World-GeoJSON"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wgj"]

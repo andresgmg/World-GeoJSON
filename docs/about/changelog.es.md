@@ -6,6 +6,49 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Añadido — paquete del pipeline
+
+- **El comando `wgj`.** El pipeline es ahora un paquete Python instalable,
+  `wgj` bajo `pipeline/` — `pip install -r requirements-dev.txt`, o
+  `pip install -e ./pipeline[pipeline]` a secas — con un subcomando por paso:
+  `wgj fetch`, `wgj build`, `wgj finalize`, `wgj previews`, `wgj manifest`,
+  `wgj index` y `wgj validate`, cada uno con `--help`; `python -m wgj` es lo
+  mismo. Documentado en [Pipeline de datos](../contributing/pipeline.md).
+- `wgj all CHL`: build → previews → manifiesto → índice → validación para los
+  países indicados, deteniéndose en el primer fallo.
+- `fixtures/data/`: tres territorios pequeños — Aruba, Barbados y una
+  República Dominicana reducida — con su `index.json`. La suite de tests
+  corre sobre ellos (`pytest` desde la raíz del repositorio, sin necesidad de
+  un checkout de los datos; `WGJ_DATA=<dir>` apunta el paquete a otro árbol),
+  y las bibliotecas cliente los usarán más adelante.
+
+### Cambiado
+
+- `scripts/*.py` son ahora shims de compatibilidad de diez líneas que llaman
+  al paquete. Se quedan durante una release y se retiran en la Fase 4 de la
+  [Hoja de ruta](roadmap.md); a partir de ahora escribe `wgj`.
+- `scripts/make_previews.mjs` se elimina: `wgj previews` (Python) genera los
+  previews, ejecutando mapshaper vía Node como antes, y `npm run previews`
+  ahora lo invoca.
+- Los registros se mudan al paquete: `pipeline/src/wgj/tables/` contiene
+  `countries.json`, `shapeiso_fixes.json`, `id_overrides.json` e
+  `iso3166_2.json`, antes bajo `scripts/`.
+- El hook de MkDocs para el catálogo es `pipeline/mkdocs_hook.py`, que
+  reexporta `wgj.catalog`; construir la documentación no necesita nada más
+  que `requirements-docs.txt`.
+- **Todos los previews se regeneraron una vez con el port a Python.** Los
+  bytes cambiaron; la geometría, las propiedades y los ids son idénticos, así
+  que un mapa dibujado desde un preview sigue uniéndose a los datos completos.
+  Los `preview_bytes` de los manifiestos y `data/index.json` lo reflejan. Un
+  cambio de datos de nivel patch: nada cambió en ningún archivo a resolución
+  completa.
+- CI: el workflow de datos ejecuta `wgj validate --checksums`,
+  `wgj finalize --check data/earth/*/`, `wgj index --check` y una
+  regeneración con `wgj manifest data/earth/*/` que no debe dejar
+  diferencias; el workflow de código ejecuta ruff, mypy y pytest sobre los
+  fixtures, y después regenera los previews de ABW, BRB y DOM con
+  `wgj previews` y falla ante cualquier diferencia.
+
 ### Eliminado
 
 - El sitio de documentación ya no muestra sellos de "última actualización"

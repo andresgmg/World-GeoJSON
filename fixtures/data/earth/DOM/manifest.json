@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "DOM",
+  "iso_a2": "DO",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Dominican Republic",
+    "es": "República Dominicana"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/DOM/DOM_ADM0.geojson",
+      "bytes": 13207,
+      "sha256": "bac4c37357980763ff2f6329b644021b89d19d51929356e04c1cb2e73e63443f",
+      "features": 1,
+      "bbox": [
+        -72.009838,
+        17.545559,
+        -68.328603,
+        19.93769
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/DOM/preview/DOM_ADM0.preview.geojson",
+      "preview_bytes": 822,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/DOM/DOM_ADM1.geojson",
+      "bytes": 51863,
+      "sha256": "b533f27af991a007adfc827b3684f3b29c23843fb4f2cba45042ed189de6dfa1",
+      "features": 32,
+      "bbox": [
+        -72.009838,
+        17.545559,
+        -68.328603,
+        19.93769
+      ],
+      "geometry_types": {
+        "MultiPolygon": 2,
+        "Polygon": 30
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DOM/preview/DOM_ADM1.preview.geojson",
+      "preview_bytes": 10808,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth",
+      "src_year": "2022"
+    },
+    {
+      "level": "ADM2",
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/DOM/ADM2/DO-01.geojson",
+          "bytes": 2592,
+          "sha256": "9d095ae93a76a535faadf513c1c93e2f987c6b6222f99f9ec13acee122a5da31",
+          "features": 1,
+          "bbox": [
+            -70.000412,
+            18.421806,
+            -69.865501,
+            18.544317
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-01"
+        },
+        {
+          "path": "data/earth/DOM/ADM2/DO-02.geojson",
+          "bytes": 42275,
+          "sha256": "c3acd5ac50a8c50afa72c78d9e61ad7558877406811ccb16490ec50291944d33",
+          "features": 10,
+          "bbox": [
+            -71.152229,
+            18.247917,
+            -70.457863,
+            18.99604
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DO-02"
+        }
+      ],
+      "features": 11,
+      "bytes": 44867,
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 10
+      },
+      "bbox": [
+        -71.152229,
+        18.247917,
+        -69.865501,
+        18.99604
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Caribbean GeoPortal, N/A",
+      "src_year": "2020"
+    }
+  ]
+}

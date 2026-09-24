@@ -2,7 +2,7 @@
    World GeoJSON — catalog preview maps
 
    Initialises a Leaflet map for every <div class="geojson-map" data-src="…">
-   that scripts/gen_catalog.py emits on a dataset page.
+   that wgj.catalog (the MkDocs hook, pipeline/mkdocs_hook.py) emits on a dataset page.
 
    Only *preview* files are ever loaded here. A full-resolution dataset is tens
    of megabytes and would crash a mobile tab; see docs/contributing/previews.md.

@@ -1,17 +1,13 @@
-# Tooling configuration for the pipeline scripts.
+# Tooling configuration for the World GeoJSON pipeline (pipeline/, the `wgj`
+# package) and its tests. Install with:
 #
-# There is no installable package yet — turning scripts/ into one is the next
-# refactor (see docs/about/roadmap.md). This file only configures ruff, mypy
-# and pytest so that scripts/ and tests/ share a single set of rules, locally
-# and in .github/workflows/ci.yml.
-#
-#   pip install -r requirements-dev.txt
+#   pip install -r requirements-dev.txt      # includes `-e ./pipeline[pipeline]`
 #   ruff check . && ruff format --check . && mypy && pytest
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-extend-exclude = ["data", "docs", "site", "node_modules", ".cache", ".venv"]
+extend-exclude = ["data", "docs", "site", "node_modules", ".cache", ".venv", "fixtures"]
 
 [tool.ruff.lint]
 select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
@@ -23,23 +19,15 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-# scripts/ is a directory of top-level modules, not a package.
-known-first-party = [
-  "build_data",
-  "build_index",
-  "build_manifest",
-  "fetch_sources",
-  "finalize_geojson",
-  "gen_catalog",
-  "validate_data",
-]
+known-first-party = ["wgj"]
 
 [tool.mypy]
 python_version = "3.11"
-files = ["scripts", "tests"]
-mypy_path = "scripts"
+files = ["pipeline/src", "pipeline/tests", "scripts"]
+mypy_path = "pipeline/src"
 explicit_package_bases = true
 check_untyped_defs = true
+disallow_incomplete_defs = true
 no_implicit_optional = true
 warn_redundant_casts = true
 warn_unused_ignores = true
@@ -47,8 +35,8 @@ warn_unused_ignores = true
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["scripts"]
+testpaths = ["pipeline/tests"]
+pythonpath = ["pipeline/src"]
 addopts = "-ra"
 markers = [
   "mapshaper: needs Node and mapshaper (npm install); skipped when absent",

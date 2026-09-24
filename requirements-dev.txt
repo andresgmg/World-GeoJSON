@@ -1,4 +1,4 @@
-# World GeoJSON — lint, type-check and test toolchain for scripts/ and tests/.
+# World GeoJSON — the pipeline package and its lint, type-check and test toolchain.
 #
 #   pip install -r requirements-dev.txt
 #   ruff check . && ruff format --check . && mypy && pytest
@@ -10,9 +10,9 @@ ruff==0.16.8
 mypy==2.3.1
 pytest==9.1.1
 
-# Streaming JSON scanner used by scripts/build_manifest.py (and its tests).
+# The pipeline itself, as an editable install: puts `wgj` on the path and
+# pulls its runtime dependencies (ijson for streaming scans, jsonschema for
+# the contract). Pinned here so CI is reproducible.
+-e ./pipeline[pipeline]
 ijson==3.5.1
-
-# JSON Schema 2020-12 validation of manifests, the index and every feature
-# (scripts/validate_data.py, schemas/*.schema.json).
 jsonschema==4.26.0

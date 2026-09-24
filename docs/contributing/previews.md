@@ -21,14 +21,20 @@ detail is not being lost — it was never visible.
 ## Generating
 
 ```bash
-node scripts/make_previews.mjs data/earth/CHL
-npm run previews                              # every country
+wgj previews data/earth/CHL
+wgj previews                                  # every country
+npm run previews                              # the same command
 ```
 
-Run it **before** `build_manifest.py`: the manifest records a preview's path
-and size only if the file already exists.
+Run it **before** `wgj manifest`: the manifest records a preview's path and
+size only if the file already exists. And after `wgj finalize` (`wgj build`
+finalizes for you): every preview feature carries the `id` of its
+full-resolution feature, and the command refuses a file whose features have
+none.
 
-For each level the script runs mapshaper, starting at 5% of vertices:
+The command is Python, but the simplification is mapshaper's, run through
+Node — which is what `npm ci` is for. For each level it runs mapshaper,
+starting at 5% of vertices:
 
 ```bash
 npx mapshaper data/earth/CHL/CHL_ADM3.geojson \
@@ -41,7 +47,10 @@ npx mapshaper data/earth/CHL/CHL_ADM3.geojson \
 and then, while the result is over 800 KB, halves the percentage — 2.5%,
 1.25%, 0.625% — down to a floor of 0.2%. A split level is built from its
 combined file, or from the parts merged together when there is none (Brazil
-ADM2), so the preview covers the whole country.
+ADM2), so the preview covers the whole country. mapshaper drops a feature's
+`id` as soon as it edits the attribute table, so the command carries it
+through as a temporary property and moves it back before writing the file in
+the repository's canonical layout.
 
 | Step | Effect |
 |---|---|
@@ -59,7 +68,7 @@ its 16 regions.
 |---|---|
 | under 800 KB | Target — the script stops halving here |
 | 800 KB – 2 MB | Acceptable for unusually complex geometry that is still over target at 0.2% |
-| over 2 MB | **Rejected.** `make_previews.mjs` refuses to write it, and `validate_data.py` fails CI |
+| over 2 MB | **Rejected.** `wgj previews` refuses to write it, and `wgj validate` fails CI |
 
 A preview still over 2 MB at 0.2% means the source geometry is unusually
 dense; the fix is upstream, in the source file's simplification tolerance,
@@ -70,7 +79,7 @@ not in the preview.
 Simplification is lossy and its failure modes are visual, so look at it.
 
 - **Islands disappearing.** `keep-shapes` prevents whole polygons vanishing,
-  but a multipolygon can still lose small members. The script compares the
+  but a multipolygon can still lose small members. The command compares the
   feature count against the source and refuses to write a preview that
   dropped any — but a multipolygon member is not a feature, so look.
 - **Slivers and self-intersections.** Aggressive simplification can make
@@ -86,11 +95,11 @@ npx mapshaper data/earth/CHL/preview/CHL_ADM3.preview.geojson -info
 
 They are small build artifacts, and committing them means the documentation
 site needs no build step over the data. They are deterministic as long as the
-inputs are processed in a fixed order, which the script does — levels and
+inputs are processed in a fixed order, which the command does — levels and
 split parts sorted by name — so regenerating from unchanged sources yields
 unchanged bytes.
 
-Regenerate them whenever the source file changes. `validate_data.py` treats a
+Regenerate them whenever the source file changes. `wgj validate` treats a
 dataset with no preview recorded as a warning (the catalog map is empty), and
 a recorded preview that is missing or over 2 MB as an error;
 [`manifest.json`](../reference/manifest.md) records the path and size.

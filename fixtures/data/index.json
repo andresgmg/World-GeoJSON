@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "bodies": [
+    "earth"
+  ],
+  "totals": {
+    "countries": 3,
+    "datasets": 6,
+    "features": 57,
+    "bytes": 121442
+  },
+  "countries": [
+    {
+      "body": "earth",
+      "iso_a3": "ABW",
+      "iso_a2": "AW",
+      "m49_region": "Caribbean",
+      "name": {
+        "en": "Aruba",
+        "es": "Aruba"
+      },
+      "status": "ok",
+      "manifest": "data/earth/ABW/manifest.json",
+      "license": "public-domain",
+      "licenses": [
+        "public-domain"
+      ],
+      "levels": [
+        "ADM0"
+      ],
+      "municipal_level": null,
+      "crs": {
+        "authority": "OGC",
+        "code": "CRS84",
+        "epsg": 4326
+      },
+      "source": {
+        "name": "geoBoundaries (gbOpen)",
+        "url": "https://www.geoboundaries.org/",
+        "license": "public-domain",
+        "retrieved": "2026-08-11"
+      },
+      "datasets": [
+        {
+          "level": "ADM0",
+          "path": "data/earth/ABW/ABW_ADM0.geojson",
+          "bytes": 864,
+          "sha256": "4dcedb6d7f1f35e817d8ab46242dab720dc98adae4b19a1e76c42a56f036105c",
+          "features": 1,
+          "bbox": [
+            -70.062408,
+            12.41767,
+            -69.87682,
+            12.632148
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType"
+          ],
+          "preview": "data/earth/ABW/preview/ABW_ADM0.preview.geojson",
+          "preview_bytes": 339,
+          "simplification": {
+            "method": "visvalingam",
+            "tolerance_m": 100
+          },
+          "license": "public-domain",
+          "src_provider": "Natural Earth"
+        }
+      ]
+    },
+    {
+      "body": "earth",
+      "iso_a3": "BRB",
+      "iso_a2": "BB",
+      "m49_region": "Caribbean",
+      "name": {
+        "en": "Barbados",
+        "es": "Barbados"
+      },
+      "status": "review",
+      "manifest": "data/earth/BRB/manifest.json",
+      "license": "mixed",
+      "licenses": [
+        "CC-BY-2.5",
+        "public-domain"
+      ],
+      "levels": [
+        "ADM0",
+        "ADM1"
+      ],
+      "municipal_level": "ADM1",
+      "terms": {
+        "adm1": {
+          "en": "Parish",
+          "es": "Parroquia"
+        }
+      },
+      "crs": {
+        "authority": "OGC",
+        "code": "CRS84",
+        "epsg": 4326
+      },
+      "source": {
+        "name": "geoBoundaries (gbOpen)",
+        "url": "https://www.geoboundaries.org/",
+        "license": "mixed",
+        "retrieved": "2026-08-11",
+        "licenses": [
+          "CC-BY-2.5",
+          "public-domain"
+        ]
+      },
+      "datasets": [
+        {
+          "level": "ADM0",
+          "path": "data/earth/BRB/BRB_ADM0.geojson",
+          "bytes": 954,
+          "sha256": "caeb9c3851a9a01f936ce83ec1fbabc2a3ce9de2838771bdcbc746c295bcd699",
+          "features": 1,
+          "bbox": [
+            -59.654205,
+            13.051174,
+            -59.42691,
+            13.34455
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType"
+          ],
+          "preview": "data/earth/BRB/preview/BRB_ADM0.preview.geojson",
+          "preview_bytes": 323,
+          "simplification": {
+            "method": "visvalingam",
+            "tolerance_m": 100
+          },
+          "license": "public-domain",
+          "src_provider": "Natural Earth"
+        },
+        {
+          "level": "ADM1",
+          "path": "data/earth/BRB/BRB_ADM1.geojson",
+          "bytes": 9687,
+          "sha256": "3f9862bfe0752ddf671000c2a01914ab2260d8bdf41a34ada11418026d0525c4",
+          "features": 11,
+          "bbox": [
+            -59.650707,
+            13.045058,
+            -59.420401,
+            13.334566
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "preview": "data/earth/BRB/preview/BRB_ADM1.preview.geojson",
+          "preview_bytes": 3306,
+          "simplification": {
+            "method": "visvalingam",
+            "tolerance_m": 100
+          },
+          "license": "CC-BY-2.5",
+          "src_provider": "geoBoundaries, Wikimedia",
+          "src_year": "2005"
+        }
+      ]
+    },
+    {
+      "body": "earth",
+      "iso_a3": "DOM",
+      "iso_a2": "DO",
+      "m49_region": "Caribbean",
+      "name": {
+        "en": "Dominican Republic",
+        "es": "República Dominicana"
+      },
+      "status": "ok",
+      "manifest": "data/earth/DOM/manifest.json",
+      "license": "mixed",
+      "licenses": [
+        "CC-BY-4.0",
+        "public-domain"
+      ],
+      "levels": [
+        "ADM0",
+        "ADM1",
+        "ADM2"
+      ],
+      "municipal_level": "ADM2",
+      "terms": {
+        "adm1": {
+          "en": "Province",
+          "es": "Provincia"
+        },
+        "municipal": {
+          "en": "Municipality",
+          "es": "Municipio"
+        }
+      },
+      "crs": {
+        "authority": "OGC",
+        "code": "CRS84",
+        "epsg": 4326
+      },
+      "source": {
+        "name": "geoBoundaries (gbOpen)",
+        "url": "https://www.geoboundaries.org/",
+        "license": "mixed",
+        "retrieved": "2026-08-11",
+        "licenses": [
+          "CC-BY-4.0",
+          "public-domain"
+        ]
+      },
+      "datasets": [
+        {
+          "level": "ADM0",
+          "path": "data/earth/DOM/DOM_ADM0.geojson",
+          "bytes": 13207,
+          "sha256": "bac4c37357980763ff2f6329b644021b89d19d51929356e04c1cb2e73e63443f",
+          "features": 1,
+          "bbox": [
+            -72.009838,
+            17.545559,
+            -68.328603,
+            19.93769
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1
+          },
+          "properties": [
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType"
+          ],
+          "preview": "data/earth/DOM/preview/DOM_ADM0.preview.geojson",
+          "preview_bytes": 822,
+          "simplification": {
+            "method": "visvalingam",
+            "tolerance_m": 100
+          },
+          "license": "public-domain",
+          "src_provider": "Natural Earth"
+        },
+        {
+          "level": "ADM1",
+          "path": "data/earth/DOM/DOM_ADM1.geojson",
+          "bytes": 51863,
+          "sha256": "b533f27af991a007adfc827b3684f3b29c23843fb4f2cba45042ed189de6dfa1",
+          "features": 32,
+          "bbox": [
+            -72.009838,
+            17.545559,
+            -68.328603,
+            19.93769
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 30
+          },
+          "properties": [
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "preview": "data/earth/DOM/preview/DOM_ADM1.preview.geojson",
+          "preview_bytes": 10808,
+          "simplification": {
+            "method": "visvalingam",
+            "tolerance_m": 100
+          },
+          "license": "public-domain",
+          "src_provider": "Natural Earth",
+          "src_year": "2022"
+        },
+        {
+          "level": "ADM2",
+          "split_by": "ADM1",
+          "parts": [
+            {
+              "path": "data/earth/DOM/ADM2/DO-01.geojson",
+              "bytes": 2592,
+              "sha256": "9d095ae93a76a535faadf513c1c93e2f987c6b6222f99f9ec13acee122a5da31",
+              "features": 1,
+              "bbox": [
+                -70.000412,
+                18.421806,
+                -69.865501,
+                18.544317
+              ],
+              "geometry_types": {
+                "Polygon": 1
+              },
+              "properties": [
+                "adm1ISO",
+                "parentID",
+                "parentISO",
+                "shapeGroup",
+                "shapeISO",
+                "shapeName",
+                "shapeType",
+                "src_shape_id"
+              ],
+              "code": "DO-01"
+            },
+            {
+              "path": "data/earth/DOM/ADM2/DO-02.geojson",
+              "bytes": 42275,
+              "sha256": "c3acd5ac50a8c50afa72c78d9e61ad7558877406811ccb16490ec50291944d33",
+              "features": 10,
+              "bbox": [
+                -71.152229,
+                18.247917,
+                -70.457863,
+                18.99604
+              ],
+              "geometry_types": {
+                "MultiPolygon": 1,
+                "Polygon": 9
+              },
+              "properties": [
+                "adm1ISO",
+                "parentID",
+                "parentISO",
+                "shapeGroup",
+                "shapeISO",
+                "shapeName",
+                "shapeType",
+                "src_shape_id"
+              ],
+              "code": "DO-02"
+            }
+          ],
+          "features": 11,
+          "bytes": 44867,
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 10
+          },
+          "bbox": [
+            -71.152229,
+            18.247917,
+            -69.865501,
+            18.99604
+          ],
+          "simplification": {
+            "method": "visvalingam",
+            "tolerance_m": 100
+          },
+          "license": "CC-BY-4.0",
+          "src_provider": "Caribbean GeoPortal, N/A",
+          "src_year": "2020"
+        }
+      ]
+    }
+  ]
+}

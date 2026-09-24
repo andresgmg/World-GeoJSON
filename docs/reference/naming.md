@@ -75,12 +75,12 @@ ADM1's own `id` (`USA:ADM1:US-SD` ↔ `USA/ADM2/US-SD.geojson`). The manifest's
 things to know:
 
 - **Documented upstream errors are corrected, not passed through.** The
-  corrections live in `scripts/shapeiso_fixes.json` and the parts follow
-  them: South Dakota's 66 counties are in `USA/ADM2/US-SD.geojson` although
-  geoBoundaries codes the state `SU-SD`; Mexico's `MX-CMX.geojson` (the 16
-  alcaldías of Ciudad de México) and Ecuador's `EC-X.geojson` (the 7 cantons
-  of Cotopaxi) exist because the upstream had given each of those units a
-  neighbour's code, so `MX-MEX.geojson` now holds the 125 municipios of the
+  corrections live in `pipeline/src/wgj/tables/shapeiso_fixes.json` and the
+  parts follow them: South Dakota's 66 counties are in `USA/ADM2/US-SD.geojson`
+  although geoBoundaries codes the state `SU-SD`; Mexico's `MX-CMX.geojson`
+  (the 16 alcaldías of Ciudad de México) and Ecuador's `EC-X.geojson` (the 7
+  cantons of Cotopaxi) exist because the upstream had given each of those units
+  a neighbour's code, so `MX-MEX.geojson` now holds the 125 municipios of the
   State of Mexico and `EC-H.geojson` the 10 cantons of Chimborazo. See
   [Property dictionary → `shapeISO`](properties.md#shapeiso-in-detail).
 - **Units whose parent could not be determined** go to

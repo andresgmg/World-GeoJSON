@@ -159,7 +159,7 @@ SHA-256 del archivo; el hash completo está en el `manifest.json` del país — 
 por tanto en `data/index.json` — en `datasets[].sha256` y, para los niveles
 partidos, en `parts[].sha256`. Los assets de la release traen un `SHA256SUMS`
 que `sha256sum -c SHA256SUMS` comprueba de una vez, y un checkout completo se
-verifica con `python scripts/validate_data.py --checksums`, que vuelve a
+verifica con `wgj validate --checksums`, que vuelve a
 calcular el hash de cada archivo contra su manifiesto. Verifica una descarga
 suelta con:
 

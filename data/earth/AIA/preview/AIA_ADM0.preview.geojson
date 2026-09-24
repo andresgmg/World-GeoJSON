@@ -1,3 +1,3 @@
-{"type":"FeatureCollection","bbox":[-63.428,18.2177,-62.9582,18.5928],"features":[
+{"type":"FeatureCollection","bbox":[-63.0858,18.2177,-63.0074,18.273],"features":[
 {"type":"Feature","id":"AIA:ADM0:AIA","properties":{"shapeName":"Anguilla","shapeISO":"AIA","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[-63.0074,18.273],[-63.0382,18.2677],[-63.0858,18.2177],[-63.0115,18.2204],[-63.0074,18.273]]]}}
 ]}

@@ -1301,7 +1301,7 @@
             "src_shape_id"
           ],
           "preview": "data/earth/BLZ/preview/BLZ_ADM1.preview.geojson",
-          "preview_bytes": 2990,
+          "preview_bytes": 2989,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -3163,7 +3163,7 @@
             "shapeType"
           ],
           "preview": "data/earth/CHL/preview/CHL_ADM0.preview.geojson",
-          "preview_bytes": 18800,
+          "preview_bytes": 18797,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -3843,7 +3843,7 @@
             "shapeType"
           ],
           "preview": "data/earth/COL/preview/COL_ADM0.preview.geojson",
-          "preview_bytes": 3185,
+          "preview_bytes": 3184,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -3952,7 +3952,7 @@
             "shapeType"
           ],
           "preview": "data/earth/CRI/preview/CRI_ADM0.preview.geojson",
-          "preview_bytes": 1015,
+          "preview_bytes": 1017,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -3986,7 +3986,7 @@
             "src_shape_id"
           ],
           "preview": "data/earth/CRI/preview/CRI_ADM2.preview.geojson",
-          "preview_bytes": 42315,
+          "preview_bytes": 42316,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -6136,7 +6136,7 @@
             "shapeType"
           ],
           "preview": "data/earth/FLK/preview/FLK_ADM0.preview.geojson",
-          "preview_bytes": 1701,
+          "preview_bytes": 1702,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -6278,7 +6278,7 @@
             "shapeType"
           ],
           "preview": "data/earth/GRD/preview/GRD_ADM0.preview.geojson",
-          "preview_bytes": 340,
+          "preview_bytes": 341,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -7300,7 +7300,7 @@
             "src_shape_id"
           ],
           "preview": "data/earth/MEX/preview/MEX_ADM1.preview.geojson",
-          "preview_bytes": 146135,
+          "preview_bytes": 146154,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -9417,7 +9417,7 @@
             "shapeType"
           ],
           "preview": "data/earth/SGS/preview/SGS_ADM0.preview.geojson",
-          "preview_bytes": 863,
+          "preview_bytes": 864,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -10041,7 +10041,7 @@
             "shapeType"
           ],
           "preview": "data/earth/USA/preview/USA_ADM0.preview.geojson",
-          "preview_bytes": 36303,
+          "preview_bytes": 36304,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -10075,7 +10075,7 @@
             "src_shape_id"
           ],
           "preview": "data/earth/USA/preview/USA_ADM1.preview.geojson",
-          "preview_bytes": 211036,
+          "preview_bytes": 211037,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -10111,7 +10111,7 @@
             "src_shape_id"
           ],
           "preview": "data/earth/USA/preview/USA_ADM2.preview.geojson",
-          "preview_bytes": 967524,
+          "preview_bytes": 967525,
           "split_by": "ADM1",
           "parts": [
             {
@@ -11774,7 +11774,7 @@
             "shapeType"
           ],
           "preview": "data/earth/VEN/preview/VEN_ADM0.preview.geojson",
-          "preview_bytes": 3083,
+          "preview_bytes": 3084,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -11872,7 +11872,7 @@
             "shapeType"
           ],
           "preview": "data/earth/VGB/preview/VGB_ADM0.preview.geojson",
-          "preview_bytes": 374,
+          "preview_bytes": 375,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -11937,7 +11937,7 @@
             "shapeType"
           ],
           "preview": "data/earth/VIR/preview/VIR_ADM0.preview.geojson",
-          "preview_bytes": 361,
+          "preview_bytes": 362,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
@@ -11971,7 +11971,7 @@
             "src_shape_id"
           ],
           "preview": "data/earth/VIR/preview/VIR_ADM3.preview.geojson",
-          "preview_bytes": 6382,
+          "preview_bytes": 6380,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100

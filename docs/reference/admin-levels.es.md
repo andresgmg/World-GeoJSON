@@ -19,8 +19,8 @@ de traducción.
 Es la regla que más confusión causa, así que conviene decirla claro: **ADM1 no
 significa "provincia".** Significa "el primer nivel de subdivisión que tenga
 este país, se llame como se llame". El término local se registra aparte, como
-`adm1_term` y `municipal_term` en `scripts/countries.json` — no en los
-manifiestos.
+`adm1_term` y `municipal_term` en `pipeline/src/wgj/tables/countries.json` — no
+en los manifiestos.
 
 | País | ADM1 | ADM2 | ADM3 |
 |---|---|---|---|
@@ -67,8 +67,8 @@ varía:
 | Guadalupe, Martinica | Comuna | **ADM4** |
 
 Como no se puede inferir de los datos, la correspondencia se cura a mano en
-`scripts/countries.json` y es la única pieza de este pipeline que siempre
-necesitará criterio humano.
+`pipeline/src/wgj/tables/countries.json` y es la única pieza de este pipeline
+que siempre necesitará criterio humano.
 
 Los niveles más profundos — los *corregimientos* de Panamá, los *distritos* de
 Costa Rica — quedan fuera de alcance. Existen en pocos países, los tamaños de

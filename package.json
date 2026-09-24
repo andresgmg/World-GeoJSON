@@ -5,8 +5,8 @@
   "description": "Geometry tooling for the World GeoJSON data pipeline. Not published.",
   "type": "module",
   "scripts": {
-    "previews": "node scripts/make_previews.mjs",
-    "validate": "python scripts/validate_data.py"
+    "previews": "wgj previews",
+    "validate": "wgj validate"
   },
   "devDependencies": {
     "mapshaper": "0.7.63"

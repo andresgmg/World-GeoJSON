@@ -30,7 +30,7 @@ site_dir: site
 # would stat the whole data tree on every keystroke, which is unusable on a
 # OneDrive-synced folder.
 watch:
-  - scripts
+  - pipeline/src/wgj
   - includes
 
 # ---------------------------------------------------------------------------
@@ -100,7 +100,7 @@ theme:
 # ---------------------------------------------------------------------------
 
 hooks:
-  - scripts/gen_catalog.py
+  - pipeline/mkdocs_hook.py
 
 # ---------------------------------------------------------------------------
 # Plugins — order matters, events fire in the order listed.
@@ -235,7 +235,7 @@ extra_javascript:
   - assets/javascripts/geojson-map.js
 
 # ---------------------------------------------------------------------------
-# Extra — also read by scripts/gen_catalog.py
+# Extra — also read by wgj.catalog (pipeline/mkdocs_hook.py)
 # ---------------------------------------------------------------------------
 
 extra:

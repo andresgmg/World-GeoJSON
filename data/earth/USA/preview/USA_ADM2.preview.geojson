@@ -1,4 +1,4 @@
-{"type":"FeatureCollection","bbox":[144.6254,-14.5495,-64.6343,71.2869],"features":[
+{"type":"FeatureCollection","bbox":[-171.0896,-14.5495,145.8302,71.2869],"features":[
 {"type":"Feature","id":"USA:ADM2:US-OH.highland","properties":{"shapeName":"Highland","shapeISO":"","shapeType":"ADM2"},"geometry":{"type":"Polygon","coordinates":[[[-83.8657,39.2473],[-83.673,39.0204],[-83.3856,39.0552],[-83.3535,39.1976],[-83.3727,39.3774],[-83.5909,39.3787],[-83.8657,39.2473]]]}},
 {"type":"Feature","id":"USA:ADM2:US-CA.alpine","properties":{"shapeName":"Alpine","shapeISO":"","shapeType":"ADM2"},"geometry":{"type":"Polygon","coordinates":[[[-120.0725,38.5099],[-120.02,38.4335],[-119.6392,38.3269],[-119.5854,38.7132],[-119.9043,38.9333],[-120.0724,38.7028],[-120.0725,38.5099]]]}},
 {"type":"Feature","id":"USA:ADM2:US-FL.escambia","properties":{"shapeName":"Escambia","shapeISO":"","shapeType":"ADM2"},"geometry":{"type":"Polygon","coordinates":[[[-87.5988,30.9974],[-87.5183,30.2804],[-86.9193,30.3707],[-87.1636,30.999],[-87.5988,30.9974]]]}},

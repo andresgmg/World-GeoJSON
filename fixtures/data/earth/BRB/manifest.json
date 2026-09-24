@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BRB",
+  "iso_a2": "BB",
+  "m49_region": "Caribbean",
+  "name": {
+    "en": "Barbados",
+    "es": "Barbados"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "license": "mixed",
+    "retrieved": "2026-08-11",
+    "licenses": [
+      "CC-BY-2.5",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BRB/BRB_ADM0.geojson",
+      "bytes": 954,
+      "sha256": "caeb9c3851a9a01f936ce83ec1fbabc2a3ce9de2838771bdcbc746c295bcd699",
+      "features": 1,
+      "bbox": [
+        -59.654205,
+        13.051174,
+        -59.42691,
+        13.34455
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BRB/preview/BRB_ADM0.preview.geojson",
+      "preview_bytes": 323,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BRB/BRB_ADM1.geojson",
+      "bytes": 9687,
+      "sha256": "3f9862bfe0752ddf671000c2a01914ab2260d8bdf41a34ada11418026d0525c4",
+      "features": 11,
+      "bbox": [
+        -59.650707,
+        13.045058,
+        -59.420401,
+        13.334566
+      ],
+      "geometry_types": {
+        "Polygon": 11
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BRB/preview/BRB_ADM1.preview.geojson",
+      "preview_bytes": 3306,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-2.5",
+      "src_provider": "geoBoundaries, Wikimedia",
+      "src_year": "2005"
+    }
+  ]
+}

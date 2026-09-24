@@ -47,7 +47,7 @@
         "shapeType"
       ],
       "preview": "data/earth/CHL/preview/CHL_ADM0.preview.geojson",
-      "preview_bytes": 18800,
+      "preview_bytes": 18797,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

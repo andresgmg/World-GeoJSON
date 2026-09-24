@@ -28,8 +28,9 @@ identificador opaco de la fuente: `shapeISO` es `""` en 15.364 features —
 `src_shape_id`, y la identidad de la feature es su [`id`](#el-id-de-la-feature).
 
 **Los errores documentados de la fuente se corrigen**, desde
-`scripts/shapeiso_fixes.json`. Cada entrada de ese archivo es un código
-ISO 3166-2 que la fuente asignó mal a la unidad que nombra `shapeName`:
+`pipeline/src/wgj/tables/shapeiso_fixes.json`. Cada entrada de ese archivo es
+un código ISO 3166-2 que la fuente asignó mal a la unidad que nombra
+`shapeName`:
 
 | Dónde | Unidad | En origen | Corregido |
 |---|---|---|---|
@@ -79,7 +80,7 @@ La comuna chilena de Camiña lleva las tres a la vez: `adm1ISO` es su región
 Cada feature lleva un `id` GeoJSON de nivel superior — un miembro de la
 Feature, no una propiedad — con la forma `{ISO3}:{LEVEL}:{clave}`, único en
 todo el repositorio. La clave se elige con una sola regla, implementada una
-sola vez en `scripts/finalize_geojson.py`:
+sola vez en `wgj finalize`:
 
 1. **ADM0** → el ISO3: `ABW:ADM0:ABW`.
 2. **`shapeISO`, cuando es un código real y único dentro del nivel**:
@@ -109,13 +110,13 @@ SUR 1).
     rompedor que es — ver
     [Versionado y estabilidad](../about/versioning.md).
 
-Una clave se puede fijar a mano en `scripts/id_overrides.json` — indexado por
-ISO3, nivel y el `src_shape_id` de la feature (o su `shapeISO` en las fuentes
-nacionales), con la parte de la clave que va tras `{ISO3}:{LEVEL}:` como
-valor. Hoy está vacío: las correcciones de `shapeISO` resolvieron todas las
-colisiones conocidas. `finalize_geojson.py` se niega a ejecutarse mientras
-quede una colisión y nombra las features, así que una entrada nueva ahí es la
-forma de resolverla.
+Una clave se puede fijar a mano en `pipeline/src/wgj/tables/id_overrides.json`
+— indexado por ISO3, nivel y el `src_shape_id` de la feature (o su `shapeISO`
+en las fuentes nacionales), con la parte de la clave que va tras
+`{ISO3}:{LEVEL}:` como valor. Hoy está vacío: las correcciones de `shapeISO`
+resolvieron todas las colisiones conocidas. `wgj finalize` se niega a
+ejecutarse mientras quede una colisión y nombra las features, así que una
+entrada nueva ahí es la forma de resolverla.
 
 Los previews llevan el mismo `id` que los archivos completos, así que un mapa
 dibujado desde un preview se puede unir a cualquier cosa indexada por los

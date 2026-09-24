@@ -6,6 +6,7 @@ on:
     paths: &data_paths
       - "data/**"
       - "schemas/**"
+      - "pipeline/**"
       - "scripts/**"
       - "requirements-dev.txt"
       - ".github/workflows/validate-data.yml"
@@ -44,20 +45,20 @@ jobs:
         run: pip install -r requirements-dev.txt
 
       - name: Validate
-        run: python scripts/validate_data.py --checksums
+        run: wgj validate --checksums
 
       - name: Check every file is finalized (ids, hierarchy, bbox, canonical layout)
-        run: python scripts/finalize_geojson.py --check data/earth/*/
+        run: wgj finalize --check data/earth/*/
 
       - name: Check data/index.json is up to date
-        run: python scripts/build_index.py --check
+        run: wgj index --check
 
       - name: Check manifests are up to date
         run: |
-          python scripts/build_manifest.py data/earth/*/
+          wgj manifest data/earth/*/
           if ! git diff --quiet -- 'data/**/manifest.json'; then
             echo "::error::A committed manifest disagrees with a fresh regeneration."
-            echo "Run: python scripts/build_manifest.py data/earth/<ISO3>"
+            echo "Run: wgj manifest data/earth/<ISO3>"
             git diff --stat -- 'data/**/manifest.json'
             exit 1
           fi

@@ -1,3 +1,3 @@
-{"type":"FeatureCollection","bbox":[-81.3035,19.2907,-79.8719,19.7046],"features":[
+{"type":"FeatureCollection","bbox":[-81.3035,19.2907,-81.1351,19.3685],"features":[
 {"type":"Feature","id":"CYM:ADM0:CYM","properties":{"shapeName":"Cayman Islands","shapeISO":"CYM","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[-81.1361,19.3549],[-81.2863,19.3685],[-81.3035,19.3091],[-81.1351,19.2907],[-81.1361,19.3549]]]}}
 ]}

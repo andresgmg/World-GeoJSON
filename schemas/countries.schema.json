@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://andresgmg.github.io/World-GeoJSON/schemas/countries.schema.json",
   "title": "World GeoJSON country registry",
-  "description": "scripts/countries.json — the curated table of territories the pipeline knows: identity, upstream source and which level is the municipal tier.",
+  "description": "pipeline/src/wgj/tables/countries.json — the curated table of territories the pipeline knows: identity, upstream source and which level is the municipal tier.",
   "type": "object",
   "properties": {
     "$comment": { "type": "array", "items": { "type": "string" } }

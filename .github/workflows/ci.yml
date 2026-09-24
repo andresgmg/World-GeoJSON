@@ -99,17 +99,26 @@ jobs:
             /data/earth/DOM/**
           sparse-checkout-cone-mode: false
 
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
       - name: Set up Node
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
-      - name: Install pinned mapshaper
-        run: npm ci
+      - name: Install the pipeline and the pinned mapshaper
+        run: |
+          pip install -r requirements-dev.txt
+          npm ci
 
       - name: Regenerate previews
-        run: node scripts/make_previews.mjs data/earth/ABW data/earth/BRB data/earth/DOM
+        run: wgj previews data/earth/ABW data/earth/BRB data/earth/DOM
 
       - name: Compare with the committed previews
         run: |

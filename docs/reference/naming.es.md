@@ -76,15 +76,15 @@ El `parts[].code` del manifiesto registra la correspondencia para que nadie
 tenga que adivinarla. Dos cosas a saber:
 
 - **Los errores documentados de la fuente se corrigen, no se pasan tal cual.**
-  Las correcciones viven en `scripts/shapeiso_fixes.json` y las partes las
-  siguen: los 66 condados de Dakota del Sur están en
+  Las correcciones viven en `pipeline/src/wgj/tables/shapeiso_fixes.json` y las
+  partes las siguen: los 66 condados de Dakota del Sur están en
   `USA/ADM2/US-SD.geojson` aunque geoBoundaries codifique el estado como
-  `SU-SD`; `MX-CMX.geojson` de México (las 16 alcaldías de la Ciudad de
-  México) y `EC-X.geojson` de Ecuador (los 7 cantones de Cotopaxi) existen
-  porque la fuente había dado a cada una de esas unidades el código de una
-  vecina, así que `MX-MEX.geojson` contiene ahora los 125 municipios del
-  Estado de México y `EC-H.geojson` los 10 cantones de Chimborazo. Ver
-  [Diccionario de propiedades → `shapeISO`](properties.md#shapeiso-en-detalle).
+  `SU-SD`; `MX-CMX.geojson` de México (las 16 alcaldías de la Ciudad de México)
+  y `EC-X.geojson` de Ecuador (los 7 cantones de Cotopaxi) existen porque la
+  fuente había dado a cada una de esas unidades el código de una vecina, así
+  que `MX-MEX.geojson` contiene ahora los 125 municipios del Estado de México y
+  `EC-H.geojson` los 10 cantones de Chimborazo. Ver [Diccionario de propiedades
+  → `shapeISO`](properties.md#shapeiso-en-detalle).
 - **Las unidades cuyo padre no se pudo determinar** van a
   `{LEVEL}/unassigned.geojson` en vez de descartarse, con
   `adm1ISO: "unassigned"` y sin `parentID`, y el manifiesto registra el

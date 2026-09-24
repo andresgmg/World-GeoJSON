@@ -5,7 +5,7 @@
 A boundary file with an incompatible licence cannot be merged, however good the
 geometry is. And once it is in git history it is genuinely difficult to remove —
 rewriting history breaks every existing clone and fork. So the check happens at
-the door, and it is enforced in CI by `scripts/validate_data.py`.
+the door, and it is enforced in CI by `wgj validate`.
 
 ## The compatibility question
 

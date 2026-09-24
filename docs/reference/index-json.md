@@ -7,13 +7,13 @@ request instead of fifty-five, and the entry point the
 
 ## What it is
 
-`scripts/build_index.py` walks the manifests and writes a single JSON document
+`wgj index` walks the manifests and writes a single JSON document
 that contains them, plus a few derived fields a client needs before it has
 downloaded anything: the published levels, the licences that actually govern
 the files, which level is the municipal tier and what the tiers are called
 locally. Because the manifests are embedded rather than summarised, the index
 can never disagree with a manifest — and CI regenerates it on every change
-(`build_index.py --check`) to make sure the committed copy is current.
+(`wgj index --check`) to make sure the committed copy is current.
 
 ## Shape
 
@@ -74,7 +74,7 @@ Chile's entry, with the datasets abridged:
 | `license`, `licenses` | Roll-up of `datasets[].license`: the single value, or `"mixed"`, and the sorted distinct values |
 | `levels` | The published levels, in order |
 | `municipal_level` | Which level is the municipal tier, or `null` when none is published |
-| `terms` | Local names of the tiers in both languages — `adm1`, `adm2` where one exists, `municipal` — from `scripts/countries.json`. Present when the registry defines them |
+| `terms` | Local names of the tiers in both languages — `adm1`, `adm2` where one exists, `municipal` — from `pipeline/src/wgj/tables/countries.json`. Present when the registry defines them |
 | `crs`, `source`, `notes` | As in the manifest; `notes` only where the manifest has one |
 | `datasets` | The manifest's `datasets` array, **verbatim** — paths, `bytes`, `sha256`, `features`, `bbox`, `properties`, previews and split `parts`, exactly as [Manifest format](manifest.md#per-dataset-datasets) describes |
 
@@ -156,9 +156,9 @@ URL, so a validator can resolve the cross-references online:
 | `index.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/index.schema.json> | `data/index.json`, this page |
 | `feature.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/feature.schema.json> | One Feature of a full-resolution file: `type`, the required `id`, `properties`, a polygon geometry |
 | `feature-properties.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/feature-properties.schema.json> | The `properties` object of a feature — the [contract](properties.md); no key outside it is allowed |
-| `countries.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/countries.schema.json> | `scripts/countries.json`, the registry the pipeline reads |
+| `countries.schema.json` | <https://andresgmg.github.io/World-GeoJSON/schemas/countries.schema.json> | `pipeline/src/wgj/tables/countries.json`, the registry the pipeline reads |
 
-`scripts/validate_data.py` applies all five in CI: every manifest, the index,
+`wgj validate` applies all five in CI: every manifest, the index,
 the registry and every feature of every full-resolution file. Previews are not
 covered — they carry a subset of the properties.
 
@@ -180,7 +180,7 @@ print('ok')
 For the schemas that reference each other (`feature.schema.json` →
 `feature-properties.schema.json`; `index.schema.json` and
 `countries.schema.json` → definitions in `manifest.schema.json`) run
-`python scripts/validate_data.py`, which resolves them from the local
+`wgj validate`, which resolves them from the local
 `schemas/` directory and adds the checks a schema cannot express — id
 uniqueness, `parentID` resolution, bbox against coordinates, checksums.
 

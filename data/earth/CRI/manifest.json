@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/CRI/preview/CRI_ADM0.preview.geojson",
-      "preview_bytes": 1015,
+      "preview_bytes": 1017,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -77,7 +77,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/CRI/preview/CRI_ADM2.preview.geojson",
-      "preview_bytes": 42315,
+      "preview_bytes": 42316,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

@@ -1,14 +1,14 @@
 # Añadir un país
 
-Runbook completo. Calcula una hora para el primero. Los scripts hacen casi
-todo el trabajo; el orden importa — previews antes que manifiesto, el índice
-después.
+Runbook completo. Calcula una hora para el primero. El comando `wgj` hace
+casi todo el trabajo; el orden importa — previews antes que manifiesto, el
+índice después.
 
 ## 0. Verifica la licencia
 
 [Fuentes aprobadas y licencias](sources.md). Hazlo primero — es el paso que más
 probablemente detenga la contribución, y todo lo posterior es trabajo perdido
-si la fuente resulta inutilizable. `fetch_sources.py --dry-run` (paso 3) te
+si la fuente resulta inutilizable. `wgj fetch --dry-run` (paso 3) te
 dice qué ofrece geoBoundaries para un país y con qué licencia, sin descargar
 nada.
 
@@ -18,8 +18,8 @@ nada.
 git clone https://github.com/andresgmg/World-GeoJSON.git
 cd World-GeoJSON
 python -m venv .venv && source .venv/bin/activate   # Windows: .\.venv\Scripts\activate
-pip install -r requirements-docs.txt -r requirements-dev.txt   # mkdocs, ijson, jsonschema
-npm install                                          # mapshaper, fijado
+pip install -r requirements-docs.txt -r requirements-dev.txt   # mkdocs; el comando wgj
+npm ci                                               # mapshaper, fijado
 git checkout -b add-nzl
 ```
 
@@ -27,8 +27,8 @@ Python 3.11 o superior, Node 18 o superior.
 
 ## 2. Decláralo en el registro
 
-Añade una entrada a `scripts/countries.json`. Usando Nueva Zelanda y
-geoBoundaries como ejemplo:
+Añade una entrada a `pipeline/src/wgj/tables/countries.json`. Usando Nueva
+Zelanda y geoBoundaries como ejemplo:
 
 ```json
 "NZL": {
@@ -54,8 +54,8 @@ todos los campos.
 ## 3. Descarga las fuentes
 
 ```bash
-python scripts/fetch_sources.py --iso3 NZL --dry-run
-python scripts/fetch_sources.py --iso3 NZL
+wgj fetch --iso3 NZL --dry-run
+wgj fetch --iso3 NZL
 ```
 
 El dry run lista cada nivel con su licencia y número de unidades y marca lo
@@ -65,7 +65,7 @@ en `.cache/sources/`, que está en `.gitignore`.
 ## 4. Construye los datos
 
 ```bash
-python scripts/build_data.py NZL
+wgj build NZL
 ```
 
 Escribe `data/earth/NZL/NZL_ADM0.geojson`, `NZL_ADM1.geojson`, … —
@@ -73,8 +73,9 @@ reproyectados, renombrados al [esquema estándar](../reference/schema.md),
 simplificados a una tolerancia de 100 m, partidos por ADM1 donde el tier
 municipal lo necesite, y **finalizados**: cada feature recibe su `id`, sus
 `adm1ISO`, `parentISO` y `parentID`, un `shapeISO` corregido desde
-`scripts/shapeiso_fixes.json` (o `""` donde la fuente no tiene código) y un
-`bbox` recalculado, en el formato canónico de una feature por línea — más la
+`pipeline/src/wgj/tables/shapeiso_fixes.json` (o `""` donde la fuente no
+tiene código) y un `bbox` recalculado, en el formato canónico de una feature
+por línea — más la
 identidad y procedencia del manifiesto. Antes de los pasos siguientes el
 manifiesto se ve así, con `license` y `simplification` ya en cada entrada de
 `datasets`:
@@ -107,9 +108,10 @@ ahí.
 !!! note "Si el build se detiene por un `id` duplicado"
 
     Dos unidades con el mismo nombre y sin código recibirían el mismo `id`;
-    `finalize_geojson.py` se niega y las nombra. Arregla la causa: una entrada
-    en `scripts/shapeiso_fixes.json` si el código de origen está mal, o una
-    clave fijada en `scripts/id_overrides.json` en caso contrario. Ver
+    `wgj finalize` se niega y las nombra. Arregla la causa: una entrada en
+    `pipeline/src/wgj/tables/shapeiso_fixes.json` si el código de origen está
+    mal, o una clave fijada en `pipeline/src/wgj/tables/id_overrides.json` en
+    caso contrario. Ver
     [Pipeline de datos → El paso de finalización](pipeline.md#el-paso-de-finalizacion).
 
 !!! tip "Nueva Zelanda cruza el antimeridiano"
@@ -121,17 +123,17 @@ ahí.
 ## 5. Genera los previews
 
 ```bash
-node scripts/make_previews.mjs data/earth/NZL
+wgj previews data/earth/NZL
 ```
 
-Antes del manifiesto, no después: `build_manifest.py` registra un preview solo
-si ya existe. Ver [Simplificación y previews](previews.md) para el presupuesto
+Antes del manifiesto, no después: `wgj manifest` registra un preview solo si
+ya existe. Ver [Simplificación y previews](previews.md) para el presupuesto
 de tamaño.
 
 ## 6. Genera el manifiesto
 
 ```bash
-python scripts/build_manifest.py data/earth/NZL
+wgj manifest data/earth/NZL
 ```
 
 Rellena `datasets` con rutas, tamaños, checksums, número de features, bounding
@@ -141,7 +143,7 @@ se dejan intactos.
 ## 7. Regenera el índice
 
 ```bash
-python scripts/build_index.py
+wgj index
 ```
 
 `data/index.json` incrusta todos los manifiestos, así que cambia cada vez que
@@ -151,14 +153,20 @@ Commitéalo con el resto.
 ## 8. Valida
 
 ```bash
-python scripts/validate_data.py --checksums data/earth/NZL
-python scripts/finalize_geojson.py --check data/earth/NZL
-python scripts/build_index.py --check
+wgj validate --checksums data/earth/NZL
+wgj finalize --check data/earth/NZL
+wgj index --check
 ```
 
-Cero errores antes de abrir el PR — son las tres comprobaciones que ejecuta el
-CI. Los avisos — un dataset sin preview, coordenadas con más de 6 decimales —
-no hacen fallar el CI, pero sí reciben comentarios de revisión.
+Cero errores antes de abrir el PR — son las comprobaciones que ejecuta el CI,
+junto a una regeneración con `wgj manifest` que no debe dejar diferencias.
+Los avisos — un dataset sin preview, coordenadas con más de 6 decimales — no
+hacen fallar el CI, pero sí reciben comentarios de revisión.
+
+Los pasos 4 a 8 también son un solo comando: `wgj all NZL` ejecuta build,
+previews, manifiesto, índice y validación en ese orden y se detiene en el
+primer fallo. Úsalo para repetir la secuencia una vez que la entrada del
+registro y las fuentes descargadas están en su sitio.
 
 ## 9. Comprueba que se ve bien
 
@@ -181,22 +189,21 @@ ninguna de las dos cosas existe.
 
 ## Añadir un nivel a un país existente
 
-Vuelve a ejecutar los pasos 3 a 8 para ese país. `build_data.py` deja intactos
-los campos escritos a mano del manifiesto; `build_manifest.py` reescribe
+Vuelve a ejecutar los pasos 3 a 8 para ese país. `wgj build` deja intactos
+los campos escritos a mano del manifiesto; `wgj manifest` reescribe
 `datasets` y arrastra el `license` de cada entrada.
 
-## Una fuente que los scripts no conocen
+## Una fuente que el pipeline no conoce
 
 Si los datos del país vienen de un SDI nacional y no de geoBoundaries,
 construye los archivos con mapshaper u ogr2ogr como describe
 [Pipeline de datos](pipeline.md#construir-a-mano), déjalos en
-`data/earth/XXX/`, ejecuta `python scripts/finalize_geojson.py data/earth/XXX`
-para darles sus ids, su jerarquía y su formato canónico, y ejecuta los pasos
-5 a 8. Después añade `license` a mano a
-cada entrada de `datasets` — `validate_data.py` rechaza un dataset sin él, y
-solo `build_data.py` lo escribe — más el bloque de identidad del paso 4.
-Enseñar el nuevo proveedor a `build_data.py` es la mejor contribución si
-esperas repetirlo.
+`data/earth/XXX/`, ejecuta `wgj finalize data/earth/XXX` para darles sus ids,
+su jerarquía y su formato canónico, y ejecuta los pasos 5 a 8. Después añade
+`license` a mano a cada entrada de `datasets` — `wgj validate` rechaza un
+dataset sin él, y solo `wgj build` lo escribe — más el bloque de identidad del
+paso 4. Enseñar el nuevo proveedor a `wgj build` — un módulo bajo
+`wgj.sources` — es la mejor contribución si esperas repetirlo.
 
 ## Corregir geometría existente
 
