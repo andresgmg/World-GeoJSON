@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andresgmg.github.io/World-GeoJSON/schemas/feature.schema.json",
+  "title": "World GeoJSON feature",
+  "description": "One RFC 7946 Feature as published in a full-resolution file under data/.",
+  "type": "object",
+  "required": ["type", "id", "properties", "geometry"],
+  "properties": {
+    "type": { "const": "Feature" },
+    "id": {
+      "description": "Stable identifier: {ISO3}:{LEVEL}:{key}. Unique within the repository.",
+      "type": "string",
+      "pattern": "^[A-Z]{3}:(ADM[0-4]|QUAD):\\S+$"
+    },
+    "properties": { "$ref": "feature-properties.schema.json" },
+    "geometry": {
+      "type": "object",
+      "required": ["type", "coordinates"],
+      "properties": {
+        "type": { "enum": ["Polygon", "MultiPolygon"] },
+        "coordinates": { "type": "array" }
+      }
+    },
+    "bbox": { "type": "array", "items": { "type": "number" }, "minItems": 4, "maxItems": 4 }
+  }
+}

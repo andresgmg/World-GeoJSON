@@ -26,8 +26,10 @@ ignore = [
 # scripts/ is a directory of top-level modules, not a package.
 known-first-party = [
   "build_data",
+  "build_index",
   "build_manifest",
   "fetch_sources",
+  "finalize_geojson",
   "gen_catalog",
   "validate_data",
 ]

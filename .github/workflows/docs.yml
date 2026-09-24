@@ -6,6 +6,7 @@ on:
     paths: &docs_paths
       - "docs/**"
       - "includes/**"
+      - "schemas/**"
       - "scripts/**"
       - "mkdocs.yml"
       - "requirements-docs*.txt"
@@ -47,6 +48,7 @@ jobs:
             !/data/**
             /data/**/manifest.json
             /data/**/preview/*.preview.geojson
+            /data/index.json
           sparse-checkout-cone-mode: false
 
       - name: Set up Python

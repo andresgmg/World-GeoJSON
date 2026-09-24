@@ -606,7 +606,10 @@ def build_gb_municipal(
             "-each",
             js_expr(
                 {
-                    "shapeISO": "shapeISO && shapeISO !== 'None' ? shapeISO : shapeID",
+                    # An empty shapeISO stays empty. finalize_geojson.py derives
+                    # the feature id; it must not mistake an opaque upstream id
+                    # for a code.
+                    "shapeISO": "shapeISO && shapeISO !== 'None' ? shapeISO : ''",
                     "shapeGroup": f"'{iso3}'",
                     "shapeType": f"'{level}'",
                     "src_shape_id": "shapeID",
@@ -627,14 +630,36 @@ def build_gb_municipal(
             raise SystemExit(f"{normalised.name}: too large and cannot be split")
         return result
 
-    split_dir = out_dir / level
+    unmatched = split_by_adm1(iso3, level, normalised, adm1_path, out_dir / level)
+    if unmatched:
+        result["unassigned"] = unmatched
+
+    if normalised.stat().st_size > SIZE_BUDGET:
+        normalised.unlink()
+        print("      whole-country file omitted (over the CDN budget)")
+
+    return result
+
+
+def split_by_adm1(iso3: str, level: str, combined: Path, adm1_path: Path, split_dir: Path) -> int:
+    """Attach ADM1 parents to `combined` and write one part per parent.
+
+    The joined result is written back over the combined file, so the
+    whole-country file carries the same `adm1ISO` as the parts. Returns the
+    number of features without a parent (they land in `unassigned.geojson`).
+
+    The ADM1 file's `shapeISO` is the join key, so any correction in
+    scripts/shapeiso_fixes.json must already be applied to it (see
+    resplit_municipal, and finalize_geojson.py for the rules).
+    """
     if split_dir.exists():
         shutil.rmtree(split_dir)
     split_dir.mkdir(parents=True)
 
     with tempfile.TemporaryDirectory() as tmp:
         joined = Path(tmp) / "joined.geojson"
-        unmatched = assign_parents(normalised, adm1_path, joined)
+        unmatched = assign_parents(combined, adm1_path, joined)
+        shutil.copyfile(joined, combined)
 
         # No -filter here. Features whose parent could not be determined land
         # in an `unassigned` part rather than being discarded — silently losing
@@ -655,32 +680,93 @@ def build_gb_municipal(
         for f in list(split_dir.glob("*.json")):
             f.rename(split_dir / f"{f.stem}.geojson")
 
-        total = feature_count(normalised)
-        placed = sum(feature_count(f) for f in split_dir.glob("*.geojson"))
-        if placed != total:
-            raise SystemExit(f"{iso3} {level}: split holds {placed} of {total} features")
-        oversized = [f for f in split_dir.glob("*.geojson") if f.stat().st_size > SIZE_BUDGET]
-        if oversized:
-            raise RuntimeError(
-                f"{oversized[0].name} is "
-                f"{oversized[0].stat().st_size / 1024 / 1024:.1f} MB, over the "
-                f"{SIZE_BUDGET / 1024 / 1024:.0f} MB per-file ceiling"
-            )
+    total = feature_count(combined)
+    placed = sum(feature_count(f) for f in split_dir.glob("*.geojson"))
+    if placed != total:
+        raise SystemExit(f"{iso3} {level}: split holds {placed} of {total} features")
+    oversized = [f for f in split_dir.glob("*.geojson") if f.stat().st_size > SIZE_BUDGET]
+    if oversized:
+        raise RuntimeError(
+            f"{oversized[0].name} is "
+            f"{oversized[0].stat().st_size / 1024 / 1024:.1f} MB, over the "
+            f"{SIZE_BUDGET / 1024 / 1024:.0f} MB per-file ceiling"
+        )
 
-        parts = len(list(split_dir.glob("*.geojson")))
-        if unmatched:
-            print(
-                f"      {unmatched} of {total} features have no ADM1 parent "
-                f"upstream — kept in {level}/unassigned.geojson"
-            )
-            result["unassigned"] = unmatched
-        print(f"      split into {parts} files")
+    parts = len(list(split_dir.glob("*.geojson")))
+    if unmatched:
+        print(
+            f"      {unmatched} of {total} features have no ADM1 parent "
+            f"upstream — kept in {level}/unassigned.geojson"
+        )
+    print(f"      split into {parts} files")
+    return unmatched
 
-    if normalised.stat().st_size > SIZE_BUDGET:
-        normalised.unlink()
-        print("      whole-country file omitted (over the CDN budget)")
 
-    return result
+def apply_shapeiso_fixes(path: Path, iso3: str, level: str) -> int:
+    """Apply scripts/shapeiso_fixes.json to one committed file in place.
+
+    Used before a join that keys on ADM1's `shapeISO`; the full contract
+    (ids, hierarchy, canonical layout) is applied afterwards by
+    finalize_geojson.py.
+    """
+    from finalize_geojson import apply_fixes  # local: finalize imports this module
+
+    fixes = json.loads((REPO / "scripts" / "shapeiso_fixes.json").read_text("utf-8"))
+    level_fixes = fixes.get(iso3, {}).get(level, {})
+    data = json.loads(path.read_text("utf-8"))
+    changed = 0
+    for f in data.get("features", []):
+        before = f["properties"].get("shapeISO")
+        apply_fixes(f["properties"], level_fixes)
+        changed += f["properties"].get("shapeISO") != before
+    if changed:
+        path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    return changed
+
+
+def resplit_municipal(iso3: str, entry: dict) -> None:
+    """Re-derive parents and parts from the committed files, without sources.
+
+        python scripts/build_data.py --resplit USA MEX ECU
+
+    For when the ADM1 keys change (a shapeISO correction, or a duplicate code
+    resolved) and the municipal parts must follow, but a full rebuild from
+    .cache/sources is not wanted: upstream may have moved on, and every
+    checksum would churn.
+    """
+    level = entry.get("municipal_level")
+    out_dir = DATA / iso3
+    combined = out_dir / f"{iso3}_{level}.geojson"
+    adm1 = out_dir / f"{iso3}_ADM1.geojson"
+    if not level or level == "ADM1":
+        raise SystemExit(f"{iso3}: no municipal level to re-split")
+    if not combined.exists():
+        raise SystemExit(f"{iso3}: {combined.name} is not published; nothing to re-split from")
+    if not adm1.exists():
+        raise SystemExit(f"{iso3}: no ADM1 to split by")
+
+    print(f"\n{iso3} — re-splitting {level} by ADM1")
+    fixed = apply_shapeiso_fixes(adm1, iso3, "ADM1")
+    if fixed:
+        print(f"      {fixed} ADM1 shapeISO value(s) corrected")
+    unmatched = split_by_adm1(iso3, level, combined, adm1, out_dir / level)
+
+    # Keep the manifest's `unassigned` honest; build_manifest.py carries it
+    # forward from here.
+    mpath = out_dir / "manifest.json"
+    if mpath.exists():
+        manifest = json.loads(mpath.read_text("utf-8"))
+        for ds in manifest.get("datasets", []):
+            if ds.get("level") == level:
+                ds.pop("unassigned", None)
+                if unmatched:
+                    ds["unassigned"] = unmatched
+        mpath.write_text(
+            json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+    print("      now run: python scripts/finalize_geojson.py data/earth/" + iso3)
 
 
 def build_geoboundaries(iso3: str, entry: dict) -> list[dict]:
@@ -734,6 +820,11 @@ def main() -> int:
         action="store_true",
         help="leave countries that already have a data directory alone",
     )
+    ap.add_argument(
+        "--resplit",
+        action="store_true",
+        help="re-derive municipal parts from the committed files instead of building",
+    )
     args = ap.parse_args()
 
     if args.continent:
@@ -746,6 +837,14 @@ def main() -> int:
 
     built, skipped, failed = [], [], []
     retrieved = dt.date.today().isoformat()
+
+    if args.resplit:
+        for iso3 in targets:
+            entry = COUNTRIES.get(iso3)
+            if not entry:
+                raise SystemExit(f"{iso3}: not in scripts/countries.json")
+            resplit_municipal(iso3, entry)
+        return 0
 
     for iso3 in targets:
         entry = COUNTRIES.get(iso3)
@@ -772,6 +871,14 @@ def main() -> int:
             if results:
                 built.append(iso3)
                 _record_simplification(iso3, results, retrieved)
+                # Ids, hierarchy, shapeISO corrections, bbox, canonical layout.
+                from finalize_geojson import Country  # local: it imports this module
+
+                country = Country(DATA / iso3)
+                country.finalize()
+                for w in country.warnings:
+                    print(f"      ! {w}")
+                country.write()
             else:
                 print("  nothing produced")
                 failed.append(iso3)
@@ -787,6 +894,7 @@ def main() -> int:
     print(
         "\nNow run: node scripts/make_previews.mjs"
         " && python scripts/build_manifest.py data/earth/*/"
+        " && python scripts/build_index.py"
     )
     # A non-zero exit is what lets a shell loop or CI notice the failures.
     return 1 if failed else 0

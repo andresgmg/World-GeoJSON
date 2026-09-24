@@ -20,6 +20,7 @@ import {
   readFileSync,
   readdirSync,
   statSync,
+  writeFileSync,
 } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -71,22 +72,27 @@ function mb(n) {
 function buildPreview(inputs, dest, sourceFeatures) {
   const combine = inputs.length > 1 ? ["combine-files", "-merge-layers", "force"] : [];
 
+  // mapshaper drops a GeoJSON Feature's `id` as soon as the attribute table
+  // is edited (-filter-fields, -each). `id-field=__id` on import copies the
+  // id into a property that survives the edits; restoreIds() moves it back.
   const write = (pct) => {
     mapshaper([
+      "-i",
       ...inputs,
+      "id-field=__id",
       ...combine,
       "-simplify",
       `percentage=${pct}%`,
       "keep-shapes",
       "-filter-fields",
-      "shapeName,shapeISO,shapeType",
+      "shapeName,shapeISO,shapeType,__id",
       "-o",
       "precision=0.0001",
       "bbox",
       "format=geojson",
       dest,
     ]);
-    return statSync(dest).size;
+    return restoreIds(dest);
   };
 
   let pct = 5;
@@ -111,6 +117,28 @@ function buildPreview(inputs, dest, sourceFeatures) {
     );
   }
   return { size, pct, features: got };
+}
+
+/**
+ * Move the `__id` property back to the Feature id and rewrite the file in the
+ * same canonical layout as the full-resolution data: one feature per line,
+ * `id` before `properties`, no trailing newline. Returns the new size.
+ */
+function restoreIds(dest) {
+  const out = JSON.parse(readFileSync(dest, "utf8"));
+  const lines = out.features.map((f) => {
+    const { __id, ...props } = f.properties;
+    if (__id === undefined) {
+      throw new Error(`${basename(dest)}: a feature has no id — run finalize_geojson.py first`);
+    }
+    return JSON.stringify({ type: "Feature", id: __id, properties: props, geometry: f.geometry });
+  });
+  const text =
+    `{"type":"FeatureCollection","bbox":${JSON.stringify(out.bbox)},"features":[\n` +
+    lines.join(",\n") +
+    "\n]}";
+  writeFileSync(dest, text);
+  return Buffer.byteLength(text);
 }
 
 function countFeatures(paths) {

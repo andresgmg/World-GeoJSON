@@ -65,6 +65,7 @@ jobs:
             /*
             !/data/**
             /data/**/manifest.json
+            /data/index.json
             /data/earth/ABW/**
             /data/earth/BRB/**
             /data/earth/DOM/**

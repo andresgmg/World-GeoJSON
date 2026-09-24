@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andresgmg.github.io/World-GeoJSON/schemas/countries.schema.json",
+  "title": "World GeoJSON country registry",
+  "description": "scripts/countries.json — the curated table of territories the pipeline knows: identity, upstream source and which level is the municipal tier.",
+  "type": "object",
+  "properties": {
+    "$comment": { "type": "array", "items": { "type": "string" } }
+  },
+  "patternProperties": {
+    "^[A-Z]{3}$": {
+      "type": "object",
+      "required": ["iso_a2", "m49_region", "name", "municipal_level", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "iso_a2": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "m49_region": { "enum": ["Northern America", "Central America", "Caribbean", "South America"] },
+        "name": { "$ref": "manifest.schema.json#/$defs/localised" },
+        "source": { "enum": ["geoboundaries", "ide-chile", "natural-earth"] },
+        "municipal_level": { "oneOf": [{ "type": "string", "pattern": "^ADM[1-4]$" }, { "type": "null" }] },
+        "adm1_term": { "$ref": "manifest.schema.json#/$defs/localised" },
+        "adm2_term": { "$ref": "manifest.schema.json#/$defs/localised" },
+        "municipal_term": { "$ref": "manifest.schema.json#/$defs/localised" },
+        "verify": { "type": "boolean" },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "additionalProperties": false
+}

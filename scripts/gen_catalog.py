@@ -41,6 +41,7 @@ log = logging.getLogger("mkdocs.hooks.gen_catalog")
 
 REPO = Path(__file__).resolve().parents[1]
 DATA = REPO / "data"
+SCHEMAS = REPO / "schemas"
 
 BODIES = {"earth": "Earth", "moon": "Moon", "mars": "Mars"}
 
@@ -409,6 +410,32 @@ def generate(docs_dir: Path, cdn: str, raw: str) -> int:
     return changed
 
 
+def publish_schemas(docs_dir: Path) -> int:
+    """Copy schemas/*.schema.json into docs/schemas/.
+
+    Each schema's `$id` is its URL on the published site; serving the files
+    from there makes the ids resolvable, so validators and editors can fetch
+    them. docs/schemas/ is git-ignored like the catalog.
+    """
+    dest_dir = docs_dir / "schemas"
+    wanted: set[Path] = set()
+    changed = 0
+    for src in sorted(SCHEMAS.glob("*.schema.json")):
+        dest = dest_dir / src.name
+        wanted.add(dest)
+        if dest.exists() and filecmp.cmp(src, dest, shallow=False):
+            continue
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(src, dest)
+        changed += 1
+    if dest_dir.exists():
+        for stale in dest_dir.glob("*.json"):
+            if stale not in wanted:
+                stale.unlink()
+                changed += 1
+    return changed
+
+
 def purge(docs_dir: Path) -> None:
     shutil.rmtree(docs_dir / "catalog", ignore_errors=True)
 
@@ -426,6 +453,7 @@ def on_config(config):
         extra.get("data_cdn", ""),
         extra.get("data_raw", ""),
     )
+    changed += publish_schemas(Path(config["docs_dir"]))
     log.info("gen_catalog: %d catalog file(s) written", changed)
     return config
 
