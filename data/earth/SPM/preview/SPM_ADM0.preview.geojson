@@ -1,3 +1,3 @@
-{"type":"FeatureCollection","bbox":[-56.3959,46.7936,-56.1509,47.1136],"features":[
+{"type":"FeatureCollection","bbox":[-56.3959,46.8955,-56.2533,47.1136],"features":[
 {"type":"Feature","id":"SPM:ADM0:SPM","properties":{"shapeName":"Saint Pierre and Miquelon","shapeISO":"SPM","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[-56.2738,46.8955],[-56.3137,46.9757],[-56.2533,47.0537],[-56.3959,47.1136],[-56.3368,46.9543],[-56.2738,46.8955]]]}}
 ]}

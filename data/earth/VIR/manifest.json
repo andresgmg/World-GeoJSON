@@ -44,7 +44,7 @@
         "shapeType"
       ],
       "preview": "data/earth/VIR/preview/VIR_ADM0.preview.geojson",
-      "preview_bytes": 361,
+      "preview_bytes": 362,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -78,7 +78,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/VIR/preview/VIR_ADM3.preview.geojson",
-      "preview_bytes": 6382,
+      "preview_bytes": 6380,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

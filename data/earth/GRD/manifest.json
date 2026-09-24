@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/GRD/preview/GRD_ADM0.preview.geojson",
-      "preview_bytes": 340,
+      "preview_bytes": 341,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

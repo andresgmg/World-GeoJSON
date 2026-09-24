@@ -44,7 +44,7 @@
         "shapeType"
       ],
       "preview": "data/earth/SGS/preview/SGS_ADM0.preview.geojson",
-      "preview_bytes": 863,
+      "preview_bytes": 864,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

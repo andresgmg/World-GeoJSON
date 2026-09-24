@@ -44,7 +44,7 @@
         "shapeType"
       ],
       "preview": "data/earth/FLK/preview/FLK_ADM0.preview.geojson",
-      "preview_bytes": 1701,
+      "preview_bytes": 1702,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

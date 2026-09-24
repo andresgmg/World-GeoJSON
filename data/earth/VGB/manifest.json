@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/VGB/preview/VGB_ADM0.preview.geojson",
-      "preview_bytes": 374,
+      "preview_bytes": 375,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

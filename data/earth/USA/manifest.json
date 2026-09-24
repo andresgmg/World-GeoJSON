@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/USA/preview/USA_ADM0.preview.geojson",
-      "preview_bytes": 36303,
+      "preview_bytes": 36304,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -77,7 +77,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/USA/preview/USA_ADM1.preview.geojson",
-      "preview_bytes": 211036,
+      "preview_bytes": 211037,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -113,7 +113,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/USA/preview/USA_ADM2.preview.geojson",
-      "preview_bytes": 967524,
+      "preview_bytes": 967525,
       "split_by": "ADM1",
       "parts": [
         {

@@ -1,4 +1,4 @@
-{"type":"FeatureCollection","bbox":[-72.0009,17.5513,-68.3562,19.9377],"features":[
+{"type":"FeatureCollection","bbox":[-72.0009,17.6048,-68.3562,19.9377],"features":[
 {"type":"Feature","id":"DOM:ADM1:DO-15","properties":{"shapeName":"Monte Cristi","shapeISO":"DO-15","shapeType":"ADM1"},"geometry":{"type":"Polygon","coordinates":[[[-71.2218,19.8346],[-71.5046,19.9103],[-71.7445,19.8172],[-71.746,19.649],[-71.5325,19.6196],[-71.4131,19.5445],[-71.1842,19.5365],[-71.134,19.7518],[-71.2218,19.8346]]]}},
 {"type":"Feature","id":"DOM:ADM1:DO-05","properties":{"shapeName":"Dajabón","shapeISO":"DO-05","shapeType":"ADM1"},"geometry":{"type":"Polygon","coordinates":[[[-71.746,19.649],[-71.7039,19.4146],[-71.7765,19.3275],[-71.6517,19.2179],[-71.4883,19.2988],[-71.4131,19.5445],[-71.5325,19.6196],[-71.746,19.649]]]}},
 {"type":"Feature","id":"DOM:ADM1:DO-07","properties":{"shapeName":"La Estrelleta","shapeISO":"DO-07","shapeType":"ADM1"},"geometry":{"type":"Polygon","coordinates":[[[-71.6517,19.2179],[-71.7837,18.9963],[-71.7188,18.7842],[-71.7849,18.6847],[-71.535,18.6508],[-71.6248,18.9378],[-71.4711,19.1284],[-71.3274,19.1911],[-71.4883,19.2988],[-71.6517,19.2179]]]}},
