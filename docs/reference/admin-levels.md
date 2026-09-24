@@ -104,11 +104,14 @@ Where multiple levels are provided for one country:
 - Every ADM2 feature **must** nest inside exactly one ADM1 feature.
 - The union of ADM1 features **should** equal the ADM0 outline, within the
   tolerance of the source geometry.
-- Features **should** carry a reference to their parent. Today only Chile's
-  do (`parentISO`); elsewhere the split parts carry `adm1ISO`, derived by a
-  largest-overlap spatial join because geoBoundaries ships no parent
-  reference. The v1.0.0 contract makes `parentID` and `adm1ISO` mandatory on
-  every sub-national feature — see [Property schema](schema.md).
+- Features **must** carry a reference to their parent, and they do,
+  everywhere: `parentID` — the parent's feature `id` — and `parentISO` on
+  every feature that has a parent level in the catalog, and `adm1ISO` on every
+  feature below an ADM1. For geoBoundaries data the parent is derived by a
+  largest-overlap spatial join, because the upstream ships no parent
+  reference; the 12 units that overlap no parent are kept with
+  `adm1ISO: "unassigned"` and no `parentID`. CI checks that every `parentID`
+  resolves — see [Property schema](schema.md).
 
 Do not mix vintages. Boundaries change: a 2019 ADM1 file combined with a 2024
 ADM2 file will not nest, and the mismatch is difficult to detect visually.
@@ -131,7 +134,8 @@ what is there:
   processing loss. Isla de Pascua and Juan Fernández are present.
 - The provincial tier exists as drawable geometry, not just as a property on
   each commune — each commune's `parentISO` points at its province's
-  `shapeISO`.
+  `shapeISO`, and its `parentID` at the province's `id` (`CHL:ADM2:014` for
+  Camiña).
 
 The legacy root files (BCN, 343 communes, no provinces) are the older dataset
 this replaces; see [Versioning & stability](../about/versioning.md).

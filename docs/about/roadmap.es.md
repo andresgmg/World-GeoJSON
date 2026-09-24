@@ -58,7 +58,7 @@ América demostró el pipeline. Las próximas releases convierten el repositorio
 algo de lo que un programa pueda depender: primero un contrato estable, luego el
 tooling, luego bibliotecas que lo hablen. En orden:
 
-**Fase 0 — higiene de ingeniería** (este pull request)
+**Fase 0 — higiene de ingeniería** (hecha)
 
 - [x] Lint, comprobación de tipos y tests — `ruff`, `mypy`, `pytest` —
       ejecutados por un workflow de CI en cada pull request
@@ -67,19 +67,24 @@ tooling, luego bibliotecas que lo hablen. En orden:
 - [x] Todas las páginas de documentación alineadas con lo que contienen los
       datos
 
-**Fase 1 — contrato de datos v1**
+**Fase 1 — contrato de datos v1** (hecha; `v1.0.0` se etiqueta desde el merge)
 
-- [ ] `data/index.json`: un único archivo que enumera cada territorio, nivel y
-      archivo con `bytes`, `sha256`, `bbox` y licencia
-- [ ] JSON Schemas en `schemas/` para el manifiesto, el índice y las
-      propiedades de las features
-- [ ] Un `id` de Feature estable en cada feature: `{ISO3}:{LEVEL}:{código}`
-- [ ] `parentID` y `adm1ISO` en cada feature subnacional, no solo en las de
-      Chile
-- [ ] `shapeISO` deja de rellenarse con ids opacos de geoBoundaries, y se
-      resuelven los códigos duplicados
-- [ ] Releases de datos etiquetadas: etiqueta `v1.0.0` y una GitHub Release
-      con zips por país
+- [x] `data/index.json`: un único archivo que enumera cada territorio, nivel y
+      archivo con `bytes`, `sha256`, `bbox` y licencia — ver
+      [Índice global y esquemas](../reference/index-json.md)
+- [x] JSON Schemas en `schemas/` para el manifiesto, el índice, una feature,
+      sus propiedades y el registro de países, aplicados en el CI
+- [x] Un `id` de Feature estable en cada feature: `{ISO3}:{LEVEL}:{clave}`
+- [x] `parentID`, `parentISO` y `adm1ISO` en cada feature subnacional, no solo
+      en las de Chile
+- [x] `shapeISO` deja de rellenarse con ids opacos de geoBoundaries, y se
+      resuelven los códigos duplicados (`US-SD`, `MX-CMX`, `EC-X`, Belice
+      vaciado)
+- [x] Un paso de finalización (`scripts/finalize_geojson.py`) que escribe todo
+      lo anterior y el formato canónico de archivo, comprobado en el CI
+- [x] Releases de datos etiquetadas: un workflow de release que publica una
+      GitHub Release con zips por país, `index.json` y `SHA256SUMS` en cada
+      etiqueta (etiqueta pendiente del merge)
 
 **Fase 2 — el pipeline como paquete**
 
@@ -137,9 +142,9 @@ Registrados, no escondidos.
 |---|---|---|
 | Falta la comuna Antártica (12202) — 345 de 346 | Chile ADM3 | No se corrige; el paquete DPA oficial excluye la reclamación antártica |
 | 15 países sin ADM1 con licencia permisiva | América | Pendiente de fuente permisiva |
-| `shapeISO` contiene el id opaco de geoBoundaries en vez de un código en 22 datasets municipales | p. ej. USA ADM2, MEX ADM2, BRA ADM2 — lista completa en el [Diccionario de propiedades](../reference/properties.md#problemas-conocidos-corregidos-en-v100) | Corregido en v1.0.0 (previsto) |
-| `shapeISO` no es único | BLZ ADM2; MEX ADM1 (`MX-MEX` ×2); ECU ADM1 (`EC-H` ×2) | Corregido en v1.0.0 (previsto) |
-| Los condados de Dakota del Sur archivados bajo la errata `SU-SD` de geoBoundaries | USA ADM2 | Se pasa tal cual y se anota en el manifiesto; corregido en v1.0.0 (previsto) |
+| La mayoría de las unidades municipales no tienen código oficial en origen, así que `shapeISO` es `""` en 15.364 features | 22 datasets municipales de geoBoundaries | Por diseño desde 1.0.0 — un código vacío es honesto, un id opaco no lo era. Usa `id`; lo cerraría una fuente nacional con códigos |
+| 169 ids basados en el nombre llevan sufijo numérico (`COL:ADM2:albania-2`) porque la fuente tiene varias unidades con el mismo nombre y sin código | COL 84, HND 28, SLV 18, ARG 16, GTM 6, USA 6, MEX 4, BLZ 2, BRA 2, VIR 2, SUR 1 | Estables por versión de datos; pueden renumerarse con un refresco de la fuente — fija una versión |
+| 12 unidades municipales no solapan con ningún padre ADM1 | ARG ADM2 (8, ciudad de Buenos Aires), BRA ADM2 (3), USA ADM2 (1) | Conservadas en partes `unassigned` con `adm1ISO: "unassigned"` y sin `parentID` |
 | Asignación del tier municipal sin verificar en 19 territorios | `scripts/countries.json` | Marcados `verify` y publicados como `review` |
 | Los distritos de Perú no están disponibles — geoBoundaries se detiene en provincias | Perú | Pendiente de fuente |
 | Archivos heredados aún en la raíz | `comunas.geojson` y compañía | Obsoletos; se mantienen durante la serie 1.x y se retiran en v2.0.0 |

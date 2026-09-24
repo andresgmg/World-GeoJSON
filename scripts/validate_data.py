@@ -2,12 +2,23 @@
 
     python scripts/validate_data.py                 # everything under data/
     python scripts/validate_data.py data/earth/CHL  # one or more country dirs
+    python scripts/validate_data.py --checksums     # also re-hash every file
 
-Run by .github/workflows/validate-data.yml on any PR touching data/. The checks
-here are the ones docs/reference/manifest.md promises, and the licence
-allow-list in particular is the guardrail that keeps copyleft data out: a third
-of geoBoundaries' Americas entries are ODbL or CC-BY-SA, and ODbL's share-alike
-term would propagate to the whole collection.
+Run by .github/workflows/validate-data.yml. The structural rules live in
+schemas/*.schema.json (JSON Schema 2020-12) and are applied to every manifest,
+to data/index.json, to scripts/countries.json and to every feature of every
+full-resolution file. This module adds what a schema cannot say:
+
+- the licence allow-list is the schema's `license` enum, and it is the
+  guardrail that keeps copyleft data out — a third of geoBoundaries' Americas
+  entries are ODbL or CC-BY-SA, and ODbL's share-alike term would propagate
+  to the whole collection;
+- feature ids are unique within a level and `parentID` points at a feature
+  that exists in the country;
+- the in-file `bbox` matches the coordinates;
+- manifest feature counts match the files, split parts sum to the level,
+  previews exist and stay under 2 MB, and (with --checksums) bytes and SHA-256
+  match the manifest.
 
 Exit status is 1 when any error was found. Warnings never fail the run. Under
 GitHub Actions (GITHUB_ACTIONS=true) findings are printed as workflow
@@ -17,34 +28,74 @@ annotations; elsewhere as plain lines.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import re
 import sys
+from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from jsonschema import Draft202012Validator, FormatChecker
+from referencing import Registry, Resource
+
 REPO = Path(__file__).resolve().parents[1]
 DATA = REPO / "data"
-
-# SPDX identifiers that permit redistribution and commercial use without a
-# share-alike obligation. Anything absent from this list is rejected, including
-# every ODbL and CC-BY-SA variant. See docs/contributing/sources.md.
-ALLOWED_LICENSES = {
-    "CC0-1.0",
-    "CC-BY-3.0",
-    "CC-BY-3.0-IGO",
-    "CC-BY-4.0",
-    "CC-BY-2.5",
-    "Etalab-2.0",
-    "OGL-Canada-2.0",
-    "public-domain",
-}
+SCHEMAS = REPO / "schemas"
+SCHEMA_BASE = "https://andresgmg.github.io/World-GeoJSON/schemas/"
 
 MAX_DATA_BYTES = 50 * 1024 * 1024  # GitHub warns above this
+PRECISION = re.compile(r"-?\d+\.\d{7,}")
 MAX_PREVIEW_BYTES = 2 * 1024 * 1024  # docs/contributing/previews.md
-REQUIRED_MANIFEST = ("body", "name", "crs", "source", "status")
-REQUIRED_SOURCE = ("name", "url", "license", "retrieved")
-REQUIRED_PROPS = {"shapeName", "shapeISO", "shapeGroup", "shapeType"}
+
+
+# ---------------------------------------------------------------------------
+# schemas
+# ---------------------------------------------------------------------------
+
+
+def _load_schemas() -> dict[str, dict]:
+    schemas: dict[str, dict] = {}
+    for p in sorted(SCHEMAS.glob("*.schema.json")):
+        s = json.loads(p.read_text("utf-8"))
+        schemas[s["$id"]] = s
+    return schemas
+
+
+_SCHEMAS = _load_schemas()
+_REGISTRY = Registry().with_resources(
+    (uri, Resource.from_contents(s)) for uri, s in _SCHEMAS.items()
+)
+
+
+def validator(name: str) -> Draft202012Validator:
+    """A validator for schemas/<name>, with cross-file $refs resolved locally."""
+    return Draft202012Validator(
+        _SCHEMAS[SCHEMA_BASE + name], registry=_REGISTRY, format_checker=FormatChecker()
+    )
+
+
+# SPDX identifiers that permit redistribution and commercial use without a
+# share-alike obligation. The schema's enum is the single source of truth;
+# fetch_sources.py maps upstream licence text onto the same identifiers.
+ALLOWED_LICENSES: frozenset[str] = frozenset(
+    _SCHEMAS[SCHEMA_BASE + "manifest.schema.json"]["$defs"]["license"]["enum"]
+)
+
+
+def _describe(error: object) -> str:
+    """One line for a jsonschema ValidationError."""
+    path = "/".join(str(p) for p in getattr(error, "absolute_path", []))
+    msg = str(getattr(error, "message", error))
+    if len(msg) > 200:
+        msg = msg[:200] + "…"
+    return f"{path or '(root)'}: {msg}"
+
+
+# ---------------------------------------------------------------------------
+# report
+# ---------------------------------------------------------------------------
 
 
 @dataclass
@@ -66,19 +117,58 @@ class Report:
         return not self.errors
 
 
-def _rel(path: Path) -> str:
-    """Repository-relative POSIX path when inside the repo, else as given.
+@dataclass
+class FileFacts:
+    """What check_geojson learned about one file, for cross-checks."""
 
-    Tests validate copies under a temporary directory; those must not crash
-    on `relative_to`.
-    """
+    features: int = 0
+    ids: list[str] = field(default_factory=list)
+    parents: list[str] = field(default_factory=list)
+
+
+def _rel(path: Path) -> str:
+    """Repository-relative POSIX path when inside the repo, else as given."""
     try:
         return path.relative_to(REPO).as_posix()
     except ValueError:
         return path.as_posix()
 
 
-def check_geojson(path: Path, label: str, report: Report) -> None:
+def sha256(path: Path, chunk: int = 1 << 20) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for block in iter(lambda: fh.read(chunk), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def bbox_of(features: list[dict]) -> list[float]:
+    minx = miny = float("inf")
+    maxx = maxy = float("-inf")
+
+    def walk(c: object) -> None:
+        nonlocal minx, miny, maxx, maxy
+        if isinstance(c, list) and c and isinstance(c[0], (int, float)):
+            x, y = float(c[0]), float(c[1])
+            minx, maxx = min(minx, x), max(maxx, x)
+            miny, maxy = min(miny, y), max(maxy, y)
+        elif isinstance(c, list):
+            for item in c:
+                walk(item)
+
+    for f in features:
+        geom = f.get("geometry") or {}
+        walk(geom.get("coordinates"))
+    return [round(v, 6) for v in (minx, miny, maxx, maxy)]
+
+
+# ---------------------------------------------------------------------------
+# checks
+# ---------------------------------------------------------------------------
+
+
+def check_geojson(path: Path, label: str, report: Report) -> FileFacts:
+    facts = FileFacts()
     size = path.stat().st_size
     if size > MAX_DATA_BYTES:
         report.err(f"{label}: {size / 1024 / 1024:.1f} MB exceeds the 50 MB limit")
@@ -89,7 +179,7 @@ def check_geojson(path: Path, label: str, report: Report) -> None:
         data = json.loads(raw)
     except Exception as exc:
         report.err(f"{label}: not valid JSON ({exc})")
-        return
+        return facts
 
     if data.get("type") != "FeatureCollection":
         report.err(f"{label}: top-level type is not FeatureCollection")
@@ -99,42 +189,52 @@ def check_geojson(path: Path, label: str, report: Report) -> None:
         report.err(f"{label}: missing the top-level `bbox` member")
 
     features = data.get("features") or []
+    facts.features = len(features)
     if not features:
         report.err(f"{label}: no features")
-        return
+        return facts
 
     for i, f in enumerate(features):
         if f.get("geometry") is None:
             report.err(f"{label}: feature {i} has null geometry")
             break
 
-    # Every feature, not just the first: a file whose tail was produced by a
-    # different tool or a hand edit would otherwise pass.
+    # Every feature against the contract, first error only per file: one
+    # bad feature is a bug in the pipeline, not one thousand findings.
+    feature_validator = validator("feature.schema.json")
     for i, f in enumerate(features):
-        missing = REQUIRED_PROPS - set(f.get("properties") or {})
-        if missing:
-            report.err(f"{label}: feature {i} is missing required properties {sorted(missing)}")
+        error = next(feature_validator.iter_errors(f), None)
+        if error is not None:
+            name = (f.get("properties") or {}).get("shapeName", "?")
+            report.err(f"{label}: feature {i} ('{name}') {_describe(error)}")
             break
 
-    for f in features:
-        p = f.get("properties") or {}
-        if not isinstance(p.get("shapeISO", ""), str):
-            report.err(
-                f"{label}: shapeISO must be a string "
-                f"(got {type(p.get('shapeISO')).__name__} on '{p.get('shapeName')}')"
-            )
-            break
+    facts.ids = [f["id"] for f in features if isinstance(f.get("id"), str)]
+    dupes = [k for k, c in Counter(facts.ids).items() if c > 1]
+    if dupes:
+        report.err(f"{label}: duplicate feature ids {sorted(dupes)[:5]}")
+    facts.parents = [
+        f["properties"]["parentID"]
+        for f in features
+        if isinstance((f.get("properties") or {}).get("parentID"), str)
+    ]
+
+    if "bbox" in data:
+        want = bbox_of(features)
+        got = [round(float(v), 6) for v in data["bbox"]] if len(data["bbox"]) == 4 else None
+        if got != want:
+            report.err(f"{label}: bbox {data['bbox']} does not match the coordinates {want}")
 
     # 6 decimal places is ~11 cm; anything finer is noise occupying real bytes.
-    for token in raw.split("[")[1:200]:
-        for num in token.split(",")[:2]:
-            num = num.strip().rstrip("]}")
-            if "." in num and len(num.split(".")[-1]) > 6:
-                report.warn(f"{label}: coordinate precision beyond 6 decimals ({num})")
-                return
+    # Sampled from the head of the file: one offending vertex means the whole
+    # file was written without rounding.
+    m = PRECISION.search(raw[:262_144])
+    if m:
+        report.warn(f"{label}: coordinate precision beyond 6 decimals ({m.group(0)})")
+    return facts
 
 
-def check_country(d: Path, report: Report) -> None:
+def check_country(d: Path, report: Report, checksums: bool = False) -> None:
     rel = _rel(d)
     mpath = d / "manifest.json"
     if not mpath.exists():
@@ -146,62 +246,66 @@ def check_country(d: Path, report: Report) -> None:
     except Exception as exc:
         report.err(f"{rel}: manifest.json is not valid JSON ({exc})")
         return
+
+    schema_errors = list(validator("manifest.schema.json").iter_errors(manifest))
+    for error in schema_errors[:10]:
+        report.err(f"{rel}/manifest.json: {_describe(error)}")
     if not isinstance(manifest, dict):
-        report.err(f"{rel}: manifest.json is not a JSON object")
         return
 
-    for key in REQUIRED_MANIFEST:
-        if key not in manifest:
-            report.err(f"{rel}: manifest missing '{key}'")
-
-    src = manifest.get("source") or {}
-    for key in REQUIRED_SOURCE:
-        if not src.get(key):
-            report.err(f"{rel}: source.{key} is missing or empty")
-
-    def check_license(value: str, where: str) -> None:
-        if value not in ALLOWED_LICENSES:
-            report.err(
-                f"{rel}: {where} '{value}' is not on the permissive allow-list. "
-                f"Copyleft (ODbL, CC-BY-SA) cannot be redistributed here — see "
-                f"docs/contributing/sources.md"
-            )
-
-    lic = src.get("license")
-    if lic == "mixed":
-        # Levels can come from different upstreams under different terms, so a
-        # single country-level licence would be a false claim. "mixed" is only
-        # acceptable alongside the actual list.
-        listed = src.get("licenses") or []
-        if not listed:
-            report.err(f"{rel}: source.license is 'mixed' but source.licenses is missing")
-        for value in listed:
-            check_license(value, "source.licenses entry")
-    elif lic:
-        check_license(lic, "source.license")
-
     datasets = manifest.get("datasets") or []
+    if isinstance(manifest.get("iso_a3"), str) and manifest["iso_a3"] != d.name:
+        report.err(f"{rel}: manifest iso_a3 '{manifest['iso_a3']}' does not match the folder")
 
-    # The per-dataset licence is the one that actually governs each file.
-    for ds in datasets:
-        value = ds.get("license")
-        if not value:
-            report.err(f"{rel} {ds.get('level', '?')}: no licence recorded")
-        else:
-            check_license(value, f"{ds.get('level', '?')} license")
+    # File-level checks, collecting facts for the cross-checks below.
+    facts: dict[str, FileFacts] = {}
+    for f in sorted(d.rglob("*.geojson"), key=lambda p: p.relative_to(d).as_posix()):
+        if "preview" in f.parts:
+            continue
+        facts[f.relative_to(d).as_posix()] = check_geojson(f, _rel(f), report)
 
-    if "\n" in (manifest.get("notes") or ""):
-        report.err(
-            f"{rel}: manifest 'notes' must be a single line (it renders inside an admonition)"
+    ids_by_level: dict[str, set[str]] = {}
+    for fact in facts.values():
+        for fid in fact.ids:
+            level = fid.split(":")[1] if fid.count(":") >= 2 else "?"
+            ids_by_level.setdefault(level, set()).add(fid)
+    for name, fact in facts.items():
+        missing = sorted(
+            {p for p in fact.parents if p not in ids_by_level.get(p.split(":")[1], set())}
         )
+        if missing:
+            report.err(f"{rel}/{name}: parentID targets do not exist: {missing[:3]}")
+
+    def check_file_entry(entry: dict, label: str, required: bool) -> None:
+        path = entry.get("path")
+        if not path:
+            if required:
+                report.err(f"{label}: manifest entry has no path")
+            return
+        p = REPO / path
+        if not p.exists():
+            report.err(f"{label}: {path} is missing")
+            return
+        fact = facts.get(p.relative_to(d).as_posix()) if p.is_relative_to(d) else None
+        if fact is not None and entry.get("features") != fact.features:
+            report.err(
+                f"{label}: manifest says {entry.get('features')} features, "
+                f"the file holds {fact.features}"
+            )
+        if checksums:
+            if entry.get("bytes") != p.stat().st_size:
+                report.err(f"{label}: manifest bytes {entry.get('bytes')} != {p.stat().st_size}")
+            if entry.get("sha256") != sha256(p):
+                report.err(f"{label}: sha256 does not match {path}")
 
     for ds in datasets:
+        if not isinstance(ds, dict):
+            continue
         level = ds.get("level", "?")
         label = f"{rel} {level}"
-        if "features" not in ds:
-            report.err(f"{label}: manifest entry has no feature count")
-
         parts = ds.get("parts") or []
+        check_file_entry(ds, label, required=not parts)
+
         if parts:
             total = sum(p.get("features", 0) for p in parts)
             if total != ds.get("features"):
@@ -210,6 +314,8 @@ def check_country(d: Path, report: Report) -> None:
                     f"reports {ds.get('features')} — the split lost or "
                     f"duplicated geometry"
                 )
+            for part in parts:
+                check_file_entry(part, f"{label} {part.get('code', '?')}", required=True)
 
         preview = ds.get("preview")
         if preview:
@@ -224,17 +330,34 @@ def check_country(d: Path, report: Report) -> None:
         else:
             report.warn(f"{label}: no preview — the catalog map will be empty")
 
-    # Sort on the name, not the Path: WindowsPath compares case-insensitively.
-    for f in sorted(d.rglob("*.geojson"), key=lambda p: p.relative_to(d).as_posix()):
-        if "preview" in f.parts:
-            continue
-        check_geojson(f, _rel(f), report)
+
+def check_index(report: Report, data: Path = DATA) -> None:
+    index = data / "index.json"
+    if not index.exists():
+        report.warn("data/index.json is missing — run: python scripts/build_index.py")
+        return
+    try:
+        doc = json.loads(index.read_text("utf-8"))
+    except Exception as exc:
+        report.err(f"data/index.json: not valid JSON ({exc})")
+        return
+    for error in list(validator("index.schema.json").iter_errors(doc))[:10]:
+        report.err(f"data/index.json: {_describe(error)}")
 
 
-def validate(dirs: list[Path]) -> Report:
+def check_registry(report: Report) -> None:
+    reg = REPO / "scripts" / "countries.json"
+    if not reg.exists():
+        return
+    doc = json.loads(reg.read_text("utf-8"))
+    for error in list(validator("countries.schema.json").iter_errors(doc))[:10]:
+        report.err(f"scripts/countries.json: {_describe(error)}")
+
+
+def validate(dirs: list[Path], checksums: bool = False) -> Report:
     report = Report()
     for d in dirs:
-        check_country(d, report)
+        check_country(d, report, checksums=checksums)
         report.checked += 1
     return report
 
@@ -254,8 +377,14 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="country directories to check (default: every one under data/)",
     )
+    ap.add_argument(
+        "--checksums",
+        action="store_true",
+        help="also compare every file's bytes and SHA-256 with its manifest entry",
+    )
     args = ap.parse_args(argv)
 
+    whole_tree = not args.dirs
     if args.dirs:
         dirs = []
         for raw in args.dirs:
@@ -272,7 +401,10 @@ def main(argv: list[str] | None = None) -> int:
             print("no datasets found under data/")
             return 0
 
-    report = validate(dirs)
+    report = validate(dirs, checksums=args.checksums)
+    if whole_tree:
+        check_index(report)
+        check_registry(report)
 
     annotate = os.environ.get("GITHUB_ACTIONS") == "true"
     for w in report.warnings:

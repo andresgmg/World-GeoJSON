@@ -28,8 +28,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/CHL/CHL_ADM0.geojson",
-      "bytes": 407930,
-      "sha256": "18e57932e64371abccbc383c486af4111243c4974b5098bb04ee86fb8cebac79",
+      "bytes": 407948,
+      "sha256": "9abf1248d9c64bb3e50a63a24723595093aa6a58b75cf3935b3465b090205889",
       "features": 1,
       "bbox": [
         -109.453725,
@@ -47,7 +47,7 @@
         "shapeType"
       ],
       "preview": "data/earth/CHL/preview/CHL_ADM0.preview.geojson",
-      "preview_bytes": 18782,
+      "preview_bytes": 18800,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -58,8 +58,8 @@
     {
       "level": "ADM1",
       "path": "data/earth/CHL/CHL_ADM1.geojson",
-      "bytes": 4814221,
-      "sha256": "5cf4e9d8d34822d498cc61ddea063bd4381671d9d05568b49bb3e2f40f9b44b8",
+      "bytes": 4815275,
+      "sha256": "6679a263585d6ef01bf9778d629f6daaa9a765011109b7ad95c27863a0a7b5c5",
       "features": 16,
       "bbox": [
         -109.449861,
@@ -72,6 +72,8 @@
         "Polygon": 6
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -80,7 +82,7 @@
         "src_superficie_km2"
       ],
       "preview": "data/earth/CHL/preview/CHL_ADM1.preview.geojson",
-      "preview_bytes": 226499,
+      "preview_bytes": 226849,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -90,8 +92,8 @@
     {
       "level": "ADM2",
       "path": "data/earth/CHL/CHL_ADM2.geojson",
-      "bytes": 5415926,
-      "sha256": "766da7bd6980e296c05f0ff5ab3abe8756c9acbdad6a4b577fdd2c15207c27bb",
+      "bytes": 5419620,
+      "sha256": "40a9ccac3b948995568f957896f0bdb59ec0bc978704484fd62902cff2eed336",
       "features": 56,
       "bbox": [
         -109.449861,
@@ -104,6 +106,8 @@
         "Polygon": 34
       },
       "properties": [
+        "adm1ISO",
+        "parentID",
         "parentISO",
         "shapeGroup",
         "shapeISO",
@@ -114,7 +118,7 @@
         "src_region"
       ],
       "preview": "data/earth/CHL/preview/CHL_ADM2.preview.geojson",
-      "preview_bytes": 271783,
+      "preview_bytes": 272901,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -124,8 +128,8 @@
     {
       "level": "ADM3",
       "path": "data/earth/CHL/CHL_ADM3.geojson",
-      "bytes": 6965828,
-      "sha256": "aecbdc78ab298ac75df12de97c46dec33ef414e785da96cbebcd39998f8640de",
+      "bytes": 6982386,
+      "sha256": "33fbf8bafdc8f5575c86d8ee1adf0ba42de824289eb047c2585866d7cfd72874",
       "features": 345,
       "bbox": [
         -109.449861,
@@ -139,6 +143,7 @@
       },
       "properties": [
         "adm1ISO",
+        "parentID",
         "parentISO",
         "shapeGroup",
         "shapeISO",
@@ -151,13 +156,13 @@
         "src_region"
       ],
       "preview": "data/earth/CHL/preview/CHL_ADM3.preview.geojson",
-      "preview_bytes": 425291,
+      "preview_bytes": 432879,
       "split_by": "ADM1",
       "parts": [
         {
           "path": "data/earth/CHL/ADM3/CL-AI.geojson",
-          "bytes": 1281188,
-          "sha256": "3e55fb5694854d124580a8625dbe4d6a9b6b34a0810675130bed701532aafe0c",
+          "bytes": 1281666,
+          "sha256": "604104c46aa2863ed43158ff48be1450768e794f86276d840dd856c1e746c1f8",
           "features": 10,
           "bbox": [
             -75.64927,
@@ -171,6 +176,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -186,8 +192,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-AN.geojson",
-          "bytes": 135098,
-          "sha256": "a1c9eec263ac7ecb8ea6d48039199eabe59a5aef4bf0d164953b663bc7761e21",
+          "bytes": 135528,
+          "sha256": "3c1a1f4e489a703717a86a8e02ff70bbb68107dae62ca9328158a7c04abd4683",
           "features": 9,
           "bbox": [
             -70.73677,
@@ -201,6 +207,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -216,8 +223,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-AP.geojson",
-          "bytes": 45655,
-          "sha256": "f09c2f533cbdbcdbfcce8b2066db70b25fbb961e5d1a9a9c4c9f74da7515aeef",
+          "bytes": 45845,
+          "sha256": "5bfa1515d1c936bcc19e139740d2995cb99f0559e0e403b63687168bde332a1a",
           "features": 4,
           "bbox": [
             -70.376311,
@@ -230,6 +237,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -245,8 +253,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-AR.geojson",
-          "bytes": 286378,
-          "sha256": "88328874b89e86c7d53d0e006600df2596310d44c0478da56ed94d6337db0bb3",
+          "bytes": 287912,
+          "sha256": "ec693204cae8a55d8dede99dcc1ee2f027ba24e4e153203a302396483cc6b755",
           "features": 32,
           "bbox": [
             -73.51912,
@@ -259,6 +267,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -274,8 +283,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-AT.geojson",
-          "bytes": 230893,
-          "sha256": "cbaafefa2a143edf3435f2ecdbd61247aeb7c411207a440fdd7676adfc1b3cce",
+          "bytes": 231323,
+          "sha256": "f83cc6e6d2427bedb321ad4c353fe05279198f7fcf8181d0204f71a8f645ef57",
           "features": 9,
           "bbox": [
             -71.59019,
@@ -289,6 +298,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -304,8 +314,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-BI.geojson",
-          "bytes": 259302,
-          "sha256": "12cfd7ac3e383d985a053e5b6268a3b6333fe56b96935834262bb06b0aa1c9d3",
+          "bytes": 260884,
+          "sha256": "c3ca25a6644d5c52eea8eb27b8959f6e778ed8f196a5f1fd33b0c3245aa6523b",
           "features": 33,
           "bbox": [
             -73.96096,
@@ -319,6 +329,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -334,8 +345,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-CO.geojson",
-          "bytes": 245741,
-          "sha256": "3f368842abba20bf4227d9e9255ecabfd60add59220474644964f246eea8b66d",
+          "bytes": 246459,
+          "sha256": "83f43d2ebaae575218afa6ac202b581230d812f87d5a68cc408ab7be0c07f42d",
           "features": 15,
           "bbox": [
             -71.71699,
@@ -349,6 +360,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -364,8 +376,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-LI.geojson",
-          "bytes": 205314,
-          "sha256": "20a1fe44ff6562c2c37bb78fffad9275c397dcbe052843936c9d0f1204459995",
+          "bytes": 206896,
+          "sha256": "f20a8dbb677fe6c54b9d31ccfaaa269a53cbe8b47dc63a2cc17e6c1bda578c5e",
           "features": 33,
           "bbox": [
             -72.057541,
@@ -378,6 +390,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -393,8 +406,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-LL.geojson",
-          "bytes": 447631,
-          "sha256": "7f7080493846826a4a7d1fde4ed3ca6db2d78daee8c573ff3d9003bddaee2fb3",
+          "bytes": 449069,
+          "sha256": "aadb293014ccd236a7d0d9b59e8f70cdf03d03faf6e881372a49ae1ea7b67a41",
           "features": 30,
           "bbox": [
             -74.83528,
@@ -408,6 +421,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -423,8 +437,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-LR.geojson",
-          "bytes": 151700,
-          "sha256": "8884d42644c80cc654f35f6866b6e88dc5e32f7326f45bbde09120be7519041f",
+          "bytes": 152274,
+          "sha256": "6ecdc583cfb931d870f0797df668a50274a53e392df46ef036898ec9cfd2fd32",
           "features": 12,
           "bbox": [
             -73.72518,
@@ -438,6 +452,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -453,8 +468,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-MA.geojson",
-          "bytes": 2771577,
-          "sha256": "722c7adb60a37d2077fa7fefa6b296e96c36bb1bcdbe7b14d6b671f2dcedf7de",
+          "bytes": 2772055,
+          "sha256": "8668c9539ef4fa0196f8d621b223e4194a67e05ea3e84e75452ab8ff6992c2e0",
           "features": 10,
           "bbox": [
             -75.710432,
@@ -468,6 +483,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -483,8 +499,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-ML.geojson",
-          "bytes": 285863,
-          "sha256": "6236cd78eb9925c8a4cc4f543da6ab0f2bddb513ebb2274ef62e67ded272a4fa",
+          "bytes": 287301,
+          "sha256": "620299d096a8c838e6f82c19f5b2fed1df2ff985ae6530dfacf212f820b4ef0d",
           "features": 30,
           "bbox": [
             -72.78557,
@@ -497,6 +513,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -512,8 +529,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-NB.geojson",
-          "bytes": 164426,
-          "sha256": "2561cfe87939f3e53290e30865d1eb8e05b94fcc99d3cb064bed051fd972a002",
+          "bytes": 165432,
+          "sha256": "9075c88a5276e01686b3a6601b0a0e043bd27d3bed608ad46cfda16b75a0b617",
           "features": 21,
           "bbox": [
             -72.88463,
@@ -526,6 +543,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -541,8 +559,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-RM.geojson",
-          "bytes": 164329,
-          "sha256": "61105a7a90e85ce5f2beb12c2e6900739dd1622024dc721f01303728f5da684a",
+          "bytes": 166823,
+          "sha256": "6113b36e2740fc57e389da002a94e2fa97a6f7daabaa394d1e2a5c451531af7a",
           "features": 52,
           "bbox": [
             -71.71548,
@@ -555,6 +573,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -570,8 +589,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-TA.geojson",
-          "bytes": 74744,
-          "sha256": "328744c4791ab96134c0d74b3fe8af2334dee672018e558601f5156ea4739b77",
+          "bytes": 75078,
+          "sha256": "a96455e379754879070b38e658fa850c0d2ae8ce02dd9a7020056eab327c93cb",
           "features": 7,
           "bbox": [
             -70.28645,
@@ -585,6 +604,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",
@@ -600,8 +620,8 @@
         },
         {
           "path": "data/earth/CHL/ADM3/CL-VS.geojson",
-          "bytes": 217420,
-          "sha256": "6776c0956723140211a898ecc0e6cedf79acc5e8243830e9edb0f96fd858640e",
+          "bytes": 219242,
+          "sha256": "160b619e0d7a218051316fcc9472c6ae969a5c9dfb7b27f03e26594c42a5a5fe",
           "features": 38,
           "bbox": [
             -109.449861,
@@ -615,6 +635,7 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
             "parentISO",
             "shapeGroup",
             "shapeISO",

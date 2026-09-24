@@ -35,7 +35,7 @@ def test_copyleft_licence_is_an_error(abw: Path, tmp_path: Path) -> None:
     mpath.write_text(json.dumps(manifest), "utf-8")
 
     report = validate_data.validate([d])
-    assert any("ODbL-1.0" in e and "allow-list" in e for e in report.errors)
+    assert any("ODbL-1.0" in e and "is not one of" in e for e in report.errors)
 
 
 def test_missing_preview_is_only_a_warning(abw: Path, tmp_path: Path) -> None:
@@ -60,7 +60,7 @@ def test_required_properties_checked_on_every_feature(brb: Path, tmp_path: Path)
     path.write_text(json.dumps(data), "utf-8")
 
     report = validate_data.validate([d])
-    assert any("missing required properties" in e and "shapeISO" in e for e in report.errors)
+    assert any("'shapeISO' is a required property" in e for e in report.errors)
 
 
 def test_broken_manifest_is_reported_not_raised(abw: Path, tmp_path: Path) -> None:

@@ -7,8 +7,14 @@ En un repositorio de datos, la API no es la firma de una función. Es:
 1. **Las rutas de archivo.** La gente pone URLs a fuego en su código.
 2. **Los nombres y tipos de las propiedades.** La gente escribe código contra
    `feature.properties.shapeName`.
-3. **La identidad de las features.** Los valores de `shapeISO` — y, desde
-   v1.0.0, el `id` de Feature — se usan como claves de join.
+3. **La identidad de las features.** El `id` de Feature y los valores de
+   `shapeISO` son claves de join. Un `id` es estable dentro de una versión de
+   datos. Los ids indexados por un código real (`CHL:ADM3:01402`,
+   `USA:ADM1:US-SD`) sobreviven a un refresco de la fuente; los 169 ids
+   basados en el nombre que llevan sufijo numérico (`COL:ADM2:albania-2`) se
+   numeran en el orden del id de origen y **pueden renumerarse cuando se
+   refresque la fuente**. Eso es un incremento mayor, y la razón para fijar
+   una etiqueta.
 
 Cambiar cualquiera de estas cosas rompe a los consumidores en silencio — sin
 error de compilación, sin excepción, solo un mapa que se dibuja vacío o un join
@@ -24,16 +30,21 @@ las costas corregidas son esperables dentro de una misma versión.
 | Renombrar o mover un archivo | **Mayor** |
 | Renombrar una propiedad, o cambiar su tipo | **Mayor** |
 | Cambiar valores de `shapeISO` | **Mayor** |
+| Cambiar un `id` de feature — incluidos los ids con sufijo renumerados por un refresco de la fuente | **Mayor** |
 | Eliminar un dataset | **Mayor** |
 | Añadir un país o un nivel | Menor |
 | Añadir una propiedad opcional | Menor |
 | Refinar geometría | Parche |
 | Corregir un nombre o una errata | Parche |
 
-Las releases son etiquetas de git. **Todavía no existe ninguna**: `v1.0.0` es
-la primera prevista, en cuanto esté en su sitio el contrato de datos de la
-[Hoja de ruta](roadmap.md). Hasta entonces la única referencia es `main`, a
-través de URLs crudas:
+Las releases son etiquetas de git. **`v1.0.0` es la primera**, etiquetada en
+`main` desde el merge del contrato de datos — el cambio que dio a cada feature
+su `id`, los campos de jerarquía, los valores de `shapeISO` corregidos, el
+índice global y los esquemas. Antes no existía ninguna etiqueta, así que nada
+estuvo nunca fijado a los archivos 0.x; sus cambios de `shapeISO` y de
+archivos de parte se listan en el [Registro de cambios](changelog.md) como
+rompedores respecto al `main` sin publicar. Hasta que exista la etiqueta, la
+única referencia es `main`, a través de URLs crudas:
 
 ```
 https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/<ruta>
@@ -57,9 +68,13 @@ arriba llega a tu aplicación sin previo aviso.
     crudas, o un sparse checkout de git de los directorios de país que
     necesites, son la vía fiable hoy.
 
-Desde v1.0.0, cada release publica además **zips por país** como assets de la
-GitHub Release — un archivo por territorio con sus archivos y su manifiesto —
-para quien prefiera una descarga a un clon o un CDN.
+Subir una etiqueta `vX.Y.Z` publica además una **GitHub Release con los datos
+como assets**: `world-geojson-vX.Y.Z-{ISO3}.zip` por territorio (la carpeta
+del país con su manifiesto y sus previews), `world-geojson-vX.Y.Z-all.zip`,
+`index.json` y un `SHA256SUMS`, con la sección correspondiente del Registro de
+cambios como notas — para quien prefiera una descarga a un clon o un CDN. Ver
+[Descarga y CDN](../get-started/download.md#assets-de-la-release). El
+`CITATION.cff` de la raíz del repositorio lleva la versión que citar.
 
 ## Los archivos heredados de la raíz
 
@@ -108,7 +123,7 @@ La reacción obvia ante un archivo de 72 MB, y una trampa.
 - **Complica los clones parciales.** `--filter=blob:none` y el sparse checkout
   interactúan mal con LFS.
 - **No hace falta.** El tamaño empaquetado del repositorio es de unos 56 MiB
-  para un working tree de unos 309 MB, 164 MB de ellos bajo `data/`. El JSON
+  para un working tree de unos 309 MB, 166 MB de ellos bajo `data/`. El JSON
   comprime bien y Git lo está manejando sin problema.
 
 La solución real al tamaño de archivo es minificar y recortar la precisión de

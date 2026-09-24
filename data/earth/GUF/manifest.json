@@ -25,8 +25,8 @@
     {
       "level": "ADM3",
       "path": "data/earth/GUF/GUF_ADM3.geojson",
-      "bytes": 110334,
-      "sha256": "69ee9f5f91fa59ddfe68fb623e988ba987cd21b27630bb1152cc32673d99267f",
+      "bytes": 110350,
+      "sha256": "f81aafdc5868ca0f17881466e87c17a9e89c5442c9346f75b4f836759e048cd6",
       "features": 2,
       "bbox": [
         -54.602361,
@@ -46,7 +46,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/GUF/preview/GUF_ADM3.preview.geojson",
-      "preview_bytes": 5344,
+      "preview_bytes": 5360,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

@@ -57,25 +57,30 @@ The Americas proved the pipeline. The next releases turn the repository into
 something a program can depend on: first a stable contract, then the tooling,
 then libraries that speak it. In order:
 
-**Phase 0 — engineering hygiene** (this pull request)
+**Phase 0 — engineering hygiene** (done)
 
 - [x] Lint, type checks and tests — `ruff`, `mypy`, `pytest` — run by a CI
       workflow on every pull request
 - [x] Pipeline bug fixes, listed in the [Changelog](changelog.md)
 - [x] Every documentation page brought in line with what the data contains
 
-**Phase 1 — data contract v1**
+**Phase 1 — data contract v1** (done; `v1.0.0` is tagged from the merge)
 
-- [ ] `data/index.json`: one file listing every territory, level and file with
-      `bytes`, `sha256`, `bbox` and licence
-- [ ] JSON Schemas in `schemas/` for the manifest, the index and feature
-      properties
-- [ ] A stable Feature `id` on every feature: `{ISO3}:{LEVEL}:{code}`
-- [ ] `parentID` and `adm1ISO` on every sub-national feature, not only Chile's
-- [ ] `shapeISO` no longer filled with opaque geoBoundaries ids, and the
-      duplicated codes resolved
-- [ ] Tagged data releases: tag `v1.0.0` and publish a GitHub Release with
-      per-country zips
+- [x] `data/index.json`: one file listing every territory, level and file with
+      `bytes`, `sha256`, `bbox` and licence — see
+      [Global index & schemas](../reference/index-json.md)
+- [x] JSON Schemas in `schemas/` for the manifest, the index, a feature, its
+      properties and the country registry, applied in CI
+- [x] A stable Feature `id` on every feature: `{ISO3}:{LEVEL}:{key}`
+- [x] `parentID`, `parentISO` and `adm1ISO` on every sub-national feature,
+      not only Chile's
+- [x] `shapeISO` no longer filled with opaque geoBoundaries ids, and the
+      duplicated codes resolved (`US-SD`, `MX-CMX`, `EC-X`, Belize cleared)
+- [x] A finalize step (`scripts/finalize_geojson.py`) that writes all of the
+      above and the canonical file layout, checked in CI
+- [x] Tagged data releases: a release workflow that publishes a GitHub Release
+      with per-country zips, `index.json` and `SHA256SUMS` on every tag
+      (tag pending merge)
 
 **Phase 2 — the pipeline as a package**
 
@@ -131,9 +136,9 @@ Tracked, not hidden.
 |---|---|---|
 | Antártica commune (12202) absent — 345 of 346 | Chile ADM3 | Won't fix; the official DPA package excludes the Antarctic claim |
 | 15 countries have no permissively licensed ADM1 | Americas | Awaiting a permissive source |
-| `shapeISO` holds the opaque geoBoundaries id instead of a code on 22 municipal datasets | e.g. USA ADM2, MEX ADM2, BRA ADM2 — full list in the [Property dictionary](../reference/properties.md#known-issues-fixed-in-v100) | Fixed in v1.0.0 (planned) |
-| `shapeISO` is not unique | BLZ ADM2; MEX ADM1 (`MX-MEX` ×2); ECU ADM1 (`EC-H` ×2) | Fixed in v1.0.0 (planned) |
-| South Dakota's counties filed under geoBoundaries' typo `SU-SD` | USA ADM2 | Passed through and noted in the manifest; fixed in v1.0.0 (planned) |
+| Most municipal units have no official code upstream, so `shapeISO` is `""` on 15,364 features | 22 municipal datasets from geoBoundaries | By design since 1.0.0 — an empty code is honest, an opaque id was not. Use `id`; a national source with codes would close it |
+| 169 name-keyed ids carry a numeric suffix (`COL:ADM2:albania-2`) because the upstream has several units with the same name and no code | COL 84, HND 28, SLV 18, ARG 16, GTM 6, USA 6, MEX 4, BLZ 2, BRA 2, VIR 2, SUR 1 | Stable per data version; may renumber on an upstream refresh — pin a version |
+| 12 municipal units overlap no ADM1 parent | ARG ADM2 (8, Buenos Aires city), BRA ADM2 (3), USA ADM2 (1) | Kept in `unassigned` parts with `adm1ISO: "unassigned"` and no `parentID` |
 | Municipal tier assignment unverified for 19 territories | `scripts/countries.json` | Marked `verify` and shipped as `review` |
 | Peru's districts unavailable — geoBoundaries stops at provinces | Peru | Awaiting a source |
 | Legacy files still at the repository root | `comunas.geojson` and friends | Deprecated; stay through 1.x, removed in v2.0.0 |

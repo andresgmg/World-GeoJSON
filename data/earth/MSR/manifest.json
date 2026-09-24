@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/MSR/MSR_ADM0.geojson",
-      "bytes": 780,
-      "sha256": "1d3a06dd5dc9198e9dfdb4293fcf41b221f45965506718cdca88281e787210b2",
+      "bytes": 798,
+      "sha256": "ff7dbce6320ebe80f953a8ae762cc29c457fcfcc07694dd27d1265927dc13bb4",
       "features": 1,
       "bbox": [
         -62.230133,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/MSR/preview/MSR_ADM0.preview.geojson",
-      "preview_bytes": 306,
+      "preview_bytes": 324,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

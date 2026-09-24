@@ -25,8 +25,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/FLK/FLK_ADM0.geojson",
-      "bytes": 32024,
-      "sha256": "588b5919aaa56cca14d39bd6cff31e6be04d786a9d47b47a478f1e932b1916f8",
+      "bytes": 32042,
+      "sha256": "40be9d6aac282e7f4794dda66bc6c21c30bfc58e15592ef1b1a3c938c7c91563",
       "features": 1,
       "bbox": [
         -61.318186,
@@ -44,7 +44,7 @@
         "shapeType"
       ],
       "preview": "data/earth/FLK/preview/FLK_ADM0.preview.geojson",
-      "preview_bytes": 1683,
+      "preview_bytes": 1701,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

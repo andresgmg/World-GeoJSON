@@ -20,6 +20,8 @@ inutilizables.
 | ¿Puede un archivo declarar su CRS? | **No.** RFC 7946 eliminó ese miembro | [CRS](crs.md#el-miembro-crs-esta-prohibido) |
 | ¿Cómo funcionan la Luna y Marte? | Marcos body-fixed IAU 2015, sin códigos ISO | [Planetario](planetary.md) |
 | ¿De dónde salen los metadatos del catálogo? | `manifest.json` junto a los datos | [Manifiesto](manifest.md) |
+| ¿Cómo identifico una feature? | Su `id`: `{ISO3}:{LEVEL}:{clave}`, estable dentro de una versión de datos | [Propiedades](properties.md) |
+| ¿Cómo listo todo en una sola petición? | `data/index.json` | [Índice global y esquemas](index-json.md) |
 
 ## Lenguaje de conformidad
 

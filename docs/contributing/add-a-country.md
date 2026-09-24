@@ -1,7 +1,8 @@
 # Add a country
 
 End-to-end runbook. Budget an hour for your first one. The scripts do most of
-the work; the order matters — previews before the manifest.
+the work; the order matters — previews before the manifest, the index after
+it.
 
 ## 0. Check the licence
 
@@ -17,7 +18,7 @@ without downloading anything.
 git clone https://github.com/andresgmg/World-GeoJSON.git
 cd World-GeoJSON
 python -m venv .venv && source .venv/bin/activate   # Windows: .\.venv\Scripts\activate
-pip install -r requirements-docs.txt                 # mkdocs + ijson
+pip install -r requirements-docs.txt -r requirements-dev.txt   # mkdocs, ijson, jsonschema
 npm install                                          # mapshaper, pinned
 git checkout -b add-nzl
 ```
@@ -69,10 +70,13 @@ python scripts/build_data.py NZL
 
 Writes `data/earth/NZL/NZL_ADM0.geojson`, `NZL_ADM1.geojson`, … — reprojected,
 renamed onto the [standard schema](../reference/schema.md), simplified to a
-100 m tolerance, split by ADM1 where the municipal tier needs it — and the
-manifest's identity and provenance. Before the next two steps the manifest
-looks like this, with `license` and `simplification` already on each entry of
-`datasets`:
+100 m tolerance, split by ADM1 where the municipal tier needs it, and
+**finalized**: every feature gets its `id`, its `adm1ISO`, `parentISO` and
+`parentID`, a `shapeISO` corrected from `scripts/shapeiso_fixes.json` (or
+`""` where the upstream has no code) and a recomputed `bbox`, in the
+canonical one-feature-per-line layout — plus the manifest's identity and
+provenance. Before the next steps the manifest looks like this, with
+`license` and `simplification` already on each entry of `datasets`:
 
 ```json
 {
@@ -97,6 +101,14 @@ looks like this, with `license` and `simplification` already on each entry of
 `status`, `notes` and the `source` block's `name`, `url` and `retrieved` are
 only filled in when absent, so you can edit them and re-run safely. `iso_a2`,
 `m49_region` and `crs` are overwritten from the registry — change them there.
+
+!!! note "If the build stops on a duplicate `id`"
+
+    Two units with the same name and no code would get the same `id`;
+    `finalize_geojson.py` refuses and names them. Fix the cause: an entry in
+    `scripts/shapeiso_fixes.json` if the upstream code is wrong, or a pinned
+    key in `scripts/id_overrides.json` otherwise. See
+    [Data pipeline → The finalize step](pipeline.md#the-finalize-step).
 
 !!! tip "New Zealand crosses the antimeridian"
 
@@ -124,16 +136,28 @@ Fills in `datasets` with paths, sizes, checksums, feature counts, bounding
 boxes, property lists and preview sizes. The hand-authored fields are left
 alone.
 
-## 7. Validate
+## 7. Regenerate the index
 
 ```bash
-python scripts/validate_data.py data/earth/NZL
+python scripts/build_index.py
 ```
 
-Zero errors before you open the PR. Warnings — a dataset without a preview,
-coordinates beyond 6 decimals — do not fail CI but do get review comments.
+`data/index.json` embeds every manifest, so it changes whenever one does. CI
+fails if the committed index is stale. Commit it with the rest.
 
-## 8. Check it renders
+## 8. Validate
+
+```bash
+python scripts/validate_data.py --checksums data/earth/NZL
+python scripts/finalize_geojson.py --check data/earth/NZL
+python scripts/build_index.py --check
+```
+
+Zero errors before you open the PR — these are the three checks CI runs.
+Warnings — a dataset without a preview, coordinates beyond 6 decimals — do
+not fail CI but do get review comments.
+
+## 9. Check it renders
 
 ```bash
 mkdocs serve
@@ -143,17 +167,18 @@ Your country appears under **Catalog** automatically. Confirm the feature count
 is plausible, the bounding box is in the right hemisphere, and the preview map
 looks like the country.
 
-## 9. Open the PR
+## 10. Open the PR
 
 Work through the [Review checklist](checklist.md) first.
 
-Your PR should contain the registry entry, the data file(s), the manifest and
-the preview file(s). It should **not** contain anything from `.cache/` or
-generated documentation pages — neither exists as far as git is concerned.
+Your PR should contain the registry entry, the data file(s), the manifest, the
+preview file(s) and the regenerated `data/index.json`. It should **not**
+contain anything from `.cache/` or generated documentation pages — neither
+exists as far as git is concerned.
 
 ## Adding a level to an existing country
 
-Re-run steps 3 to 7 for that country. `build_data.py` leaves the manifest's
+Re-run steps 3 to 8 for that country. `build_data.py` leaves the manifest's
 hand-authored fields alone; `build_manifest.py` rewrites `datasets` and
 carries each entry's `license` forward.
 
@@ -162,7 +187,9 @@ carries each entry's `license` forward.
 If the country's data comes from a national SDI rather than geoBoundaries,
 build the files with mapshaper or ogr2ogr as
 [Data pipeline](pipeline.md#building-by-hand) describes, drop them into
-`data/earth/XXX/`, and run steps 5 to 7. Then add `license` to every entry in
+`data/earth/XXX/`, run `python scripts/finalize_geojson.py data/earth/XXX` to
+give them their ids, hierarchy and canonical layout, and run steps 5 to 8.
+Then add `license` to every entry in
 `datasets` by hand — `validate_data.py` rejects a dataset without one, and
 only `build_data.py` writes it — plus the identity block shown in step 4.
 Teaching `build_data.py` the new provider is the better contribution if you

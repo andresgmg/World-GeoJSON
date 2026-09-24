@@ -4,7 +4,84 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.1.0/). El
 versionado sigue [Semantic Versioning](https://semver.org/lang/es/) adaptado a
 datos según [Versionado y estabilidad](versioning.md).
 
-## Sin publicar
+## [1.0.0] — Sin publicar
+
+La primera release etiquetada, cortada desde `main` en cuanto se mergee el
+contrato de datos. Todo lo de esta sección va en ella: el contrato, la higiene
+de ingeniería, América, el pipeline y el sitio de documentación.
+
+### Añadido — contrato de datos v1
+
+- **Un `id` de Feature estable en cada una de las 16.195 features**,
+  `{ISO3}:{LEVEL}:{clave}`, único en todo el repositorio: el `shapeISO` real
+  cuando existe (`CHL:ADM3:01402`, `USA:ADM1:US-SD`), y si no una clave
+  basada en el nombre (`USA:ADM2:US-SD.davison`, `COL:ADM2:san-rafael`), con
+  un sufijo numérico determinista ante colisiones de nombre. Las claves
+  manuales se pueden fijar en `scripts/id_overrides.json` (vacío hoy).
+- **Campos de jerarquía allí donde aplican**: `adm1ISO` en cada feature por
+  debajo de ADM1 cuando el país lo tiene, archivos combinados incluidos
+  (13.181 features); `parentISO` y `parentID` — el `id` del padre — en cada
+  feature con un nivel padre publicado (16.063 features), en todos los países
+  y no solo en Chile.
+- **`data/index.json`**, el índice global: cada territorio y dataset en un
+  único archivo de 340 KB (39 KB con gzip), manifiestos incrustados tal cual,
+  sin marca de tiempo, así que es determinista byte a byte. Generado por
+  `scripts/build_index.py`.
+- **JSON Schemas** en `schemas/` (borrador 2020-12) para el manifiesto, el
+  índice, una feature, sus propiedades y el registro de países, publicados en
+  `https://andresgmg.github.io/World-GeoJSON/schemas/`. La lista blanca de
+  licencias es ahora el enum `license` del esquema del manifiesto, y
+  `fetch_sources.py` mapea el texto de licencia de origen a los mismos ids.
+- **`scripts/finalize_geojson.py`**, el paso del pipeline que escribe los
+  ids, la jerarquía, las correcciones de `shapeISO`, el bbox y el formato
+  canónico de archivo (una feature por línea, compacto, 6 decimales; no
+  cambia nada al reejecutarse). `build_data.py` lo ejecuta él mismo;
+  `--check` verifica los datos commiteados en el CI.
+- **Workflow de release**: subir una etiqueta `vX.Y.Z` publica una GitHub
+  Release con `world-geojson-vX.Y.Z-{ISO3}.zip` por territorio,
+  `world-geojson-vX.Y.Z-all.zip`, `index.json` y `SHA256SUMS`, con la sección
+  correspondiente de este registro como notas.
+- `CITATION.cff` en la raíz del repositorio.
+- `build_data.py --resplit`, que vuelve a derivar los padres y las partes
+  partidas desde los archivos commiteados tras una corrección de `shapeISO`,
+  sin reconstruir desde la fuente.
+- Mejoras de validación en `validate_data.py`: validación con JSON Schema de
+  cada manifiesto, del índice, del registro y de cada feature de cada archivo
+  a resolución completa; ids de feature únicos por archivo; cada `parentID`
+  resuelve; el `bbox` del archivo es igual a las coordenadas; los recuentos
+  de features del manifiesto coinciden con los archivos; `--checksums`
+  recalcula el hash de cada archivo. El CI ejecuta además
+  `finalize_geojson.py --check` y `build_index.py --check`.
+
+### Cambiado — rompedor respecto al `main` 0.x sin publicar
+
+No existía ninguna etiqueta, así que nada estaba fijado; aun así, el código
+escrito contra `main` debe saber:
+
+- `shapeISO` ya no lleva el id opaco de geoBoundaries donde la fuente no
+  tiene código. Es `""` en 15.364 features de 22 datasets municipales
+  (14.797 de ADM2, 501 de ADM3, las 66 de ADM4); `src_shape_id` conserva el
+  id de origen.
+- Tres códigos de origen corregidos desde `scripts/shapeiso_fixes.json` —
+  Dakota del Sur `SU-SD` → `US-SD`, Ciudad de México `MX-MEX` → `MX-CMX`,
+  Cotopaxi `EC-H` → `EC-X` — y los códigos ADM2 de Belice vaciados, ya que
+  repetían el del distrito. `shapeISO` es ahora único dentro de cada nivel
+  donde no está vacío.
+- Las partes partidas siguen los códigos corregidos: `USA/ADM2/SU-SD.geojson`
+  es ahora `US-SD.geojson` (66 condados); `MEX/ADM2/MX-CMX.geojson`
+  (16 alcaldías) y `ECU/ADM2/EC-X.geojson` (7 cantones) son nuevos, y
+  `MX-MEX.geojson` (ahora 125 municipios) y `EC-H.geojson` (ahora 10
+  cantones) se redujeron en consecuencia.
+- Cada archivo a resolución completa y cada preview se reescribió en el
+  formato canónico, así que cambiaron los `bytes` y el `sha256` de cada
+  archivo, y cada manifiesto. La geometría no cambia.
+
+### Corregido — contrato de datos v1
+
+- El `bbox` de 13 archivos era la extensión previa a la simplificación; ahora
+  es igual a las coordenadas en cada archivo, y el CI lo comprueba.
+- Los previews llevan ahora el `id` de feature, así que un mapa dibujado desde
+  un preview se une a los datos completos.
 
 ### Añadido — higiene de ingeniería
 

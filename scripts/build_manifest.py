@@ -30,8 +30,8 @@ import ijson
 REPO = Path(__file__).resolve().parents[1]
 SCHEMA_VERSION = 1
 
-LEVEL_DIR = re.compile(r"^ADM\d$|^QUAD$")
-LEVEL_FILE = re.compile(r"^[A-Z]{3,4}_(ADM\d|QUAD)$")
+LEVEL_DIR = re.compile(r"^ADM[0-4]$|^QUAD$")
+LEVEL_FILE = re.compile(r"^[A-Z]{3,4}_(ADM[0-4]|QUAD)$")
 
 
 def path_key(p: Path) -> str:

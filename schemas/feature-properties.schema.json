@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andresgmg.github.io/World-GeoJSON/schemas/feature-properties.schema.json",
+  "title": "World GeoJSON feature properties",
+  "description": "The `properties` object of every feature in a full-resolution file under data/. See docs/reference/properties.md. Previews carry a subset (shapeName, shapeISO, shapeType) and are not covered.",
+  "type": "object",
+  "required": ["shapeName", "shapeISO", "shapeGroup", "shapeType"],
+  "additionalProperties": false,
+  "properties": {
+    "shapeName": { "type": "string", "minLength": 1 },
+    "shapeISO": {
+      "description": "ISO 3166-2 code, or the national statistical code; \"\" when the upstream has none. Never an opaque upstream id.",
+      "type": "string"
+    },
+    "shapeGroup": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "shapeType": { "type": "string", "pattern": "^(ADM[0-4]|QUAD)$" },
+    "adm1ISO": {
+      "description": "Key of the ADM1 unit containing this feature; present below ADM1 whenever the country publishes an ADM1. \"unassigned\" when the parent could not be determined.",
+      "type": "string",
+      "minLength": 1
+    },
+    "parentISO": {
+      "description": "Key of the parent at the previous published level.",
+      "type": "string",
+      "minLength": 1
+    },
+    "parentID": {
+      "description": "Feature id of the parent at the previous published level.",
+      "type": "string",
+      "pattern": "^[A-Z]{3}:(ADM[0-4]|QUAD):\\S+$"
+    }
+  },
+  "patternProperties": {
+    "^src_": {
+      "description": "Verbatim upstream attributes, prefixed. `src_shape_id` is the geoBoundaries id.",
+      "type": ["string", "number", "boolean", "null"]
+    }
+  }
+}

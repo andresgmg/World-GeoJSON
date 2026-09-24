@@ -1,0 +1,32 @@
+{
+  "$comment": [
+    "Corrections to upstream `shapeISO` values, applied by scripts/finalize_geojson.py.",
+    "Keyed by ISO3, then level, then the feature's `src_shape_id` (the geoBoundaries",
+    "id). A value of \"\" clears the code. The key \"*\" applies to every feature of",
+    "that level. Every entry here is a documented upstream error: the corrected code",
+    "is the ISO 3166-2 code of the unit named in `shapeName`.",
+    "",
+    "Do not use this file to invent codes. If a unit has no ISO 3166-2 code, leave",
+    "`shapeISO` empty and let the feature `id` fall back to the name-based key."
+  ],
+  "USA": {
+    "ADM1": {
+      "66186276B38006515706420": "US-SD"
+    }
+  },
+  "MEX": {
+    "ADM1": {
+      "31927357B79016588373767": "MX-CMX"
+    }
+  },
+  "ECU": {
+    "ADM1": {
+      "780006B34708550650195": "EC-X"
+    }
+  },
+  "BLZ": {
+    "ADM2": {
+      "*": ""
+    }
+  }
+}

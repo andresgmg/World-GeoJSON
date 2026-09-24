@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/VCT/VCT_ADM0.geojson",
-      "bytes": 2191,
-      "sha256": "05d91b1bff9a4a95cb0c563d698cec45e22d5a211988ab41fc68f3c90e31c871",
+      "bytes": 2209,
+      "sha256": "fc3999e99e7e7f4ff1c53a6d0412f169030690a7e43cde1571ddb6fcae8735d1",
       "features": 1,
       "bbox": [
         -61.459828,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/VCT/preview/VCT_ADM0.preview.geojson",
-      "preview_bytes": 347,
+      "preview_bytes": 365,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

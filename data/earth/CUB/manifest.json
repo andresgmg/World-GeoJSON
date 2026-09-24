@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/CUB/CUB_ADM0.geojson",
-      "bytes": 61322,
-      "sha256": "e24b9964a98a3afc7f23005d800c4f1611cc1ebd5e2031e33a826c10b4c5e7b5",
+      "bytes": 61340,
+      "sha256": "83b2ca37489b0143c9dda6c1668e46b2a4e0c3fffc8e9cb7fa5b00546095a538",
       "features": 1,
       "bbox": [
         -84.949615,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/CUB/preview/CUB_ADM0.preview.geojson",
-      "preview_bytes": 2772,
+      "preview_bytes": 2790,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

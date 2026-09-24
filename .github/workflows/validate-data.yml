@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths: &data_paths
       - "data/**"
+      - "schemas/**"
       - "scripts/**"
       - "requirements-dev.txt"
       - ".github/workflows/validate-data.yml"
@@ -43,7 +44,13 @@ jobs:
         run: pip install -r requirements-dev.txt
 
       - name: Validate
-        run: python scripts/validate_data.py
+        run: python scripts/validate_data.py --checksums
+
+      - name: Check every file is finalized (ids, hierarchy, bbox, canonical layout)
+        run: python scripts/finalize_geojson.py --check data/earth/*/
+
+      - name: Check data/index.json is up to date
+        run: python scripts/build_index.py --check
 
       - name: Check manifests are up to date
         run: |

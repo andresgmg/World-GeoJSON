@@ -162,6 +162,8 @@ línea. La Región Metropolitana se ve así:
   "shapeISO": "CL-RM",
   "shapeGroup": "CHL",
   "shapeType": "ADM1",
+  "parentISO": "CHL",
+  "parentID": "CHL:ADM0:CHL",
   "src_cut_reg": "13",
   "src_superficie_km2": 15398.38
 }
@@ -169,19 +171,27 @@ línea. La Región Metropolitana se ve así:
 
 Las cuatro primeras propiedades están en todas las features del catálogo: el
 nombre, el código ISO 3166-2 cuando existe (si no, el código oficial
-nacional), el país y el nivel. Todo lo que empieza por `src_` viene del origen
-y cambia según el país — las regiones de Chile llevan su código DPA y la
-superficie oficial, los datasets de geoBoundaries llevan `src_shape_id`. Los
-nombres no llevan el prefijo "Región de". La lista completa está en
-[Esquema de propiedades](../reference/schema.md).
+nacional, o `""` cuando la fuente no tiene ninguno), el país y el nivel.
+`parentISO` y `parentID` nombran la unidad padre — aquí el contorno del país —
+y las features por debajo de un ADM1 llevan además `adm1ISO`. Todo lo que
+empieza por `src_` viene del origen y cambia según el país — las regiones de
+Chile llevan su código DPA y la superficie oficial, los datasets de
+geoBoundaries llevan `src_shape_id`. Los nombres no llevan el prefijo "Región
+de". La lista completa está en [Esquema de propiedades](../reference/schema.md).
 
-!!! warning "`shapeISO` todavía no es una clave de join garantizada"
+Cada feature tiene además un `id` de nivel superior — `CHL:ADM1:CL-RM` en
+esta — único en todo el repositorio, y cada feature subnacional nombra el id
+de su padre en `parentID`. Haz el join por `id` y no por `shapeISO`, que está
+vacío allí donde la fuente no tiene código. En MapLibre, cópialo a una
+propiedad antes de añadir la fuente (`f.properties.id = f.id`) y declara
+`promoteId: "id"`, y `setFeatureState` se indexa por él — las fuentes GeoJSON
+solo conservan por sí solas los ids de nivel superior que son enteros. Ver
+[Diccionario de propiedades → El `id` de la feature](../reference/properties.md#el-id-de-la-feature).
 
-    En 22 datasets municipales `shapeISO` contiene el id opaco de
-    geoBoundaries en vez de un código oficial, y no es único en Belice ADM2,
-    México ADM1 y Ecuador ADM1. Revisa los valores en la página del catálogo
-    antes de hacer un join sobre él. Un `id` de Feature estable en todas las
-    features está previsto para v1.0.0 — ver
-    [Hoja de ruta](../about/roadmap.md).
+!!! tip "Descubre todo el catálogo en una sola petición"
+
+    `data/index.json` enumera cada territorio y dataset con su ruta, tamaño,
+    checksum, bounding box y licencia — ver
+    [Índice global y esquemas](../reference/index-json.md).
 
 --8<-- "abbreviations.md"

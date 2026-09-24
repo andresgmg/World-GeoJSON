@@ -104,12 +104,14 @@ Cuando se aportan varios niveles de un país:
 - Cada feature ADM2 **debe** anidar dentro de exactamente una feature ADM1.
 - La unión de las features ADM1 **debería** igualar el contorno ADM0, dentro de
   la tolerancia de la geometría de origen.
-- Las features **deberían** llevar una referencia a su padre. Hoy solo las de
-  Chile la llevan (`parentISO`); en el resto, las partes partidas llevan
-  `adm1ISO`, derivado por unión espacial de mayor solapamiento porque
-  geoBoundaries no entrega referencia al padre. El contrato de v1.0.0 hace
-  obligatorios `parentID` y `adm1ISO` en cada feature subnacional — ver
-  [Esquema de propiedades](schema.md).
+- Las features **deben** llevar una referencia a su padre, y la llevan, en
+  todas partes: `parentID` — el `id` de la feature padre — y `parentISO` en
+  cada feature que tiene un nivel padre en el catálogo, y `adm1ISO` en cada
+  feature por debajo de un ADM1. En los datos de geoBoundaries el padre se
+  deriva por unión espacial de mayor solapamiento, porque la fuente no entrega
+  referencia al padre; las 12 unidades que no solapan con ningún padre se
+  conservan con `adm1ISO: "unassigned"` y sin `parentID`. El CI comprueba que
+  cada `parentID` resuelve — ver [Esquema de propiedades](schema.md).
 
 No mezcles añadas. Los límites cambian: un archivo ADM1 de 2019 combinado con
 uno ADM2 de 2024 no anidará, y el desajuste es difícil de detectar a simple
@@ -133,7 +135,8 @@ qué hay:
   están presentes.
 - El nivel provincial existe como geometría dibujable, no solo como propiedad
   de cada comuna — el `parentISO` de cada comuna apunta al `shapeISO` de su
-  provincia.
+  provincia, y su `parentID` al `id` de la provincia (`CHL:ADM2:014` para
+  Camiña).
 
 Los archivos heredados de la raíz (BCN, 343 comunas, sin provincias) son el
 dataset más antiguo al que esto reemplaza; ver

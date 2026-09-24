@@ -40,8 +40,8 @@ Las comunas de Chile llevan `adm1ISO`, el código ISO 3166-2 de su región —
     Los niveles municipales que tienen un ADM1 por el que partirse traen un
     archivo por región junto al archivo combinado — para Chile,
     `data/earth/CHL/ADM3/CL-RM.geojson` es exactamente la salida de arriba.
-    Esas partes llevan `adm1ISO` en todos los países; el archivo combinado lo
-    lleva hoy solo en Chile. v1.0.0 lo añade en todos.
+    Esas partes, y el archivo combinado, llevan `adm1ISO` en cada feature de
+    todos los países que tienen ADM1.
 
 ## Simplificar para la web
 
@@ -115,6 +115,30 @@ stats = pd.read_csv("poblacion.csv", dtype={"cut": str})   # columnas: cut, pobl
 merged = comunas.merge(stats, left_on="shapeISO", right_on="cut")
 ```
 
+Si tus datos están indexados por el `id` propio del repositorio — toda
+feature tiene uno, `CHL:ADM3:01402` para Camiña, único en todo el catálogo —
+haz el join por el `id` de nivel superior de la Feature:
+
+```python
+import csv
+import json
+
+with open("CHL_ADM3.geojson") as fh:
+    comunas = json.load(fh)
+
+with open("poblacion.csv", newline="") as fh:              # columnas: id, poblacion
+    poblacion = {fila["id"]: int(fila["poblacion"]) for fila in csv.DictReader(fh)}
+
+for f in comunas["features"]:
+    f["properties"]["poblacion"] = poblacion.get(f["id"])
+```
+
+`shapeISO` es la clave correcta cuando el otro lado son *estadísticas
+oficiales*, porque es el código oficial; `id` es la clave correcta para
+cualquier cosa que hayas construido contra este catálogo, porque nunca está
+vacío — `shapeISO` es `""` en la mayoría de las unidades municipales fuera de
+Chile.
+
 !!! danger "La trampa del cero inicial"
 
     `shapeISO` es siempre una **cadena**, así que el cero inicial sobrevive.
@@ -131,14 +155,37 @@ merged = comunas.merge(stats, left_on="shapeISO", right_on="cut")
     Tamarugal) y su región en `adm1ISO` (`"CL-TA"`), así que un join a
     cualquiera de los tres niveles no necesita tabla de equivalencias.
 
-!!! warning "Revisa `shapeISO` antes de confiar en él"
+!!! tip "Donde `shapeISO` está vacío"
 
-    En 22 datasets municipales de geoBoundaries, `shapeISO` contiene el id
-    opaco del origen (algo como `66186276B69138566591314`) en vez de un
-    código oficial, y no es único en Belice ADM2, México ADM1 y Ecuador ADM1.
-    Mira primero los valores en la página del catálogo. Un `id` de Feature
-    estable en todas las features está previsto para v1.0.0 — ver
-    [Hoja de ruta](../about/roadmap.md).
+    geoBoundaries no tiene código para la mayoría de las unidades
+    municipales, así que ahí `shapeISO` es `""` — nunca un valor inventado.
+    Esas features siguen identificadas por `id`, indexado por su estado y su
+    nombre (`USA:ADM2:US-SD.davison`), y siguen llevando `parentID`. Ver
+    [Diccionario de propiedades](../reference/properties.md#shapeiso-en-detalle).
+
+## Construir la jerarquía
+
+Cada feature subnacional nombra el `id` de su padre en `parentID`, así que un
+árbol no necesita ni unión espacial ni tabla de equivalencias:
+
+```python
+import json
+
+with open("CHL_ADM3.geojson") as fh:
+    comunas = json.load(fh)["features"]
+
+hijos = {}
+for f in comunas:
+    hijos.setdefault(f["properties"]["parentID"], []).append(f["id"])
+
+print(hijos["CHL:ADM2:014"])   # las cinco comunas de Tamarugal
+```
+
+Haz lo mismo sobre `CHL_ADM2.geojson` para colgar las provincias de sus
+regiones (`parentID` = `CHL:ADM1:CL-TA`), y las regiones del país
+(`CHL:ADM0:CHL`). Donde un país no tiene ADM1, el `parentID` de una unidad
+municipal es directamente el ADM0; el puñado de unidades cuyo padre no se
+pudo determinar no lleva `parentID`.
 
 ## Calcular el área correctamente
 

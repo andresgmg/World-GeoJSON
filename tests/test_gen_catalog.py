@@ -61,3 +61,15 @@ def test_generate_is_idempotent(abw: Path, tmp_path: Path) -> None:
     docs.mkdir()
     gen_catalog.generate(docs, "", "")
     assert gen_catalog.generate(docs, "", "") == 0
+
+
+def test_publish_schemas_copies_and_prunes(tmp_path: Path) -> None:
+    docs = tmp_path / "docs"
+    docs.mkdir()
+    n = gen_catalog.publish_schemas(docs)
+    names = sorted(p.name for p in (docs / "schemas").glob("*.json"))
+    assert n == len(names) >= 5
+    assert "manifest.schema.json" in names
+    (docs / "schemas" / "old.json").write_text("{}", "utf-8")
+    assert gen_catalog.publish_schemas(docs) == 1  # the stray file was removed
+    assert gen_catalog.publish_schemas(docs) == 0

@@ -159,25 +159,36 @@ Región Metropolitana looks like this:
   "shapeISO": "CL-RM",
   "shapeGroup": "CHL",
   "shapeType": "ADM1",
+  "parentISO": "CHL",
+  "parentID": "CHL:ADM0:CHL",
   "src_cut_reg": "13",
   "src_superficie_km2": 15398.38
 }
 ```
 
 The first four properties are on every feature in the catalog: the name, the
-ISO 3166-2 code where one exists (otherwise the official national code), the
-country, and the level. Anything prefixed `src_` is carried over from the
-upstream source and differs by country — Chile's regions carry their DPA code
-and official area, geoBoundaries datasets carry `src_shape_id`. Names have no
-"Región de" prefix. The full list is in
+ISO 3166-2 code where one exists (otherwise the official national code, or
+`""` where the upstream has none), the country, and the level. `parentISO` and
+`parentID` name the parent unit — here the country outline — and features
+below an ADM1 also carry `adm1ISO`. Anything prefixed `src_` is carried over
+from the upstream source and differs by country — Chile's regions carry their
+DPA code and official area, geoBoundaries datasets carry `src_shape_id`. Names
+have no "Región de" prefix. The full list is in
 [Property schema](../reference/schema.md).
 
-!!! warning "`shapeISO` is not yet a guaranteed join key"
+Every feature also has a top-level `id` — `CHL:ADM1:CL-RM` for this one —
+that is unique across the whole repository, and every sub-national feature
+names its parent's id in `parentID`. Join on `id` rather than on `shapeISO`,
+which is empty wherever the upstream has no code. In MapLibre, copy it into a
+property before adding the source (`f.properties.id = f.id`) and declare
+`promoteId: "id"`, and `setFeatureState` keys on it — GeoJSON sources keep
+only integer top-level ids on their own. See
+[Property dictionary → The feature `id`](../reference/properties.md#the-feature-id).
 
-    On 22 municipal datasets `shapeISO` holds geoBoundaries' opaque id rather
-    than an official code, and it is not unique in Belize ADM2, Mexico ADM1
-    and Ecuador ADM1. Check the values on the catalog page before joining on
-    it. A stable Feature `id` on every feature is planned for v1.0.0 — see
-    [Roadmap](../about/roadmap.md).
+!!! tip "Discover the whole catalog in one request"
+
+    `data/index.json` lists every territory and dataset with its path,
+    size, checksum, bounding box and licence — see
+    [Global index & schemas](../reference/index-json.md).
 
 --8<-- "abbreviations.md"

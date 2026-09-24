@@ -19,6 +19,8 @@ files with ad-hoc property names are unusable.
 | May a file declare its own CRS? | **No.** RFC 7946 removed that member | [CRS](crs.md#the-crs-member-is-forbidden) |
 | How do the Moon and Mars work? | IAU 2015 body-fixed frames, no ISO codes | [Planetary](planetary.md) |
 | Where does catalog metadata come from? | `manifest.json` beside the data | [Manifest](manifest.md) |
+| How do I identify one feature? | Its `id`: `{ISO3}:{LEVEL}:{key}`, stable within a data version | [Properties](properties.md) |
+| How do I list everything in one request? | `data/index.json` | [Global index & schemas](index-json.md) |
 
 ## Conformance language
 

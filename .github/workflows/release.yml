@@ -1,0 +1,82 @@
+name: Release
+
+# Tagging `vX.Y.Z` on main publishes a GitHub Release with the data as
+# downloadable assets: one zip per territory, one for everything, the global
+# index and a SHA256SUMS file. The zips are the bulk/offline channel and the
+# fallback when a CDN refuses the repository for its size.
+
+on:
+  push:
+    tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish data release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install
+        run: pip install -r requirements-dev.txt
+
+      - name: Refuse to release stale or invalid data
+        run: |
+          python scripts/validate_data.py --checksums
+          python scripts/finalize_geojson.py --check data/earth/*/
+          python scripts/build_index.py --check
+
+      - name: Build assets
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          mkdir -p dist
+          for dir in data/*/*/; do
+            body=$(basename "$(dirname "$dir")")
+            code=$(basename "$dir")
+            (cd "data/$body" && zip -qr "../../dist/world-geojson-${tag}-${code}.zip" "$code")
+          done
+          zip -qr "dist/world-geojson-${tag}-all.zip" data -x 'data/index.json'
+          cp data/index.json "dist/index.json"
+          (cd dist && sha256sum ./* > SHA256SUMS)
+          ls -la dist | head -80
+          du -sh dist
+
+      - name: Release notes from the changelog
+        run: |
+          python - <<'PY'
+          import os, re
+          from pathlib import Path
+          tag = os.environ["GITHUB_REF_NAME"].lstrip("v")
+          text = Path("docs/about/changelog.md").read_text("utf-8")
+          m = re.search(rf"^## \[{re.escape(tag)}\][^\n]*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
+          body = m.group(1).strip() if m else "See docs/about/changelog.md."
+          intro = (
+              f"Data release **v{tag}**. Pin it with\n"
+              f"`https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v{tag}/data/<path>`\n"
+              f"or download the assets below (`SHA256SUMS` covers every file).\n\n"
+          )
+          Path("dist/NOTES.md").write_text(intro + body + "\n", "utf-8")
+          PY
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "World GeoJSON ${GITHUB_REF_NAME}" \
+            --notes-file dist/NOTES.md \
+            dist/world-geojson-*.zip dist/index.json dist/SHA256SUMS

@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/GRL/GRL_ADM0.geojson",
-      "bytes": 452776,
-      "sha256": "66a4d8a63c861fffbc8468ab2a537d6937c9d4d5406f9b2200ef89f201ed0e3b",
+      "bytes": 452794,
+      "sha256": "81da125df6b04b9b7ba6817731eb074dc45251426f0610cf0ff294848a8fe66e",
       "features": 1,
       "bbox": [
         -73.05724,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/GRL/preview/GRL_ADM0.preview.geojson",
-      "preview_bytes": 20361,
+      "preview_bytes": 20379,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

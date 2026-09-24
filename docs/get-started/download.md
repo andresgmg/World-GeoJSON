@@ -1,6 +1,6 @@
 # Download & CDN
 
-There are three ways to get a file. They are not interchangeable.
+There are several ways to get the data. They are not interchangeable.
 
 ## jsDelivr CDN
 
@@ -17,8 +17,8 @@ https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@main/<path>
     — the largest is 14.9 MB, and levels that would exceed it are split by
     ADM1. The repository as a whole currently exceeds the second, so jsDelivr
     may refuse it. Treat the CDN as an optimisation to try, not a dependency:
-    raw GitHub URLs are the reliable path today, and GitHub Release assets
-    will be from v1.0.0 on.
+    raw GitHub URLs are the reliable path today, and the
+    [Release assets](#release-assets) are from v1.0.0 on.
 
     The legacy 72 MB `comunas.geojson` in the repository root is above the
     per-file limit regardless. Use `data/earth/CHL/CHL_ADM3.geojson`.
@@ -32,10 +32,10 @@ correction merged upstream changes what your application receives, silently.
     https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<path>
     ```
 
-    No tag exists yet — `v1.0.0` is planned next, see the
-    [Roadmap](../about/roadmap.md). Until then only `@main` resolves. From
-    v1.0.0 on, the per-country zips attached to the GitHub Release are the
-    recommended pinned download.
+    `v1.0.0` is tagged from the merge of the data contract — see
+    [Versioning & stability](../about/versioning.md). Until then only `@main`
+    resolves. From v1.0.0 on, the per-country zips attached to the GitHub
+    Release are the recommended pinned download.
 
 === "Latest"
 
@@ -53,6 +53,44 @@ Works for files of any size and sends `Access-Control-Allow-Origin: *`, so
 browser `fetch` works. But it is **not a CDN**: no edge caching, and it is
 rate-limited. Fine for development, scripts and server-side downloads; poor for
 production browser traffic.
+
+The same URL with a tag in place of `main` pins a data version — once
+`v1.0.0` is tagged:
+
+```
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.0.0/<path>
+```
+
+## Release assets
+
+Every tag `vX.Y.Z` publishes a GitHub Release with the data as downloadable
+assets — the bulk and offline channel, and the fallback when a CDN refuses the
+repository for its size:
+
+| Asset | Contents |
+|---|---|
+| `world-geojson-vX.Y.Z-{ISO3}.zip` | One per territory: the country folder with its files, `manifest.json` and `preview/` |
+| `world-geojson-vX.Y.Z-all.zip` | Everything under `data/` |
+| `index.json` | The [global index](../reference/index-json.md) |
+| `SHA256SUMS` | Hashes of every asset |
+
+The first is `v1.0.0`, tagged from the merge of the data contract:
+<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.0.0>. The release
+notes are the matching section of the [Changelog](../about/changelog.md).
+
+## The global index
+
+Fetch `data/index.json` first and only then the files you need: it lists every
+territory and dataset with `path`, `bytes`, `sha256`, `bbox` and licence, and
+embeds every manifest, in 340 KB (39 KB gzipped). It is served from the same
+URLs as the data —
+
+```
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/index.json
+```
+
+— and attached to every release. Its shape, and snippets that use it, are on
+[Global index & schemas](../reference/index-json.md).
 
 ## Previews
 
@@ -73,7 +111,7 @@ preview against 7 MB in full.
 For working with the data locally or in a pipeline.
 
 The repository's pack is about 56 MiB and the working tree about 309 MB —
-164 MB under `data/` and most of the rest the four legacy files in the root.
+166 MB under `data/` and most of the rest the four legacy files in the root.
 A full clone is not enormous, but a sparse checkout of one country is a lot
 smaller.
 
@@ -109,8 +147,12 @@ smaller.
 ## Checksums
 
 Each catalog page shows the first 16 hex characters of the file's SHA-256; the
-full hash is in the country's `manifest.json`, as `datasets[].sha256` and, for
-split levels, `parts[].sha256`. Verify a download with:
+full hash is in the country's `manifest.json` — and therefore in
+`data/index.json` — as `datasets[].sha256` and, for split levels,
+`parts[].sha256`. Release assets come with a `SHA256SUMS` that
+`sha256sum -c SHA256SUMS` checks in one go, and a full checkout is verified
+with `python scripts/validate_data.py --checksums`, which re-hashes every file
+against its manifest. Verify a single download with:
 
 === "PowerShell"
 

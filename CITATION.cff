@@ -1,0 +1,27 @@
+# Citation metadata (https://citation-file-format.github.io/). GitHub shows a
+# "Cite this repository" button from this file. Bump `version` and
+# `date-released` when a data release is tagged.
+cff-version: 1.2.0
+message: >-
+  If you use this data, please cite it as below and credit the upstream
+  sources named in each dataset's manifest (see docs/about/license.md).
+type: dataset
+title: World GeoJSON
+abstract: >-
+  Open, versioned GeoJSON administrative boundaries with a stable feature id,
+  a per-country manifest and a global index. Country outlines from Natural
+  Earth; subnational levels from geoBoundaries (permissive licences only) and
+  national spatial data infrastructures.
+authors:
+  - given-names: Andrés
+    family-names: Márquez
+    alias: andresgmg
+repository-code: https://github.com/andresgmg/World-GeoJSON
+url: https://andresgmg.github.io/World-GeoJSON/
+license: MIT
+version: 1.0.0
+keywords:
+  - geojson
+  - administrative boundaries
+  - gis
+  - open data

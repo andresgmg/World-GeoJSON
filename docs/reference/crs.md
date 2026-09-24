@@ -65,12 +65,18 @@ Every `FeatureCollection` **must** carry a top-level `bbox`, and every file
 under `data/` does — CI checks for it:
 
 ```json
-"bbox": [-109.453137, -56.537671, -66.415932, -17.498399]
+"bbox": [-109.449861, -56.525107, -66.416176, -17.498399]
 ```
 
 Order is `[west, south, east, north]`. It lets a consumer decide whether to
 download the file at all, and lets a map fit its view without parsing the whole
 geometry. (The legacy root files have none.)
+
+It always matches the coordinates in the file: the finalize step recomputes it
+from the geometry as written — mapshaper had left the pre-simplification
+extent in 13 files — and CI fails any file whose `bbox` disagrees with its
+coordinates. It is the naive minimum and maximum over every coordinate, which
+has one consequence, below.
 
 ## Winding order
 
@@ -90,13 +96,13 @@ the antimeridian rather than using coordinates outside the −180…180 range.
 This is not hypothetical:
 
 - **The United States** crosses it — Alaska's Aleutian Islands extend past
-  180°. RFC 7946 §5.2 says a `bbox` for such geometry has west *greater* than
-  east, and the files follow it: `USA_ADM0.geojson` carries
-  `[172.47…, 18.90…, -66.97…, 71.41…]`. The **manifest's** `bbox`, however,
-  is a naive min/max and reads `[-179.14…, 18.90…, 179.78…, 71.41…]` — nearly
-  the whole globe. Fit maps to the file's `bbox`, not the manifest's, and do
-  not use the manifest `bbox` to decide whether a country touches your area
-  of interest near 180°.
+  180°. RFC 7946 §5.2 allows a `bbox` with west *greater* than east for such
+  geometry, but the files here do not use that form: the file's `bbox` and
+  the manifest's are both a naive min/max, and `USA_ADM0.geojson` and its
+  manifest entry alike read `[-179.14…, 18.90…, 179.78…, 71.41…]` — nearly
+  the whole globe. Fitting a map to it works, but zooms out to the world; do
+  not use the `bbox` to decide whether a country touches your area of
+  interest near 180°.
 - **Isla de Pascua** sits at about 109°W — well inside range, but far enough
   from the mainland that Chile's bounding box spans a third of the planet.
 - **Polar geometry.** Chile's Antarctic claim would extend to the South Pole,

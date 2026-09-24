@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/CYM/CYM_ADM0.geojson",
-      "bytes": 2055,
-      "sha256": "f2cd94ff7865269b729f2c39d6f4582c2b2c4c724c1b21b428e6e47ad273e5f4",
+      "bytes": 2073,
+      "sha256": "d898656267f43e97b5591006a8a15a8f897d9c25a8b02a8aded7bd867d85358f",
       "features": 1,
       "bbox": [
         -81.416542,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/CYM/preview/CYM_ADM0.preview.geojson",
-      "preview_bytes": 330,
+      "preview_bytes": 348,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

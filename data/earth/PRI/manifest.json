@@ -25,8 +25,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/PRI/PRI_ADM0.geojson",
-      "bytes": 7175,
-      "sha256": "b7ffeb85c7b17911c61f57f6f76c45ca57f3e0b202e2d37813a82f8606ac02fa",
+      "bytes": 7193,
+      "sha256": "5f645bf591a13ca6fd2634f0668b756ee806980963dea429a21dc11b60ecadba",
       "features": 1,
       "bbox": [
         -67.937815,
@@ -44,7 +44,7 @@
         "shapeType"
       ],
       "preview": "data/earth/PRI/preview/PRI_ADM0.preview.geojson",
-      "preview_bytes": 536,
+      "preview_bytes": 554,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -55,8 +55,8 @@
     {
       "level": "ADM2",
       "path": "data/earth/PRI/PRI_ADM2.geojson",
-      "bytes": 230679,
-      "sha256": "f9ba7fe0a2787a4f7fc8826824a7223ab67f7b78514a4fa90bb4e78513b92747",
+      "bytes": 234249,
+      "sha256": "b16e1a6d14a7efd5516864697460469f763d7867f21fb08bd705b83a11f038d0",
       "features": 78,
       "bbox": [
         -67.945404,
@@ -69,6 +69,8 @@
         "Polygon": 72
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -76,7 +78,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/PRI/preview/PRI_ADM2.preview.geojson",
-      "preview_bytes": 29776,
+      "preview_bytes": 29914,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

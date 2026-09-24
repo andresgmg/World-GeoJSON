@@ -1,0 +1,13 @@
+{
+  "$comment": [
+    "Manual feature-id keys, applied by scripts/finalize_geojson.py when the",
+    "automatic rule (shapeISO if real and unique, else a name-based slug) would",
+    "collide or produce a misleading key. Keyed by ISO3, then level, then the",
+    "feature's `src_shape_id` (geoBoundaries) or `shapeISO` (national sources).",
+    "The value is the KEY part of the id, i.e. the text after `{ISO3}:{LEVEL}:`.",
+    "",
+    "Empty today: the corrections in shapeiso_fixes.json resolve every known",
+    "collision. finalize_geojson.py refuses to run when a collision remains, and",
+    "names the features, so a new entry here is the way to resolve one."
+  ]
+}

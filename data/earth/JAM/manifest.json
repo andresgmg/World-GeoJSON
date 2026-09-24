@@ -25,8 +25,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/JAM/JAM_ADM0.geojson",
-      "bytes": 5950,
-      "sha256": "bee3144b857f545162134c65eed8989b8d00ba4031390295c3236c80c8d2c582",
+      "bytes": 5968,
+      "sha256": "f9dcab5e645c3f122c2ab8242f5b674dd4d9ac08ee53f8bf072b91be6358a6d3",
       "features": 1,
       "bbox": [
         -78.374664,
@@ -44,7 +44,7 @@
         "shapeType"
       ],
       "preview": "data/earth/JAM/preview/JAM_ADM0.preview.geojson",
-      "preview_bytes": 487,
+      "preview_bytes": 505,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

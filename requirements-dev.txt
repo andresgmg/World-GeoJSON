@@ -12,3 +12,7 @@ pytest==9.1.1
 
 # Streaming JSON scanner used by scripts/build_manifest.py (and its tests).
 ijson==3.5.1
+
+# JSON Schema 2020-12 validation of manifests, the index and every feature
+# (scripts/validate_data.py, schemas/*.schema.json).
+jsonschema==4.26.0

@@ -2,7 +2,8 @@
 
 Cada directorio de dataset contiene un `manifest.json`. Es la **única** entrada
 de este sitio de documentación: todas las páginas del catálogo se generan a
-partir de él. Hoy hay 55, uno por territorio bajo `data/earth/`.
+partir de él. Hoy hay 55, uno por territorio bajo `data/earth/`, y los 55 van
+incrustados tal cual en el [índice global](index-json.md), `data/index.json`.
 
 ## Por qué existe
 
@@ -43,14 +44,14 @@ ningún archivo `.geojson`*.
     {
       "level": "ADM0",
       "path": "data/earth/CHL/CHL_ADM0.geojson",
-      "bytes": 407930,
-      "sha256": "18e57932e64371abccbc383c486af4111243c4974b5098bb04ee86fb8cebac79",
+      "bytes": 407948,
+      "sha256": "9abf1248d9c64bb3e50a63a24723595093aa6a58b75cf3935b3465b090205889",
       "features": 1,
       "bbox": [-109.453725, -55.918504, -66.420806, -17.506588],
       "geometry_types": { "MultiPolygon": 1 },
       "properties": ["shapeGroup", "shapeISO", "shapeName", "shapeType"],
       "preview": "data/earth/CHL/preview/CHL_ADM0.preview.geojson",
-      "preview_bytes": 18782,
+      "preview_bytes": 18800,
       "simplification": { "method": "visvalingam", "tolerance_m": 100 },
       "license": "public-domain",
       "src_provider": "Natural Earth"
@@ -58,15 +59,15 @@ ningún archivo `.geojson`*.
     {
       "level": "ADM1",
       "path": "data/earth/CHL/CHL_ADM1.geojson",
-      "bytes": 4814221,
-      "sha256": "5cf4e9d8d34822d498cc61ddea063bd4381671d9d05568b49bb3e2f40f9b44b8",
+      "bytes": 4815275,
+      "sha256": "6679a263585d6ef01bf9778d629f6daaa9a765011109b7ad95c27863a0a7b5c5",
       "features": 16,
       "bbox": [-109.449861, -56.525107, -66.416176, -17.498399],
       "geometry_types": { "MultiPolygon": 10, "Polygon": 6 },
-      "properties": ["shapeGroup", "shapeISO", "shapeName", "shapeType",
-                     "src_cut_reg", "src_superficie_km2"],
+      "properties": ["parentID", "parentISO", "shapeGroup", "shapeISO", "shapeName",
+                     "shapeType", "src_cut_reg", "src_superficie_km2"],
       "preview": "data/earth/CHL/preview/CHL_ADM1.preview.geojson",
-      "preview_bytes": 226499,
+      "preview_bytes": 226849,
       "simplification": { "method": "visvalingam", "tolerance_m": 100 },
       "license": "CC-BY-4.0"
     }
@@ -106,7 +107,7 @@ no tiene `notes`.
 | `features` | Número de features del **nivel completo**, para que el catálogo pueda dar siempre un total |
 | `bbox` | `[oeste, sur, este, norte]`, mínimo/máximo ingenuo de todas las coordenadas — ver la nota sobre el antimeridiano más abajo |
 | `geometry_types` | Recuento por tipo de geometría GeoJSON, p. ej. `{ "MultiPolygon": 10, "Polygon": 6 }` |
-| `properties` | Todas las claves de propiedad presentes en alguna feature, **ordenadas** |
+| `properties` | Todas las claves de propiedad presentes en alguna feature, **ordenadas** — las cuatro claves estándar, las de jerarquía (`adm1ISO`, `parentISO`, `parentID`) donde el nivel las lleva, y los campos `src_*` |
 | `preview`, `preview_bytes` | El archivo simplificado de `preview/` y su tamaño |
 | `simplification` | Lo aplicado: `{ "method": "visvalingam", "tolerance_m": 100 }` |
 | `license` | Identificador tipo SPDX de **este dataset** — las licencias difieren entre niveles de un mismo país |
@@ -131,11 +132,11 @@ ADM3 de Chile, abreviado:
 {
   "level": "ADM3",
   "path": "data/earth/CHL/CHL_ADM3.geojson",
-  "bytes": 6965828,
+  "bytes": 6982386,
   "features": 345,
-  "properties": ["adm1ISO", "parentISO", "shapeGroup", "shapeISO", "shapeName",
-                 "shapeType", "src_cut_com", "src_cut_prov", "src_cut_reg",
-                 "src_provincia", "src_region"],
+  "properties": ["adm1ISO", "parentID", "parentISO", "shapeGroup", "shapeISO",
+                 "shapeName", "shapeType", "src_cut_com", "src_cut_prov",
+                 "src_cut_reg", "src_provincia", "src_region"],
   "preview": "data/earth/CHL/preview/CHL_ADM3.preview.geojson",
   "split_by": "ADM1",
   "license": "CC-BY-4.0",
@@ -143,14 +144,14 @@ ADM3 de Chile, abreviado:
     {
       "code": "CL-AI",
       "path": "data/earth/CHL/ADM3/CL-AI.geojson",
-      "bytes": 1281188,
-      "sha256": "3e55fb5694854d124580a8625dbe4d6a9b6b34a0810675130bed701532aafe0c",
+      "bytes": 1281666,
+      "sha256": "604104c46aa2863ed43158ff48be1450768e794f86276d840dd856c1e746c1f8",
       "features": 10,
       "bbox": [-75.64927, -49.158776, -71.091675, -43.637991],
       "geometry_types": { "MultiPolygon": 4, "Polygon": 6 },
-      "properties": ["adm1ISO", "parentISO", "shapeGroup", "shapeISO", "shapeName",
-                     "shapeType", "src_cut_com", "src_cut_prov", "src_cut_reg",
-                     "src_provincia", "src_region"]
+      "properties": ["adm1ISO", "parentID", "parentISO", "shapeGroup", "shapeISO",
+                     "shapeName", "shapeType", "src_cut_com", "src_cut_prov",
+                     "src_cut_reg", "src_provincia", "src_region"]
     }
   ]
 }
@@ -161,24 +162,28 @@ ADM3 de Chile, abreviado:
 - `path` es el archivo de país completo, opcional, presente solo cuando cabe
   bajo el presupuesto de 18 MiB. El ADM2 de Brasil tiene 28 partes y ningún
   `path`; su ausencia es normal y el catálogo lo indica.
-- `code` es el código ADM1 tal como lo entrega la fuente — errores incluidos.
-  El manifiesto de USA tiene una parte codificada `SU-SD` (la errata de
-  geoBoundaries para Dakota del Sur), y su `notes` lo explica. Una parte
-  codificada `unassigned` contiene las unidades a las que no se encontró
-  padre; la entrada ADM2 de USA lleva además `"unassigned": 1`.
+- `code` es la clave de la unidad ADM1: su `shapeISO` tras las correcciones de
+  `scripts/shapeiso_fixes.json`, que es también el valor de `adm1ISO` en cada
+  feature de la parte y la clave del propio `id` del ADM1. Las erratas de
+  origen se corrigen ahí en vez de pasarse tal cual — los 66 condados de
+  Dakota del Sur están en la parte codificada `US-SD` aunque geoBoundaries
+  codifique el estado como `SU-SD`. Una parte codificada `unassigned`
+  contiene las unidades a las que no se encontró padre; la entrada ADM2 de
+  USA lleva además `"unassigned": 1`.
 
 El CI comprueba que las partes sumen exactamente el número de features del
 nivel — así es como se detecta una partición que perdió o duplicó un municipio.
 
-!!! warning "`bbox` es un mínimo/máximo ingenuo"
+!!! warning "`bbox` es un mínimo/máximo ingenuo — en el manifiesto y en el archivo"
 
-    El `bbox` del manifiesto es el simple mínimo y máximo de cada coordenada.
-    Para un territorio que cruza el antimeridiano eso es casi el globo entero:
-    las entradas de USA leen `[-179,14…, 18,90…, 179,78…, 71,41…]`. Los
-    propios archivos GeoJSON los escribe mapshaper y siguen en cambio la
-    RFC 7946 §5.2 — `USA_ADM0.geojson` lleva `[172,47…, 18,90…, -66,97…,
-    71,41…]`, con oeste mayor que este. Para esos países ajusta el mapa al
-    `bbox` del archivo, no al del manifiesto. Ver
+    El `bbox` del manifiesto es el simple mínimo y máximo de cada coordenada,
+    y también lo es el `bbox` de nivel superior del propio archivo: el paso de
+    finalización lo recalcula desde las coordenadas, el CI comprueba que los
+    dos coinciden, y ninguno usa la forma con oeste mayor que este que permite
+    la RFC 7946 §5.2. Para un territorio que cruza el antimeridiano eso es
+    casi el globo entero — las entradas de USA y `USA_ADM0.geojson` leen por
+    igual `[-179,14…, 18,90…, 179,78…, 71,41…]`. No uses el `bbox` para
+    decidir si un país así toca tu zona de interés cerca de los 180°. Ver
     [CRS → El antimeridiano](crs.md#el-antimeridiano).
 
 ## Simplificación
@@ -228,11 +233,13 @@ seguro reejecutar el escáner de forma rutinaria. Los términos locales
 ## Regenerar
 
 Primero los previews y luego el manifiesto — `build_manifest.py` solo registra
-`preview` y `preview_bytes` para un preview que ya exista:
+`preview` y `preview_bytes` para un preview que ya exista — y después el
+índice, que incrusta el manifiesto:
 
 ```bash
 node scripts/make_previews.mjs data/earth/CHL
 python scripts/build_manifest.py data/earth/CHL
+python scripts/build_index.py
 ```
 
 El escáner streamea cada archivo con `ijson` en memoria constante, así que
@@ -240,8 +247,8 @@ incluso el archivo más grande del repositorio (el ADM1 de Canadá, 14,9 MB)
 cuesta unos segundos y unas decenas de megabytes de RAM en vez de más de un
 gigabyte de objetos Python parseados.
 
-No edites a mano los campos medidos; el CI regenera el manifiesto y falla el
-build si la versión commiteada no coincide.
+No edites a mano los campos medidos; el CI regenera el manifiesto y el índice
+y falla el build si una versión commiteada no coincide.
 
 ## Checksums y finales de línea
 
@@ -263,29 +270,42 @@ cada hash; el manifiesto tiene el valor completo.
 
 ## Validación
 
-`scripts/validate_data.py` corre en el CI en cada PR que toque `data/` y
-comprueba:
+Cada manifiesto se valida contra
+[`schemas/manifest.schema.json`](index-json.md#esquemas) — el mismo JSON Schema
+contra el que puede validar un consumidor — y su enum `license` es la
+[lista blanca de licencias](../contributing/sources.md), así que hay una única
+definición de lo que un manifiesto puede contener. `scripts/validate_data.py`
+corre en el CI en cada cambio de `data/`, `schemas/` o `scripts/` y comprueba:
 
-- que cada `.geojson` pesa menos de 50 MB y cada preview menos de 2 MB;
-- que cada archivo tiene un `bbox` de nivel superior y las cuatro propiedades
-  obligatorias;
-- que `source.license` — o cada entrada de `source.licenses` cuando es
-  `"mixed"` — y cada `datasets[].license` están en la
-  [lista aprobada](../contributing/sources.md);
-- que las partes de un nivel partido suman exactamente su `features`;
-- que el manifiesto commiteado coincide con una regeneración limpia.
+- que cada manifiesto, `data/index.json` y `scripts/countries.json` validan
+  contra su esquema, y cada feature de cada archivo a resolución completa
+  contra los esquemas de feature;
+- que los ids de feature son únicos por archivo y que cada `parentID` apunta a
+  un id que existe en el país;
+- que el `bbox` de cada archivo es igual a la extensión de sus coordenadas;
+- que cada `.geojson` pesa menos de 50 MB, y que cada preview existe y pesa
+  menos de 2 MB;
+- que los recuentos de features del manifiesto coinciden con los archivos, y
+  que las partes de un nivel partido suman exactamente su `features`;
+- con `--checksums`, como lo ejecuta el CI, que los `bytes` y el `sha256` de
+  cada archivo coinciden con el manifiesto.
 
-## Previsto: un índice global y esquemas
+Junto a él corren dos comprobaciones más: `finalize_geojson.py --check`
+(cada archivo está en forma canónica, con sus ids y su jerarquía) y
+`build_index.py --check`, y los manifiestos commiteados deben coincidir con
+una regeneración limpia.
 
-Dos cosas que los manifiestos todavía no te dan, ambas programadas para v1.0.0:
+## El índice global y los assets de la release
 
-- **`data/index.json`** — un único archivo que enumera cada territorio, nivel
-  y archivo con `bytes`, `sha256`, `bbox` y licencia, para que un cliente pueda
-  descubrir todo el corpus con una sola petición en vez de 55.
-- **JSON Schemas** en `schemas/` para el manifiesto, el índice y las
-  propiedades de las features, para que pipeline y consumidores validen contra
-  la misma definición.
+Los manifiestos van incrustados, tal cual, en **`data/index.json`** — un único
+archivo de 340 KB para todo el corpus, para que un cliente descubra cada
+territorio, nivel y archivo con `bytes`, `sha256`, `bbox` y licencia en una
+sola petición en vez de 55. Está documentado en
+[Índice global y esquemas](index-json.md), junto a los cinco JSON Schemas.
 
-Ver la [Hoja de ruta](../about/roadmap.md).
+Las releases etiquetadas distribuyen los mismos archivos de una segunda forma:
+un zip por territorio — la carpeta del país con sus archivos, manifiesto y
+previews — adjunto a la GitHub Release, más `index.json` y un `SHA256SUMS`.
+Ver [Descarga y CDN → Assets de la release](../get-started/download.md#assets-de-la-release).
 
 --8<-- "abbreviations.md"
