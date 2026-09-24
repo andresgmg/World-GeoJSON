@@ -7300,7 +7300,7 @@
             "src_shape_id"
           ],
           "preview": "data/earth/MEX/preview/MEX_ADM1.preview.geojson",
-          "preview_bytes": 146135,
+          "preview_bytes": 146154,
           "simplification": {
             "method": "visvalingam",
             "tolerance_m": 100
