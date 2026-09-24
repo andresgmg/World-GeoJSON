@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/TTO/TTO_ADM0.geojson",
-      "bytes": 4459,
-      "sha256": "2cf67464fe94da8816ef823d996bece595b8b713d75250925ddb688894082d30",
+      "bytes": 4477,
+      "sha256": "784a28872f6acfad962db0ba39350cc337fc9442d03820acf32c341682e3baca",
       "features": 1,
       "bbox": [
         -61.9287,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/TTO/preview/TTO_ADM0.preview.geojson",
-      "preview_bytes": 445,
+      "preview_bytes": 463,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/URY/URY_ADM0.geojson",
-      "bytes": 13792,
-      "sha256": "61c5a06f758a0ad19df0aad839ab790838a5b071542689fc7b9f603a5b5747f0",
+      "bytes": 13810,
+      "sha256": "589045574b0e9923a8fc06ad675c72c66e6d7c4c6feba5320d0f67c7964ff77d",
       "features": 1,
       "bbox": [
         -58.439361,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/URY/preview/URY_ADM0.preview.geojson",
-      "preview_bytes": 820,
+      "preview_bytes": 838,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

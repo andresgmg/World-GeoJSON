@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/BMU/BMU_ADM0.geojson",
-      "bytes": 2155,
-      "sha256": "99fb727e70dd3c1cdcde4d48c10224039c4fa8662914a776dbc055d02abbae35",
+      "bytes": 2173,
+      "sha256": "b06050ead809e34d77b4a47317949cb5d9e757407e208dc900a5a92ff33967f5",
       "features": 1,
       "bbox": [
         -64.885994,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/BMU/preview/BMU_ADM0.preview.geojson",
-      "preview_bytes": 342,
+      "preview_bytes": 360,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

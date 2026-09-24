@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/USA/USA_ADM0.geojson",
-      "bytes": 831809,
-      "sha256": "617ba421ab696181f49f8020c865ff20294d65e61a67e144ab2256f05092f84c",
+      "bytes": 831828,
+      "sha256": "85bb9b81e5461701db0adc3a4624371e62d5e32bcece2b17b04968d8ad1ba433",
       "features": 1,
       "bbox": [
         -179.143503,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/USA/preview/USA_ADM0.preview.geojson",
-      "preview_bytes": 36285,
+      "preview_bytes": 36303,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -54,8 +54,8 @@
     {
       "level": "ADM1",
       "path": "data/earth/USA/USA_ADM1.geojson",
-      "bytes": 4333031,
-      "sha256": "4eacc0e4187dbe007e6b28938cb44cefc62f33188388782a5304f634b855fd92",
+      "bytes": 4336726,
+      "sha256": "f6a2d664a1779915cc2229591f22a0c2ecde165ef440c62ba1efc6ace3572496",
       "features": 56,
       "bbox": [
         -179.148924,
@@ -68,6 +68,8 @@
         "Polygon": 24
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -75,7 +77,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/USA/preview/USA_ADM1.preview.geojson",
-      "preview_bytes": 209806,
+      "preview_bytes": 211036,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -87,8 +89,8 @@
     {
       "level": "ADM2",
       "path": "data/earth/USA/USA_ADM2.geojson",
-      "bytes": 5221654,
-      "sha256": "f53923cba1cd784da83effbbefee2f66dbd725adbffea3bde933ab6e609f4c48",
+      "bytes": 5458087,
+      "sha256": "357b2f0c9ac35bafd5b25adb4d63a09b800ca3baf08946b741e54ee64950d810",
       "features": 3233,
       "bbox": [
         -179.147355,
@@ -101,6 +103,9 @@
         "Polygon": 3124
       },
       "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -108,37 +113,13 @@
         "src_shape_id"
       ],
       "preview": "data/earth/USA/preview/USA_ADM2.preview.geojson",
-      "preview_bytes": 944427,
+      "preview_bytes": 967524,
       "split_by": "ADM1",
       "parts": [
         {
-          "path": "data/earth/USA/ADM2/SU-SD.geojson",
-          "bytes": 85008,
-          "sha256": "704c10ae77b7552d28a70f77ec4a0e0faaf3e903b0aebb708686c7e097fcd1f2",
-          "features": 66,
-          "bbox": [
-            -104.057709,
-            42.479642,
-            -96.436597,
-            45.945457
-          ],
-          "geometry_types": {
-            "Polygon": 66
-          },
-          "properties": [
-            "adm1ISO",
-            "shapeGroup",
-            "shapeISO",
-            "shapeName",
-            "shapeType",
-            "src_shape_id"
-          ],
-          "code": "SU-SD"
-        },
-        {
           "path": "data/earth/USA/ADM2/US-AK.geojson",
-          "bytes": 348440,
-          "sha256": "d3b1a8563899c076b7cffcb718481441675c60ef7efe07691e96870214c11d65",
+          "bytes": 350171,
+          "sha256": "0b7364a4422f44774489bc7f921f01f1a7303ae7a3045bbc178e7853e159b6da",
           "features": 29,
           "bbox": [
             -179.147355,
@@ -152,6 +133,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -162,8 +145,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-AL.geojson",
-          "bytes": 106638,
-          "sha256": "dc98da3059961707c95ef63ced6d28cbf4434d3c14ab31bf9be58a68dcc56cf0",
+          "bytes": 110313,
+          "sha256": "8800ab4228c7f1b06b99730e8e7fb2731ed32890ac32aac6008ee7c0eaba0b73",
           "features": 67,
           "bbox": [
             -88.473232,
@@ -177,6 +160,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -187,8 +172,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-AR.geojson",
-          "bytes": 126166,
-          "sha256": "2522405895f4264646803ad8c3b5ab4070d3fc2baec0cba6b74de43fff587032",
+          "bytes": 130288,
+          "sha256": "b8cce54a0a889dfb5df0f0c26cf212b3b4a519a48fb3a61ae84065c22bb44f0c",
           "features": 75,
           "bbox": [
             -94.617926,
@@ -201,6 +186,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -211,8 +198,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-AS.geojson",
-          "bytes": 3670,
-          "sha256": "899ad975b75712aca5011bef777a4cd9adcfdb4fb5fb42047461fbc2c15fcf71",
+          "bytes": 3895,
+          "sha256": "25a69915fafefdc8530e9ab603502bfc8ca44898813a2c2179d4ef608d108d99",
           "features": 4,
           "bbox": [
             -171.089847,
@@ -226,6 +213,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -236,8 +225,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-AZ.geojson",
-          "bytes": 67735,
-          "sha256": "4f13fd74d68b5290d30677f651c6bb05f6dca7e98a508a4fd77334574b4b39f1",
+          "bytes": 68549,
+          "sha256": "019ee2845ab365650ed95a03796f44eb0845f3b5562d77082a4e1a3a4b048230",
           "features": 15,
           "bbox": [
             -114.814196,
@@ -250,6 +239,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -260,8 +251,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-CA.geojson",
-          "bytes": 239861,
-          "sha256": "b119a0288f4c30363f04525a60faeaf7ea06873fe78b4c621487b7f4e2711741",
+          "bytes": 243080,
+          "sha256": "d28cb873971ebfa25e37975e6282e2abb0c1931c34bafa8739f9b7cfa546bd24",
           "features": 58,
           "bbox": [
             -124.409605,
@@ -275,6 +266,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -285,8 +278,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-CO.geojson",
-          "bytes": 102723,
-          "sha256": "4b301b806f283b87635563cb12feafe88174b76250e465ac321c51eb7aa07a8e",
+          "bytes": 106241,
+          "sha256": "590b418d804dc9edc53dd7229f6f17f3a6af7517fc5eb404f8320c47f021db66",
           "features": 64,
           "bbox": [
             -109.060264,
@@ -300,6 +293,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -310,8 +305,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-CT.geojson",
-          "bytes": 16533,
-          "sha256": "7ca64f8b705834b8039737c5671c044e135450a4b382b898dedd6529f8ae49de",
+          "bytes": 16984,
+          "sha256": "737ea186e57cc088eaa290ed7b5e77f96f9b5713399a059dbe82ccbfbe59e04a",
           "features": 8,
           "bbox": [
             -73.727776,
@@ -324,6 +319,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -334,8 +331,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-DC.geojson",
-          "bytes": 1505,
-          "sha256": "c27d06e969ad4d2efb117afbd69ab2c0db8fcdf915b877e169e5904a43a34168",
+          "bytes": 1571,
+          "sha256": "ca24268c6d157a21f929ba741e64d2dfeda5cc3b618f56ea14e44f0c9225bf98",
           "features": 1,
           "bbox": [
             -77.119761,
@@ -348,6 +345,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -358,8 +357,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-DE.geojson",
-          "bytes": 6776,
-          "sha256": "a13fe7067d772a5b979c0f0d6fbc2e96570864d13c9897e7648282dfebd3416e",
+          "bytes": 6939,
+          "sha256": "57f3db57f6cc18251a5b5fe12614c49187fa0e6a32175a0c14a7191a77b91614",
           "features": 3,
           "bbox": [
             -75.788897,
@@ -373,6 +372,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -383,8 +384,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-FL.geojson",
-          "bytes": 110113,
-          "sha256": "d19e244030f0462595f7c956c10559c10cb74b666a0cfa0472163fb5ede9a4b2",
+          "bytes": 113802,
+          "sha256": "c9fc98462bfe7b473a55a649d3bb50b46eba35bec085f582138b359eb3c256d8",
           "features": 67,
           "bbox": [
             -87.634948,
@@ -398,6 +399,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -408,8 +411,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-GA.geojson",
-          "bytes": 202634,
-          "sha256": "3f4636055fa02b12d51f7c1ee2b5f93b3f3452911575feba7bd82bdfa6565b64",
+          "bytes": 211325,
+          "sha256": "372d73caf62018138412a4693e19f3744ee3b1b1090a1dea7455d021e7af7275",
           "features": 159,
           "bbox": [
             -85.60517,
@@ -423,6 +426,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -433,8 +438,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-GU.geojson",
-          "bytes": 1820,
-          "sha256": "7cd3abb64ae6192c27cbcfd278afa13d7fd01610e371d1fff8a3b5237e4acd97",
+          "bytes": 1870,
+          "sha256": "55b1132065e75521057297c2873e9fc152388f02144950622022a2df99577a96",
           "features": 1,
           "bbox": [
             144.618326,
@@ -447,6 +452,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -457,8 +464,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-HI.geojson",
-          "bytes": 19918,
-          "sha256": "5918ba9a81a40bc75652d79fd49a0e61cbd7a93b43885f2dba568d2e3614807e",
+          "bytes": 20187,
+          "sha256": "6cce64df1dcd438b2731761eb38e63db9162897e8cf4374b39b545413927bb45",
           "features": 5,
           "bbox": [
             -160.249624,
@@ -472,6 +479,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -482,8 +491,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-IA.geojson",
-          "bytes": 79544,
-          "sha256": "4b01c4979d077c1c37add42f3270835f04eaa668b8124629f001855bd2d87712",
+          "bytes": 84975,
+          "sha256": "e4c4d1694a8ed7a72d4186d4bb43d6a455297deb9113e46e49410f8168f2151d",
           "features": 99,
           "bbox": [
             -96.639712,
@@ -496,6 +505,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -506,8 +517,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-ID.geojson",
-          "bytes": 118803,
-          "sha256": "05a183ef509e4d2e352c29ff6cd9a6d7d1df33d787c502ae7d63202e03f9adc3",
+          "bytes": 121207,
+          "sha256": "3690c0cd04597eae308e1b5ab2b7aa46d7a9617c8a3e3a0d9db7e28e3fb90b3f",
           "features": 44,
           "bbox": [
             -117.24304,
@@ -520,6 +531,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -530,8 +543,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-IL.geojson",
-          "bytes": 103555,
-          "sha256": "f8bfb9d8804659561c4ef90a7e157b0ee59ddb9845928ed409e5b41b5e6bb4e5",
+          "bytes": 109146,
+          "sha256": "394cc0d933d876886512188fe2d3e7cd0507d809d7566a61b621639ac7f484c9",
           "features": 102,
           "bbox": [
             -91.513086,
@@ -544,6 +557,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -554,8 +569,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-IN.geojson",
-          "bytes": 86015,
-          "sha256": "b91415655771faee0ea98976d9ce32422fe1fe59cdd4a3841dabefe2e03fdbef",
+          "bytes": 91044,
+          "sha256": "efc92e41d3cdf2d7766e60d6980afc742a766997bc6162bc6428e23fe83bb8a7",
           "features": 92,
           "bbox": [
             -88.097898,
@@ -568,6 +583,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -578,8 +595,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-KS.geojson",
-          "bytes": 70126,
-          "sha256": "b38998e58d3a257545ea9994e1326923d3e967d5f01275c02e2e1572490c1a70",
+          "bytes": 75855,
+          "sha256": "f020f9fa254626224a3bd609176af04eedd6ed8371fac31f0e0f3383486e13ef",
           "features": 105,
           "bbox": [
             -102.051753,
@@ -592,6 +609,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -602,8 +621,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-KY.geojson",
-          "bytes": 181861,
-          "sha256": "ba7e35aabc14fbc50a0f2203f231dfd40ac0e772990b202a7cb3463ae47a8b50",
+          "bytes": 188424,
+          "sha256": "d0d501970d4c2e9533b8e27e7d3d5e4d3b5cac5c4723c0e9a53158ae35901380",
           "features": 120,
           "bbox": [
             -89.571515,
@@ -617,6 +636,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -627,8 +648,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-LA.geojson",
-          "bytes": 142037,
-          "sha256": "e1bbcbade46a9b68350fc2c3abee18ee2204ba5f4cc2f90b489a8a82357a5856",
+          "bytes": 145697,
+          "sha256": "6fbffd6cc2ac0c1b222c2e8a387fffcbcc2d890b9a6ee68758296d49f1c63695",
           "features": 64,
           "bbox": [
             -94.043154,
@@ -642,6 +663,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -652,8 +675,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-MA.geojson",
-          "bytes": 35121,
-          "sha256": "3b3186c1fc04acd3cd5deadd811b17ddb836133231aa498f4092d09507ed3215",
+          "bytes": 35903,
+          "sha256": "80b4d6d732bed6d44b114839c066886dd2038a3b22d3f996e9e80605b5e18deb",
           "features": 14,
           "bbox": [
             -73.508143,
@@ -667,6 +690,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -677,8 +702,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-MD.geojson",
-          "bytes": 62854,
-          "sha256": "ea104f02f835aa6f068c4309e5da2d3f02b0a1ea9c88728d8ec061badc52f322",
+          "bytes": 64208,
+          "sha256": "62c6a0a7510235e844841491521f0ffc4854ec02a19b5c5260e29eb561677332",
           "features": 24,
           "bbox": [
             -79.487654,
@@ -692,6 +717,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -702,8 +729,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-ME.geojson",
-          "bytes": 61406,
-          "sha256": "726e373a55772b22ca7be26240a7ae7c8a9602b844487b7358420281e7d0ae6c",
+          "bytes": 62300,
+          "sha256": "d3682a16fbe2535c16d475f6d437e08ded7d76b3008175bed580f7831f3aecea",
           "features": 16,
           "bbox": [
             -71.083925,
@@ -717,6 +744,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -727,8 +756,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-MI.geojson",
-          "bytes": 103171,
-          "sha256": "7e67f336c717b71737a1f97de0c5a1c59ec69a6db3efac5d9a47bf8a3f6e66ad",
+          "bytes": 107750,
+          "sha256": "49d19f878c907258ae5567fe7263b0b04be17b9abe45767af0fc272c9804f158",
           "features": 83,
           "bbox": [
             -90.418143,
@@ -742,6 +771,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -752,8 +783,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-MN.geojson",
-          "bytes": 122463,
-          "sha256": "b4566219ed66e29086ce5138e2972eb15398b777eb3f9206842bddd7eaa51f97",
+          "bytes": 127260,
+          "sha256": "a7a87eeccba12c402292d3fd5e45e1c7ba967bb76fec92dcea186649af69eed4",
           "features": 87,
           "bbox": [
             -97.239219,
@@ -766,6 +797,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -776,8 +809,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-MO.geojson",
-          "bytes": 125464,
-          "sha256": "b7640620eb7f5b61d5b01db5d8f18f07f343aeebddec2ba4a873c1d15a8358f2",
+          "bytes": 131764,
+          "sha256": "1c8dc475489fb0bd9231cbfc9d2f46d0571bdc95ba82f800ac628509ddf5d321",
           "features": 115,
           "bbox": [
             -95.774712,
@@ -790,6 +823,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -800,8 +835,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-MP.geojson",
-          "bytes": 4950,
-          "sha256": "5c22f710aa58bec60b646e1ea1f2597685501b21d96fa6aa05aa218e5120124b",
+          "bytes": 5172,
+          "sha256": "d13914702fff02a250c6e6ff042daa291637998a730147a61abbc3f971e1da7b",
           "features": 4,
           "bbox": [
             144.884682,
@@ -815,6 +850,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -825,8 +862,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-MS.geojson",
-          "bytes": 108218,
-          "sha256": "f8000a261e7efa8f084a913c572ff3104579d74f41d2911e59856793ecdc91e6",
+          "bytes": 112736,
+          "sha256": "8dcbfbcb639096f54ab52d3564b53e3b9311920d4659a174bf8a1d698bba2f31",
           "features": 82,
           "bbox": [
             -91.654913,
@@ -840,6 +877,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -850,8 +889,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-MT.geojson",
-          "bytes": 178162,
-          "sha256": "0f238f375568639ab73d1cdaa91bf01954ba5a0cfd1cc1c647e764b11a806f14",
+          "bytes": 181293,
+          "sha256": "c6419481701cf05f144c092d1d4884bc34ad06f4aa0854d9f862710c68a30cee",
           "features": 56,
           "bbox": [
             -116.049908,
@@ -864,6 +903,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -874,8 +915,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-NC.geojson",
-          "bytes": 168446,
-          "sha256": "a44f9573c74c90258080bc0b9766ba8cb514af98576d83990b498d8722ace3c2",
+          "bytes": 173946,
+          "sha256": "853dee3af455577ce29ccd92ec80d0781572156398da8b4c7fe87cf7af3f6c37",
           "features": 100,
           "bbox": [
             -84.321873,
@@ -889,6 +930,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -899,8 +942,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-ND.geojson",
-          "bytes": 69016,
-          "sha256": "b60b06aed9b19c00674499aa6fbaa08dccb9dede3d86ab9e345c44f50873c6b8",
+          "bytes": 71911,
+          "sha256": "00e76855a37cee09be74f41a60279815f87050b8b6fb32ac2e4368fb86751778",
           "features": 53,
           "bbox": [
             -104.048911,
@@ -913,6 +956,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -923,8 +968,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-NE.geojson",
-          "bytes": 76385,
-          "sha256": "57564ef15bd72c3a4788fcff548dfd2205fcd31453050cffa043a8bdcbe27b14",
+          "bytes": 81448,
+          "sha256": "47e71de62072792ade7e138e749c0aca1aea13432013a69181f130251ede6361",
           "features": 93,
           "bbox": [
             -104.053524,
@@ -937,6 +982,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -947,8 +994,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-NH.geojson",
-          "bytes": 34465,
-          "sha256": "1bfe955def29d1b2748f29974542a11e9cbe5dd9686f21c3d71a7539f1ce60d9",
+          "bytes": 35025,
+          "sha256": "b4347adfaf94067eff8a03a81c1a2ea8ce706a69c1db8175f3d847e164b52e27",
           "features": 10,
           "bbox": [
             -72.557248,
@@ -961,6 +1008,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -971,8 +1020,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-NJ.geojson",
-          "bytes": 37923,
-          "sha256": "f670c332921cdac5d0b28accfba120aa941cbcc676f9041cf3d9cfcb9a267ca7",
+          "bytes": 39079,
+          "sha256": "ebe133e13a8e7da01224e263a48dfd156199a7ca8ec0ee231a1b779f081344d2",
           "features": 21,
           "bbox": [
             -75.559616,
@@ -985,6 +1034,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -995,8 +1046,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-NM.geojson",
-          "bytes": 44637,
-          "sha256": "b8fc68dc09adb6313cb3e3e0f5e36c058f4d9b5081871b22b53aa2aff2f9a427",
+          "bytes": 46448,
+          "sha256": "1de2ce2aa2e68adceeb1eb83accb55ab8593900512ecb0a941de07688600348e",
           "features": 33,
           "bbox": [
             -109.050183,
@@ -1010,6 +1061,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1020,8 +1073,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-NV.geojson",
-          "bytes": 35778,
-          "sha256": "54c487451eaeb8e1051cbf6a286791b455d63c38e1284bde3e1c30eb5463c5e5",
+          "bytes": 36712,
+          "sha256": "598d3fb713fae1da45c9a2f33cdece30491251831f75e86695ca594487be476c",
           "features": 17,
           "bbox": [
             -120.005759,
@@ -1034,6 +1087,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1044,8 +1099,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-NY.geojson",
-          "bytes": 91925,
-          "sha256": "564b72e71625a89bd6d7663c201c83a333b35f0b45e512d3a34a119422a67426",
+          "bytes": 95357,
+          "sha256": "3a331491e7f4305d0d1e9c5af7def72ecbd436e4d2b96fb1e7fa6ea662397867",
           "features": 62,
           "bbox": [
             -79.762155,
@@ -1059,6 +1114,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1069,8 +1126,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-OH.geojson",
-          "bytes": 80424,
-          "sha256": "9cc91bb1c8e76605d5448e768591f525ebd103708d9745da4a650c3a94bc52c2",
+          "bytes": 85240,
+          "sha256": "9b30259ab1999b6ecdf6f7287b3fdba68cd383e86d42425a5d32fe7628de3545",
           "features": 88,
           "bbox": [
             -84.820164,
@@ -1084,6 +1141,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1094,8 +1153,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-OK.geojson",
-          "bytes": 97055,
-          "sha256": "425cd04bb3ee743230f539c1ee5b8b129600d386a9e1d274b68e718a1214dc7e",
+          "bytes": 101274,
+          "sha256": "d1fc5aeb708c29b5831ad52f18c02bb8ed8c225f64d3728fad401965b8a0548f",
           "features": 77,
           "bbox": [
             -103.002574,
@@ -1108,6 +1167,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1118,8 +1179,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-OR.geojson",
-          "bytes": 126039,
-          "sha256": "5cad25630f482f78a97ad412a2f859174b70e26729b10ba56cdf75f7cdd29c85",
+          "bytes": 128011,
+          "sha256": "0073042f28aac7a0a2c4476b78ec4a2d71a960715e06a999cca24e6ea407ce50",
           "features": 36,
           "bbox": [
             -124.552455,
@@ -1132,6 +1193,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1142,8 +1205,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-PA.geojson",
-          "bytes": 101825,
-          "sha256": "9d0af4332eae704eb43ce9422fdf107b47c6e96ad4bfc304a600a42b9ec03ec3",
+          "bytes": 105537,
+          "sha256": "481750fafbf292b4de97022a5d9c8922867042c68c4152c0238702c2b074dcd1",
           "features": 67,
           "bbox": [
             -80.519895,
@@ -1157,6 +1220,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1167,8 +1232,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-PR.geojson",
-          "bytes": 61360,
-          "sha256": "ee9d86200124670550735a90e14a6d857c6f26ef173ba36f12809e2953f5dc28",
+          "bytes": 65714,
+          "sha256": "3eb5f3e7dc0533b8d78a035f0b2347bcd12316ffb1265f0eb28ac8b649b7ee5e",
           "features": 78,
           "bbox": [
             -67.940798,
@@ -1182,6 +1247,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1192,8 +1259,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-RI.geojson",
-          "bytes": 9810,
-          "sha256": "02fb0255c929d227a5698edf38d3a28b4179c4774d50efc33ed437a3600f01f0",
+          "bytes": 10086,
+          "sha256": "4ae379bc89a0f3dc20ecd1e20e016be541e3359c912fea48882611cc642e874e",
           "features": 5,
           "bbox": [
             -71.862773,
@@ -1207,6 +1274,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1217,8 +1286,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-SC.geojson",
-          "bytes": 98702,
-          "sha256": "1178e45b018564d8c2cf96cbfa0a7d3be9e12804bf121b648a490d0d02fc1e43",
+          "bytes": 101273,
+          "sha256": "e184a7e07b99629da0a0b774ca43df7a7cc5061b61d3b70bf59abe1a0d2b4f26",
           "features": 46,
           "bbox": [
             -83.353242,
@@ -1232,6 +1301,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1241,9 +1312,35 @@
           "code": "US-SC"
         },
         {
+          "path": "data/earth/USA/ADM2/US-SD.geojson",
+          "bytes": 88610,
+          "sha256": "3769338ec85373f9a3ec04f59d26dceacbd41b77c2d74c85194c56d523c5de8d",
+          "features": 66,
+          "bbox": [
+            -104.057709,
+            42.479642,
+            -96.436597,
+            45.945457
+          ],
+          "geometry_types": {
+            "Polygon": 66
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "US-SD"
+        },
+        {
           "path": "data/earth/USA/ADM2/US-TN.geojson",
-          "bytes": 144394,
-          "sha256": "3d3388cdb50c602988017c27416fe5da1500d7c2ccc5379d63112370da49fc63",
+          "bytes": 149598,
+          "sha256": "4039eb4e47f72489bc29064e7c9890456141dd75ce6203145ded8505bc3e9881",
           "features": 95,
           "bbox": [
             -90.310304,
@@ -1257,6 +1354,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1267,8 +1366,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-TX.geojson",
-          "bytes": 301871,
-          "sha256": "06e84fbe18cef25dfb423ba1f753b9f814f2da030d92c87c77a93092dd95d308",
+          "bytes": 315780,
+          "sha256": "d17ed377055fdf3d62737ba33275aaba2abfb065740e5660404efcb326e29902",
           "features": 254,
           "bbox": [
             -106.645489,
@@ -1282,6 +1381,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1292,8 +1393,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-UT.geojson",
-          "bytes": 75201,
-          "sha256": "ccbc3d3c83e59d324942acaaa0e1491d9a4dd22ae682dcd453bbc7e0b6dbb9f5",
+          "bytes": 76770,
+          "sha256": "4f69cab7108dbe5589a6f708e60b37c9475c3887df58d82bae884ecba0d6fd40",
           "features": 29,
           "bbox": [
             -114.052974,
@@ -1306,6 +1407,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1316,8 +1419,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-VA.geojson",
-          "bytes": 194599,
-          "sha256": "928de2887e79c77681951a46a3929035d6bbdc5cea6ae0669b51ec95bef4a4b4",
+          "bytes": 202148,
+          "sha256": "dfb8184520d05e716ad9b47b39dbd89d779ac2541d5902a9a8dd10451d0b38bd",
           "features": 133,
           "bbox": [
             -83.675417,
@@ -1331,6 +1434,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1341,8 +1446,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-VI.geojson",
-          "bytes": 4358,
-          "sha256": "a055fd6af744abf3de6e240176734649742c09f327fef0a3246bd82f4fd8b0fc",
+          "bytes": 4524,
+          "sha256": "bda2666137e88833cf47cf4f99396a5eda190a5ff06e120f5f0c42d578f2367a",
           "features": 3,
           "bbox": [
             -65.085359,
@@ -1355,6 +1460,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1365,8 +1472,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-VT.geojson",
-          "bytes": 35200,
-          "sha256": "b4aeee1a522a177ac8abce78fee73d72d53a578a5b9aacb80b05148b9237e2f3",
+          "bytes": 35983,
+          "sha256": "4e64a000346464e7ccdd7207aef36e30fb01784589f11edc84c83adcb29ce712",
           "features": 14,
           "bbox": [
             -73.437741,
@@ -1379,6 +1486,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1389,8 +1498,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-WA.geojson",
-          "bytes": 121151,
-          "sha256": "b1bed0891937c1769cc80ea60e802875c08009e7ba7e2a3192b3524622d6c0cb",
+          "bytes": 123303,
+          "sha256": "2372cf5015415004a7ee9f4c68028a1055af935db2bac8486af8b45919453701",
           "features": 39,
           "bbox": [
             -124.733189,
@@ -1404,6 +1513,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1414,8 +1525,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-WI.geojson",
-          "bytes": 94797,
-          "sha256": "30fca939a658869e0d68dbc1af409ba48b9aa3a407225d0c4c0ea2cd10a49645",
+          "bytes": 98751,
+          "sha256": "fb459b9e6919cd9e329538b2d19b4a688b3d3adef2484fbb21189449ebfec973",
           "features": 72,
           "bbox": [
             -92.888122,
@@ -1429,6 +1540,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1439,8 +1552,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-WV.geojson",
-          "bytes": 112476,
-          "sha256": "34ab2daf48ee0e91a547f790e9080942566a5bbf0a6166cc6dcc44d4b50e0107",
+          "bytes": 115490,
+          "sha256": "3380394d0a4df008e699035923097d63b8fa4bc19d43556794c2b7f9c0c23040",
           "features": 55,
           "bbox": [
             -82.644743,
@@ -1453,6 +1566,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1463,8 +1578,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/US-WY.geojson",
-          "bytes": 43489,
-          "sha256": "e87c7541861e84dd540269c24b05486a7d9300c63e2112ae0d45eb4db13b1033",
+          "bytes": 44756,
+          "sha256": "747406ddabaacab46d30d76570b7f41acb0f4d4e31b1f77d5a9fe6ba840af78a",
           "features": 23,
           "bbox": [
             -111.0569,
@@ -1477,6 +1592,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -1487,8 +1604,8 @@
         },
         {
           "path": "data/earth/USA/ADM2/unassigned.geojson",
-          "bytes": 565,
-          "sha256": "3b168c3e7ced5a3a56425ed8e5f1dcdf4842fd103976fcee69499f004b401e53",
+          "bytes": 579,
+          "sha256": "e70dbc0d80e7544b32bd256b33b8f64b66c66af8a35490b92518b983314828c3",
           "features": 1,
           "bbox": [
             -168.16355,

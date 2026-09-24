@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/TCA/TCA_ADM0.geojson",
-      "bytes": 5111,
-      "sha256": "fce1e592f6442c74e5a77c50712fc05ea080a0d23b5f40d1cf985ee61c56fb73",
+      "bytes": 5129,
+      "sha256": "e02b5fbbffaf355e71a7591c0d8c7704ebfe95e59707725a38e165e9edaa2b5a",
       "features": 1,
       "bbox": [
         -72.481313,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/TCA/preview/TCA_ADM0.preview.geojson",
-      "preview_bytes": 538,
+      "preview_bytes": 556,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

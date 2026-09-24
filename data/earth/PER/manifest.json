@@ -25,8 +25,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/PER/PER_ADM0.geojson",
-      "bytes": 55509,
-      "sha256": "17fdc253d60a8f246ed02425e33ab5f24e370b3c8982b5b9062ef84f9efe5743",
+      "bytes": 55527,
+      "sha256": "8a32c0bbcce78dd65d57f7c0cf051ddeba7f01fef7ba55f68eaa524c1f0cd319",
       "features": 1,
       "bbox": [
         -81.337558,
@@ -44,7 +44,7 @@
         "shapeType"
       ],
       "preview": "data/earth/PER/preview/PER_ADM0.preview.geojson",
-      "preview_bytes": 2554,
+      "preview_bytes": 2572,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -55,8 +55,8 @@
     {
       "level": "ADM1",
       "path": "data/earth/PER/PER_ADM1.geojson",
-      "bytes": 189506,
-      "sha256": "9fd51826c67869ec222a46cd6462e7c2838a48b805e2b72a05b8386230edd3ca",
+      "bytes": 191246,
+      "sha256": "0588fa4a947eef03b9bf4733f3e064a3d9c8009d28000ddfc1ad5bbb80a4dded",
       "features": 26,
       "bbox": [
         -81.327698,
@@ -69,6 +69,8 @@
         "Polygon": 24
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -76,7 +78,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/PER/preview/PER_ADM1.preview.geojson",
-      "preview_bytes": 14161,
+      "preview_bytes": 14757,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

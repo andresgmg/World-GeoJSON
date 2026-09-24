@@ -28,8 +28,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/PRY/PRY_ADM0.geojson",
-      "bytes": 26317,
-      "sha256": "79f8d242a97eb6b39f0373f2859cf5638b7b4d3946da9b4ae3cd78b751592328",
+      "bytes": 26335,
+      "sha256": "3b6d660dc3ac3db3e98762d9ee3a967f85102b9ee234db6c410130dd007eb33b",
       "features": 1,
       "bbox": [
         -62.650357,
@@ -47,7 +47,7 @@
         "shapeType"
       ],
       "preview": "data/earth/PRY/preview/PRY_ADM0.preview.geojson",
-      "preview_bytes": 1341,
+      "preview_bytes": 1359,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -58,8 +58,8 @@
     {
       "level": "ADM1",
       "path": "data/earth/PRY/PRY_ADM1.geojson",
-      "bytes": 539019,
-      "sha256": "050168ea912068367bb28719e2e062bddda9311836d80c34823abd431bb540c5",
+      "bytes": 540197,
+      "sha256": "ff8c4e863244f0ff39fe4bb3e0fc0beef26e2aa4fa7d6d2ad787cc6150b3f4c2",
       "features": 18,
       "bbox": [
         -62.644617,
@@ -71,6 +71,8 @@
         "Polygon": 18
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -78,7 +80,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/PRY/preview/PRY_ADM1.preview.geojson",
-      "preview_bytes": 26082,
+      "preview_bytes": 26468,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -90,8 +92,8 @@
     {
       "level": "ADM2",
       "path": "data/earth/PRY/PRY_ADM2.geojson",
-      "bytes": 1649437,
-      "sha256": "2edbc363e377317a06e4c13c616f0d2e076851295e40962f92c5c361c2438456",
+      "bytes": 1668079,
+      "sha256": "35f07e276f000d253132402dfe5a96e4cc63db78d5d7742aafe53f57089e2950",
       "features": 247,
       "bbox": [
         -62.644617,
@@ -104,6 +106,9 @@
         "Polygon": 246
       },
       "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -111,13 +116,13 @@
         "src_shape_id"
       ],
       "preview": "data/earth/PRY/preview/PRY_ADM2.preview.geojson",
-      "preview_bytes": 136876,
+      "preview_bytes": 139687,
       "split_by": "ADM1",
       "parts": [
         {
           "path": "data/earth/PRY/ADM2/PY-1.geojson",
-          "bytes": 106404,
-          "sha256": "8222359d2b124d00a1fcd16f91f1af6e86f6675205fcb3a9b99d4927278e76ba",
+          "bytes": 106892,
+          "sha256": "0bca3447260efc3e96b566d4a867e6a1b5fa738311d87a63a254333330431d37",
           "features": 9,
           "bbox": [
             -57.993701,
@@ -130,6 +135,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -140,8 +147,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-10.geojson",
-          "bytes": 149957,
-          "sha256": "5f700b98429fd9ed610529ffafe4b8bc27c421e793edf77065ad11f21e86fe0d",
+          "bytes": 151288,
+          "sha256": "ab14c65e3c117e364b58a599680f77d11588736761d902fc846afdc584326608",
           "features": 22,
           "bbox": [
             -55.55064,
@@ -154,6 +161,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -164,8 +173,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-11.geojson",
-          "bytes": 47529,
-          "sha256": "2c38a15c4e23cc3cffab863833a19ea4c7394bb555d78634b51c625bd9499fed",
+          "bytes": 48619,
+          "sha256": "5723435d457f5917af85b37c66c8955da1b7d804b847424e8d60802122da0847",
           "features": 19,
           "bbox": [
             -57.826763,
@@ -178,6 +187,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -188,8 +199,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-12.geojson",
-          "bytes": 66924,
-          "sha256": "6d0c04b16346d8d25b2a1bcf391c7583da304315846f4eaea4832217a6870121",
+          "bytes": 67867,
+          "sha256": "1628e8ad165a41f855b41c2a077c921ec5c341dee57295968aae7bc2c9cce66a",
           "features": 16,
           "bbox": [
             -58.664912,
@@ -202,6 +213,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -212,8 +225,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-13.geojson",
-          "bytes": 72041,
-          "sha256": "d1302d1db6ab347577f447ca421a427c35c6e12c11fc57f6534e7cb818a67f56",
+          "bytes": 72284,
+          "sha256": "c8acc8cdd7dc44cd704bf637f4a13d0b1f6befbf05e098e78debd1f4096d8372",
           "features": 4,
           "bbox": [
             -56.826067,
@@ -227,6 +240,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -237,8 +252,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-14.geojson",
-          "bytes": 112991,
-          "sha256": "1a6bc80ee2ee52c8ad38f93c5d44d898c1facdab28dbd214aa55d240bffef430",
+          "bytes": 113711,
+          "sha256": "295af2533ec985f1df2b8d4e35fe5ceee40e2ee072e62d8e9938b3a18c3903ff",
           "features": 12,
           "bbox": [
             -56.171816,
@@ -251,6 +266,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -261,8 +278,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-15.geojson",
-          "bytes": 142853,
-          "sha256": "2cf2af9feccb4d0423c82ba3022897c4c62ef9967a223a072f29978ceef5b1b0",
+          "bytes": 143368,
+          "sha256": "20ce68a1a893120881f2f3e281489a0aef6c530edbfe9ab0533602a68b30d665",
           "features": 8,
           "bbox": [
             -60.785391,
@@ -275,6 +292,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -285,8 +304,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-16.geojson",
-          "bytes": 76247,
-          "sha256": "efc3379d78850adcf5a3963ffd99889ed01918e19ac1382382b2afd41f801b8e",
+          "bytes": 76490,
+          "sha256": "0a75a50125ddf77a672921b444ccfd09564e83c0cfdd108d6a16140f11623b84",
           "features": 4,
           "bbox": [
             -61.9224,
@@ -299,6 +318,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -309,8 +330,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-19.geojson",
-          "bytes": 30623,
-          "sha256": "2c720a75498c6c22acb64bb8adc17e2541b406da097bc6a940fdd7beb213f1a8",
+          "bytes": 30806,
+          "sha256": "a9751cbb42cd6b2aaa6d823d59e22d15533a0f371c5af7d1a354f1c0abb14105",
           "features": 3,
           "bbox": [
             -62.644617,
@@ -323,6 +344,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -333,8 +356,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-2.geojson",
-          "bytes": 162890,
-          "sha256": "7a7b866c6defc5c14cb1f46d7bab54527ba4922f6bcefee4b9994548c9cac7e6",
+          "bytes": 164051,
+          "sha256": "ba9b64a029e0291b47c596706f4702c0d5eeb206f10a7747c1ca261afb8b38f9",
           "features": 20,
           "bbox": [
             -57.473517,
@@ -347,6 +370,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -357,8 +382,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-3.geojson",
-          "bytes": 71900,
-          "sha256": "2337ec7449a3155257048a19eecebf11c06024ef9b543cefad4afa3cb65524e8",
+          "bytes": 73040,
+          "sha256": "26b85e3cdb8919039aa3561b692f4be19657c03e01b4da6bb69931fa9b2cee7a",
           "features": 20,
           "bbox": [
             -57.478317,
@@ -371,6 +396,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -381,8 +408,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-4.geojson",
-          "bytes": 65770,
-          "sha256": "dd9cd71870df4e6f1d825d93a507a925130fb2cdaec63937f45dd93a8484daf7",
+          "bytes": 66799,
+          "sha256": "ae92f887349ab1c75361364071c61a12b047602917e27d5849baafe8219d9cfd",
           "features": 18,
           "bbox": [
             -56.747588,
@@ -395,6 +422,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -405,8 +434,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-5.geojson",
-          "bytes": 130343,
-          "sha256": "f858dd5300f1b6a21de69aadb4ab3a4f4bf4b00158573ffc5300849670465f49",
+          "bytes": 131643,
+          "sha256": "e6840d68293d5259116bd485c8af6b81baa9af53d1732228ec599d156756f218",
           "features": 22,
           "bbox": [
             -56.856444,
@@ -419,6 +448,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -429,8 +460,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-6.geojson",
-          "bytes": 98401,
-          "sha256": "390b30d41bacd16c5820c8f4696cebf54e64554d35a9572bd764426f26737f93",
+          "bytes": 99014,
+          "sha256": "5419b6f0c0c3978805c1e6c19c8c6eb29178dd51928cd5e1316e23241956221d",
           "features": 11,
           "bbox": [
             -56.848693,
@@ -443,6 +474,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -453,8 +486,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-7.geojson",
-          "bytes": 158224,
-          "sha256": "73d0928534cc6e635f1abf93c4e33d63eb08a29271c4c31cb46371941373e97e",
+          "bytes": 160006,
+          "sha256": "41071d514fa52b5312870390a28466ce81b08187886cb2002a06e8cb32fbf948",
           "features": 31,
           "bbox": [
             -56.884837,
@@ -467,6 +500,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -477,8 +512,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-8.geojson",
-          "bytes": 59125,
-          "sha256": "b069067d06960088ab8778df2808f72b36fec78256af5b6ad5165760a1c8558a",
+          "bytes": 59679,
+          "sha256": "5ad218972cd3c56279458530d1243830d724b1bd550ef22dc00e15a36b33334e",
           "features": 10,
           "bbox": [
             -57.743139,
@@ -491,6 +526,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -501,8 +538,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-9.geojson",
-          "bytes": 100863,
-          "sha256": "b88662a54c09e6e708da22baa97de8427656ba2d235059db4ea44f796304a0a8",
+          "bytes": 101790,
+          "sha256": "662b22d5fed1ce8869cadc2e951c78386919dce2df8efa4a8e92f4fce2c2c997",
           "features": 17,
           "bbox": [
             -57.748991,
@@ -515,6 +552,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",
@@ -525,8 +564,8 @@
         },
         {
           "path": "data/earth/PRY/ADM2/PY-ASU.geojson",
-          "bytes": 2281,
-          "sha256": "0b94a9e0aeaf3ab3de579efb95d4afc645f2086f29f8b971647f032f4e02a6f5",
+          "bytes": 2338,
+          "sha256": "53f9226182a735a7c1dab02fe03c7dfc7787e601e77ceb61a08073258ad24352",
           "features": 1,
           "bbox": [
             -57.673858,
@@ -539,6 +578,8 @@
           },
           "properties": [
             "adm1ISO",
+            "parentID",
+            "parentISO",
             "shapeGroup",
             "shapeISO",
             "shapeName",

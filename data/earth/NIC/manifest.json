@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/NIC/NIC_ADM0.geojson",
-      "bytes": 21164,
-      "sha256": "ea53a2fe3e0bf9347fd5d3bb0412f7b9a75c29633c19e2992edff8d232c74624",
+      "bytes": 21182,
+      "sha256": "a91facb3fd4673115f0e3f8525450deb8d93f57e84da320ea0ba97ed24fa776d",
       "features": 1,
       "bbox": [
         -87.685821,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/NIC/preview/NIC_ADM0.preview.geojson",
-      "preview_bytes": 1112,
+      "preview_bytes": 1130,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

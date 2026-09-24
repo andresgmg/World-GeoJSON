@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/VGB/VGB_ADM0.geojson",
-      "bytes": 2372,
-      "sha256": "75082088cd5bda36990e981f6e5f843657e21145b0aa2e7747f62c20444fe35c",
+      "bytes": 2390,
+      "sha256": "280528715a5cf5dce9f85d0145d0de069fe7a55bbe3653aee9a0347fa1b9d3d0",
       "features": 1,
       "bbox": [
         -64.773997,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/VGB/preview/VGB_ADM0.preview.geojson",
-      "preview_bytes": 356,
+      "preview_bytes": 374,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

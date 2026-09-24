@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/CRI/CRI_ADM0.geojson",
-      "bytes": 18400,
-      "sha256": "8a7d46e0dd7debac26d483cce3764e040e20d5967a3f8a5c5f728769dfb32fbc",
+      "bytes": 18418,
+      "sha256": "49c2f72130687e74dc56ce5babd8b2148107346a75cfd8fac3e736d7573df66c",
       "features": 1,
       "bbox": [
         -87.117665,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/CRI/preview/CRI_ADM0.preview.geojson",
-      "preview_bytes": 997,
+      "preview_bytes": 1015,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -54,8 +54,8 @@
     {
       "level": "ADM2",
       "path": "data/earth/CRI/CRI_ADM2.geojson",
-      "bytes": 480954,
-      "sha256": "bb6c04ac6533e9d44f4b9775e1d6608d1455ed4c5381d9e2b28565f008bc9bea",
+      "bytes": 484797,
+      "sha256": "ac6d93856a351f1e7eb1b991143cbb76d5b56e5b131bed1e14f0e6dcf6553636",
       "features": 83,
       "bbox": [
         -87.095521,
@@ -68,6 +68,8 @@
         "Polygon": 79
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -75,7 +77,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/CRI/preview/CRI_ADM2.preview.geojson",
-      "preview_bytes": 42124,
+      "preview_bytes": 42315,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

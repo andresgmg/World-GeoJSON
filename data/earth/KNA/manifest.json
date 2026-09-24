@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/KNA/KNA_ADM0.geojson",
-      "bytes": 1213,
-      "sha256": "5cce93e78b15319fa89acd27be91799654d2ed9ef5e3a03569bf526e897a74b8",
+      "bytes": 1231,
+      "sha256": "db22ba6f8c501a6434bf4dbf0e42b2f4cf8013efeeb8d48c10f328c76cb06157",
       "features": 1,
       "bbox": [
         -62.861073,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/KNA/preview/KNA_ADM0.preview.geojson",
-      "preview_bytes": 335,
+      "preview_bytes": 353,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

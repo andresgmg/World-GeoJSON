@@ -28,8 +28,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/VEN/VEN_ADM0.geojson",
-      "bytes": 69995,
-      "sha256": "10f88a2fc2fbfe9ee2a811f50fb294e4f9c70098b73f3d15158a274afdb533fb",
+      "bytes": 70013,
+      "sha256": "af747aca2f53810a28d05112b4be43ad5aebf76fdbde1b9ba99971df044c417e",
       "features": 1,
       "bbox": [
         -73.391149,
@@ -47,7 +47,7 @@
         "shapeType"
       ],
       "preview": "data/earth/VEN/preview/VEN_ADM0.preview.geojson",
-      "preview_bytes": 3065,
+      "preview_bytes": 3083,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -58,8 +58,8 @@
     {
       "level": "ADM1",
       "path": "data/earth/VEN/VEN_ADM1.geojson",
-      "bytes": 957533,
-      "sha256": "8c5320ec252f17883b4fba87c2e6926091f1960311ed7e8b122ab2b88c0d795c",
+      "bytes": 959156,
+      "sha256": "8ba1dc35cb932cc067b471c2d8cfe31572525a618953aaa39b4fb4449b33654e",
       "features": 25,
       "bbox": [
         -73.369055,
@@ -72,6 +72,8 @@
         "Polygon": 20
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -79,7 +81,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/VEN/preview/VEN_ADM1.preview.geojson",
-      "preview_bytes": 45303,
+      "preview_bytes": 45826,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

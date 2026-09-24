@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/BLM/BLM_ADM0.geojson",
-      "bytes": 515,
-      "sha256": "d9cbbc8acde32b7893094868f3e23ae581ebd6030349bf297065f9af23a89aca",
+      "bytes": 533,
+      "sha256": "59fb1d63030b75310c2c679c6f09a0a48ddab16309d78073f08968597793378b",
       "features": 1,
       "bbox": [
         -62.86734,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/BLM/preview/BLM_ADM0.preview.geojson",
-      "preview_bytes": 309,
+      "preview_bytes": 327,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

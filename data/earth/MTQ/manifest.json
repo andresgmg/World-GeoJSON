@@ -25,8 +25,8 @@
     {
       "level": "ADM4",
       "path": "data/earth/MTQ/MTQ_ADM4.geojson",
-      "bytes": 71237,
-      "sha256": "06ba87a97087033b604d2bd0986b55a5157266db13338ba080686b6a6e855520",
+      "bytes": 71427,
+      "sha256": "8819a93fe3f466e8f3e8e1cde4b33abde1d05a6281e8f4405dfadd95f82446d7",
       "features": 34,
       "bbox": [
         -61.229033,
@@ -46,7 +46,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/MTQ/preview/MTQ_ADM4.preview.geojson",
-      "preview_bytes": 11938,
+      "preview_bytes": 12128,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

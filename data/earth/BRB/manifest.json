@@ -28,8 +28,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/BRB/BRB_ADM0.geojson",
-      "bytes": 936,
-      "sha256": "a511748ab0f006a3d670d033964b7899cd9421aea51e869f1d74cb8d4c0800e3",
+      "bytes": 954,
+      "sha256": "caeb9c3851a9a01f936ce83ec1fbabc2a3ce9de2838771bdcbc746c295bcd699",
       "features": 1,
       "bbox": [
         -59.654205,
@@ -47,7 +47,7 @@
         "shapeType"
       ],
       "preview": "data/earth/BRB/preview/BRB_ADM0.preview.geojson",
-      "preview_bytes": 305,
+      "preview_bytes": 323,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -58,8 +58,8 @@
     {
       "level": "ADM1",
       "path": "data/earth/BRB/BRB_ADM1.geojson",
-      "bytes": 8963,
-      "sha256": "f6d8ef6267ed284b992ddec3a8adbb0f1f8c469972baf0b27975b8b732c8b2e9",
+      "bytes": 9687,
+      "sha256": "3f9862bfe0752ddf671000c2a01914ab2260d8bdf41a34ada11418026d0525c4",
       "features": 11,
       "bbox": [
         -59.650707,
@@ -71,6 +71,8 @@
         "Polygon": 11
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -78,7 +80,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/BRB/preview/BRB_ADM1.preview.geojson",
-      "preview_bytes": 3066,
+      "preview_bytes": 3306,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

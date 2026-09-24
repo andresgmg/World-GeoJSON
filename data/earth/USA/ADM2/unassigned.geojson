@@ -1,3 +1,3 @@
-{"type":"FeatureCollection","bbox":[-168.16355,-14.552542,-168.139747,-14.530896], "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-168.16355,-14.5364],[-168.161048,-14.549387],[-168.151573,-14.552542],[-168.143613,-14.552396],[-168.139747,-14.549534],[-168.143234,-14.537574],[-168.149526,-14.531336],[-168.159456,-14.530896],[-168.16355,-14.5364]]]},"properties":{"shapeName":"Rose Island","shapeISO":"52423323B32289273643205","shapeGroup":"USA","shapeType":"ADM2","src_shape_id":"52423323B32289273643205","adm1ISO":"unassigned"}}
+{"type":"FeatureCollection","bbox":[-168.16355,-14.552542,-168.139747,-14.530896],"features":[
+{"type":"Feature","id":"USA:ADM2:unassigned.rose-island","properties":{"shapeName":"Rose Island","shapeISO":"","shapeGroup":"USA","shapeType":"ADM2","adm1ISO":"unassigned","src_shape_id":"52423323B32289273643205"},"geometry":{"type":"Polygon","coordinates":[[[-168.16355,-14.5364],[-168.161048,-14.549387],[-168.151573,-14.552542],[-168.143613,-14.552396],[-168.139747,-14.549534],[-168.143234,-14.537574],[-168.149526,-14.531336],[-168.159456,-14.530896],[-168.16355,-14.5364]]]}}
 ]}

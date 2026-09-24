@@ -24,8 +24,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/MAF/MAF_ADM0.geojson",
-      "bytes": 762,
-      "sha256": "ff16cb2bff6a8b4c4d627ad25f8c49cd6ee961e07c8b984eb27821d419ef3144",
+      "bytes": 780,
+      "sha256": "eb69210719d6bf82e640bf155233c13ae0d8dc295f3003f4e77aacf9647351b6",
       "features": 1,
       "bbox": [
         -63.14684,
@@ -43,7 +43,7 @@
         "shapeType"
       ],
       "preview": "data/earth/MAF/preview/MAF_ADM0.preview.geojson",
-      "preview_bytes": 326,
+      "preview_bytes": 344,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100

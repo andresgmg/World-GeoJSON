@@ -28,8 +28,8 @@
     {
       "level": "ADM0",
       "path": "data/earth/CAN/CAN_ADM0.geojson",
-      "bytes": 1555569,
-      "sha256": "f293a30c9c16cb5fda404db4b6242035fe38118a3ddfb74c94324674ce2c32d0",
+      "bytes": 1555587,
+      "sha256": "0ff895cd94a08129a1dcd36164fddcd8c04aacf5eccf9aea94fd8a401debbc1c",
       "features": 1,
       "bbox": [
         -141.005564,
@@ -47,7 +47,7 @@
         "shapeType"
       ],
       "preview": "data/earth/CAN/preview/CAN_ADM0.preview.geojson",
-      "preview_bytes": 68085,
+      "preview_bytes": 68103,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
@@ -58,8 +58,8 @@
     {
       "level": "ADM1",
       "path": "data/earth/CAN/CAN_ADM1.geojson",
-      "bytes": 14854660,
-      "sha256": "ef8017c08a6922ee00f471ac613df2238f77f0d34ef22f5e1e6469a0639f76c1",
+      "bytes": 14855516,
+      "sha256": "aaba354058123760430604f99d43709dbf3e5fa35855b501e24cc91defd6bb03",
       "features": 13,
       "bbox": [
         -141.018073,
@@ -72,6 +72,8 @@
         "Polygon": 2
       },
       "properties": [
+        "parentID",
+        "parentISO",
         "shapeGroup",
         "shapeISO",
         "shapeName",
@@ -79,7 +81,7 @@
         "src_shape_id"
       ],
       "preview": "data/earth/CAN/preview/CAN_ADM1.preview.geojson",
-      "preview_bytes": 649615,
+      "preview_bytes": 649899,
       "simplification": {
         "method": "visvalingam",
         "tolerance_m": 100
