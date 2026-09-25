@@ -9,8 +9,7 @@
     wgj validate --checksums            every check CI runs
     wgj all CHL                         build → previews → manifest → index → validate
 
-Each subcommand has its own --help. The old scripts/*.py entry points call
-straight into these.
+Each subcommand has its own --help.
 """
 
 from __future__ import annotations

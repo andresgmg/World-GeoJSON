@@ -31,6 +31,24 @@ data in [Versioning & stability](versioning.md).
 - Documentation: [MapLibre](../libraries/maplibre.md),
   [Leaflet](../libraries/leaflet.md), [React](../libraries/react.md).
 
+### Added — onboarding
+
+- Issue forms under `.github/ISSUE_TEMPLATE/`: **New country or territory**
+  (source, SPDX licence from the allow-list, where the licence is stated,
+  levels, vintage), **Data problem** (dataset path, feature `id`, data
+  version, kind of problem, evidence) and **Library bug** (package, version,
+  runtime, reproduction). Blank issues are off.
+- A pull request template with the checks CI runs, and `CODEOWNERS` so
+  review requests reach the maintainer.
+
+### Removed
+
+- The `scripts/*.py` compatibility shims kept since the pipeline became a
+  package (`build_data.py`, `build_index.py`, `build_manifest.py`,
+  `fetch_sources.py`, `finalize_geojson.py`, `gen_catalog.py`,
+  `validate_data.py`). `wgj <command>` is the only entry point; the MkDocs
+  hook is `pipeline/mkdocs_hook.py`.
+
 ### Changed
 
 - `geoworld` (npm) is 0.2.0 with no API change, to move in lockstep with

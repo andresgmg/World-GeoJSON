@@ -44,14 +44,23 @@ Siendo directos, porque la alternativa es hacerte perder el tiempo:
   [Referencia](../reference/index.md). Esto suele ser corregible — espera
   comentarios de revisión, no un rechazo.
 
-## Reportar un problema
+## Reportar un problema, proponer un país
 
-[Abre un issue](https://github.com/andresgmg/World-GeoJSON/issues). Los reportes
-útiles incluyen el dataset, la feature concreta y qué esperabas. Una captura de
-la geometría incorrecta vale mucho.
+[Abre un issue](https://github.com/andresgmg/World-GeoJSON/issues/new/choose).
+Tres formularios piden lo que una revisión necesita:
+
+- **País o territorio nuevo** — la fuente, su licencia SPDX y dónde consta
+  esa licencia. Lee antes [Fuentes aprobadas](sources.md): ahí es donde
+  fallan la mayoría de las propuestas.
+- **Problema de datos** — la ruta del dataset, el `id` de la feature
+  (`CHL:ADM3:01402`), la versión de datos de la que lo leíste y evidencia.
+  Una captura de la geometría incorrecta vale mucho.
+- **Bug de biblioteca** — el paquete, su versión, tu runtime y una
+  reproducción mínima.
 
 Los huecos ya conocidos están en la [Hoja de ruta](../about/roadmap.md) —
-conviene mirarla antes de abrir uno.
+conviene mirarla antes de abrir uno. Los pull requests traen una plantilla con
+las comprobaciones que ejecuta CI; marcarlas antes de abrirlo ahorra una vuelta.
 
 ## Reglas básicas
 

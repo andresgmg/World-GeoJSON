@@ -123,7 +123,7 @@ def build_datasets(d: Path, prev: dict[str, dict]) -> list[dict]:
             entry["preview"] = rel(preview)
             entry["preview_bytes"] = preview.stat().st_size
 
-    # Carry forward everything build_data.py recorded that cannot be derived
+    # Carry forward everything `wgj build` recorded that cannot be derived
     # from the files themselves: provenance, licence and what was done to the
     # geometry.
     carried = ("simplification", "license", "src_provider", "src_year", "unassigned")

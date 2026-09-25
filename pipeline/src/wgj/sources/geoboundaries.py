@@ -291,7 +291,7 @@ def resplit_municipal(iso3: str, entry: dict) -> None:
         print(f"      {fixed} ADM1 shapeISO value(s) corrected")
     unmatched = split_by_adm1(iso3, level, combined, adm1, out_dir / level)
 
-    # Keep the manifest's `unassigned` honest; build_manifest.py carries it
+    # Keep the manifest's `unassigned` honest; `wgj manifest` carries it
     # forward from here.
     mpath = out_dir / "manifest.json"
     if mpath.exists():

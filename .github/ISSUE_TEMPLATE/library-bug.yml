@@ -1,0 +1,53 @@
+name: Library bug
+description: A problem in geoworld for Python or JavaScript, or in one of the adapters.
+title: "[lib] <package>: <what happens>"
+labels: ["libraries", "bug"]
+body:
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - geoworld (PyPI)
+        - geoworld (npm)
+        - geoworld-maplibre
+        - geoworld-leaflet
+        - geoworld-react
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "0.2.0"
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime
+      description: Python or Node version, or the browser; framework version for an adapter.
+      placeholder: "Node 22.12 / Chrome 130 / MapLibre 6.11"
+    validations:
+      required: true
+  - type: input
+    id: data-version
+    attributes:
+      label: Data version
+      description: What the client was pinned to (`version=`), and `base_url`/`baseUrl` if not the default.
+      placeholder: "1.0.0"
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: The smallest snippet that shows the problem.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behaviour
+      description: Include the full error message or stack trace.
+    validations:
+      required: true

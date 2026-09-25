@@ -92,8 +92,8 @@ then libraries that speak it. In order:
       index — so CI needs no data checkout
 - [x] Previews generated from Python (mapshaper still runs through Node)
 
-`scripts/*.py` stay as compatibility shims for one release and retire in
-Phase 4, as planned.
+`scripts/*.py` stayed as compatibility shims for one release and were
+retired in Phase 4, as planned.
 
 **Phase 3 — client libraries** (done; first publication pending)
 
@@ -112,8 +112,9 @@ server involved — they fetch static files. See
 - [x] `geoworld-maplibre`, `geoworld-leaflet` and `geoworld-react` on top of
       `geoworld` — see [Client libraries](../libraries/index.md)
 - [x] Worked examples in `examples/` (Leaflet, MapLibre, React; no build step)
-- [ ] Issue and PR templates for country submissions
-- [ ] Remove the `scripts/*.py` compatibility shims kept since Phase 2
+- [x] Issue forms (new country, data problem, library bug), a pull request
+      template and `CODEOWNERS`
+- [x] The `scripts/*.py` compatibility shims kept since Phase 2 are removed
 
 ## Next — the other continents
 

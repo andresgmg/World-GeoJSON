@@ -10017,7 +10017,7 @@
         "license": "public-domain",
         "retrieved": "2026-08-11"
       },
-      "notes": "geoBoundaries codes South Dakota as 'SU-SD'; corrected to the ISO 3166-2 'US-SD' by scripts/shapeiso_fixes.json, so its 66 counties are under ADM2/US-SD.geojson. Reported upstream as a data error.",
+      "notes": "geoBoundaries codes South Dakota as 'SU-SD'; corrected to the ISO 3166-2 'US-SD' by the shapeISO fixes table (pipeline/src/wgj/tables/shapeiso_fixes.json), so its 66 counties are under ADM2/US-SD.geojson. Reported upstream as a data error.",
       "datasets": [
         {
           "level": "ADM0",

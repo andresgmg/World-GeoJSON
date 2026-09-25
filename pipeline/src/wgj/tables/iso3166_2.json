@@ -3,7 +3,7 @@
     "ADM1 code lookup: maps a national first-level code to its ISO 3166-2 code.",
     "Used to name the split municipal-level files predictably.",
     "",
-    "Where a country has no entry here, build_data.py falls back to a slug of",
+    "Where a country has no entry here, `wgj build` falls back to a slug of",
     "the ADM1 name. That fallback is documented in docs/reference/naming.md."
   ],
 

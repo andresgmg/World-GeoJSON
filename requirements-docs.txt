@@ -12,7 +12,7 @@ mkdocs==1.6.1
 mkdocs-material==9.7.7
 
 # Catalog navigation. The catalog pages themselves are written by
-# scripts/gen_catalog.py (a MkDocs hook); literate-nav turns the SUMMARY.md
+# pipeline/mkdocs_hook.py (a MkDocs hook); literate-nav turns the SUMMARY.md
 # it emits into the Catalog nav subtree.
 #
 # Note: mkdocs-gen-files is deliberately NOT used. It writes virtual pages

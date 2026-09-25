@@ -5,6 +5,13 @@ is the short version and points there.
 
 **Documentation:** <https://andresgmg.github.io/World-GeoJSON/contributing/>
 
+## Before you start
+
+Issues come with forms: **New country or territory** (source and licence
+first), **Data problem** (dataset, feature `id`, data version, evidence) and
+**Library bug** (package, version, runtime, reproduction). Pull requests get
+a template with the checks CI runs. Both are under `.github/`.
+
 ## Two kinds of contribution
 
 1. **Documentation fixes.** Click the pencil icon on any docs page, edit on
@@ -42,6 +49,7 @@ The pipeline itself is the `wgj` command (`wgj fetch` → `wgj build` →
 `wgj previews` → `wgj manifest` → `wgj index` → `wgj validate`), installed
 by `requirements-dev.txt` from `pipeline/`; it is documented in
 [Pipeline](https://andresgmg.github.io/World-GeoJSON/contributing/pipeline/).
+The old `scripts/*.py` entry points are gone; `wgj` is the only one.
 
 ## Where things live
 

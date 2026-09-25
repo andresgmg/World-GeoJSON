@@ -336,9 +336,7 @@ territories — Aruba, Barbados and a reduced Dominican Republic — plus their
 `index.json`, and the suite points the package at it with `WGJ_DATA`. Set
 `WGJ_DATA=<dir>` yourself to run any `wgj` command against another data tree.
 
-`scripts/*.py` still exist as ten-line shims that call into the package, so
-`python scripts/validate_data.py` and its siblings keep working for one
-release. They retire in Phase 4 of the [Roadmap](../about/roadmap.md); write
-`wgj` from now on.
+The `scripts/*.py` entry points that predated the package were kept as
+shims for one release and retired in Phase 4; `wgj` is the only entry point.
 
 --8<-- "abbreviations.md"

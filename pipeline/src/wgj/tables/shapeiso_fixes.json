@@ -1,6 +1,6 @@
 {
   "$comment": [
-    "Corrections to upstream `shapeISO` values, applied by scripts/finalize_geojson.py.",
+    "Corrections to upstream `shapeISO` values, applied by `wgj finalize`.",
     "Keyed by ISO3, then level, then the feature's `src_shape_id` (the geoBoundaries",
     "id). A value of \"\" clears the code. The key \"*\" applies to every feature of",
     "that level. Every entry here is a documented upstream error: the corrected code",

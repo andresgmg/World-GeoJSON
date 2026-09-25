@@ -1,0 +1,57 @@
+name: Data problem
+description: A wrong boundary, name, code, parent, or a broken file in a published dataset.
+title: "[data] <ISO3> <LEVEL>: <what is wrong>"
+labels: ["data", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every published feature has a stable `id` (`{ISO3}:{LEVEL}:{key}`) and
+        every dataset a path under `data/`. Naming them makes the problem
+        reproducible. Known limitations are listed on the
+        [Roadmap](https://andresgmg.github.io/World-GeoJSON/about/roadmap/#known-data-problems).
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset
+      description: Path of the file, or territory and level.
+      placeholder: "data/earth/CHL/CHL_ADM3.geojson"
+    validations:
+      required: true
+  - type: input
+    id: feature
+    attributes:
+      label: Feature id(s)
+      placeholder: "CHL:ADM3:01402"
+  - type: input
+    id: version
+    attributes:
+      label: Data version
+      description: The release tag you read the file from, or `main` and the commit.
+      placeholder: "v1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - Geometry (wrong shape, missing unit, overlap, gap)
+        - Name or spelling
+        - Code (shapeISO, adm1ISO, parentISO)
+        - Hierarchy (parentID points to the wrong unit)
+        - File or manifest (invalid JSON, checksum, size)
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What is wrong, and what it should be
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: An official source, a law, a statistical office page, or a comparison with the upstream file. Boundary disputes need an authoritative reference, not an opinion.

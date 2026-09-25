@@ -7,7 +7,6 @@ on:
       - "data/**"
       - "schemas/**"
       - "pipeline/**"
-      - "scripts/**"
       - "requirements-dev.txt"
       - ".github/workflows/validate-data.yml"
   pull_request:
