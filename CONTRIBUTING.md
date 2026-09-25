@@ -30,7 +30,7 @@ Then, before opening a PR:
 ```sh
 ruff check . && ruff format --check . && mypy   # lint, format, types
 pytest                                          # pipeline + Python client tests (no network)
-npm test -w packages/js/geoworld                # JavaScript client tests
+npm test                                        # JavaScript packages: builds the client, then tests all four
 wgj validate --checksums                        # every dataset under data/
 ```
 
@@ -52,6 +52,8 @@ by `requirements-dev.txt` from `pipeline/`; it is documented in
 | `pipeline/` | The `wgj` pipeline package (not published) |
 | `packages/python/geoworld/` | The Python client, `geoworld` on PyPI |
 | `packages/js/geoworld/` | The JavaScript/TypeScript client, `geoworld` on npm |
+| `packages/js/geoworld-{maplibre,leaflet,react}/` | The framework adapters on npm; one version with the client, one `js-v*` tag publishes all four |
+| `examples/` | One static page per adapter; `just examples` builds the packages and serves them |
 | `fixtures/` | Three small territories, their index and the cross-language goldens the client tests run on |
 | `docs/` | The MkDocs site (English, with a `.es.md` twin per page) |
 

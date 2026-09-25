@@ -89,8 +89,10 @@ All four stay unchanged through the 1.x series and are removed in v2.0.0. See
    version, download on demand, cache, verify checksums and navigate by
    feature `id`. See
    [Client libraries](https://andresgmg.github.io/World-GeoJSON/libraries/).
-4. **Framework adapters** — React, Leaflet and MapLibre helpers on top of
-   `geoworld`.
+4. **Framework adapters** — done: `geoworld-maplibre`, `geoworld-leaflet`
+   and `geoworld-react` (npm) put a level on a map or in a component tree in
+   one call, with feature state and sub-layers keyed by the stable feature
+   `id`. Pages in `examples/` run them without a build step.
 
 Other continents follow the same pipeline. There is no hosted API, tile
 service or geocoder, and no historical boundaries. The
@@ -212,7 +214,11 @@ v2.0.0. Ver
    demanda, cachean, verifican checksums y navegan por el `id` de cada
    feature. Ver
    [Bibliotecas cliente](https://andresgmg.github.io/World-GeoJSON/es/libraries/).
-4. **Adaptadores** — helpers para React, Leaflet y MapLibre sobre `geoworld`.
+4. **Adaptadores** — hecho: `geoworld-maplibre`, `geoworld-leaflet` y
+   `geoworld-react` (npm) ponen un nivel en un mapa o en un árbol de
+   componentes con una llamada, con feature state y subcapas indexadas por el
+   `id` estable de cada feature. Las páginas de `examples/` los ejecutan sin
+   paso de build.
 
 Los demás continentes siguen el mismo pipeline. No hay API alojada, servidor
 de teselas ni geocodificador, y no hay límites históricos. La

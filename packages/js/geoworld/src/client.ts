@@ -27,7 +27,7 @@ import type {
 } from "./types.js";
 import { sha256Hex } from "./verify.js";
 
-export const VERSION = "0.1.0";
+export const VERSION = "0.2.0";
 
 /** The newest `index.schema_version` this client understands. */
 export const SUPPORTED_SCHEMA_VERSION = 1;
@@ -171,9 +171,13 @@ export class GeoWorld {
   private async download(url: string): Promise<Uint8Array> {
     const init: RequestInit = { headers: this.headers };
     if (this.timeoutMs !== undefined) init.signal = AbortSignal.timeout(this.timeoutMs);
+    // Called as a plain function, not as `this.fetchImpl(...)`: a browser's
+    // native fetch throws "Illegal invocation" when its receiver is not the
+    // window, and calling through a local binding leaves the receiver undefined.
+    const fetchImpl = this.fetchImpl;
     let response: Response;
     try {
-      response = await this.fetchImpl(url, init);
+      response = await fetchImpl(url, init);
     } catch (error) {
       throw new DownloadError(url, error instanceof Error ? error.message : String(error));
     }

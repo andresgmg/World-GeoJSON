@@ -36,7 +36,17 @@ against the index.
     ```
 
 Both are documented in full on their own pages: [Python](python.md) and
-[JavaScript](javascript.md).
+[JavaScript](javascript.md). Three adapters put the JavaScript client on a
+map or in a component tree: [MapLibre](maplibre.md), [Leaflet](leaflet.md)
+and [React](react.md).
+
+| Package | What it is | Runtime deps |
+|---|---|---|
+| `geoworld` (PyPI) | Python client | none |
+| `geoworld` (npm) | JavaScript/TypeScript client | none |
+| `geoworld-maplibre` | `addBoundaries`, feature state by stable id, `fitToBounds` | none (`maplibre-gl` peer) |
+| `geoworld-leaflet` | `withLeaflet(L).addBoundaries`, `layerById`, `toLatLngBounds` | none (`leaflet` optional peer) |
+| `geoworld-react` | `GeoWorldProvider`, `useBoundaries`, `useCountry`, `useChildren`, … | none (`react` peer) |
 
 ## What they do — and do not do
 
@@ -107,7 +117,10 @@ declares the data `schema_version` it understands and a default data release:
 | | Library | Default data | Supports schema |
 |---|---|---|---|
 | Python | `geoworld` 0.1.0 | `1.0.0` | 1 |
-| JavaScript | `geoworld` 0.1.0 | `1.0.0` | 1 |
+| JavaScript | `geoworld` 0.2.0, and the three adapters at the same version | `1.0.0` | 1 |
+
+The JavaScript packages move in lockstep: one version number, one tag, and
+each adapter declares `geoworld` as a peer at that minor.
 
 Pin the data version you tested against. `version="main"` works for
 experiments but warns: the branch moves, and nothing is cached on disk.
@@ -115,8 +128,9 @@ experiments but warns: the branch moves, and nothing is cached on disk.
 ## Releasing
 
 Maintainers publish from tags: `python-vX.Y.Z` runs `publish-python.yml`
-(PyPI, trusted publishing) and `js-vX.Y.Z` runs `publish-js.yml` (npm, with
-provenance). The workflow refuses a tag that does not match the version in the
-package.
+(PyPI, trusted publishing) and `js-vX.Y.Z` runs `publish-js.yml`, which
+publishes `geoworld` and then the three adapters with provenance, skipping
+any of them already on the registry at that version. Both workflows refuse a
+tag that does not match the versions in the packages.
 
 --8<-- "abbreviations.md"

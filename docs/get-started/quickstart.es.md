@@ -37,6 +37,20 @@ en todos.
     </script>
     ```
 
+    O con el [adaptador Leaflet](../libraries/leaflet.md), fijado a una
+    release de datos, verificado y encuadrado desde el índice:
+
+    ```js
+    import { createClient } from "geoworld";
+    import { withLeaflet } from "geoworld-leaflet";
+
+    const world = createClient({ version: "1.0.0" });
+    await withLeaflet(L).addBoundaries(map, world, "CHL", "ADM1", {
+      fit: true,
+      onEachFeature: (f, l) => l.bindTooltip(f.properties.shapeName),
+    });
+    ```
+
 === "MapLibre"
 
     ```js
@@ -69,6 +83,17 @@ en todos.
         paint: { "line-color": "#00695c", "line-width": 1 },
       });
     });
+    ```
+
+    O con el [adaptador MapLibre](../libraries/maplibre.md), que además hace
+    utilizable el `id` estable de cada feature en `feature-state`:
+
+    ```js
+    import { createClient } from "geoworld";
+    import { addBoundaries } from "geoworld-maplibre";
+
+    const world = createClient({ version: "1.0.0" });
+    const regiones = await addBoundaries(map, world, "CHL", "ADM1", { fit: true });
     ```
 
 === "Python"

@@ -1,11 +1,17 @@
 name: Publish geoworld (npm)
 
-# Tagging `js-vX.Y.Z` publishes packages/js/geoworld to npm with provenance.
-# Authentication: an `NPM_TOKEN` repository secret (an automation token for
-# the `geoworld` package) — or, once the package exists on npm and trusted
-# publishing is configured for this workflow on npmjs.com, remove the token
-# and npm authenticates through the OIDC id-token below. The tag must match
-# the version in packages/js/geoworld/package.json.
+# Tagging `js-vX.Y.Z` publishes every package under packages/js/ to npm with
+# provenance: geoworld first, then geoworld-leaflet, geoworld-maplibre and
+# geoworld-react. All four share one version (lockstep); the tag must match
+# it, the client's VERSION constant and the adapters' peer range. Packages
+# already on the registry at that version are skipped, so a tag whose run
+# stopped halfway can be re-run.
+#
+# Authentication: an `NPM_TOKEN` repository secret (a granular automation
+# token allowed to publish these packages). Trusted publishing (OIDC) is
+# configured per package on npmjs.com and needs the package to exist, so the
+# first release of a new name goes through the token; afterwards the token
+# can be dropped and npm authenticates with the id-token below.
 
 on:
   push:
@@ -14,6 +20,9 @@ on:
 
 permissions:
   contents: read
+
+env:
+  PACKAGES: geoworld geoworld-leaflet geoworld-maplibre geoworld-react
 
 jobs:
   publish:
@@ -46,23 +55,44 @@ jobs:
 
       - name: Type-check, test, build
         run: |
-          npm run lint -w packages/js/geoworld
-          npm test -w packages/js/geoworld
           npm run build -w packages/js/geoworld
+          npm run lint --workspaces
+          npm test --workspaces
+          npm run build --workspaces
 
-      - name: Tag matches the package version
+      - name: Tag matches every package version, the client constant and the peer range
         if: startsWith(github.ref, 'refs/tags/js-v')
         run: |
           version="${GITHUB_REF_NAME#js-v}"
-          actual=$(node -p "require('./packages/js/geoworld/package.json').version")
-          test "$version" = "$actual" || { echo "::error::tag ${GITHUB_REF_NAME} does not match package.json ($actual)"; exit 1; }
+          for pkg in $PACKAGES; do
+            actual=$(node -p "require('./packages/js/$pkg/package.json').version")
+            test "$version" = "$actual" || { echo "::error::$pkg is $actual, tag is $version"; exit 1; }
+          done
+          constant=$(node -p "require('./packages/js/geoworld/dist/cjs/index.js').VERSION")
+          test "$version" = "$constant" || { echo "::error::geoworld VERSION constant is $constant, tag is $version"; exit 1; }
+          expected_peer="^${version%.*}.0"
+          for pkg in geoworld-leaflet geoworld-maplibre geoworld-react; do
+            peer=$(node -p "require('./packages/js/$pkg/package.json').peerDependencies.geoworld")
+            test "$peer" = "$expected_peer" || { echo "::error::$pkg peer geoworld is $peer, expected $expected_peer"; exit 1; }
+          done
 
-      - name: Publish
+      - name: Publish (skipping versions already on the registry)
         if: startsWith(github.ref, 'refs/tags/js-v')
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish -w packages/js/geoworld --provenance --access public
+        run: |
+          version="${GITHUB_REF_NAME#js-v}"
+          for pkg in $PACKAGES; do
+            if npm view "$pkg@$version" version >/dev/null 2>&1; then
+              echo "$pkg@$version is already published; skipping"
+              continue
+            fi
+            npm publish -w "packages/js/$pkg" --provenance --access public
+          done
 
       - name: Dry run (manual dispatch)
         if: "!startsWith(github.ref, 'refs/tags/js-v')"
-        run: npm publish -w packages/js/geoworld --dry-run --access public
+        run: |
+          for pkg in $PACKAGES; do
+            npm publish -w "packages/js/$pkg" --dry-run --access public
+          done

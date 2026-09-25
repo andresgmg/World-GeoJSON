@@ -229,6 +229,17 @@ test("unsupported schema", async () => {
   });
 });
 
+test("fetch is invoked without the client as receiver (browsers reject that)", async () => {
+  let receiver: unknown = "unset";
+  const strict = function (this: unknown, input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+    receiver = this;
+    return fixturesFetch()(input, init);
+  };
+  const world = new GeoWorld({ baseUrl: BASE_URL, fetch: strict as typeof fetch });
+  await world.index();
+  assert.equal(receiver, undefined);
+});
+
 test("download errors", async () => {
   const missing = new GeoWorld({ baseUrl: "https://fixtures.test/nowhere", fetch: fixturesFetch() });
   await assert.rejects(missing.index(), (e: Error) => {

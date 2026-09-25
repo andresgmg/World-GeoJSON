@@ -117,7 +117,9 @@ await world.search("valpar", "CHL");           // todos los niveles del territor
 
 ## En un mapa
 
-El `id` estable es la clave para las bibliotecas de mapas. MapLibre:
+[`geoworld-maplibre`](maplibre.md), [`geoworld-leaflet`](leaflet.md) y
+[`geoworld-react`](react.md) envuelven lo que sigue en una llamada cada uno.
+A mano, el `id` estable es la clave para las bibliotecas de mapas. MapLibre:
 
 ```ts
 const world = createClient({ version: "1.0.0" });

@@ -6,6 +6,37 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
+### Added — framework adapters
+
+- **`geoworld-maplibre`** (`packages/js/geoworld-maplibre`, npm):
+  `addBoundaries(map, client, iso3, level, { part?, preview?, fill?, line?,
+  before?, fit? })` adds a level as a GeoJSON source plus fill and line
+  layers and returns a handle with `remove()`; `sourceSpec`, `collection`,
+  `fitToBounds`, `whenStyleReady`, `setFeatureState` and `clearFeatureState`.
+  The source data carries `properties.id` with `promoteId: "id"`, so
+  MapLibre feature state works with the stable World GeoJSON ids.
+- **`geoworld-leaflet`** (`packages/js/geoworld-leaflet`, npm):
+  `withLeaflet(L)` → `bounds`, `boundaries` and `addBoundaries` (an
+  `L.GeoJSON` with `fit` from the index bbox); `layerById`, `toLatLngBounds`,
+  `collection`. Leaflet is handed in, never imported.
+- **`geoworld-react`** (`packages/js/geoworld-react`, npm): `GeoWorldProvider`
+  and `useIndex`, `useCountries`, `useCountry`, `useBoundaries`, `useFeature`,
+  `useChildren`, `useResource`, over a small keyed store (`createStore`,
+  `keys`) that dedupes loads and renders cached data on the first pass.
+- All three have zero runtime dependencies (`geoworld` and the framework are
+  peers), ship ESM, CommonJS and types, and are tested with `node:test`
+  against fakes. `examples/` has a page per adapter (`just examples`).
+- The JavaScript packages now share one version (`0.2.0`); the `js-vX.Y.Z`
+  tag publishes all four, skipping any already on the registry.
+- Documentation: [MapLibre](../libraries/maplibre.md),
+  [Leaflet](../libraries/leaflet.md), [React](../libraries/react.md).
+
+### Changed
+
+- `geoworld` (npm) is 0.2.0 with no API change, to move in lockstep with
+  the adapters. The root `package.json` now requires Node ≥ 20, as the
+  packages already did.
+
 ### Added — client libraries
 
 - **`geoworld` for Python** (`packages/python/geoworld`, PyPI): a thin client
