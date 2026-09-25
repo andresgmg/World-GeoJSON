@@ -29,10 +29,11 @@ Or let a client do the fetching, caching and checksum verification, pinned
 to a data release — `geoworld` has the same API in Python and JavaScript:
 
 ```python
-from geoworld import GeoWorld            # pip install geoworld
+from geoworld import GeoWorld  # pip install geoworld
+
 world = GeoWorld("1.0.0")
-world.get("CHL", "ADM1")["features"][0]["id"]      # "CHL:ADM1:CL-CO"
-world.children("CHL:ADM1:CL-TA")                   # the provinces of Tarapacá
+world.get("CHL", "ADM1")["features"][0]["id"]  # "CHL:ADM1:CL-CO"
+world.children("CHL:ADM1:CL-TA")  # the provinces of Tarapacá
 ```
 
 ```js
@@ -146,10 +147,11 @@ O deja que un cliente descargue, cachee y verifique los checksums, fijado a
 una release de datos — `geoworld` tiene la misma API en Python y JavaScript:
 
 ```python
-from geoworld import GeoWorld            # pip install geoworld
+from geoworld import GeoWorld  # pip install geoworld
+
 world = GeoWorld("1.0.0")
-world.get("CHL", "ADM1")["features"][0]["id"]      # "CHL:ADM1:CL-CO"
-world.children("CHL:ADM1:CL-TA")                   # las provincias de Tarapacá
+world.get("CHL", "ADM1")["features"][0]["id"]  # "CHL:ADM1:CL-CO"
+world.children("CHL:ADM1:CL-TA")  # las provincias de Tarapacá
 ```
 
 ```js
