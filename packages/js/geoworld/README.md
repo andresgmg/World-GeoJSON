@@ -83,5 +83,8 @@ the library declares the data schema it understands
 - [Data reference](https://andresgmg.github.io/World-GeoJSON/reference/) — properties, levels, the index
 - [Licensing](https://andresgmg.github.io/World-GeoJSON/about/license/) — the code is MIT; each dataset carries its own permissive licence, listed in the index
 
-The same API exists for Python as
+On a map or in React, [`geoworld-maplibre`](https://www.npmjs.com/package/geoworld-maplibre),
+[`geoworld-leaflet`](https://www.npmjs.com/package/geoworld-leaflet) and
+[`geoworld-react`](https://www.npmjs.com/package/geoworld-react) wrap this
+client in one call each. The same API exists for Python as
 [`geoworld` on PyPI](https://pypi.org/project/geoworld/).

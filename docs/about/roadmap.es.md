@@ -113,8 +113,9 @@ por `id`. Sin servidor de por medio — descargan archivos estáticos. Ver
 
 **Fase 4 — adaptadores para frameworks e incorporación**
 
-- [ ] Adaptadores para React, Leaflet y MapLibre sobre `geoworld`
-- [ ] Ejemplos trabajados
+- [x] `geoworld-maplibre`, `geoworld-leaflet` y `geoworld-react` sobre
+      `geoworld` — ver [Bibliotecas cliente](../libraries/index.md)
+- [x] Ejemplos trabajados en `examples/` (Leaflet, MapLibre, React; sin build)
 - [ ] Plantillas de issue y PR para envío de países
 - [ ] Retirar los shims de compatibilidad `scripts/*.py` que quedaron de la
       Fase 2

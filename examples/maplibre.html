@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>geoworld + MapLibre GL JS</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@6.11.2/dist/maplibre-gl.css" />
+  <style>
+    body { margin: 0; font: 14px/1.4 system-ui, sans-serif; }
+    header { display: flex; gap: .75rem; align-items: center; padding: .5rem 1rem; background: #f3f3f3; }
+    #map { height: calc(100vh - 3rem); }
+    #status { margin-left: auto; color: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>geoworld-maplibre</strong>
+    <select id="country"></select>
+    <select id="level"></select>
+    <span id="status">loading index…</span>
+  </header>
+  <div id="map"></div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "geoworld": "../packages/js/geoworld/dist/esm/index.js",
+      "geoworld-maplibre": "../packages/js/geoworld-maplibre/dist/esm/index.js",
+      "maplibre-gl": "https://cdn.jsdelivr.net/npm/maplibre-gl@6.11.2/dist/maplibre-gl.mjs"
+    }
+  }
+  </script>
+  <script type="module">
+    import { createClient } from "geoworld";
+    import { addBoundaries, clearFeatureState, setFeatureState } from "geoworld-maplibre";
+    import * as maplibre from "maplibre-gl";
+
+    const maplibregl = maplibre.default ?? maplibre;
+    const world = createClient({ version: "1.0.0" });
+    const status = document.getElementById("status");
+    const countrySelect = document.getElementById("country");
+    const levelSelect = document.getElementById("level");
+
+    const map = new maplibregl.Map({
+      container: "map",
+      style: "https://demotiles.maplibre.org/style.json",
+      center: [-60, 0],
+      zoom: 2,
+    });
+
+    let handle = null;
+    let hovered = null;
+
+    async function show() {
+      const iso3 = countrySelect.value;
+      const level = levelSelect.value;
+      if (!iso3 || !level) return;
+      status.textContent = `loading ${iso3} ${level}…`;
+      if (handle) handle.remove();
+      const country = await world.country(iso3);
+      const dataset = country.datasets.find((d) => d.level === level);
+      const preview = dataset.bytes > 4_000_000 || dataset.path === undefined;
+      handle = await addBoundaries(map, world, iso3, level, {
+        preview,
+        fit: { padding: 16 },
+        // Hovered features read their state through the stable id promoted by the adapter.
+        fill: {
+          "fill-color": "#00695c",
+          "fill-opacity": ["case", ["boolean", ["feature-state", "hover"], false], 0.45, 0.15],
+        },
+      });
+      const [fillLayer] = handle.layers;
+      map.on("mousemove", fillLayer, (e) => {
+        const id = e.features?.[0]?.id;
+        if (id === undefined || id === hovered) return;
+        if (hovered !== null) clearFeatureState(map, handle.source, hovered, "hover");
+        hovered = String(id);
+        setFeatureState(map, handle.source, hovered, { hover: true });
+        status.textContent = `${e.features[0].properties.shapeName} — ${hovered}`;
+      });
+      map.on("mouseleave", fillLayer, () => {
+        if (hovered !== null) clearFeatureState(map, handle.source, hovered, "hover");
+        hovered = null;
+        status.textContent = `${dataset.features} features${preview ? " (preview)" : ""} — ${country.license}`;
+      });
+      status.textContent = `${dataset.features} features${preview ? " (preview)" : ""} — ${country.license}`;
+    }
+
+    async function fillLevels() {
+      const levels = await world.levels(countrySelect.value);
+      levelSelect.replaceChildren(...levels.map((l) => new Option(l, l)));
+      levelSelect.value = levels.includes("ADM1") ? "ADM1" : levels[0];
+      await show();
+    }
+
+    const countries = await world.countries();
+    countrySelect.replaceChildren(
+      ...countries.map((c) => new Option(`${c.name.en} (${c.iso_a3})`, c.iso_a3)),
+    );
+    countrySelect.value = countries.some((c) => c.iso_a3 === "CHL") ? "CHL" : countries[0].iso_a3;
+    countrySelect.addEventListener("change", fillLevels);
+    levelSelect.addEventListener("change", show);
+    await fillLevels();
+  </script>
+</body>
+</html>

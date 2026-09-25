@@ -15,12 +15,12 @@ setup:
     python -m pip install -r requirements-dev.txt
     npm ci
 
-# Lint, format-check and type-check every Python package, plus the TypeScript client.
+# Lint, format-check and type-check every Python package, plus the TypeScript packages.
 lint:
     ruff check .
     ruff format --check .
     mypy
-    npm run lint -w packages/js/geoworld
+    npm run lint
 
 # Auto-format Python.
 fmt:
@@ -31,13 +31,18 @@ fmt:
 test *ARGS:
     pytest {{ARGS}}
 
-# Run the JavaScript client's tests (node:test, compiled first).
+# Run the tests of every JavaScript package (node:test, compiled first).
 test-js:
-    npm test -w packages/js/geoworld
+    npm test
 
-# Build the JavaScript client (ESM + CJS + types into packages/js/geoworld/dist).
+# Build every JavaScript package (ESM + CJS + types into packages/js/*/dist).
 build-js:
-    npm run build -w packages/js/geoworld
+    npm run build
+
+# Build the JavaScript packages and serve the repository so examples/*.html run locally.
+examples: build-js
+    @echo "open http://localhost:8000/examples/"
+    python -m http.server 8000
 
 # Rewrite fixtures/expected/*.json from the Python client; both clients must then match it.
 goldens:

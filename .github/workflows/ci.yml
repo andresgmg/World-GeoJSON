@@ -133,7 +133,7 @@ jobs:
           echo "previews reproduce"
 
   js-client:
-    name: JavaScript client (Node ${{ matrix.node }})
+    name: JavaScript packages (Node ${{ matrix.node }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -157,15 +157,27 @@ jobs:
       - name: Install (workspace)
         run: npm ci
 
+      - name: The adapters must resolve geoworld to the workspace, not a registry copy
+        run: |
+          test "$(readlink -f node_modules/geoworld)" = "$(pwd)/packages/js/geoworld"
+          test -z "$(find packages/js -maxdepth 4 -path '*/node_modules/geoworld')"
+
+      - name: Build the client (the adapters type-check against its declarations)
+        run: npm run build -w packages/js/geoworld
+
       - name: Type-check sources and tests
-        run: npm run lint -w packages/js/geoworld
+        run: npm run lint --workspaces
 
       - name: Tests (node:test on fixtures/, incl. the cross-language golden)
-        run: npm test -w packages/js/geoworld
+        run: npm test --workspaces
 
-      - name: Build ESM + CJS and check the tarball
+      - name: Build ESM + CJS and check the tarballs
         run: |
-          npm run build -w packages/js/geoworld
-          node -e "require('geoworld'); require('geoworld/node')"
-          node --input-type=module -e "import 'geoworld'; import 'geoworld/node'"
-          npm pack --dry-run -w packages/js/geoworld
+          npm run build --workspaces
+          for pkg in geoworld geoworld-maplibre geoworld-leaflet geoworld-react; do
+            node -e "require('$pkg')"
+            node --input-type=module -e "import '$pkg'"
+            npm pack --dry-run -w "packages/js/$pkg"
+          done
+          node -e "require('geoworld/node')"
+          node --input-type=module -e "import 'geoworld/node'"

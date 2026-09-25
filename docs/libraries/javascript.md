@@ -116,7 +116,9 @@ await world.search("valpar", "CHL");           // all levels of the territory
 
 ## On a map
 
-The stable `id` is what map libraries key on. MapLibre:
+[`geoworld-maplibre`](maplibre.md), [`geoworld-leaflet`](leaflet.md) and
+[`geoworld-react`](react.md) wrap what follows in one call each. By hand,
+the stable `id` is what map libraries key on. MapLibre:
 
 ```ts
 const world = createClient({ version: "1.0.0" });

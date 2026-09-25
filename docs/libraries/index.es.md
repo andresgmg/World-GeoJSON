@@ -36,7 +36,17 @@ descarga los archivos que pides, los cachea y verifica su `sha256` contra el
     ```
 
 Cada uno tiene su página completa: [Python](python.md) y
-[JavaScript](javascript.md).
+[JavaScript](javascript.md). Tres adaptadores ponen el cliente JavaScript en
+un mapa o en un árbol de componentes: [MapLibre](maplibre.md),
+[Leaflet](leaflet.md) y [React](react.md).
+
+| Paquete | Qué es | Deps en runtime |
+|---|---|---|
+| `geoworld` (PyPI) | Cliente Python | ninguna |
+| `geoworld` (npm) | Cliente JavaScript/TypeScript | ninguna |
+| `geoworld-maplibre` | `addBoundaries`, feature state por id estable, `fitToBounds` | ninguna (peer `maplibre-gl`) |
+| `geoworld-leaflet` | `withLeaflet(L).addBoundaries`, `layerById`, `toLatLngBounds` | ninguna (peer opcional `leaflet`) |
+| `geoworld-react` | `GeoWorldProvider`, `useBoundaries`, `useCountry`, `useChildren`, … | ninguna (peer `react`) |
 
 ## Qué hacen — y qué no
 
@@ -110,7 +120,10 @@ release de datos por defecto:
 | | Biblioteca | Datos por defecto | Soporta esquema |
 |---|---|---|---|
 | Python | `geoworld` 0.1.0 | `1.0.0` | 1 |
-| JavaScript | `geoworld` 0.1.0 | `1.0.0` | 1 |
+| JavaScript | `geoworld` 0.2.0, y los tres adaptadores en la misma versión | `1.0.0` | 1 |
+
+Los paquetes JavaScript avanzan en bloque: un número de versión, una etiqueta,
+y cada adaptador declara `geoworld` como peer en esa menor.
 
 Fija la versión de datos contra la que probaste. `version="main"` sirve para
 experimentar pero avisa: la rama se mueve y nada se cachea en disco.
@@ -119,7 +132,9 @@ experimentar pero avisa: la rama se mueve y nada se cachea en disco.
 
 Los mantenedores publican desde etiquetas: `python-vX.Y.Z` ejecuta
 `publish-python.yml` (PyPI, trusted publishing) y `js-vX.Y.Z` ejecuta
-`publish-js.yml` (npm, con procedencia). El workflow rechaza una etiqueta que
-no coincida con la versión del paquete.
+`publish-js.yml`, que publica `geoworld` y luego los tres adaptadores con
+procedencia, saltando los que ya estén en el registro con esa versión. Ambos
+workflows rechazan una etiqueta que no coincida con las versiones de los
+paquetes.
 
 --8<-- "abbreviations.md"

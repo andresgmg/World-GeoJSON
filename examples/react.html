@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>geoworld + React</title>
+  <style>
+    body { font: 15px/1.5 system-ui, sans-serif; margin: 2rem auto; max-width: 48rem; padding: 0 1rem; color: #222; }
+    select { margin-right: .5rem; }
+    ul { columns: 2; }
+    .muted { color: #666; }
+    code { background: #f3f3f3; padding: 0 .25rem; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- ?external=react makes react-dom import the bare "react" specifier, resolved by this map: one React instance. -->
+  <script type="importmap">
+  {
+    "imports": {
+      "geoworld": "../packages/js/geoworld/dist/esm/index.js",
+      "geoworld-react": "../packages/js/geoworld-react/dist/esm/index.js",
+      "react": "https://esm.sh/react@19.3.0",
+      "react-dom/client": "https://esm.sh/react-dom@19.3.0/client?external=react"
+    }
+  }
+  </script>
+  <script type="module">
+    import { createClient } from "geoworld";
+    import { GeoWorldProvider, useBoundaries, useChildren, useCountries, useCountry } from "geoworld-react";
+    import { createElement as h, useState } from "react";
+    import { createRoot } from "react-dom/client";
+
+    const world = createClient({ version: "1.0.0" });
+
+    function App() {
+      const [iso3, setIso3] = useState("CHL");
+      const [level, setLevel] = useState("ADM1");
+      const countries = useCountries();
+      const country = useCountry(iso3);
+      if (countries.status !== "success") return h("p", { className: "muted" }, `index: ${countries.status}`);
+      const levels = country.status === "success" ? country.data.levels : [];
+      return h("div", null,
+        h("h1", null, "geoworld-react"),
+        h("p", null,
+          h("select", { value: iso3, onChange: (e) => { setIso3(e.target.value); setLevel("ADM1"); } },
+            countries.data.map((c) => h("option", { key: c.iso_a3, value: c.iso_a3 }, `${c.name.en} (${c.iso_a3})`))),
+          h("select", { value: levels.includes(level) ? level : levels[0] ?? "", onChange: (e) => setLevel(e.target.value) },
+            levels.map((l) => h("option", { key: l, value: l }, l))),
+          country.status === "success" && h("span", { className: "muted" }, `${country.data.name.en} — ${country.data.license}`),
+        ),
+        h(Level, { iso3, level: levels.includes(level) ? level : levels[0] }),
+      );
+    }
+
+    function Level({ iso3, level }) {
+      const boundaries = useBoundaries(iso3, level, { preview: true, enabled: Boolean(level) });
+      const [selected, setSelected] = useState(null);
+      if (!level) return null;
+      if (boundaries.status === "error") return h("p", null, `error: ${boundaries.error?.message ?? boundaries.error}`);
+      if (boundaries.status !== "success") return h("p", { className: "muted" }, `${iso3} ${level}: ${boundaries.status}`);
+      return h("div", null,
+        h("p", null, `${boundaries.data.features.length} features in ${level} (preview). Click one for its children.`),
+        h("ul", null, boundaries.data.features.map((f) =>
+          h("li", { key: f.id },
+            h("a", { href: "#", onClick: (e) => { e.preventDefault(); setSelected(f.id); } }, f.properties.shapeName),
+            " ", h("code", null, f.id)))),
+        selected && h(Children, { id: selected }),
+      );
+    }
+
+    function Children({ id }) {
+      const children = useChildren(id);
+      if (children.status !== "success") return h("p", { className: "muted" }, `${id}: ${children.status}`);
+      return h("p", null,
+        h("strong", null, id), ` has ${children.data.length} children`,
+        children.data.length ? ": " + children.data.map((f) => f.properties.shapeName).join(", ") : "");
+    }
+
+    createRoot(document.getElementById("root")).render(
+      h(GeoWorldProvider, { client: world }, h(App)),
+    );
+  </script>
+</body>
+</html>

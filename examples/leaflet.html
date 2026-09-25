@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>geoworld + Leaflet</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { margin: 0; font: 14px/1.4 system-ui, sans-serif; }
+    header { display: flex; gap: .75rem; align-items: center; padding: .5rem 1rem; background: #f3f3f3; }
+    #map { height: calc(100vh - 3rem); }
+    #status { margin-left: auto; color: #555; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>geoworld-leaflet</strong>
+    <select id="country"></select>
+    <select id="level"></select>
+    <span id="status">loading index…</span>
+  </header>
+  <div id="map"></div>
+
+  <!-- Leaflet has no ESM build: the UMD bundle sets window.L, which withLeaflet() receives. -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "geoworld": "../packages/js/geoworld/dist/esm/index.js",
+      "geoworld-leaflet": "../packages/js/geoworld-leaflet/dist/esm/index.js"
+    }
+  }
+  </script>
+  <script type="module">
+    import { createClient } from "geoworld";
+    import { withLeaflet } from "geoworld-leaflet";
+
+    const world = createClient({ version: "1.0.0" });
+    const gw = withLeaflet(window.L);
+    const status = document.getElementById("status");
+    const countrySelect = document.getElementById("country");
+    const levelSelect = document.getElementById("level");
+
+    const map = L.map("map").setView([0, -60], 3);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      maxZoom: 12,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    }).addTo(map);
+
+    let layer = null;
+
+    async function show() {
+      const iso3 = countrySelect.value;
+      const level = levelSelect.value;
+      if (!iso3 || !level) return;
+      status.textContent = `loading ${iso3} ${level}…`;
+      if (layer) layer.remove();
+      const country = await world.country(iso3);
+      const dataset = country.datasets.find((d) => d.level === level);
+      // Big levels come as parts; the preview is the map-friendly choice there.
+      const preview = dataset.bytes > 4_000_000 || dataset.path === undefined;
+      layer = await gw.addBoundaries(map, world, iso3, level, {
+        preview,
+        fit: { padding: [16, 16] },
+        onEachFeature: (feature, sub) => {
+          sub.bindTooltip(`${feature.properties.shapeName} — ${feature.id}`, { sticky: true });
+          sub.on("mouseover", () => sub.setStyle({ fillOpacity: 0.4 }));
+          sub.on("mouseout", () => sub.setStyle({ fillOpacity: 0.12 }));
+        },
+      });
+      status.textContent = `${layer.getLayers().length} features${preview ? " (preview)" : ""} — ${country.license}`;
+    }
+
+    async function fillLevels() {
+      const levels = await world.levels(countrySelect.value);
+      levelSelect.replaceChildren(...levels.map((l) => new Option(l, l)));
+      levelSelect.value = levels.includes("ADM1") ? "ADM1" : levels[0];
+      await show();
+    }
+
+    const countries = await world.countries();
+    countrySelect.replaceChildren(
+      ...countries.map((c) => new Option(`${c.name.en} (${c.iso_a3})`, c.iso_a3)),
+    );
+    countrySelect.value = countries.some((c) => c.iso_a3 === "CHL") ? "CHL" : countries[0].iso_a3;
+    countrySelect.addEventListener("change", fillLevels);
+    levelSelect.addEventListener("change", show);
+    await fillLevels();
+  </script>
+</body>
+</html>

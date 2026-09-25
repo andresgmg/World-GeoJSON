@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>geoworld examples</title>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; margin: 2rem auto; max-width: 42rem; padding: 0 1rem; color: #222; }
+    code { background: #f3f3f3; padding: 0 .25rem; border-radius: 3px; }
+    li { margin: .5rem 0; }
+  </style>
+</head>
+<body>
+  <h1>geoworld examples</h1>
+  <p>
+    Three pages, one per adapter. Each reads the index of a pinned
+    <a href="https://github.com/andresgmg/World-GeoJSON/releases">World GeoJSON data release</a>
+    through the <code>geoworld</code> client, lets you pick a territory and a level,
+    draws it, fits the map from the index bbox and highlights features by their stable <code>id</code>.
+  </p>
+  <ul>
+    <li><a href="leaflet.html">Leaflet</a> — <code>geoworld-leaflet</code>, Leaflet from a script tag (<code>window.L</code>)</li>
+    <li><a href="maplibre.html">MapLibre GL JS</a> — <code>geoworld-maplibre</code>, feature state by id</li>
+    <li><a href="react.html">React</a> — <code>geoworld-react</code> hooks, no build step</li>
+  </ul>
+  <h2>Running them</h2>
+  <p>
+    From the repository root: <code>just examples</code>, or
+    <code>npm run build &amp;&amp; python -m http.server 8000</code>, then open
+    <a href="http://localhost:8000/examples/">http://localhost:8000/examples/</a>.
+    The pages import the packages from <code>../packages/js/*/dist/esm/</code>
+    through an import map; Leaflet, MapLibre and React come from public CDNs.
+  </p>
+  <p>
+    Outside the repository, point the import map at the published packages instead,
+    for example <code>https://esm.sh/geoworld</code> and <code>https://esm.sh/geoworld-maplibre</code>.
+  </p>
+</body>
+</html>

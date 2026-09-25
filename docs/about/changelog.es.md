@@ -6,6 +6,39 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Añadido — adaptadores para frameworks
+
+- **`geoworld-maplibre`** (`packages/js/geoworld-maplibre`, npm):
+  `addBoundaries(map, client, iso3, level, { part?, preview?, fill?, line?,
+  before?, fit? })` añade un nivel como source GeoJSON más capas de relleno y
+  línea y devuelve un handle con `remove()`; `sourceSpec`, `collection`,
+  `fitToBounds`, `whenStyleReady`, `setFeatureState` y `clearFeatureState`.
+  Los datos del source llevan `properties.id` con `promoteId: "id"`, así que
+  el feature state de MapLibre funciona con los ids estables de World GeoJSON.
+- **`geoworld-leaflet`** (`packages/js/geoworld-leaflet`, npm):
+  `withLeaflet(L)` → `bounds`, `boundaries` y `addBoundaries` (un
+  `L.GeoJSON` con `fit` desde el bbox del índice); `layerById`,
+  `toLatLngBounds`, `collection`. Leaflet se recibe por parámetro, nunca se
+  importa.
+- **`geoworld-react`** (`packages/js/geoworld-react`, npm): `GeoWorldProvider`
+  y `useIndex`, `useCountries`, `useCountry`, `useBoundaries`, `useFeature`,
+  `useChildren`, `useResource`, sobre un pequeño store por clave
+  (`createStore`, `keys`) que deduplica cargas y renderiza los datos cacheados
+  en el primer paso.
+- Los tres tienen cero dependencias en runtime (`geoworld` y el framework son
+  peers), publican ESM, CommonJS y tipos, y se prueban con `node:test` contra
+  dobles. `examples/` tiene una página por adaptador (`just examples`).
+- Los paquetes JavaScript comparten ahora una versión (`0.2.0`); la etiqueta
+  `js-vX.Y.Z` publica los cuatro, saltando los que ya estén en el registro.
+- Documentación: [MapLibre](../libraries/maplibre.md),
+  [Leaflet](../libraries/leaflet.md), [React](../libraries/react.md).
+
+### Cambiado
+
+- `geoworld` (npm) pasa a 0.2.0 sin cambios de API, para avanzar en bloque
+  con los adaptadores. El `package.json` raíz exige ahora Node ≥ 20, como ya
+  hacían los paquetes.
+
 ### Añadido — bibliotecas cliente
 
 - **`geoworld` para Python** (`packages/python/geoworld`, PyPI): un cliente

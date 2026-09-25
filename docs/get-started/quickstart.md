@@ -36,6 +36,20 @@ Every snippet below loads Chile's 16 regions from
     </script>
     ```
 
+    Or with the [Leaflet adapter](../libraries/leaflet.md), pinned to a data
+    release, verified and fitted from the index:
+
+    ```js
+    import { createClient } from "geoworld";
+    import { withLeaflet } from "geoworld-leaflet";
+
+    const world = createClient({ version: "1.0.0" });
+    await withLeaflet(L).addBoundaries(map, world, "CHL", "ADM1", {
+      fit: true,
+      onEachFeature: (f, l) => l.bindTooltip(f.properties.shapeName),
+    });
+    ```
+
 === "MapLibre"
 
     ```js
@@ -68,6 +82,17 @@ Every snippet below loads Chile's 16 regions from
         paint: { "line-color": "#00695c", "line-width": 1 },
       });
     });
+    ```
+
+    Or with the [MapLibre adapter](../libraries/maplibre.md), which also
+    makes the stable feature `id` usable for `feature-state`:
+
+    ```js
+    import { createClient } from "geoworld";
+    import { addBoundaries } from "geoworld-maplibre";
+
+    const world = createClient({ version: "1.0.0" });
+    const regions = await addBoundaries(map, world, "CHL", "ADM1", { fit: true });
     ```
 
 === "Python"

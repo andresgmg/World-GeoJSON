@@ -109,8 +109,9 @@ server involved — they fetch static files. See
 
 **Phase 4 — framework adapters and onboarding**
 
-- [ ] React, Leaflet and MapLibre adapters on top of `geoworld`
-- [ ] Worked examples
+- [x] `geoworld-maplibre`, `geoworld-leaflet` and `geoworld-react` on top of
+      `geoworld` — see [Client libraries](../libraries/index.md)
+- [x] Worked examples in `examples/` (Leaflet, MapLibre, React; no build step)
 - [ ] Issue and PR templates for country submissions
 - [ ] Remove the `scripts/*.py` compatibility shims kept since Phase 2
 

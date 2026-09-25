@@ -1,0 +1,64 @@
+{
+  "name": "geoworld-maplibre",
+  "version": "0.2.0",
+  "description": "MapLibre GL JS helpers for geoworld: add a World GeoJSON administrative level as a source and layers, fit the map to its bbox and set feature state by stable id.",
+  "license": "MIT",
+  "author": "Andres Marquez",
+  "homepage": "https://andresgmg.github.io/World-GeoJSON/libraries/maplibre/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresgmg/World-GeoJSON.git",
+    "directory": "packages/js/geoworld-maplibre"
+  },
+  "bugs": "https://github.com/andresgmg/World-GeoJSON/issues",
+  "keywords": [
+    "geojson",
+    "administrative-boundaries",
+    "maplibre",
+    "maplibre-gl",
+    "geoworld"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true});require('fs').rmSync('build-test',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json','{\\\"type\\\":\\\"commonjs\\\"}\\n')\"",
+    "lint": "tsc -p tsconfig.test.json --noEmit",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "cd build-test && node --test",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "geoworld": "^0.2.0",
+    "maplibre-gl": ">=2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "geoworld": "*",
+    "maplibre-gl": "^6.11.2",
+    "typescript": "~5.9.3"
+  }
+}

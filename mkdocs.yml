@@ -152,6 +152,9 @@ plugins:
             Libraries: Bibliotecas
             Python client: Cliente Python
             JavaScript client: Cliente JavaScript
+            MapLibre adapter: Adaptador MapLibre
+            Leaflet adapter: Adaptador Leaflet
+            React adapter: Adaptador React
             Contributing: Contribuir
             Add a country: Añadir un país
             Data pipeline: Pipeline de datos
@@ -290,6 +293,9 @@ nav:
       - libraries/index.md
       - Python client: libraries/python.md
       - JavaScript client: libraries/javascript.md
+      - MapLibre adapter: libraries/maplibre.md
+      - Leaflet adapter: libraries/leaflet.md
+      - React adapter: libraries/react.md
   - Contributing:
       - contributing/index.md
       - Add a country: contributing/add-a-country.md
