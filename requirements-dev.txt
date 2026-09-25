@@ -16,3 +16,6 @@ pytest==9.1.1
 -e ./pipeline[pipeline]
 ijson==3.5.1
 jsonschema==4.26.0
+
+# The Python client library (packages/python/geoworld): zero dependencies.
+-e ./packages/python/geoworld

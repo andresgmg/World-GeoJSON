@@ -23,6 +23,11 @@ it: fetch a URL and you have boundaries.
     The conventions: folder layout, admin levels, property schema, CRS policy,
     and how planetary bodies differ.
 
+-   :material-package-variant: **[Libraries](libraries/index.md)**
+
+    `geoworld` for Python and JavaScript: read the index at a pinned data
+    release, download on demand, verify checksums, navigate by `id`.
+
 -   :material-source-pull: **[Contributing](contributing/index.md)**
 
     How to add a country — including which upstream sources are legally safe

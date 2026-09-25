@@ -95,17 +95,21 @@ then libraries that speak it. In order:
 `scripts/*.py` stay as compatibility shims for one release and retire in
 Phase 4, as planned.
 
-**Phase 3 — client libraries**
+**Phase 3 — client libraries** (done; first publication pending)
 
-- [ ] Python `world-geojson` on PyPI
-- [ ] TypeScript `@world-geojson/core` on npm
+- [x] Python `geoworld` (`packages/python/geoworld`, PyPI)
+- [x] TypeScript `geoworld` (`packages/js/geoworld`, npm)
+- [ ] Published: `python-v0.1.0` and `js-v0.1.0` tags, once the PyPI and npm
+      publishers are configured
 
-Both are thin clients: read `index.json` from a pinned data version, download
-on demand, cache, verify `sha256`. No server involved — they fetch static files.
+Both are thin clients with the same API: read `index.json` from a pinned data
+version, download on demand, cache, verify `sha256`, navigate by `id`. No
+server involved — they fetch static files. See
+[Client libraries](../libraries/index.md).
 
 **Phase 4 — framework adapters and onboarding**
 
-- [ ] `@world-geojson/react`, `@world-geojson/leaflet`, `@world-geojson/maplibre`
+- [ ] React, Leaflet and MapLibre adapters on top of `geoworld`
 - [ ] Worked examples
 - [ ] Issue and PR templates for country submissions
 - [ ] Remove the `scripts/*.py` compatibility shims kept since Phase 2
@@ -154,7 +158,8 @@ Tracked, not hidden.
 ## Not planned
 
 - **A hosted API or tile service.** This is a data repository, and the
-  libraries in Phase 3 are client-side: they fetch static files. Cloudflare,
+  [client libraries](../libraries/index.md) are client-side: they fetch
+  static files. Cloudflare,
   jsDelivr and your own CDN do the serving better.
 - **Geocoding or address data.** Different problem, different sources.
 - **Historical boundaries.** Interesting, and a project of its own.

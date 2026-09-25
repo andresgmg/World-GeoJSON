@@ -99,18 +99,21 @@ tooling, luego bibliotecas que lo hablen. En orden:
 Los `scripts/*.py` se quedan como shims de compatibilidad durante una release
 y se retiran en la Fase 4, como estaba previsto.
 
-**Fase 3 — bibliotecas cliente**
+**Fase 3 — bibliotecas cliente** (hecha; primera publicación pendiente)
 
-- [ ] Python `world-geojson` en PyPI
-- [ ] TypeScript `@world-geojson/core` en npm
+- [x] Python `geoworld` (`packages/python/geoworld`, PyPI)
+- [x] TypeScript `geoworld` (`packages/js/geoworld`, npm)
+- [ ] Publicadas: etiquetas `python-v0.1.0` y `js-v0.1.0`, cuando estén
+      configurados los publicadores en PyPI y npm
 
-Ambas son clientes ligeros: leen `index.json` de una versión de datos fijada,
-descargan bajo demanda, cachean y verifican `sha256`. Sin servidor de por
-medio — descargan archivos estáticos.
+Ambas son clientes ligeros con la misma API: leen `index.json` de una versión
+de datos fijada, descargan bajo demanda, cachean, verifican `sha256` y navegan
+por `id`. Sin servidor de por medio — descargan archivos estáticos. Ver
+[Bibliotecas cliente](../libraries/index.md).
 
 **Fase 4 — adaptadores para frameworks e incorporación**
 
-- [ ] `@world-geojson/react`, `@world-geojson/leaflet`, `@world-geojson/maplibre`
+- [ ] Adaptadores para React, Leaflet y MapLibre sobre `geoworld`
 - [ ] Ejemplos trabajados
 - [ ] Plantillas de issue y PR para envío de países
 - [ ] Retirar los shims de compatibilidad `scripts/*.py` que quedaron de la

@@ -3,7 +3,7 @@
 `data/index.json` is the whole catalog in one file: every territory and every
 dataset, with each country's [manifest](manifest.md) embedded verbatim. One
 request instead of fifty-five, and the entry point the
-[client libraries](../about/roadmap.md) on the roadmap will read.
+[client libraries](../libraries/index.md) read.
 
 ## What it is
 

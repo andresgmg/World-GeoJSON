@@ -125,9 +125,8 @@ new files already apply it: one feature per line at six decimals makes
 
 ## Library versioning
 
-The client libraries planned in Phase 3 of the [Roadmap](roadmap.md) — Python
-`world-geojson`, TypeScript `@world-geojson/core` — are versioned
-**independently of the data**:
+The [client libraries](../libraries/index.md) — `geoworld` on PyPI and on
+npm — are versioned **independently of the data**:
 
 - A library's semver describes its own API. Its major bumps when a function
   signature breaks, not when a boundary moves.

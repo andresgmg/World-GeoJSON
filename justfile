@@ -9,25 +9,39 @@ set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
 default:
     @just --list
 
-# Install the pipeline (editable), the dev toolchain and the pinned mapshaper.
+# Install the pipeline and the Python client (editable), the dev toolchain, the
+# pinned mapshaper and the JavaScript client's TypeScript.
 setup:
     python -m pip install -r requirements-dev.txt
     npm ci
 
-# Lint, format-check and type-check the pipeline package, its tests and the shims.
+# Lint, format-check and type-check every Python package, plus the TypeScript client.
 lint:
     ruff check .
     ruff format --check .
     mypy
+    npm run lint -w packages/js/geoworld
 
 # Auto-format Python.
 fmt:
     ruff format .
     ruff check --fix .
 
-# Run the test suite.
+# Run the Python test suites (pipeline and client).
 test *ARGS:
     pytest {{ARGS}}
+
+# Run the JavaScript client's tests (node:test, compiled first).
+test-js:
+    npm test -w packages/js/geoworld
+
+# Build the JavaScript client (ESM + CJS + types into packages/js/geoworld/dist).
+build-js:
+    npm run build -w packages/js/geoworld
+
+# Rewrite fixtures/expected/*.json from the Python client; both clients must then match it.
+goldens:
+    python packages/python/geoworld/tests/goldens.py
 
 # Validate every dataset under data/ (add --checksums to re-hash every file).
 validate *ARGS:
@@ -66,4 +80,4 @@ serve:
     mkdocs serve
 
 # Everything CI runs, in order.
-ci: lint test check-data
+ci: lint test test-js check-data

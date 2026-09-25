@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "geoworld"
+dynamic = ["version"]
+description = "Thin client for the World GeoJSON administrative boundaries: read the versioned index, download on demand, cache and verify."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Andres Marquez" }]
+keywords = ["geojson", "administrative-boundaries", "gis", "world", "countries"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: GIS",
+  "Typing :: Typed",
+]
+# Zero runtime dependencies: urllib, json, hashlib and pathlib do the job.
+dependencies = []
+
+[project.optional-dependencies]
+geopandas = ["geopandas>=0.14"]
+
+[project.urls]
+Homepage = "https://andresgmg.github.io/World-GeoJSON/libraries/python/"
+Documentation = "https://andresgmg.github.io/World-GeoJSON/libraries/python/"
+Repository = "https://github.com/andresgmg/World-GeoJSON"
+Changelog = "https://github.com/andresgmg/World-GeoJSON/blob/main/CHANGELOG.md"
+Data = "https://github.com/andresgmg/World-GeoJSON/releases"
+
+[tool.hatch.version]
+path = "src/geoworld/client.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/geoworld"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/geoworld", "tests", "README.md", "pyproject.toml"]

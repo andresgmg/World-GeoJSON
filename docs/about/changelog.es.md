@@ -6,6 +6,27 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Añadido — bibliotecas cliente
+
+- **`geoworld` para Python** (`packages/python/geoworld`, PyPI): un cliente
+  ligero sin dependencias. `GeoWorld("1.0.0")` lee `data/index.json` de una
+  release de datos fijada, descarga archivos bajo demanda, los cachea en el
+  directorio de caché de la plataforma y verifica cada `sha256` contra el
+  índice; `get`, `get_part`, `iter_parts`, `preview`, `find`, `parent`,
+  `children`, `search`, `url`, `bbox` y, con el extra `geopandas`,
+  `to_geopandas`.
+- **`geoworld` para JavaScript/TypeScript** (`packages/js/geoworld`, npm): la
+  misma API, `async`, ESM y CommonJS, sin dependencias, sobre `fetch` y Web
+  Crypto (Node ≥ 20, navegadores). `geoworld/node` añade una caché en disco
+  con la misma disposición que la del cliente Python.
+- `fixtures/expected/fixtures.json`: un golden que ambos clientes deben
+  reproducir byte a byte, comprobado en CI, para que no puedan divergir.
+- Workflows `publish-python.yml` (etiqueta `python-vX.Y.Z`, trusted
+  publishing en PyPI) y `publish-js.yml` (etiqueta `js-vX.Y.Z`, npm con
+  procedencia), y un job `js-client` en `ci.yml` (Node 20 y 22).
+- Documentación: [Bibliotecas cliente](../libraries/index.md),
+  [Python](../libraries/python.md), [JavaScript](../libraries/javascript.md).
+
 ### Añadido — paquete del pipeline
 
 - **El comando `wgj`.** El pipeline es ahora un paquete Python instalable,

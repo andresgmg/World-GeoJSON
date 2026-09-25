@@ -1,7 +1,8 @@
 # Tooling configuration for the World GeoJSON pipeline (pipeline/, the `wgj`
-# package) and its tests. Install with:
+# package), the Python client (packages/python/geoworld) and their tests.
+# Install with:
 #
-#   pip install -r requirements-dev.txt      # includes `-e ./pipeline[pipeline]`
+#   pip install -r requirements-dev.txt      # includes both packages, editable
 #   ruff check . && ruff format --check . && mypy && pytest
 
 [tool.ruff]
@@ -19,12 +20,12 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["wgj"]
+known-first-party = ["wgj", "geoworld"]
 
 [tool.mypy]
 python_version = "3.11"
-files = ["pipeline/src", "pipeline/tests", "scripts"]
-mypy_path = "pipeline/src"
+files = ["pipeline/src", "pipeline/tests", "scripts", "packages/python/geoworld"]
+mypy_path = "pipeline/src:packages/python/geoworld/src"
 explicit_package_bases = true
 check_untyped_defs = true
 disallow_incomplete_defs = true
@@ -35,8 +36,8 @@ warn_unused_ignores = true
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
-testpaths = ["pipeline/tests"]
-pythonpath = ["pipeline/src"]
+testpaths = ["pipeline/tests", "packages/python/geoworld/tests"]
+pythonpath = ["pipeline/src", "packages/python/geoworld/src"]
 addopts = "-ra"
 markers = [
   "mapshaper: needs Node and mapshaper (npm install); skipped when absent",

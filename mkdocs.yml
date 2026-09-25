@@ -149,6 +149,9 @@ plugins:
             Planetary bodies: Cuerpos planetarios
             Manifest format: Formato del manifiesto
             Global index & schemas: Índice global y esquemas
+            Libraries: Bibliotecas
+            Python client: Cliente Python
+            JavaScript client: Cliente JavaScript
             Contributing: Contribuir
             Add a country: Añadir un país
             Data pipeline: Pipeline de datos
@@ -283,6 +286,10 @@ nav:
       - Planetary bodies: reference/planetary.md
       - Manifest format: reference/manifest.md
       - Global index & schemas: reference/index-json.md
+  - Libraries:
+      - libraries/index.md
+      - Python client: libraries/python.md
+      - JavaScript client: libraries/javascript.md
   - Contributing:
       - contributing/index.md
       - Add a country: contributing/add-a-country.md
