@@ -24,7 +24,7 @@ known-first-party = ["wgj", "geoworld"]
 
 [tool.mypy]
 python_version = "3.11"
-files = ["pipeline/src", "pipeline/tests", "scripts", "packages/python/geoworld"]
+files = ["pipeline/src", "pipeline/tests", "packages/python/geoworld"]
 mypy_path = "pipeline/src:packages/python/geoworld/src"
 explicit_package_bases = true
 check_untyped_defs = true

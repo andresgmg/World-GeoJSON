@@ -27,13 +27,3 @@ def test_module_entry_point() -> None:
         check=False,
     )
     assert proc.returncode == 0 and "usage:" in proc.stdout
-
-
-def test_legacy_shims_still_run(repo) -> None:  # type: ignore[no-untyped-def]
-    proc = subprocess.run(
-        [sys.executable, str(repo / "scripts" / "validate_data.py"), "--help"],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    assert proc.returncode == 0 and "usage:" in proc.stdout

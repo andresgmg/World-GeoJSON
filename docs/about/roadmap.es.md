@@ -96,8 +96,8 @@ tooling, luego bibliotecas que lo hablen. En orden:
       índice — así que el CI no necesita un checkout de los datos
 - [x] Previews generados desde Python (mapshaper sigue corriendo vía Node)
 
-Los `scripts/*.py` se quedan como shims de compatibilidad durante una release
-y se retiran en la Fase 4, como estaba previsto.
+Los `scripts/*.py` se quedaron como shims de compatibilidad durante una
+release y se retiraron en la Fase 4, como estaba previsto.
 
 **Fase 3 — bibliotecas cliente** (hecha; primera publicación pendiente)
 
@@ -116,8 +116,9 @@ por `id`. Sin servidor de por medio — descargan archivos estáticos. Ver
 - [x] `geoworld-maplibre`, `geoworld-leaflet` y `geoworld-react` sobre
       `geoworld` — ver [Bibliotecas cliente](../libraries/index.md)
 - [x] Ejemplos trabajados en `examples/` (Leaflet, MapLibre, React; sin build)
-- [ ] Plantillas de issue y PR para envío de países
-- [ ] Retirar los shims de compatibilidad `scripts/*.py` que quedaron de la
+- [x] Formularios de issue (país nuevo, problema de datos, bug de biblioteca),
+      plantilla de pull request y `CODEOWNERS`
+- [x] Retirados los shims de compatibilidad `scripts/*.py` que quedaron de la
       Fase 2
 
 ## Siguiente — los demás continentes

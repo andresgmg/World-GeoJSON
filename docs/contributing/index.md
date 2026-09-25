@@ -43,14 +43,23 @@ Being direct about this up front, because the alternative is wasting your time:
 - **Files that ignore the conventions** in [Reference](../reference/index.md).
   These are usually fixable — expect review comments rather than a rejection.
 
-## Reporting a problem
+## Reporting a problem, proposing a country
 
-[Open an issue](https://github.com/andresgmg/World-GeoJSON/issues). Useful bug
-reports include the dataset, the specific feature, and what you expected. A
-screenshot of the wrong geometry is worth a lot.
+[Open an issue](https://github.com/andresgmg/World-GeoJSON/issues/new/choose).
+Three forms ask for what a review needs:
+
+- **New country or territory** — the source, its SPDX licence and where that
+  licence is stated. Read [Approved sources](sources.md) first: this is
+  where most proposals fail.
+- **Data problem** — the dataset path, the feature `id`
+  (`CHL:ADM3:01402`), the data version you read it from, and evidence. A
+  screenshot of the wrong geometry is worth a lot.
+- **Library bug** — the package, its version, your runtime, and a minimal
+  reproduction.
 
 Known gaps are already tracked on the [Roadmap](../about/roadmap.md) — worth a
-look before filing.
+look before filing. Pull requests get a template with the checks that CI
+runs; ticking them before opening saves a round trip.
 
 ## Ground rules
 

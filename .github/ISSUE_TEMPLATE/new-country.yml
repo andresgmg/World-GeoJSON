@@ -1,0 +1,82 @@
+name: New country or territory
+description: Propose adding a territory, or a new administrative level for one already published.
+title: "[data] Add <ISO3> <levels>"
+labels: ["data", "new-country"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. Finding a legally usable source is the hardest part of adding a
+        territory, so this form starts there. See
+        [Approved sources & licensing](https://andresgmg.github.io/World-GeoJSON/contributing/sources/)
+        and [Add a country](https://andresgmg.github.io/World-GeoJSON/contributing/add-a-country/).
+  - type: input
+    id: territory
+    attributes:
+      label: Territory
+      description: Name and ISO 3166-1 alpha-3 code.
+      placeholder: "Uruguay (URY)"
+    validations:
+      required: true
+  - type: checkboxes
+    id: levels
+    attributes:
+      label: Levels proposed
+      options:
+        - label: ADM0 (country outline)
+        - label: ADM1 (first-level divisions)
+        - label: ADM2
+        - label: ADM3
+        - label: ADM4
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Publisher and the page or API the data comes from.
+      placeholder: "IDE Chile — https://www.ide.cl/…"
+    validations:
+      required: true
+  - type: dropdown
+    id: license
+    attributes:
+      label: Licence of the source (SPDX)
+      description: Only the identifiers on the allow-list can be merged. ODbL, CC-BY-SA, CC-BY-NC and GADM terms cannot.
+      options:
+        - public-domain
+        - CC0-1.0
+        - CC-BY-4.0
+        - CC-BY-3.0
+        - CC-BY-3.0-IGO
+        - CC-BY-2.5
+        - Etalab-2.0
+        - OGL-Canada-2.0
+        - Other (explain below; it will probably not be accepted)
+    validations:
+      required: true
+  - type: textarea
+    id: license-evidence
+    attributes:
+      label: Where the licence is stated
+      description: A link or a quote from the publisher's terms page. "Open data" is not a licence.
+    validations:
+      required: true
+  - type: input
+    id: vintage
+    attributes:
+      label: Vintage
+      description: Year or date the boundaries are current to.
+      placeholder: "2023"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Disputed areas, units the source is missing, official codes available (ISO 3166-2, national statistical codes), anything the reviewer should know.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I read the disputed boundaries policy and will keep the discussion technical.
+          required: true
+        - label: The source is not GADM, OpenStreetMap-derived under ODbL, or a share-alike licence.
+          required: true

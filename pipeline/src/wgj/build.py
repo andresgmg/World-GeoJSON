@@ -123,7 +123,7 @@ def main(argv: list[str] | None = None) -> int:
 def record_provenance(iso3: str, results: list[dict], retrieved: str) -> None:
     """Write identity, per-dataset provenance and the applied tolerance.
 
-    build_manifest.py preserves everything outside `datasets`, and carries
+    `wgj manifest` preserves everything outside `datasets`, and carries
     forward the per-dataset keys it does not compute itself.
     """
     entry = countries()[iso3]

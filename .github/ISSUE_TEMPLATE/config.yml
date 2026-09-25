@@ -1,0 +1,10 @@
+# Issue forms live next to this file. Blank issues are off so every report
+# arrives with the fields the review checklist needs.
+blank_issues_enabled: false
+contact_links:
+  - name: Approved sources and licensing
+    url: https://andresgmg.github.io/World-GeoJSON/contributing/sources/
+    about: Read this before proposing a country. An incompatible upstream licence (GADM, ODbL, CC-BY-SA) ends a contribution before it starts.
+  - name: Documentation
+    url: https://andresgmg.github.io/World-GeoJSON/
+    about: Data reference, client libraries, pipeline and contribution guides, in English and Spanish.

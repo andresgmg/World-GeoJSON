@@ -351,9 +351,8 @@ Dominicana reducida — más su `index.json`, y la suite apunta el paquete a él
 con `WGJ_DATA`. Define `WGJ_DATA=<dir>` tú mismo para ejecutar cualquier
 comando `wgj` contra otro árbol de datos.
 
-`scripts/*.py` siguen existiendo como shims de diez líneas que llaman al
-paquete, de modo que `python scripts/validate_data.py` y sus hermanos siguen
-funcionando durante una release. Se retiran en la Fase 4 de la
-[Hoja de ruta](../about/roadmap.md); a partir de ahora escribe `wgj`.
+Los puntos de entrada `scripts/*.py` anteriores al paquete se mantuvieron
+como shims durante una release y se retiraron en la Fase 4; `wgj` es el único
+punto de entrada.
 
 --8<-- "abbreviations.md"
