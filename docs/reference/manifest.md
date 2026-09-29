@@ -1,8 +1,8 @@
 # Manifest format
 
 Every dataset directory contains a `manifest.json`. It is the **only** input to
-this documentation site: every catalog page is generated from it. There are 55
-of them today, one per territory under `data/earth/`, and all 55 are embedded
+this documentation site: every catalog page is generated from it. There are 106
+of them today, one per territory under `data/earth/`, and all are embedded
 verbatim in the [global index](index-json.md), `data/index.json`.
 
 ## Why it exists
@@ -101,7 +101,7 @@ the distinct values. Chile's manifest has no `notes`.
 | Field | Meaning |
 |---|---|
 | `level` | `ADM0`–`ADM5` |
-| `path` | The whole-level file, relative to the repository root. Absent when the combined file was too large to publish (Brazil's ADM2 today) |
+| `path` | The whole-level file, relative to the repository root. Absent when the combined file was too large to publish (Brazil's ADM2 and France's ADM5 today) |
 | `bytes`, `sha256` | Size and hash of `path`; for a split level without one, `bytes` is the sum of the parts |
 | `features` | Feature count of the **whole level**, so the catalog can always report a total |
 | `bbox` | `[west, south, east, north]`, naive min/max over all coordinates — see the antimeridian note below |
@@ -159,8 +159,8 @@ Chile's ADM3, abridged:
 - `features` on the entry is the **whole level**, so the catalog can always
   report a total whether or not a combined file exists.
 - `path` is the optional whole-country file, present only when it fits under
-  the 18 MiB budget. Brazil's ADM2 has 28 parts and no `path`; its absence is
-  normal and the catalog says so.
+  the 18 MiB budget. Brazil's ADM2 has 28 parts and no `path`, France's ADM5
+  14; its absence is normal and the catalog says so.
 - `code` is the ADM1 unit's key: its `shapeISO` after the corrections in
   `pipeline/src/wgj/tables/shapeiso_fixes.json`, which is also the `adm1ISO`
   value on every feature in the part and the key of the ADM1's own `id`.
@@ -240,7 +240,7 @@ wgj index
 ```
 
 The scanner streams each file with `ijson` in constant memory, so even the
-largest file in the repository (Canada's ADM1, 14.9 MB) costs a few seconds and
+largest files in the repository (Spain's municipalities and Canada's ADM1, 14.9 MB each) costs a few seconds and
 a few tens of megabytes of RAM rather than a gigabyte-plus of parsed Python
 objects.
 
@@ -291,10 +291,10 @@ and the committed manifests must match a fresh regeneration.
 
 ## The global index and the release assets
 
-The manifests are embedded, verbatim, in **`data/index.json`** — one 340 KB
+The manifests are embedded, verbatim, in **`data/index.json`** — one 650 KB
 file for the whole corpus, so a client discovers every territory, level and
 file with `bytes`, `sha256`, `bbox` and licence in a single request instead of
-55. It is documented on [Global index & schemas](index-json.md), alongside the
+one per territory. It is documented on [Global index & schemas](index-json.md), alongside the
 five JSON Schemas.
 
 Tagged releases distribute the same files a second way: one zip per territory

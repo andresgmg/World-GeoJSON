@@ -2,7 +2,7 @@
 
 `data/index.json` is the whole catalog in one file: every territory and every
 dataset, with each country's [manifest](manifest.md) embedded verbatim. One
-request instead of fifty-five, and the entry point the
+request instead of one per territory, and the entry point the
 [client libraries](../libraries/index.md) read.
 
 ## What it is
@@ -21,7 +21,7 @@ can never disagree with a manifest — and CI regenerates it on every change
 {
   "schema_version": 1,
   "bodies": ["earth"],
-  "totals": { "countries": 55, "datasets": 95, "features": 16195, "bytes": 125679933 },
+  "totals": { "countries": 106, "datasets": 192, "features": 75460, "bytes": 232336401 },
   "countries": [ … ]
 }
 ```
@@ -80,7 +80,7 @@ Chile's entry, with the datasets abridged:
 
 ## Size and determinism
 
-340 KB on disk, 39 KB gzipped — a fraction of the smallest data file. It has
+About 650 KB on disk, 80 KB gzipped — smaller than most single data files. It has
 no timestamp and no version field, deliberately: the file is byte-deterministic
 for a given state of the manifests, so CI can regenerate it and `git diff`. The
 data version is the git ref you fetched it from.

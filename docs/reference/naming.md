@@ -57,12 +57,13 @@ would be tens of megabytes and unusable in a browser. Splitting by first-level
 division keeps every file small, lets consumers fetch only the state they care
 about, and keeps everything inside the per-file size budget.
 
-Split levels exist today for ARG, BLZ, BOL, BRA, CHL, DOM, ECU, MEX, PRY and
-USA.
+Split levels exist today for ARG, BEL, BGR, BIH, BLR, BLZ, BOL, BRA, CHL, DEU,
+DNK, DOM, ECU, ESP, FRA, GBR, GRC, IRL, ITA, MEX, MKD, NLD, NOR, PRY, ROU, SWE
+and USA.
 
-**Fourteen territories have a municipal tier but no ADM1 to split it by**, so
+**Eighteen territories have a municipal tier but no ADM1 to split it by**, so
 they ship the whole-country file only: COL, CRI, GLP, GTM, GUF, GUY, HND, HTI,
-MTQ, PAN, PRI, SLV, SUR and VIR. (Most of these are countries whose
+ISL, LUX, MTQ, PAN, PRI, PRT, SLV, SUR, UKR and VIR. (Most of these are countries whose
 geoBoundaries ADM1 is copyleft; see the [Roadmap](../about/roadmap.md).)
 
 ### Part codes
@@ -87,7 +88,8 @@ things to know:
   `{LEVEL}/unassigned.geojson` rather than being dropped, with
   `adm1ISO: "unassigned"` and no `parentID`, and the manifest records the
   count in `unassigned`. Today: ARG ADM2 (8 — the comunas of Buenos Aires
-  city, which the upstream ADM1 omits), BRA ADM2 (3) and USA ADM2 (1).
+  city, which the upstream ADM1 omits), BRA ADM2 (3), USA ADM2 (1) and FRA
+  ADM5 (129 — the communes of the five overseas departments).
 
 The pipeline falls back to a slug of the ADM1 name if the upstream code is
 empty; no part currently needs it.
@@ -101,7 +103,9 @@ dataset's catalog page says so explicitly.
 
 Brazil is the live example: its combined ADM2 would be 33 MB, so
 `data/earth/BRA/` has an `ADM2/` folder with 28 parts and no
-`BRA_ADM2.geojson`. Chile's communes fit (7 MB), so both forms exist.
+`BRA_ADM2.geojson`. France's communes are the other: 43 MB in 14 parts
+(13 regions and `unassigned`). Chile's communes fit (7 MB), so both forms
+exist.
 
 So: check the catalog page or the manifest rather than assuming a combined file
 exists.

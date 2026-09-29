@@ -88,7 +88,7 @@ de la release son la sección correspondiente del
 
 Descarga primero `data/index.json` y después solo los archivos que necesites:
 enumera cada territorio y dataset con `path`, `bytes`, `sha256`, `bbox` y
-licencia, e incrusta todos los manifiestos, en 340 KB (39 KB con gzip). Se
+licencia, e incrusta todos los manifiestos, en unos 650 KB (80 KB con gzip). Se
 sirve desde las mismas URLs que los datos —
 
 ```
@@ -116,8 +116,8 @@ mismas URLs que los archivos completos y apto para cargarlo directamente. Las
 
 Para trabajar con los datos localmente o en un pipeline.
 
-El pack del repositorio pesa unos 56 MiB y el working tree unos 309 MB —
-166 MB bajo `data/` y casi todo el resto los cuatro archivos heredados de la
+El pack del repositorio pesa unos 106 MiB y el working tree unos 465 MB —
+319 MB bajo `data/` y casi todo el resto los cuatro archivos heredados de la
 raíz. Un clon completo no es enorme, pero un sparse checkout de un solo país es
 bastante más pequeño.
 

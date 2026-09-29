@@ -16,8 +16,8 @@ Using this project is three steps.
 
 Administrative boundary data is large, and this project stores it uncompressed
 so it stays diff-able and directly consumable. Every file under `data/` is
-simplified to a 100 m ground tolerance, which keeps the largest — Canada's
-ADM1 — at 14.9 MB and everything under 20 MB. Chile's 345 communes are 7 MB.
+simplified to a 100 m ground tolerance, which keeps the largest — Spain's
+municipalities and Canada's ADM1 — at 14.9 MB and everything under 20 MB. Chile's 345 communes are 7 MB.
 
 That has consequences worth knowing up front:
 

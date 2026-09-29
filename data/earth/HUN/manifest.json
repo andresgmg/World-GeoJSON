@@ -20,7 +20,7 @@
     "retrieved": "2026-09-29",
     "license": "public-domain"
   },
-  "notes": "Settlements are ODbL (OpenStreetMap) and not published; counties and Budapest are.",
+  "notes": "Settlements are ODbL (OpenStreetMap) and not published. The first level is the 19 counties: geoBoundaries draws Budapest inside Pest county rather than as a unit of its own, although its metadata counts 20.",
   "datasets": [
     {
       "level": "ADM0",

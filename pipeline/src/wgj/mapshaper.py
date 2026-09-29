@@ -72,7 +72,7 @@ def run_mapshaper(args: list[str]) -> None:
         detail = ((proc.stderr or "") + (proc.stdout or "")).strip().splitlines()
         tail = detail[-1] if detail else "no output"
         # RuntimeError, not SystemExit: main() catches it per country so one
-        # bad dataset does not abandon the other fifty-six.
+        # bad dataset does not abandon the rest of the continent.
         raise RuntimeError(f"mapshaper: {tail}")
 
 

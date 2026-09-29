@@ -52,6 +52,67 @@ Pendiente en este continente:
       tier municipal pero no ADM1 aguas arriba, así que no se pueden partir
 - [ ] Traducir al español las páginas generadas del catálogo
 
+## Hecho — Europa
+
+**51 territorios, 97 datasets, 59.265 features.** El mismo pipeline y las
+mismas fuentes que en América: contornos desde Natural Earth, primer nivel y
+tier municipal desde geoBoundaries, solo con licencias permisivas.
+geoBoundaries se lee ahora desde un commit fijado de su repositorio en vez de
+su API, así que una reconstrucción descarga exactamente los mismos archivos.
+
+Tres licencias que solo exigen atribución entraron en la lista blanca, para
+datos nacionales que geoBoundaries redistribuye: la Open Government Licence
+v3.0 del Reino Unido, la Data licence Germany – attribution – 2.0 de Alemania
+y la Open Data Commons Attribution 1.0 (las comunas de Francia). Las 35.010
+comunas francesas añaden además un quinto nivel, ADM5, al contrato.
+
+Diecisiete países tienen primer nivel y tier municipal: Bélgica, Bulgaria,
+Bosnia y Herzegovina, Bielorrusia, Alemania, Dinamarca, España, Francia, el
+Reino Unido, Grecia, Irlanda, Italia, Macedonia del Norte, los Países Bajos,
+Noruega, Rumanía y Suecia. Kosovo se publica como `XKX`, un código de usuario,
+con la disputa explicada en su manifiesto — ver
+[Fronteras disputadas](disputed-boundaries.md). **Svalbard y Jan Mayen** no
+publica nada: Natural Earth dibuja ambos dentro del contorno de Noruega.
+
+### Huecos de cobertura
+
+**Diecinueve países no tienen aquí divisiones de primer nivel.** Su ADM1 en
+geoBoundaries es ODbL (Estonia, Finlandia, Croacia, Islandia, Liechtenstein,
+Lituania, Luxemburgo, Mónaco, Montenegro, Polonia, Portugal, Rusia, San
+Marino, Serbia, Eslovaquia, Ucrania), CC-BY-SA (Austria, Kosovo) o está bajo
+la licencia propia de swisstopo, que no está en la lista blanca (Suiza).
+Islandia, Luxemburgo, Portugal y Ucrania tienen un tier municipal con licencia
+permisiva, publicado sin ADM1 por encima. Åland, las Islas Feroe, Guernsey,
+Gibraltar, la Isla de Man, Jersey y la Ciudad del Vaticano no tienen nada por
+debajo del contorno en origen.
+
+**Diecisiete países no tienen aquí tier municipal** porque es copyleft o
+tiene una licencia fuera de la lista blanca: Austria, Suiza, Chequia,
+Estonia, Finlandia, Croacia, Hungría, Lituania, Polonia, Rusia, Serbia,
+Eslovaquia, Eslovenia y Kosovo, más Liechtenstein, Montenegro y San Marino,
+cuyos municipios son su primer nivel. Chequia, Hungría y Eslovenia sí publican
+su primer nivel. Los 61 municipios de Albania y las comunas de Moldavia no
+están en geoBoundaries.
+
+Pendiente en este continente:
+
+- [ ] Niveles intermedios. El pipeline construye ADM1 y un tier municipal por
+      país, así que los niveles intermedios con licencia permisiva aún no
+      están: los 96 départements y 320 arrondissements de Francia, las 20
+      regiones y 107 provincias de Italia, las 38 regiones administrativas de
+      Alemania, los 77 distritos de Chequia, los 43 arrondissements de
+      Bélgica y los segundos niveles de Grecia (14 unidades) y de Bosnia y
+      Herzegovina (12)
+- [ ] Los municipios de Alemania (Gemeinden) — no están en geoBoundaries; el
+      tier publicado son los 401 distritos
+- [ ] Vigencias más recientes donde ha habido reformas: las fusiones de
+      Bélgica de 2019, las reformas de Noruega de 2020 y 2024, los raiones de
+      Ucrania de 2020, las fusiones de Islandia (74 unidades frente a 64), los
+      municipios de Albania de 2015
+- [ ] Previews del catálogo para los tres niveles demasiado densos para 2 MB
+      incluso con la simplificación más gruesa: España ADM3, Francia ADM5 e
+      Italia ADM4
+
 ## Siguiente — de repositorio de datos a plataforma
 
 América demostró el pipeline. Las próximas releases convierten el repositorio en
@@ -123,7 +184,7 @@ por `id`. Sin servidor de por medio — descargan archivos estáticos. Ver
 
 ## Siguiente — los demás continentes
 
-Un PR cada uno, reutilizando el pipeline: Europa, África, Asia y Oceanía.
+Un PR cada uno, reutilizando el pipeline: África, Asia y Oceanía.
 
 ## Más adelante — cobertura global
 
@@ -161,6 +222,17 @@ Registrados, no escondidos.
 | 12 unidades municipales no solapan con ningún padre ADM1 | ARG ADM2 (8, ciudad de Buenos Aires), BRA ADM2 (3), USA ADM2 (1) | Conservadas en partes `unassigned` con `adm1ISO: "unassigned"` y sin `parentID` |
 | Asignación del tier municipal sin verificar en 19 territorios | `pipeline/src/wgj/tables/countries.json` | Marcados `verify` y publicados como `review` |
 | Los distritos de Perú no están disponibles — geoBoundaries se detiene en provincias | Perú | Pendiente de fuente |
+| 19 países sin ADM1 con licencia permisiva | Europa | Pendiente de fuente permisiva |
+| `shapeISO` es `""` en 58.492 features — todos los datasets municipales europeos salvo el de Portugal | 20 datasets municipales de geoBoundaries | Por diseño, como arriba; usa `id` |
+| 863 ids basados en el nombre llevan sufijo numérico. Algunos son homónimos reales (Lagoa y Calheta en Portugal, San Teodoro en Italia); otros son un mismo municipio dibujado como varias features en origen | FRA 791, ROU 48, UKR 10, NOR 6, PRT 5, BGR 1, GRC 1, ITA 1 | Estables por versión de datos; pueden renumerarse con un refresco de la fuente — fija una versión |
+| 129 comunas no solapan con ninguna de las 13 regiones metropolitanas | FRA ADM5 (los cinco departamentos de ultramar) | Conservadas en `ADM5/unassigned.geojson` |
+| Sin archivo combinado: el nivel se publica solo como partes por región | FRA ADM5 | Por diseño — un único archivo superaría el presupuesto de 18 MiB. Usa las partes (`iter_parts`) |
+| Sin preview en el catálogo: más de 2 MB incluso con la simplificación más gruesa | ESP ADM3, FRA ADM5, ITA ADM4 | Los archivos de datos están completos; solo falta el mapa del catálogo |
+| Asignación del tier municipal sin verificar en 11 territorios | BEL, DEU, ESP, FRA, GBR, IRL, ISL, NOR, PRT, ROU, UKR | Marcados `verify` y publicados como `review` |
+| Budapest está dibujada dentro del condado de Pest: los metadatos cuentan 20 unidades y el archivo trae 19 | HUN ADM1 | En origen; pendiente de corrección o de otra fuente |
+| La provincia de Sofía tiene 23 unidades frente a 22 municipios: dos se llaman Zlatitsa | BGR ADM2 (`BGR:ADM2:BG-23.zlatitsa-2`) | En origen; pendiente de corrección |
+| El primer nivel son las cinco macrorregiones NUTS 1, no las 20 regiones | ITA ADM1 | Niveles tal como vienen en origen; regiones y provincias están pendientes arriba |
+| Crimea: dentro del contorno de Rusia en Natural Earth, dentro de los raiones de Ucrania en geoBoundaries | RUS ADM0, UKR ADM0 y ADM2 | Documentado en [Fronteras disputadas](disputed-boundaries.md) |
 | Archivos heredados aún en la raíz | `comunas.geojson` y compañía | Obsoletos; se mantienen durante la serie 1.x y se retiran en v2.0.0 |
 
 ## No previsto

@@ -76,9 +76,10 @@ swisstopo (Suiza) y la del INE (provincias de España).
 
     Medido sobre las 129 entradas de América en `gbOpen`, **43 (33%) son
     copyleft** — 35 ODbL y 8 CC-BY-SA, casi todas derivadas de OpenStreetMap.
-    Esas no se pueden usar aquí.
+    Sobre las 160 entradas de Europa son **64 (40%)** — 52 ODbL y 12
+    CC-BY-SA. Esas no se pueden usar aquí.
 
-    Lee siempre el campo `boundaryLicense` de la respuesta de la API para el
+    Lee siempre el campo `boundaryLicense` de los metadatos para el
     país **y el nivel** concretos que vayas a tomar. Chile es un buen ejemplo
     de por qué: su ADM1 y su ADM3 son CC BY 3.0 IGO, pero su ADM2 es ODbL.
 
@@ -104,9 +105,9 @@ swisstopo (Suiza) y la del INE (provincias de España).
 
 ## Los huecos de cobertura son aceptables; las violaciones de licencia no
 
-Excluir copyleft deja agujeros visibles — 15 países de América no tienen ADM1
-aquí porque su ADM1 de geoBoundaries es copyleft (13 ODbL, 2 CC-BY-SA) y aún
-no se ha encontrado una alternativa permisiva. Es el intercambio correcto.
+Excluir copyleft deja agujeros visibles — 15 países de América y 18 de Europa
+no tienen ADM1 aquí porque su ADM1 de geoBoundaries es copyleft (29 ODbL, 4
+CC-BY-SA) y aún no se ha encontrado una alternativa permisiva. Es el intercambio correcto.
 
 Los huecos se registran en la [Hoja de ruta](../about/roadmap.md) como
 "pendiente de fuente permisiva", y la forma de cerrar uno es encontrar un SDI

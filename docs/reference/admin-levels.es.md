@@ -80,7 +80,7 @@ Costa Rica — quedan fuera de alcance. Existen en pocos países, los tamaños d
 archivo crecen mucho y casi nadie los necesita.
 
 El nivel municipal va **partido en un archivo por padre ADM1 siempre que exista
-un ADM1**. Catorce territorios tienen tier municipal pero ningún ADM1 aquí
+un ADM1**. Dieciocho territorios tienen tier municipal pero ningún ADM1 aquí
 (sobre todo porque su ADM1 en geoBoundaries es copyleft), así que publican un
 único archivo de país completo; ver
 [Nombres de archivos y carpetas](naming.md#el-nivel-municipal-va-partido-por-adm1-cuando-existe-un-adm1).

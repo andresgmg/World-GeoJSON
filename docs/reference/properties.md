@@ -57,7 +57,7 @@ only in Chile:
 |---|---|---|---|
 | `adm1ISO` | string | Key of the ADM1 unit the feature belongs to — the code its split part is named after | Every feature below ADM1 in a country that publishes an ADM1 (13,181 features), in the combined level files as well as in the parts. `"unassigned"` on the 12 features whose parent could not be determined (ARG 8, BRA 3, USA 1). Not on ADM1 itself |
 | `parentISO` | string | Key of the parent at the **previous published level** | Every feature that has a parent level in the catalog: the ISO3 on ADM1 (`"CHL"`), the region on Chile's provinces (`"CL-MA"`), the province on Chile's communes (`"014"`), the state on US counties (`"US-SD"`) |
-| `parentID` | string | The parent's feature `id`, ready to join | 16,063 features. Absent on ADM0, on `"unassigned"` features, and where no parent level is published — Guadeloupe's and Martinique's ADM4 and French Guiana's ADM3, whose territories have no ADM0 in the catalog |
+| `parentID` | string | The parent's feature `id`, ready to join | 75,148 features. Absent on ADM0, on `"unassigned"` features, and where no parent level is published — Guadeloupe's and Martinique's ADM4 and French Guiana's ADM3, whose territories have no ADM0 in the catalog |
 
 Chile's commune Camiña carries all three at once: `adm1ISO` is its region
 (`CL-TA`), `parentISO` its province (`014`) and `parentID` the province's id

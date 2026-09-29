@@ -57,12 +57,13 @@ de decenas de megabytes e inutilizable en un navegador. Partir por la primera
 división mantiene todos los archivos pequeños, permite descargar solo el estado
 que interesa, y deja todo dentro del presupuesto de tamaño por archivo.
 
-Hoy existen niveles partidos para ARG, BLZ, BOL, BRA, CHL, DOM, ECU, MEX, PRY y
-USA.
+Hoy existen niveles partidos para ARG, BEL, BGR, BIH, BLR, BLZ, BOL, BRA, CHL,
+DEU, DNK, DOM, ECU, ESP, FRA, GBR, GRC, IRL, ITA, MEX, MKD, NLD, NOR, PRY, ROU,
+SWE y USA.
 
-**Catorce territorios tienen tier municipal pero ningún ADM1 por el que
+**Dieciocho territorios tienen tier municipal pero ningún ADM1 por el que
 partirlo**, así que publican solo el archivo de país completo: COL, CRI, GLP,
-GTM, GUF, GUY, HND, HTI, MTQ, PAN, PRI, SLV, SUR y VIR. (La mayoría son países
+GTM, GUF, GUY, HND, HTI, ISL, LUX, MTQ, PAN, PRI, PRT, SLV, SUR, UKR y VIR. (La mayoría son países
 cuyo ADM1 en geoBoundaries es copyleft; ver la
 [Hoja de ruta](../about/roadmap.md).)
 
@@ -89,7 +90,8 @@ tenga que adivinarla. Dos cosas a saber:
   `{LEVEL}/unassigned.geojson` en vez de descartarse, con
   `adm1ISO: "unassigned"` y sin `parentID`, y el manifiesto registra el
   recuento en `unassigned`. Hoy: ARG ADM2 (8 — las comunas de la ciudad de
-  Buenos Aires, que el ADM1 de origen omite), BRA ADM2 (3) y USA ADM2 (1).
+  Buenos Aires, que el ADM1 de origen omite), BRA ADM2 (3), USA ADM2 (1) y
+  FRA ADM5 (129 — las comunas de los cinco departamentos de ultramar).
 
 El pipeline recurre a un slug del nombre del ADM1 si el código de origen viene
 vacío; ninguna parte lo necesita actualmente.
@@ -104,8 +106,9 @@ explícitamente.
 
 Brasil es el ejemplo real: su ADM2 combinado pesaría 33 MB, así que
 `data/earth/BRA/` tiene una carpeta `ADM2/` con 28 partes y ningún
-`BRA_ADM2.geojson`. Las comunas de Chile caben (7 MB), así que existen ambas
-formas.
+`BRA_ADM2.geojson`. Las comunas de Francia son el otro: 43 MB en 14 partes
+(13 regiones y `unassigned`). Las comunas de Chile caben (7 MB), así que
+existen ambas formas.
 
 Así que conviene consultar la página de catálogo o el manifiesto en vez de dar
 por hecho que existe un combinado.

@@ -73,7 +73,7 @@ for feature in world.features("BRA", "ADM2"):
 world.preview("CHL", "ADM3")             # simplified, ≤ 2 MB; only shapeName, shapeISO, shapeType
 ```
 
-A level published as parts only (Brazil's ADM2, 33 MB combined) raises
+A level published as parts only (Brazil's ADM2, France's ADM5) raises
 `NoCombinedFile` from `get()`; use `iter_parts()` or `features()`.
 
 Returned objects are plain dicts, cached in memory and shared between calls:

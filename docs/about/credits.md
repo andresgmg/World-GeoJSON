@@ -14,8 +14,9 @@ which licence, is recorded per dataset in the manifest's `license` and
   geoBoundaries' `gbOpen` release is not a single licence: each file carries
   the licence of its original provider (a national statistics office, a UN
   agency, Wikimedia, …), and this project takes only the permissive subset —
-  CC BY 2.5, CC BY 3.0 IGO, CC BY 4.0, Etalab 2.0, OGL Canada 2.0 and public
-  domain today. The original provider is credited in each dataset's
+  CC BY 2.5, CC BY 3.0, CC BY 3.0 IGO, CC BY 4.0, Data licence Germany –
+  attribution – 2.0, Etalab 2.0, ODC Attribution 1.0, OGL Canada 2.0, OGL UK
+  3.0 and public domain today. The original provider is credited in each dataset's
   `src_provider`. This project's property vocabulary (`shapeName`, `shapeISO`,
   `shapeGroup`, `shapeType`) deliberately matches theirs, so data can move
   between the two without translation.

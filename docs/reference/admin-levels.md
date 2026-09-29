@@ -80,7 +80,7 @@ of scope. They exist in few countries, the file sizes grow sharply, and almost
 nobody needs them.
 
 The municipal level is **split into one file per ADM1 parent wherever an ADM1
-exists**. Fourteen territories have a municipal tier but no ADM1 here (mostly
+exists**. Eighteen territories have a municipal tier but no ADM1 here (mostly
 because their geoBoundaries ADM1 is copyleft), so they ship a single
 whole-country file instead; see
 [File & folder naming](naming.md#the-municipal-level-is-split-by-adm1-when-an-adm1-exists).

@@ -94,7 +94,8 @@ delete `.cache/sources/geoboundaries-all.json`.
 
 **The licence filter lives here, on purpose.** gbOpen is a container of
 heterogeneous upstream licences, not a uniformly CC BY 4.0 dataset: a third of
-its Americas entries are ODbL or CC-BY-SA. Those are refused before they reach
+its Americas entries and two in five of its European ones are ODbL or
+CC-BY-SA. Those are refused before they reach
 the working tree, let alone git history. `--dry-run` shows what would be
 accepted and rejected without downloading anything.
 

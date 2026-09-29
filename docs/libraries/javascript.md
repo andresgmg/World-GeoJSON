@@ -91,7 +91,7 @@ for await (const feature of world.features("BRA", "ADM2")) {
 await world.preview("CHL", "ADM3");                 // simplified, ≤ 2 MB; only shapeName, shapeISO, shapeType
 ```
 
-A level published as parts only (Brazil's ADM2, 33 MB combined) rejects
+A level published as parts only (Brazil's ADM2, France's ADM5) rejects
 `get()` with `NoCombinedFile`; use `iterParts()` or `features()`.
 
 Returned objects are cached in memory and shared between calls: copy before

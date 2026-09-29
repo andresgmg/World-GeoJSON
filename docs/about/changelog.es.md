@@ -6,6 +6,64 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Añadido — Europa
+
+- **51 territorios, 97 datasets, 59.265 features**, con lo que el repositorio
+  llega a 106 territorios, 192 datasets y 75.460 features. Las mismas fuentes
+  que en América: contornos de Natural Earth, primer nivel y tier municipal de
+  geoBoundaries `gbOpen`, solo con licencias permisivas.
+- Diecisiete países tienen ambos niveles (Bélgica, Bulgaria, Bosnia y
+  Herzegovina, Bielorrusia, Alemania, Dinamarca, España, Francia, el Reino
+  Unido, Grecia, Irlanda, Italia, Macedonia del Norte, los Países Bajos,
+  Noruega, Rumanía, Suecia); ocho solo el primer nivel; Islandia, Luxemburgo,
+  Portugal y Ucrania un tier municipal sin ADM1 por encima; veintidós solo el
+  contorno.
+- **Kosovo** se publica como `XKX`, un código de usuario, a partir de la
+  unidad `KOS` de Natural Earth, con la disputa explicada en su manifiesto.
+  Crimea, Gibraltar y Kosovo son casos nuevos en
+  [Fronteras disputadas](disputed-boundaries.md).
+- **Tres licencias que solo exigen atribución** en la lista blanca:
+  `OGL-UK-3.0` (Reino Unido), `DL-DE-BY-2.0` (Alemania) y `ODC-By-1.0` (las
+  comunas de Francia). ODbL sigue fuera; la comprobación de copyleft ya no
+  confunde Open Data Commons Attribution con ella.
+- **ADM5** entra en el contrato de datos (schemas, los dos clientes
+  `geoworld`, el pipeline) para las 35.010 comunas de Francia, publicadas como
+  13 partes por región más `unassigned` — las 129 comunas de ultramar — y sin
+  archivo combinado.
+- El primer nivel de España y de Bélgica toma sus códigos ISO 3166-2 de
+  `shapeiso_fixes.json`: en origen, todas las unidades españolas llevan `ESP`
+  y las belgas códigos de región de tres letras.
+
+**Qué no entra, y por qué.** Diecinueve países no tienen aquí primer nivel y
+diecisiete no tienen tier municipal, porque geoBoundaries los publica bajo
+ODbL, CC-BY-SA o la licencia propia de swisstopo. Svalbard y Jan Mayen no
+publica nada: Natural Earth dibuja ambos dentro de Noruega. Los niveles
+intermedios (départements de Francia, regiones y provincias de Italia,
+regiones administrativas de Alemania) aún no se construyen. Ver la
+[Hoja de ruta](roadmap.md).
+
+**Rarezas de las fuentes que conviene conocer.** Los distritos costeros y
+lacustres de Alemania vienen como un polígono de tierra y otro de agua con el
+mismo nombre; se fusionan (`dissolve_by_name` en `countries.json`) y quedan 401
+distritos. Los metadatos de Hungría cuentan 20 unidades de primer nivel y el
+archivo trae 19: Budapest está dibujada dentro del condado de Pest. El ADM1 de
+Italia son las cinco macrorregiones NUTS 1. Varios tiers municipales son
+anteriores a una reforma (Bélgica 2018, Noruega 2013, Ucrania 2006) — esos
+países se publican como `review`.
+
+### Cambiado — pipeline
+
+- geoBoundaries se lee desde un commit fijado de su repositorio
+  (`wmgeolab/geoBoundaries@5c25134`) en vez de su API: el catálogo desde
+  `releaseData/geoBoundariesOpen-meta.csv` y los archivos por las URLs de
+  medios de Git LFS. Una reconstrucción descarga los mismos bytes; pasar a una
+  release más reciente es cambiar una línea, `GB_REF`.
+- Un nivel demasiado denso para un preview de 2 MB incluso con la
+  simplificación más gruesa se publica ahora sin él (España ADM3, Francia ADM5,
+  Italia ADM4) y `wgj validate` avisa, en vez de detener el build.
+- Un `shapeISO` de primer nivel igual al código del país ya no se usa como
+  clave de partición.
+
 ### Añadido — adaptadores para frameworks
 
 - **`geoworld-maplibre`** (`packages/js/geoworld-maplibre`, npm):
