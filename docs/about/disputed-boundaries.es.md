@@ -79,9 +79,24 @@ débil, y ese es justamente el punto. Es una que este proyecto sí puede cumplir
   ISO 3166 en cada idioma (`Falkland Islands` / `Islas Malvinas`);
   `shapeName` lleva la forma de Natural Earth. El `notes` de cada manifiesto
   registra la disputa y remite a esta página.
+- **Kosovo (`XKX`).** Kosovo declaró su independencia de Serbia en 2008;
+  Serbia y otros estados no la reconocen, y no tiene código ISO 3166-1 ni
+  entrada en UN M49. Natural Earth lo dibuja como unidad propia, así que se
+  publica como tal, con `XKX`, el código de usuario que usan la UE y
+  geoBoundaries. El contorno de Serbia, también de Natural Earth, no lo
+  incluye. Ambos manifiestos lo dicen.
+- **Crimea.** La vista por defecto, de facto, de Natural Earth dibuja Crimea
+  dentro del contorno de Rusia y fuera del de Ucrania; Ucrania y la mayoría
+  de los estados la consideran territorio ucraniano. Los raiones de Ucrania
+  vienen de otra fuente, la publicación de 2006 de geoBoundaries, y sí
+  incluyen Crimea, así que los dos archivos ucranianos no coinciden en ella.
+  Ninguno se edita para cuadrar con el otro; los manifiestos `RUS` y `UKR`
+  registran la disputa.
+- **Gibraltar (`GIB`).** Territorio británico de ultramar reclamado por
+  España. Se sigue el contorno de Natural Earth, y el manifiesto lo dice.
 
-De los 55 manifiestos, `FLK` y `SGS` llevan hoy esa nota; el de Chile todavía
-no.
+De los manifiestos, `FLK`, `SGS`, `XKX`, `SRB`, `RUS`, `UKR` y `GIB` llevan
+hoy esa nota; el de Chile todavía no.
 
 ## Nombres
 

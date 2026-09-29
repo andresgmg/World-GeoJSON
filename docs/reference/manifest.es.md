@@ -101,7 +101,7 @@ no tiene `notes`.
 
 | Campo | Significado |
 |---|---|
-| `level` | `ADM0`–`ADM4` |
+| `level` | `ADM0`–`ADM5` |
 | `path` | El archivo del nivel completo, relativo a la raíz del repositorio. Ausente cuando el combinado era demasiado grande para publicarse (el ADM2 de Brasil hoy) |
 | `bytes`, `sha256` | Tamaño y hash de `path`; en un nivel partido sin combinado, `bytes` es la suma de las partes |
 | `features` | Número de features del **nivel completo**, para que el catálogo pueda dar siempre un total |

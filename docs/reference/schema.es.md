@@ -10,7 +10,7 @@ haya aportado la fuente original.
 | `shapeName` | cadena | Nombre de la unidad, en el idioma local, con las tildes correctas |
 | `shapeISO` | cadena | Código oficial de la unidad — ISO 3166-2 si existe, si no el código nacional; `""` cuando la fuente no tiene ninguno |
 | `shapeGroup` | cadena | ISO 3166-1 alpha-3 del país que la contiene, o código de cuerpo |
-| `shapeType` | cadena | `ADM0`, `ADM1`, `ADM2`, `ADM3`, `ADM4` o `QUAD` |
+| `shapeType` | cadena | De `ADM0` a `ADM5`, o `QUAD` |
 
 Estos nombres coinciden deliberadamente con
 [geoBoundaries](https://www.geoboundaries.org/). Adoptar un vocabulario ya
@@ -224,7 +224,7 @@ El contrato de esta página es legible por máquina. Dos esquemas, JSON Schema
 
 | Esquema | Valida | Publicado en |
 |---|---|---|
-| `feature.schema.json` | Una Feature: `type`, un `id` obligatorio que cumple `^[A-Z]{3}:(ADM[0-4]\|QUAD):\S+$`, `properties` (por referencia al esquema siguiente), una geometría `Polygon` o `MultiPolygon` | <https://andresgmg.github.io/World-GeoJSON/schemas/feature.schema.json> |
+| `feature.schema.json` | Una Feature: `type`, un `id` obligatorio que cumple `^[A-Z]{3}:(ADM[0-5]\|QUAD):\S+$`, `properties` (por referencia al esquema siguiente), una geometría `Polygon` o `MultiPolygon` | <https://andresgmg.github.io/World-GeoJSON/schemas/feature.schema.json> |
 | `feature-properties.schema.json` | El objeto `properties`: las cuatro claves obligatorias, las tres claves de jerarquía, `src_*` por patrón, nada más | <https://andresgmg.github.io/World-GeoJSON/schemas/feature-properties.schema.json> |
 
 `wgj validate` los aplica a cada feature de cada archivo a

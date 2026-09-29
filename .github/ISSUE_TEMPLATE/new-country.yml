@@ -28,6 +28,7 @@ body:
         - label: ADM2
         - label: ADM3
         - label: ADM4
+        - label: ADM5
   - type: input
     id: source
     attributes:
@@ -50,6 +51,9 @@ body:
         - CC-BY-2.5
         - Etalab-2.0
         - OGL-Canada-2.0
+        - OGL-UK-3.0
+        - DL-DE-BY-2.0
+        - ODC-By-1.0
         - Other (explain below; it will probably not be accepted)
     validations:
       required: true

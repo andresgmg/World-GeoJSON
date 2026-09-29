@@ -17,7 +17,7 @@ Ver [Esquema de propiedades](schema.md).
 | `shapeName` | cadena | Nombre en el idioma local, con tildes |
 | `shapeISO` | cadena | Código oficial — ISO 3166-2 si existe, si no el código nacional; `""` cuando la fuente no tiene ninguno. Nunca un id opaco. Único dentro de un nivel allí donde no está vacío |
 | `shapeGroup` | cadena | ISO 3166-1 alpha-3 del país, o código de cuerpo |
-| `shapeType` | cadena | `ADM0`–`ADM4` (o `QUAD`, cuando existan datos planetarios) |
+| `shapeType` | cadena | `ADM0`–`ADM5` (o `QUAD`, cuando existan datos planetarios) |
 
 ### `shapeISO` en detalle
 

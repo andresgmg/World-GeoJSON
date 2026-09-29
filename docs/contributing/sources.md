@@ -35,7 +35,17 @@ else:
 | `CC-BY-3.0`, `CC-BY-3.0-IGO` | OCHA / HDX country boundaries |
 | `CC-BY-2.5` | Older national releases |
 | `Etalab-2.0` | France and its overseas departments |
+| `ODC-By-1.0` | France's communes (Open Data Commons Attribution — not its ODbL sibling) |
 | `OGL-Canada-2.0` | Canada |
+| `OGL-UK-3.0` | United Kingdom (Office for National Statistics) |
+| `DL-DE-BY-2.0` | Germany (Federal Agency for Cartography and Geodesy) |
+
+Every entry requires attribution and nothing more: no share-alike, no
+non-commercial clause. `ODC-By-1.0` is the Open Data Commons licence that is
+**not** ODbL; the fetch filter tells them apart by name. Two permissive
+government licences found in Europe are not on the list because they are not
+SPDX licences and their terms could not be checked when Europe was built:
+swisstopo's (Switzerland) and INE's (Spain's provinces).
 
 ## Green — use freely
 

@@ -8,7 +8,8 @@
 | **ADM1** | First-level divisions |
 | **ADM2** | Second-level divisions |
 | **ADM3** | Third-level divisions |
-| **ADM4** | Fourth-level divisions — published only where the upstream source puts the municipal tier there (Guadeloupe and Martinique today) |
+| **ADM4** | Fourth-level divisions — published only where the upstream source puts the municipal tier there (Guadeloupe, Martinique, Belgium, Italy) |
+| **ADM5** | Fifth-level divisions — France's communes, which geoBoundaries places below the cantons |
 
 These follow the semantics used by
 [geoBoundaries](https://www.geoboundaries.org/) and GADM, so datasets from this
@@ -65,6 +66,10 @@ varies:
 | Haiti | Commune | **ADM3** |
 | Costa Rica | Cantón | ADM2 |
 | Guadeloupe, Martinique | Commune | **ADM4** |
+| Germany | Kreis (district) | **ADM3** |
+| Spain | Municipio | **ADM3** |
+| Italy | Comune | **ADM4** |
+| France | Commune | **ADM5** |
 
 Because it cannot be inferred from the data, the mapping is curated by hand in
 `pipeline/src/wgj/tables/countries.json` and is the one piece of this pipeline

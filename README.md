@@ -47,7 +47,7 @@ const world = createClient({ version: "1.0.0" });
 | | |
 |---|---|
 | **Coverage** | The Americas: 55 territories, 95 datasets, 16,195 features |
-| **Layout** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` with `LEVEL` from `ADM0` to `ADM4`, plus `manifest.json` (sizes, SHA-256, licence) and `preview/` (simplified, at most 2 MB) per country |
+| **Layout** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` with `LEVEL` from `ADM0` to `ADM5`, plus `manifest.json` (sizes, SHA-256, licence) and `preview/` (simplified, at most 2 MB) per country |
 | **Sizes** | Largest file 14.9 MB (`CAN_ADM1`); nothing over 20 MB. Municipal tiers that would be bigger are split by ADM1 into `{LEVEL}/{code}.geojson` |
 | **Sources** | Natural Earth (every ADM0), geoBoundaries gbOpen under permissive licences only (ADM1 and municipal tiers), IDE Chile / SUBDERE DPA 2023 (Chile) |
 | **Index & ids** | `data/index.json` lists every territory and dataset — paths, sizes, SHA-256, bbox, licence, every manifest embedded — in one 340 KB file. Every feature has a stable `id` (`{ISO3}:{LEVEL}:{key}`, e.g. `CHL:ADM3:01402`) and, below the country outline, its parent's id in `parentID` |
@@ -167,7 +167,7 @@ const world = createClient({ version: "1.0.0" });
 | | |
 |---|---|
 | **Cobertura** | América: 55 territorios, 95 datasets, 16.195 features |
-| **Estructura** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` con `LEVEL` de `ADM0` a `ADM4`, más `manifest.json` (tamaños, SHA-256, licencia) y `preview/` (simplificados, como máximo 2 MB) por país |
+| **Estructura** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` con `LEVEL` de `ADM0` a `ADM5`, más `manifest.json` (tamaños, SHA-256, licencia) y `preview/` (simplificados, como máximo 2 MB) por país |
 | **Tamaños** | El archivo más grande pesa 14,9 MB (`CAN_ADM1`); ninguno supera 20 MB. Los niveles municipales que lo superarían se parten por ADM1 en `{LEVEL}/{código}.geojson` |
 | **Fuentes** | Natural Earth (todos los ADM0), geoBoundaries gbOpen solo con licencias permisivas (ADM1 y niveles municipales), IDE Chile / SUBDERE DPA 2023 (Chile) |
 | **Índice e ids** | `data/index.json` enumera cada territorio y dataset — rutas, tamaños, SHA-256, bbox, licencia, todos los manifiestos incrustados — en un único archivo de 340 KB. Cada feature tiene un `id` estable (`{ISO3}:{LEVEL}:{clave}`, p. ej. `CHL:ADM3:01402`) y, por debajo del contorno del país, el id de su padre en `parentID` |

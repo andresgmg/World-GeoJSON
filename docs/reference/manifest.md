@@ -100,7 +100,7 @@ the distinct values. Chile's manifest has no `notes`.
 
 | Field | Meaning |
 |---|---|
-| `level` | `ADM0`–`ADM4` |
+| `level` | `ADM0`–`ADM5` |
 | `path` | The whole-level file, relative to the repository root. Absent when the combined file was too large to publish (Brazil's ADM2 today) |
 | `bytes`, `sha256` | Size and hash of `path`; for a split level without one, `bytes` is the sum of the parts |
 | `features` | Feature count of the **whole level**, so the catalog can always report a total |

@@ -17,7 +17,7 @@ Defined by this project and present on **every** feature in every file. See
 | `shapeName` | string | Local-language name, with diacritics |
 | `shapeISO` | string | Official code — ISO 3166-2 where one exists, otherwise the national code; `""` when the upstream has none. Never an opaque id. Unique within a level wherever it is non-empty |
 | `shapeGroup` | string | ISO 3166-1 alpha-3 of the country, or body code |
-| `shapeType` | string | `ADM0`–`ADM4` (or `QUAD`, once planetary data exists) |
+| `shapeType` | string | `ADM0`–`ADM5` (or `QUAD`, once planetary data exists) |
 
 ### `shapeISO` in detail
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 
-LEVELS = ["ADM0", "ADM1", "ADM2", "ADM3", "ADM4"]
+LEVELS = ["ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ADM5"]
 QUAD = "QUAD"
 
 LABELS = {
@@ -14,13 +14,15 @@ LABELS = {
     "ADM3": "Third-level divisions",
     # Guadeloupe and Martinique publish their communes as ADM4 upstream.
     "ADM4": "Fourth-level divisions",
+    # France's communes are ADM5 in geoBoundaries (below cantons, ADM4).
+    "ADM5": "Fifth-level divisions",
     "QUAD": "Quadrangles",
 }
 
-LEVEL_RE = re.compile(r"^(ADM[0-4]|QUAD)$")
+LEVEL_RE = re.compile(r"^(ADM[0-5]|QUAD)$")
 LEVEL_DIR = LEVEL_RE
-LEVEL_FILE = re.compile(r"^[A-Z]{3,4}_(ADM[0-4]|QUAD)$")
-PREVIEW_FILE = re.compile(r"^([A-Z]{3,4})_(ADM[0-4]|QUAD)\.preview\.geojson$")
+LEVEL_FILE = re.compile(r"^[A-Z]{3,4}_(ADM[0-5]|QUAD)$")
+PREVIEW_FILE = re.compile(r"^([A-Z]{3,4})_(ADM[0-5]|QUAD)\.preview\.geojson$")
 
 
 def parse_stem(stem: str) -> tuple[str, str] | None:

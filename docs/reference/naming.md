@@ -10,7 +10,7 @@ data/{body}/{CODE}/{CODE}_{LEVEL}.geojson
 |---|---|---|
 | `body` | Lowercase body name | `earth`, `moon`, `mars` |
 | `CODE` | Uppercase ISO 3166-1 alpha-3, or a body-specific code | `CHL`, `NZL`, `MARS` |
-| `LEVEL` | `ADM0`–`ADM4`, or `QUAD` for planetary quadrangles | `ADM2` |
+| `LEVEL` | `ADM0`–`ADM5`, or `QUAD` for planetary quadrangles | `ADM2` |
 
 Worked example — this is what `data/earth/CHL/` actually contains:
 

@@ -74,9 +74,23 @@ the point. It is one this project can actually honour.
   3166 in each language (`Falkland Islands` / `Islas Malvinas`); `shapeName`
   carries Natural Earth's form. Each manifest's `notes` records the dispute
   and points to this page.
+- **Kosovo (`XKX`).** Kosovo declared independence from Serbia in 2008;
+  Serbia and a number of other states do not recognise it, and it has no
+  ISO 3166-1 code or UN M49 entry. Natural Earth draws it as a unit of its
+  own, so it ships as one, under `XKX`, the user-assigned code the EU and
+  geoBoundaries use. Serbia's outline, also from Natural Earth, does not
+  include it. Both manifests say so.
+- **Crimea.** Natural Earth's default, de-facto view draws Crimea inside
+  Russia's outline and outside Ukraine's; Ukraine and most states consider it
+  Ukrainian territory. Ukraine's raions come from a different source,
+  geoBoundaries' 2006 release, and do include Crimea, so the two Ukrainian
+  files disagree on it. Neither is edited to match the other; the `RUS` and
+  `UKR` manifests record the dispute.
+- **Gibraltar (`GIB`).** A British Overseas Territory claimed by Spain.
+  Natural Earth's outline is followed, and the manifest says so.
 
-Of the 55 manifests, `FLK` and `SGS` carry such a note today; Chile's does not
-yet.
+Of the manifests, `FLK`, `SGS`, `XKX`, `SRB`, `RUS`, `UKR` and `GIB` carry
+such a note today; Chile's does not yet.
 
 ## Naming
 

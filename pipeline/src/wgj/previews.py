@@ -64,13 +64,19 @@ def _write(inputs: list[Path], dest: Path, pct: float) -> int:
     return len(data)
 
 
-def build_preview(inputs: list[Path], dest: Path, source_features: int) -> tuple[int, float, int]:
+def build_preview(
+    inputs: list[Path], dest: Path, source_features: int
+) -> tuple[int, float, int] | None:
     """Simplify until the result fits the target, then verify nothing was lost.
 
     `keep-shapes` stops whole polygons collapsing, but a multipolygon can
     still shed small members — so the feature count is compared against the
     source and a mismatch is a hard error, not a warning. Returns
-    (bytes, percentage, features).
+    (bytes, percentage, features), or None when even the coarsest preview is
+    over the hard limit: tens of thousands of units (France's 35,010 communes)
+    cannot all keep a shape in 2 MB, and dropping some would make a preview
+    that lies about the data. The file is removed and the level ships
+    without a preview; `wgj validate` warns and the catalog says so.
     """
     pct = 5.0
     size = _write(inputs, dest, pct)
@@ -85,9 +91,8 @@ def build_preview(inputs: list[Path], dest: Path, source_features: int) -> tuple
             f"{source_features}. Raise the percentage."
         )
     if size > HARD_LIMIT:
-        raise SystemExit(
-            f"{dest.name}: {mb(size)} exceeds the {mb(HARD_LIMIT)} budget even at {pct}%."
-        )
+        dest.unlink()
+        return None
     return size, pct, got
 
 
@@ -121,7 +126,14 @@ def preview_country(d: Path) -> list[str]:
     for level, inputs in sorted(levels.items()):
         dest = preview_dir / preview_name(code, level)
         src = count_features(inputs)
-        size, pct, features = build_preview(inputs, dest, src)
+        built = build_preview(inputs, dest, src)
+        if built is None:
+            lines.append(
+                f"  {code} {level:<5} {src:>5} features  no preview — over "
+                f"{mb(HARD_LIMIT)} even at {MIN_PERCENTAGE:g}%"
+            )
+            continue
+        size, pct, features = built
         pct_text = f"{pct:g}"
         lines.append(f"  {code} {level:<5} {features:>5} features  {mb(size):>8}  at {pct_text}%")
     return lines

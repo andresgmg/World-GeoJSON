@@ -26,3 +26,22 @@ def test_previews_reproduce_byte_for_byte(data_copy: Path) -> None:
         assert len(lines) == len(before)
         after = {p.name: p.read_bytes() for p in (d / "preview").glob("*.geojson")}
         assert after == before, code
+
+
+def test_a_level_too_big_for_any_preview_ships_without_one(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """At the coarsest percentage and still over the hard limit: no file, no abort."""
+    dest = tmp_path / "XXX_ADM5.preview.geojson"
+    tries: list[float] = []
+
+    def fake_write(inputs: list[Path], out: Path, pct: float) -> int:
+        tries.append(pct)
+        out.write_text('{"type":"FeatureCollection","features":[]}')
+        return previews.HARD_LIMIT + 1
+
+    monkeypatch.setattr(previews, "_write", fake_write)
+    monkeypatch.setattr(previews, "load", lambda path: [])
+    assert previews.build_preview([tmp_path / "in.geojson"], dest, 0) is None
+    assert not dest.exists()
+    assert tries[-1] == previews.MIN_PERCENTAGE

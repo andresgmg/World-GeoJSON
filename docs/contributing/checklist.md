@@ -24,8 +24,8 @@ needs a human.
 - [ ] **CI** — `source.license` and every `datasets[].license` are on the
       permissive allow-list — the `license` enum of
       `schemas/manifest.schema.json`: `CC0-1.0`, `CC-BY-2.5`, `CC-BY-3.0`,
-      `CC-BY-3.0-IGO`, `CC-BY-4.0`, `Etalab-2.0`, `OGL-Canada-2.0`,
-      `public-domain`. Anything else — every ODbL and CC-BY-SA variant
+      `CC-BY-3.0-IGO`, `CC-BY-4.0`, `DL-DE-BY-2.0`, `Etalab-2.0`,
+      `ODC-By-1.0`, `OGL-Canada-2.0`, `OGL-UK-3.0`, `public-domain`. Anything else — every ODbL and CC-BY-SA variant
       included — is rejected
 - [ ] **CI** — if `source.license` is `mixed`, `source.licenses` lists the
       actual licences

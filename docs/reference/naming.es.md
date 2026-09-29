@@ -10,7 +10,7 @@ data/{body}/{CODE}/{CODE}_{LEVEL}.geojson
 |---|---|---|
 | `body` | Nombre del cuerpo en minúsculas | `earth`, `moon`, `mars` |
 | `CODE` | ISO 3166-1 alpha-3 en mayúsculas, o código específico del cuerpo | `CHL`, `NZL`, `MARS` |
-| `LEVEL` | `ADM0`–`ADM4`, o `QUAD` para cuadrángulos planetarios | `ADM2` |
+| `LEVEL` | `ADM0`–`ADM5`, o `QUAD` para cuadrángulos planetarios | `ADM2` |
 
 Ejemplo — esto es lo que contiene realmente `data/earth/CHL/`:
 

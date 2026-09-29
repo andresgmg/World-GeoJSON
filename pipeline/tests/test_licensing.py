@@ -17,6 +17,10 @@ from wgj import licensing, schema
         ("Licence Ouverte / Open Licence (Etalab)", "Etalab-2.0"),
         ("Public Domain", "public-domain"),
         ("CC0", "CC0-1.0"),
+        ("Open Government Licence v3.0", "OGL-UK-3.0"),
+        ("Data license Germany - Attribution - Version 2.0", "DL-DE-BY-2.0"),
+        ("dl-de/by-2-0", "DL-DE-BY-2.0"),
+        ("Open Data Commons Attribution License 1.0", "ODC-By-1.0"),
     ],
 )
 def test_spdx_maps_permissive_licences(text: str, expected: str) -> None:
@@ -27,7 +31,10 @@ def test_spdx_maps_permissive_licences(text: str, expected: str) -> None:
     "text",
     [
         "Open Data Commons Open Database License (ODbL)",
+        "Open Data Commons Open Database License 1.0",
         "ODbL-1.0",
+        "Federal Office of Topography swisstopo License",
+        "Data license Germany - Zero - Version 2.0",
         "Creative Commons Attribution-ShareAlike 4.0",
         "CC BY-SA 3.0",
         "Creative Commons Attribution 4.0 Share-Alike",  # share-alike wins

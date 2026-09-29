@@ -12,7 +12,7 @@ from typing import Any, Literal, NotRequired, TypedDict
 
 Body = Literal["earth", "moon", "mars"]
 Level = str
-"""``ADM0`` … ``ADM4`` or ``QUAD``."""
+"""``ADM0`` … ``ADM5`` or ``QUAD``."""
 Status = Literal["ok", "review", "deprecated"]
 BBox = list[float]
 """``[west, south, east, north]`` in degrees."""

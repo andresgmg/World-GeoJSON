@@ -1,7 +1,7 @@
 """Download source boundary data into .cache/sources/.
 
-    wgj fetch --continent americas --dry-run
-    wgj fetch --continent americas
+    wgj fetch --continent europe --dry-run
+    wgj fetch --continent europe
     wgj fetch --iso3 CHL
 
 Nothing here writes to data/ — that is `wgj build`'s job. The cache is
@@ -26,7 +26,12 @@ from pathlib import Path
 from wgj.licensing import spdx
 from wgj.paths import CACHE, REPO
 from wgj.registry import CONTINENTS, countries, resolve_targets
-from wgj.sources.geoboundaries import GB_ALL_URL
+from wgj.sources.geoboundaries import (
+    GB_CATALOGUE_FILE,
+    GB_META_FILE,
+    GB_META_URL,
+    catalogue_from_csv,
+)
 from wgj.sources.natural_earth import NE_ADM0_URL
 
 IDE_CHILE_DPA = (
@@ -67,10 +72,17 @@ def fetch(url: str, dest: Path, expect_json: bool = False) -> None:
 
 
 def geoboundaries_catalogue() -> list[dict]:
-    cat = CACHE / "geoboundaries-all.json"
+    """Every gbOpen dataset with its licence, unit count and download URL.
+
+    Read once from the pinned metadata CSV and cached as JSON; delete
+    .cache/sources/geoboundaries-all.json to refresh after moving GB_REF.
+    """
+    cat = GB_CATALOGUE_FILE
     if not cat.exists():
-        print(f"fetching the geoBoundaries catalogue ({GB_ALL_URL})")
-        fetch(GB_ALL_URL, cat, expect_json=True)
+        print(f"fetching the geoBoundaries catalogue ({GB_META_URL})")
+        fetch(GB_META_URL, GB_META_FILE)
+        records = catalogue_from_csv(GB_META_FILE.read_text("utf-8", errors="replace"))
+        cat.write_text(json.dumps(records), "utf-8")
     return json.loads(cat.read_text("utf-8"))
 
 

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import csv
+import io
 import json
 import shutil
 import tempfile
@@ -13,8 +15,50 @@ from wgj.paths import CACHE, earth
 from wgj.registry import shapeiso_fixes
 from wgj.simplify import SIZE_BUDGET, simplify
 
-GB_ALL_URL = "https://www.geoboundaries.org/api/current/gbOpen/ALL/ALL/"
+# The catalogue and the files come from geoBoundaries' own repository, pinned
+# to one commit, rather than from www.geoboundaries.org/api/current/…: the API
+# always answers "current", so a rebuild months later silently used different
+# files, and it is unreachable from some networks where GitHub is not. The
+# metadata CSV is a plain file on raw.githubusercontent.com; the GeoJSON files
+# are in Git LFS, so they are read from media.githubusercontent.com (raw would
+# serve ~130-byte pointer stubs). Moving the pin is a deliberate, reviewable
+# change: `git ls-remote https://github.com/wmgeolab/geoBoundaries main`.
+GB_REPO = "wmgeolab/geoBoundaries"
+GB_REF = "5c25134028196d43ce97b5071934fd0cfc92f09f"  # main on 2026-09-29
+GB_META_URL = (
+    f"https://raw.githubusercontent.com/{GB_REPO}/{GB_REF}/releaseData/geoBoundariesOpen-meta.csv"
+)
+GB_META_FILE = CACHE / "geoboundaries-meta.csv"
 GB_CATALOGUE_FILE = CACHE / "geoboundaries-all.json"
+
+
+def gb_download_url(iso3: str, level: str, ref: str = GB_REF) -> str:
+    """Full-resolution GeoJSON of one dataset, through the LFS media host."""
+    return (
+        f"https://media.githubusercontent.com/media/{GB_REPO}/{ref}/releaseData/gbOpen/"
+        f"{iso3}/{level}/geoBoundaries-{iso3}-{level}.geojson"
+    )
+
+
+def catalogue_from_csv(text: str, ref: str = GB_REF) -> list[dict]:
+    """Turn geoBoundariesOpen-meta.csv into the records the pipeline reads.
+
+    The columns are the fields the old API returned (boundaryISO, boundaryType,
+    boundaryLicense, boundarySource, boundaryYearRepresented, admUnitCount…),
+    so only the download URL has to be added. admUnitCount becomes an int, or
+    None when upstream leaves it blank.
+    """
+    records: list[dict] = []
+    for row in csv.DictReader(io.StringIO(text)):
+        rec = {k: v for k, v in row.items() if k}
+        iso3, level = rec.get("boundaryISO"), rec.get("boundaryType")
+        if not iso3 or not level:
+            continue
+        units = (rec.get("admUnitCount") or "").strip()
+        rec["admUnitCount"] = int(units) if units.isdigit() else None
+        rec["gjDownloadURL"] = gb_download_url(iso3, level, ref)
+        records.append(rec)
+    return records
 
 
 def adm1_key_expr() -> str:
@@ -30,8 +74,12 @@ def adm1_key_expr() -> str:
     3166-2 codes only ever contain letters, digits and a hyphen, so this can
     only ever alter a malformed upstream value.
     """
+    # A shapeISO equal to the country's own code is not a subdivision code:
+    # geoBoundaries writes "ESP" on all 19 of Spain's communities, which would
+    # collapse the split into one part. It falls back to the name like an
+    # empty one; shapeiso_fixes.json then supplies the real ISO 3166-2 codes.
     return (
-        "(shapeISO && shapeISO !== 'None' ? shapeISO : "
+        "(shapeISO && shapeISO !== 'None' && shapeISO !== shapeGroup ? shapeISO : "
         "String(shapeName || 'unknown')"
         ".normalize('NFKD').replace(/[\\u0300-\\u036f]/g, '')"
         ".toLowerCase())"
@@ -137,12 +185,20 @@ def build_gb_municipal(
         return None
 
     normalised = out_dir / f"{iso3}_{level}.geojson"
+    # Some sources ship one unit as several features: Germany's coastal
+    # districts come as a land polygon plus a separate coastal-water one
+    # under the same name. The registry flags those countries, and the pieces
+    # are merged before anything else so each unit is one feature.
+    pre: list[str] = []
+    if entry.get("dissolve_by_name"):
+        pre = ["-dissolve", "shapeName", "copy-fields=shapeISO,shapeID,shapeGroup,shapeType"]
     # No size budget here — see the note in simplify(). The parts are what
     # matter and they are checked individually below.
     simp = simplify(
         src,
         normalised,
         budget=None if adm1_path else SIZE_BUDGET,
+        pre=pre,
         extra=[
             "-each",
             js_expr(
@@ -355,7 +411,7 @@ def gb_metadata(iso3: str, level: str) -> dict:
     """
     global _GB_CATALOGUE
     if _GB_CATALOGUE is None:
-        cat = CACHE / "geoboundaries-all.json"
+        cat = GB_CATALOGUE_FILE
         _GB_CATALOGUE = {}
         if cat.exists():
             for rec in json.loads(cat.read_text("utf-8")):

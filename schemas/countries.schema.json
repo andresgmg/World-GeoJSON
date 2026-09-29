@@ -14,14 +14,15 @@
       "additionalProperties": false,
       "properties": {
         "iso_a2": { "type": "string", "pattern": "^[A-Z]{2}$" },
-        "m49_region": { "enum": ["Northern America", "Central America", "Caribbean", "South America"] },
+        "m49_region": { "enum": ["Northern America", "Central America", "Caribbean", "South America", "Northern Europe", "Western Europe", "Eastern Europe", "Southern Europe"] },
         "name": { "$ref": "manifest.schema.json#/$defs/localised" },
         "source": { "enum": ["geoboundaries", "ide-chile", "natural-earth"] },
-        "municipal_level": { "oneOf": [{ "type": "string", "pattern": "^ADM[1-4]$" }, { "type": "null" }] },
+        "municipal_level": { "oneOf": [{ "type": "string", "pattern": "^ADM[1-5]$" }, { "type": "null" }] },
         "adm1_term": { "$ref": "manifest.schema.json#/$defs/localised" },
         "adm2_term": { "$ref": "manifest.schema.json#/$defs/localised" },
         "municipal_term": { "$ref": "manifest.schema.json#/$defs/localised" },
         "verify": { "type": "boolean" },
+        "dissolve_by_name": { "type": "boolean", "description": "Merge municipal features that share shapeName into one before building: the source splits units (Germany: coastal districts come as land plus water polygons)." },
         "note": { "type": "string", "minLength": 1 }
       }
     }

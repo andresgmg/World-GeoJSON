@@ -44,6 +44,11 @@ Zelanda y geoBoundaries como ejemplo:
 }
 ```
 
+`m49_region` debe ser una de las regiones que `pipeline/src/wgj/registry.py`
+agrupa en un continente (`CONTINENTS`) y que permite el enum de
+`schemas/countries.schema.json`. Oceanía aún no está registrada, así que la
+primera entrada oceánica añade también sus cuatro regiones a ambos.
+
 `municipal_level` es el único campo que tienes que investigar: qué nivel ADM
 es el tier municipal es un hecho sobre el país, no algo que los datos revelen.
 `verify: true` hace que el manifiesto salga con `status: "review"` hasta que

@@ -54,7 +54,7 @@ DEFAULT_BASE_URL = "https://raw.githubusercontent.com/andresgmg/World-GeoJSON"
 
 INDEX_PATH = "data/index.json"
 
-FEATURE_ID = re.compile(r"^([A-Z]{3}):(ADM[0-4]|QUAD):(\S+)$")
+FEATURE_ID = re.compile(r"^([A-Z]{3}):(ADM[0-5]|QUAD):(\S+)$")
 
 
 def parse_id(feature_id: str) -> FeatureId:
