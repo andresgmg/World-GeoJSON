@@ -15,6 +15,7 @@ from typing import Any
 
 CONTINENTS: dict[str, set[str]] = {
     "americas": {"Northern America", "Central America", "Caribbean", "South America"},
+    "europe": {"Northern Europe", "Western Europe", "Eastern Europe", "Southern Europe"},
 }
 
 

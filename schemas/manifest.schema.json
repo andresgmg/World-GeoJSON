@@ -54,7 +54,7 @@
   },
   "$defs": {
     "iso3": { "type": "string", "pattern": "^[A-Z]{3}$" },
-    "level": { "type": "string", "pattern": "^(ADM[0-4]|QUAD)$" },
+    "level": { "type": "string", "pattern": "^(ADM[0-5]|QUAD)$" },
     "singleLine": { "type": "string", "pattern": "^[^\\n]*$" },
     "localised": {
       "type": "object",
@@ -73,8 +73,11 @@
         "CC-BY-3.0",
         "CC-BY-3.0-IGO",
         "CC-BY-4.0",
+        "DL-DE-BY-2.0",
         "Etalab-2.0",
+        "ODC-By-1.0",
         "OGL-Canada-2.0",
+        "OGL-UK-3.0",
         "public-domain"
       ]
     },
@@ -133,7 +136,7 @@
         "path": { "description": "Absent when the level is published as parts only (Brazil ADM2)." },
         "bytes": true, "sha256": true, "features": true, "bbox": true,
         "geometry_types": true, "properties": true,
-        "preview": { "type": "string", "pattern": "^data/[a-z]+/[A-Z]{3}/preview/[A-Z]{3}_(ADM[0-4]|QUAD)\\.preview\\.geojson$" },
+        "preview": { "type": "string", "pattern": "^data/[a-z]+/[A-Z]{3}/preview/[A-Z]{3}_(ADM[0-5]|QUAD)\\.preview\\.geojson$" },
         "preview_bytes": { "type": "integer", "minimum": 1, "maximum": 2097152 },
         "simplification": {
           "type": "object",

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GIB",
+  "iso_a2": "GI",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Gibraltar",
+    "es": "Gibraltar"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "British Overseas Territory claimed by Spain; the outline follows Natural Earth.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GIB/GIB_ADM0.geojson",
+      "bytes": 418,
+      "sha256": "0e8745b191bb4dc82a020fa616f0b715b17e966dd9e250a8f6fa897abd92e07b",
+      "features": 1,
+      "bbox": [
+        -5.358387,
+        36.1105,
+        -5.338773,
+        36.14112
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GIB/preview/GIB_ADM0.preview.geojson",
+      "preview_bytes": 336,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

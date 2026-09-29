@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CHE",
+  "iso_a2": "CH",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "Switzerland",
+    "es": "Suiza"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' Swiss subdivisions come from swisstopo under its own licence, which is not on the allow-list; only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CHE/CHE_ADM0.geojson",
+      "bytes": 15177,
+      "sha256": "ee40471b93e2ef716fe4fc7ea16cb40bb75505fd60999fe3273189e97c16abd4",
+      "features": 1,
+      "bbox": [
+        5.954809,
+        45.820718,
+        10.466627,
+        47.801166
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CHE/preview/CHE_ADM0.preview.geojson",
+      "preview_bytes": 877,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

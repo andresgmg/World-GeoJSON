@@ -7,7 +7,7 @@
  */
 
 export type Body = "earth" | "moon" | "mars";
-/** `ADM0` … `ADM4` or `QUAD`. */
+/** `ADM0` … `ADM5` or `QUAD`. */
 export type Level = string;
 export type Status = "ok" | "review" | "deprecated";
 /** `[west, south, east, north]` in degrees. */

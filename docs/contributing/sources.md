@@ -35,7 +35,17 @@ else:
 | `CC-BY-3.0`, `CC-BY-3.0-IGO` | OCHA / HDX country boundaries |
 | `CC-BY-2.5` | Older national releases |
 | `Etalab-2.0` | France and its overseas departments |
+| `ODC-By-1.0` | France's communes (Open Data Commons Attribution — not its ODbL sibling) |
 | `OGL-Canada-2.0` | Canada |
+| `OGL-UK-3.0` | United Kingdom (Office for National Statistics) |
+| `DL-DE-BY-2.0` | Germany (Federal Agency for Cartography and Geodesy) |
+
+Every entry requires attribution and nothing more: no share-alike, no
+non-commercial clause. `ODC-By-1.0` is the Open Data Commons licence that is
+**not** ODbL; the fetch filter tells them apart by name. Two permissive
+government licences found in Europe are not on the list because they are not
+SPDX licences and their terms could not be checked when Europe was built:
+swisstopo's (Switzerland) and INE's (Spain's provinces).
 
 ## Green — use freely
 
@@ -65,9 +75,10 @@ else:
 
     Measured across the 129 Americas entries in `gbOpen`, **43 (33%) are
     copyleft** — 35 ODbL and 8 CC-BY-SA, almost all derived from
-    OpenStreetMap. Those cannot be used here.
+    OpenStreetMap. Across the 160 European entries it is **64 (40%)** — 52
+    ODbL and 12 CC-BY-SA. Those cannot be used here.
 
-    Always read the `boundaryLicense` field from the API response for the
+    Always read the `boundaryLicense` field from the metadata for the
     specific country **and level** you are taking. Chile is a good example of
     why: its ADM1 and ADM3 are CC BY 3.0 IGO, but its ADM2 is ODbL.
 
@@ -93,9 +104,9 @@ else:
 
 ## Coverage gaps are acceptable; licence violations are not
 
-Excluding copyleft leaves visible holes — 15 Americas countries have no ADM1
-here because their geoBoundaries ADM1 is copyleft (13 ODbL, 2 CC-BY-SA) and
-no permissive alternative has been found yet. That is the correct trade.
+Excluding copyleft leaves visible holes — 15 Americas countries and 18
+European ones have no ADM1 here because their geoBoundaries ADM1 is copyleft
+(29 ODbL, 4 CC-BY-SA) and no permissive alternative has been found yet. That is the correct trade.
 
 Gaps are recorded on the [Roadmap](../about/roadmap.md) as "awaiting a
 permissive source", and the way to close one is to find a national SDI or HDX

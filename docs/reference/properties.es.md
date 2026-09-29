@@ -17,7 +17,7 @@ Ver [Esquema de propiedades](schema.md).
 | `shapeName` | cadena | Nombre en el idioma local, con tildes |
 | `shapeISO` | cadena | Código oficial — ISO 3166-2 si existe, si no el código nacional; `""` cuando la fuente no tiene ninguno. Nunca un id opaco. Único dentro de un nivel allí donde no está vacío |
 | `shapeGroup` | cadena | ISO 3166-1 alpha-3 del país, o código de cuerpo |
-| `shapeType` | cadena | `ADM0`–`ADM4` (o `QUAD`, cuando existan datos planetarios) |
+| `shapeType` | cadena | `ADM0`–`ADM5` (o `QUAD`, cuando existan datos planetarios) |
 
 ### `shapeISO` en detalle
 
@@ -59,7 +59,7 @@ países, no solo en Chile:
 |---|---|---|---|
 | `adm1ISO` | cadena | Clave de la unidad ADM1 a la que pertenece la feature — el código que da nombre a su parte partida | Cada feature por debajo de ADM1 en un país que publica ADM1 (13.181 features), tanto en los archivos combinados de nivel como en las partes. `"unassigned"` en las 12 features cuyo padre no se pudo determinar (ARG 8, BRA 3, USA 1). No en el propio ADM1 |
 | `parentISO` | cadena | Clave del padre en el **nivel publicado anterior** | Cada feature que tiene un nivel padre en el catálogo: el ISO3 en ADM1 (`"CHL"`), la región en las provincias de Chile (`"CL-MA"`), la provincia en las comunas de Chile (`"014"`), el estado en los condados de EE.UU. (`"US-SD"`) |
-| `parentID` | cadena | El `id` de la feature padre, listo para un join | 16.063 features. Ausente en ADM0, en las features `"unassigned"` y donde no se publica ningún nivel padre — el ADM4 de Guadalupe y Martinica y el ADM3 de la Guayana Francesa, territorios sin ADM0 en el catálogo |
+| `parentID` | cadena | El `id` de la feature padre, listo para un join | 75.148 features. Ausente en ADM0, en las features `"unassigned"` y donde no se publica ningún nivel padre — el ADM4 de Guadalupe y Martinica y el ADM3 de la Guayana Francesa, territorios sin ADM0 en el catálogo |
 
 La comuna chilena de Camiña lleva las tres a la vez: `adm1ISO` es su región
 (`CL-TA`), `parentISO` su provincia (`014`) y `parentID` el id de la provincia

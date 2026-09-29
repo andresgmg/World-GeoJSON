@@ -2,7 +2,8 @@
 *[ADM1]: Administrative level 1 — first-level divisions (Chile's regiones, US states)
 *[ADM2]: Administrative level 2 — second-level divisions (Chile's provincias, US counties)
 *[ADM3]: Administrative level 3 — third-level divisions, where they exist (Chile's comunas)
-*[ADM4]: Administrative level 4 — fourth-level divisions; published upstream for Guadeloupe and Martinique
+*[ADM4]: Administrative level 4 — fourth-level divisions; published upstream for Guadeloupe, Martinique, Belgium and Italy
+*[ADM5]: Administrative level 5 — fifth-level divisions; France's communes
 *[BCN]: Biblioteca del Congreso Nacional de Chile
 *[CDN]: Content Delivery Network
 *[CRS]: Coordinate Reference System

@@ -1,7 +1,7 @@
 # World GeoJSON
 
-Límites administrativos en GeoJSON, abiertos y versionados — hoy América,
-creciendo hacia todos los países del mundo y, con el tiempo, hacia la Luna y
+Límites administrativos en GeoJSON, abiertos y versionados — hoy América y
+Europa, creciendo hacia todos los países del mundo y, con el tiempo, hacia la Luna y
 Marte.
 
 Todos los datos son GeoJSON según [RFC 7946](https://www.rfc-editor.org/rfc/rfc7946)
@@ -82,15 +82,17 @@ lo evita.
 
 ## Estado actual
 
-**América: 55 territorios, 95 datasets, 16.195 features.**
+**106 territorios, 192 datasets, 75.460 features: América (55) y Europa
+(51).**
 
 Contornos de país desde Natural Earth, divisiones de primer nivel y municipales
 desde geoBoundaries, y Chile desde la *División Política Administrativa* 2023 de
 IDE Chile. Todos los datasets tienen licencia permisiva — las fuentes copyleft
 quedan excluidas, y por eso algunos países aún no tienen divisiones de primer
-nivel.
+nivel. En Europa son la mayoría de los países cuyos datos de geoBoundaries
+vienen de OpenStreetMap.
 
-Europa, África, Asia y Oceanía vienen después, un continente por release. La
+África, Asia y Oceanía vienen después, un continente por release. La
 [Hoja de ruta](about/roadmap.md) tiene la secuencia y los huecos conocidos.
 
 --8<-- "abbreviations.md"

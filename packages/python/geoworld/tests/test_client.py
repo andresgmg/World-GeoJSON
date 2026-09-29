@@ -163,8 +163,11 @@ def test_parse_id() -> None:
         "level": "ADM2",
         "key": "US-DE.new-castle",
     }
+    assert parse_id("FRA:ADM5:FR-IDF.paris")["level"] == "ADM5"
     with pytest.raises(InvalidFeatureId):
         parse_id("usa:ADM2:x")
+    with pytest.raises(InvalidFeatureId):
+        parse_id("FRA:ADM6:x")
 
 
 def test_disk_cache_roundtrip_and_verification(world: GeoWorld, fixtures: Path) -> None:

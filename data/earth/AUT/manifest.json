@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "AUT",
+  "iso_a2": "AT",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "Austria",
+    "es": "Austria"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Austria are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/AUT/AUT_ADM0.geojson",
+      "bytes": 22907,
+      "sha256": "e612fd1ce5c9c70af95c3918409336ea27218f5fd6f7aecd751ec14816dd06c9",
+      "features": 1,
+      "bbox": [
+        9.521155,
+        46.378643,
+        17.148338,
+        49.009774
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/AUT/preview/AUT_ADM0.preview.geojson",
+      "preview_bytes": 1197,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

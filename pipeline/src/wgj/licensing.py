@@ -23,8 +23,20 @@ PERMISSIVE: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"etalab", re.I), "Etalab-2.0"),
     # geoBoundaries writes this as "Open Government Canada 2.0" — no "licence".
     (re.compile(r"open government.*canada", re.I), "OGL-Canada-2.0"),
+    # The UK's: "Open Government Licence v3.0". Canada's pattern comes first.
+    (re.compile(r"open government licen[cs]e v?3\b|OGL[ -]UK[ -]3", re.I), "OGL-UK-3.0"),
+    # Germany's: "Data license Germany - Attribution - Version 2.0" (dl-de/by-2-0).
+    (
+        re.compile(r"data licen[cs]e germany.*attribution.*2\.0|dl-de[/-]by[/-]2", re.I),
+        "DL-DE-BY-2.0",
+    ),
+    # Attribution only. Its ODbL sibling is caught by COPYLEFT before this.
+    (re.compile(r"open data commons attribution|\bODC[ -]By\b", re.I), "ODC-By-1.0"),
 ]
-COPYLEFT = re.compile(r"ODbL|open data commons|share.?alike|CC[ -]BY[ -]SA", re.I)
+# ODbL and its "Open Data Commons Open Database License" spelling, and every
+# share-alike licence. Deliberately not "open data commons" alone: ODC-By, the
+# attribution-only Open Data Commons licence, is permissive.
+COPYLEFT = re.compile(r"ODbL|open database licen[cs]e|share.?alike|CC[ -]BY[ -]SA", re.I)
 
 # SPDX identifiers that permit redistribution and commercial use without a
 # share-alike obligation. schemas/manifest.schema.json carries the same list

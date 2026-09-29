@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ALB",
+  "iso_a2": "AL",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Albania",
+    "es": "Albania"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "The 61 municipalities of the 2015 reform are not in geoBoundaries; only the counties are published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ALB/ALB_ADM0.geojson",
+      "bytes": 11696,
+      "sha256": "039d11604ddee2d4fdbb94c0046d79030c1fd3b9f5dd8727ad35bef926bcc59d",
+      "features": 1,
+      "bbox": [
+        19.272033,
+        39.637013,
+        21.036679,
+        42.654814
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ALB/preview/ALB_ADM0.preview.geojson",
+      "preview_bytes": 741,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ALB/ALB_ADM1.geojson",
+      "bytes": 32343,
+      "sha256": "ffb161d8e50c44b9508acdcb7acb8f76bcbadece99a82fd816f3c69aaad2f4fe",
+      "features": 12,
+      "bbox": [
+        19.263891,
+        39.636226,
+        21.061953,
+        42.661928
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 11
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ALB/preview/ALB_ADM1.preview.geojson",
+      "preview_bytes": 4459,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikipedia",
+      "src_year": "2021"
+    }
+  ]
+}

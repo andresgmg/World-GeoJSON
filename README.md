@@ -1,7 +1,7 @@
 # World GeoJSON
 
-Open, versioned GeoJSON administrative boundaries — the Americas today,
-growing toward every country on Earth, and eventually the Moon and Mars.
+Open, versioned GeoJSON administrative boundaries — the Americas and Europe
+today, growing toward every country on Earth, and eventually the Moon and Mars.
 
 **📖 Documentation: <https://andresgmg.github.io/World-GeoJSON/>**
 
@@ -46,11 +46,11 @@ const world = createClient({ version: "1.0.0" });
 
 | | |
 |---|---|
-| **Coverage** | The Americas: 55 territories, 95 datasets, 16,195 features |
-| **Layout** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` with `LEVEL` from `ADM0` to `ADM4`, plus `manifest.json` (sizes, SHA-256, licence) and `preview/` (simplified, at most 2 MB) per country |
-| **Sizes** | Largest file 14.9 MB (`CAN_ADM1`); nothing over 20 MB. Municipal tiers that would be bigger are split by ADM1 into `{LEVEL}/{code}.geojson` |
-| **Sources** | Natural Earth (every ADM0), geoBoundaries gbOpen under permissive licences only (ADM1 and municipal tiers), IDE Chile / SUBDERE DPA 2023 (Chile) |
-| **Index & ids** | `data/index.json` lists every territory and dataset — paths, sizes, SHA-256, bbox, licence, every manifest embedded — in one 340 KB file. Every feature has a stable `id` (`{ISO3}:{LEVEL}:{key}`, e.g. `CHL:ADM3:01402`) and, below the country outline, its parent's id in `parentID` |
+| **Coverage** | 106 territories, 192 datasets, 75,460 features: the Americas (55 territories) and Europe (51) |
+| **Layout** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` with `LEVEL` from `ADM0` to `ADM5`, plus `manifest.json` (sizes, SHA-256, licence) and `preview/` (simplified, at most 2 MB) per country |
+| **Sizes** | Largest files 14.9 MB (`ESP_ADM3`, `CAN_ADM1`); nothing over 20 MB. Municipal tiers that would be bigger are split by ADM1 into `{LEVEL}/{code}.geojson` |
+| **Sources** | Natural Earth (every ADM0), geoBoundaries gbOpen under permissive licences only (ADM1 and municipal tiers, pinned to one commit), IDE Chile / SUBDERE DPA 2023 (Chile) |
+| **Index & ids** | `data/index.json` lists every territory and dataset — paths, sizes, SHA-256, bbox, licence, every manifest embedded — in one 650 KB file. Every feature has a stable `id` (`{ISO3}:{LEVEL}:{key}`, e.g. `CHL:ADM3:01402`) and, below the country outline, its parent's id in `parentID` |
 
 The [Catalog](https://andresgmg.github.io/World-GeoJSON/catalog/) lists every
 dataset with feature counts, bounding boxes, properties and download links.
@@ -166,11 +166,11 @@ const world = createClient({ version: "1.0.0" });
 
 | | |
 |---|---|
-| **Cobertura** | América: 55 territorios, 95 datasets, 16.195 features |
-| **Estructura** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` con `LEVEL` de `ADM0` a `ADM4`, más `manifest.json` (tamaños, SHA-256, licencia) y `preview/` (simplificados, como máximo 2 MB) por país |
-| **Tamaños** | El archivo más grande pesa 14,9 MB (`CAN_ADM1`); ninguno supera 20 MB. Los niveles municipales que lo superarían se parten por ADM1 en `{LEVEL}/{código}.geojson` |
-| **Fuentes** | Natural Earth (todos los ADM0), geoBoundaries gbOpen solo con licencias permisivas (ADM1 y niveles municipales), IDE Chile / SUBDERE DPA 2023 (Chile) |
-| **Índice e ids** | `data/index.json` enumera cada territorio y dataset — rutas, tamaños, SHA-256, bbox, licencia, todos los manifiestos incrustados — en un único archivo de 340 KB. Cada feature tiene un `id` estable (`{ISO3}:{LEVEL}:{clave}`, p. ej. `CHL:ADM3:01402`) y, por debajo del contorno del país, el id de su padre en `parentID` |
+| **Cobertura** | 106 territorios, 192 datasets, 75.460 features: América (55 territorios) y Europa (51) |
+| **Estructura** | `data/earth/{ISO3}/{ISO3}_{LEVEL}.geojson` con `LEVEL` de `ADM0` a `ADM5`, más `manifest.json` (tamaños, SHA-256, licencia) y `preview/` (simplificados, como máximo 2 MB) por país |
+| **Tamaños** | Los archivos más grandes pesan 14,9 MB (`ESP_ADM3`, `CAN_ADM1`); ninguno supera 20 MB. Los niveles municipales que lo superarían se parten por ADM1 en `{LEVEL}/{código}.geojson` |
+| **Fuentes** | Natural Earth (todos los ADM0), geoBoundaries gbOpen solo con licencias permisivas (ADM1 y niveles municipales, fijado a un commit), IDE Chile / SUBDERE DPA 2023 (Chile) |
+| **Índice e ids** | `data/index.json` enumera cada territorio y dataset — rutas, tamaños, SHA-256, bbox, licencia, todos los manifiestos incrustados — en un único archivo de 650 KB. Cada feature tiene un `id` estable (`{ISO3}:{LEVEL}:{clave}`, p. ej. `CHL:ADM3:01402`) y, por debajo del contorno del país, el id de su padre en `parentID` |
 
 El [Catálogo](https://andresgmg.github.io/World-GeoJSON/es/catalog/) lista cada
 dataset con número de features, bounding box, propiedades y enlaces de

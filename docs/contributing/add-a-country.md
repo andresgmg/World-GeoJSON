@@ -44,6 +44,11 @@ and geoBoundaries as the worked example:
 }
 ```
 
+`m49_region` must be one of the regions `pipeline/src/wgj/registry.py`
+groups into a continent (`CONTINENTS`) and the enum in
+`schemas/countries.schema.json` allows. Oceania is not registered yet, so the
+first Oceanian entry also adds its four regions to both.
+
 `municipal_level` is the one field you have to research: which ADM level is
 the municipal tier is a fact about the country, not something the data
 reveals. `verify: true` ships the manifest with `status: "review"` until

@@ -65,30 +65,38 @@ se aplica al momento. La entrada de Argentina:
 | Campo | Significado |
 |---|---|
 | `iso_a2`, `m49_region`, `name` | Identidad, copiada al manifiesto |
-| `source` | Qué proveedor usa `wgj build`: `geoboundaries` o `ide-chile` |
-| `municipal_level` | Qué nivel ADM es el tier municipal (`ADM2`, `ADM3` o `ADM4`), o `null` si no se publica ninguno. No se puede inferir de los datos: una comuna chilena es ADM3, un municipio mexicano ADM2 |
+| `source` | Qué proveedor usa `wgj build`: `geoboundaries`, `ide-chile`, o `natural-earth` para territorios que solo tienen contorno |
+| `municipal_level` | Qué nivel ADM es el tier municipal (de `ADM1` a `ADM5`), o `null` si no se publica ninguno. No se puede inferir de los datos: una comuna chilena es ADM3, un municipio mexicano ADM2 |
 | `adm1_term`, `adm2_term`, `municipal_term` | Nombres locales de los niveles, en ambos idiomas. Viven solo aquí, no en los manifiestos |
 | `verify` | `true` marca una entrada cuya asignación de niveles o número de unidades no se ha contrastado con una fuente oficial; su manifiesto sale con `status: "review"` |
 | `note` | Se copia a `notes` del manifiesto en el primer build. Una sola línea |
+| `dissolve_by_name` | `true` fusiona las features municipales que comparten `shapeName` antes del build, para fuentes que publican una unidad como varias features. Los distritos costeros de Alemania vienen como un polígono de tierra y otro de aguas costeras |
 
 ## 1. Descarga las fuentes
 
 ```bash
 wgj fetch --iso3 ARG          # uno o varios países
-wgj fetch --continent americas
-wgj fetch --continent americas --dry-run
+wgj fetch --continent europe
+wgj fetch --continent europe --dry-run
 ```
 
 Descarga a `.cache/sources/`, que está en `.gitignore`. El archivo admin-0 de
 Natural Earth a 10m aporta el contorno de todos los países; la publicación
-gbOpen de geoBoundaries aporta ADM1 y niveles inferiores, por país y nivel
-desde `https://www.geoboundaries.org/api/current/gbOpen/{ISO3}/{LEVEL}/`; los
-niveles subnacionales de Chile vienen del paquete DPA 2023 de IDE Chile /
-SUBDERE.
+gbOpen de geoBoundaries aporta ADM1 y niveles inferiores; los niveles
+subnacionales de Chile vienen del paquete DPA 2023 de IDE Chile / SUBDERE.
+
+geoBoundaries se lee de su propio repositorio fijado a un commit (`GB_REF` en
+`pipeline/src/wgj/sources/geoboundaries.py`), no de su API: el catálogo es
+`releaseData/geoBoundariesOpen-meta.csv` en `raw.githubusercontent.com`, y
+cada dataset se descarga de `media.githubusercontent.com`, porque el
+repositorio guarda el GeoJSON en Git LFS. Un commit fijo hace reproducible una
+reconstrucción, donde la API siempre respondía "lo actual". Mover el commit es
+un cambio revisado; después, borra `.cache/sources/geoboundaries-all.json`.
 
 **El filtro de licencias vive aquí, a propósito.** gbOpen es un contenedor de
 licencias de origen heterogéneas, no un dataset uniformemente CC BY 4.0: un
-tercio de sus entradas de América son ODbL o CC-BY-SA. Esas se rechazan antes
+tercio de sus entradas de América y dos de cada cinco de las de Europa son ODbL
+o CC-BY-SA. Esas se rechazan antes
 de llegar al working tree, y ni hablar del historial de git. `--dry-run`
 muestra qué se aceptaría y qué se rechazaría sin descargar nada.
 
@@ -96,7 +104,7 @@ muestra qué se aceptaría y qué se rechazaría sin descargar nada.
 
 ```bash
 wgj build ARG
-wgj build --continent americas --skip-existing
+wgj build --continent europe --skip-existing
 ```
 
 Lee la caché y escribe `data/earth/ARG/`. Para cada nivel:

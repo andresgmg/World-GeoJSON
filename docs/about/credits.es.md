@@ -14,8 +14,9 @@ manifiesto — ver [Licencias y atribución](license.md).
   release `gbOpen` de geoBoundaries no es una licencia única: cada archivo
   lleva la licencia de su proveedor original (un instituto nacional de
   estadística, una agencia de la ONU, Wikimedia, …), y este proyecto toma solo
-  el subconjunto permisivo — CC BY 2.5, CC BY 3.0 IGO, CC BY 4.0, Etalab 2.0,
-  OGL Canada 2.0 y dominio público hoy. El proveedor original se acredita en
+  el subconjunto permisivo — CC BY 2.5, CC BY 3.0, CC BY 3.0 IGO, CC BY 4.0,
+  Data licence Germany – attribution – 2.0, Etalab 2.0, ODC Attribution 1.0,
+  OGL Canada 2.0, OGL UK 3.0 y dominio público hoy. El proveedor original se acredita en
   el `src_provider` de cada dataset. El vocabulario de propiedades de este
   proyecto (`shapeName`, `shapeISO`, `shapeGroup`, `shapeType`) coincide con
   el suyo deliberadamente, para que los datos se puedan mover entre ambos sin

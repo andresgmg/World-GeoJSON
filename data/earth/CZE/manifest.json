@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CZE",
+  "iso_a2": "CZ",
+  "m49_region": "Eastern Europe",
+  "name": {
+    "en": "Czechia",
+    "es": "Chequia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Municipalities are ODbL (OpenStreetMap) and not published; regions are.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CZE/CZE_ADM0.geojson",
+      "bytes": 19619,
+      "sha256": "00ba4cb4f8276e3295ccba35e441d5f3e086df938c004117d30a94771df8646a",
+      "features": 1,
+      "bbox": [
+        12.076141,
+        48.557916,
+        18.837434,
+        51.040012
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CZE/preview/CZE_ADM0.preview.geojson",
+      "preview_bytes": 1088,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/CZE/CZE_ADM1.geojson",
+      "bytes": 389231,
+      "sha256": "b62337571862121b9f3d6eee5bb1d8f69e146388c7a05d1fd638f3e1da2e2d86",
+      "features": 14,
+      "bbox": [
+        12.090587,
+        48.551828,
+        18.859247,
+        51.055659
+      ],
+      "geometry_types": {
+        "Polygon": 14
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/CZE/preview/CZE_ADM1.preview.geojson",
+      "preview_bytes": 19015,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Czech Office for Surveying",
+      "src_year": "2021"
+    }
+  ]
+}

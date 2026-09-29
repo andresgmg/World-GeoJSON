@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "FIN",
+  "iso_a2": "FI",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Finland",
+    "es": "Finlandia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Finland are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/FIN/FIN_ADM0.geojson",
+      "bytes": 69453,
+      "sha256": "9e771036245c8170e4d63819c61907a7f23b747da3c91d6b33733c0aa7a2d478",
+      "features": 1,
+      "bbox": [
+        20.623165,
+        59.811225,
+        31.569525,
+        70.07531
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/FIN/preview/FIN_ADM0.preview.geojson",
+      "preview_bytes": 3124,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

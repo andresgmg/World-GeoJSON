@@ -115,8 +115,8 @@ The obvious reaction to a 72 MB file, and a trap.
   132-byte text stub — rather than the data.
 - **It complicates partial clones.** `--filter=blob:none` and sparse checkout
   interact awkwardly with LFS.
-- **It is not needed.** The repository's packed size is about 56 MiB for a
-  working tree of about 309 MB, 166 MB of it under `data/`. JSON compresses
+- **It is not needed.** The repository's packed size is about 106 MiB for a
+  working tree of about 465 MB, 319 MB of it under `data/`. JSON compresses
   well and Git is handling this fine.
 
 The real fix for file size is minification and coordinate precision, and the

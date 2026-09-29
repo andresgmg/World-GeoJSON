@@ -16,11 +16,18 @@ def test_registry_entries_are_usable() -> None:
     assert "CHL" in reg and "$comment" not in reg
     for iso3, entry in reg.items():
         assert entry["source"] in SOURCE_INFO, iso3
-        assert entry["m49_region"] in registry.CONTINENTS["americas"], iso3
+        assert any(entry["m49_region"] in regions for regions in registry.CONTINENTS.values()), iso3
+
+
+def test_continents_partition_the_registry() -> None:
+    """Every entry belongs to exactly one continent, so --continent covers them all."""
+    per_continent = [set(registry.resolve_targets(None, c)) for c in registry.CONTINENTS]
+    assert sum(len(s) for s in per_continent) == len(registry.countries())
+    assert set().union(*per_continent) == set(registry.countries())
 
 
 def test_resolve_targets() -> None:
-    assert len(registry.resolve_targets(None, "americas")) == len(registry.countries())
+    assert "CHL" in registry.resolve_targets(None, "americas")
     assert registry.resolve_targets(["chl", "USA"], None) == ["CHL", "USA"]
     with pytest.raises(SystemExit, match="not both"):
         registry.resolve_targets(["CHL"], "americas")

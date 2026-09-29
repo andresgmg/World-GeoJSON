@@ -154,7 +154,7 @@ en todos.
     distancias, reproyecta primero a un CRS proyectado adecuado a tu zona de
     interés — para Chile, EPSG:5361.
 
-    Para los archivos más grandes — el ADM1 de Canadá pesa 14,9 MB —
+    Para los archivos más grandes — los municipios de España y el ADM1 de Canadá pesan 14,9 MB cada uno —
     descárgalos localmente en vez de consumirlos por HTTP; si no, QGIS
     repetirá peticiones por rangos.
 

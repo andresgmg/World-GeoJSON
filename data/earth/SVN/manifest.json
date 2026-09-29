@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SVN",
+  "iso_a2": "SI",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Slovenia",
+    "es": "Eslovenia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Municipalities are ODbL and not published; the two cohesion regions are.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SVN/SVN_ADM0.geojson",
+      "bytes": 9793,
+      "sha256": "43a88890a02b0feb5cdbc96fbec1a393c83c24dc412efd9d42457288bdb17d9f",
+      "features": 1,
+      "bbox": [
+        13.365261,
+        45.423637,
+        16.515302,
+        46.863962
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SVN/preview/SVN_ADM0.preview.geojson",
+      "preview_bytes": 648,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/SVN/SVN_ADM1.geojson",
+      "bytes": 2247,
+      "sha256": "cd3bcd08bbf13bb4852234a6c9663e9678fc683362c263b08facd4f63cd88028",
+      "features": 2,
+      "bbox": [
+        13.40087,
+        45.42709,
+        16.59681,
+        46.86907
+      ],
+      "geometry_types": {
+        "Polygon": 2
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SVN/preview/SVN_ADM1.preview.geojson",
+      "preview_bytes": 597,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Eurostat- European Commission",
+      "src_year": "2021"
+    }
+  ]
+}

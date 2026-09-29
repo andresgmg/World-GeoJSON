@@ -1,7 +1,8 @@
 # World GeoJSON
 
-Open, versioned GeoJSON administrative boundaries — the Americas today,
-growing toward every country on Earth, and eventually to the Moon and Mars.
+Open, versioned GeoJSON administrative boundaries — the Americas and Europe
+today, growing toward every country on Earth, and eventually to the Moon and
+Mars.
 
 Every dataset here is plain [RFC 7946](https://www.rfc-editor.org/rfc/rfc7946)
 GeoJSON in WGS 84. No API key, no sign-up, no rate-limited service in front of
@@ -78,14 +79,16 @@ without written rules produces a pile of mutually incompatible files. The
 
 ## Current status
 
-**The Americas: 55 territories, 95 datasets, 16,195 features.**
+**106 territories, 192 datasets, 75,460 features: the Americas (55) and
+Europe (51).**
 
 Country outlines from Natural Earth, first-level and municipal divisions from
 geoBoundaries, and Chile from IDE Chile's *División Política Administrativa*
 2023. Every dataset is permissively licensed — copyleft sources are excluded,
-which is why some countries have no first-level divisions yet.
+which is why some countries have no first-level divisions yet. In Europe that
+is most of the countries whose geoBoundaries data comes from OpenStreetMap.
 
-Europe, Africa, Asia and Oceania follow, one continent per release.
+Africa, Asia and Oceania follow, one continent per release.
 [Roadmap](about/roadmap.md) has the sequence and the known gaps.
 
 --8<-- "abbreviations.md"

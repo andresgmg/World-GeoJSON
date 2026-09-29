@@ -6,6 +6,59 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
+### Added — Europe
+
+- **51 territories, 97 datasets, 59,265 features**, bringing the repository to
+  106 territories, 192 datasets and 75,460 features. Same sources as the
+  Americas: Natural Earth outlines, geoBoundaries `gbOpen` first-level and
+  municipal tiers under permissive licences only.
+- Seventeen countries have both tiers (Belgium, Bulgaria, Bosnia and
+  Herzegovina, Belarus, Germany, Denmark, Spain, France, the United Kingdom,
+  Greece, Ireland, Italy, North Macedonia, the Netherlands, Norway, Romania,
+  Sweden); eight a first level only; Iceland, Luxembourg, Portugal and Ukraine
+  a municipal tier without an ADM1 above it; twenty-two the outline only.
+- **Kosovo** is published as `XKX`, a user-assigned code, from Natural Earth's
+  `KOS` unit, with the dispute stated in its manifest. Crimea, Gibraltar and
+  Kosovo are new cases in [Disputed boundaries](disputed-boundaries.md).
+- **Three attribution-only licences** on the allow-list: `OGL-UK-3.0`
+  (United Kingdom), `DL-DE-BY-2.0` (Germany) and `ODC-By-1.0` (France's
+  communes). ODbL stays out; the copyleft check no longer mistakes Open Data
+  Commons Attribution for it.
+- **ADM5** joins the data contract (schemas, both `geoworld` clients, the
+  pipeline) for France's 35,010 communes, published as 13 region parts plus
+  `unassigned` — the 129 overseas communes — with no combined file.
+- Spain's and Belgium's first level get their ISO 3166-2 codes from
+  `shapeiso_fixes.json`: upstream, every Spanish unit carries `ESP` and the
+  Belgian ones three-letter region codes.
+
+**Not included, and why.** Nineteen countries have no first level here and
+seventeen no municipal tier, because geoBoundaries has them under ODbL,
+CC-BY-SA or swisstopo's own licence. Svalbard and Jan Mayen ships nothing:
+Natural Earth draws both inside Norway. Intermediate levels (France's
+départements, Italy's regions and provinces, Germany's government regions)
+are not built yet. See the [Roadmap](roadmap.md).
+
+**Upstream quirks worth knowing.** Germany's coastal and lakeside districts
+come as a land and a water polygon under the same name; they are merged
+(`dissolve_by_name` in `countries.json`), giving 401 districts. Hungary's
+metadata counts 20 first-level units and the file has 19: Budapest is drawn
+inside Pest county. Italy's ADM1 is the five NUTS 1 macro-regions. Several
+municipal tiers predate a reform (Belgium 2018, Norway 2013, Ukraine 2006) —
+those countries ship as `review`.
+
+### Changed — pipeline
+
+- geoBoundaries is read from a pinned commit of its repository
+  (`wmgeolab/geoBoundaries@5c25134`) instead of its API: the catalogue from
+  `releaseData/geoBoundariesOpen-meta.csv`, the files through Git LFS media
+  URLs. A rebuild fetches the same bytes; moving to a newer release is a
+  one-line change to `GB_REF`.
+- A level too dense for a 2 MB preview even at the coarsest simplification
+  now ships without one (Spain ADM3, France ADM5, Italy ADM4) and
+  `wgj validate` warns, instead of the build stopping.
+- A first-level `shapeISO` equal to the country code is no longer used as the
+  split key.
+
 ### Added — framework adapters
 
 - **`geoworld-maplibre`** (`packages/js/geoworld-maplibre`, npm):

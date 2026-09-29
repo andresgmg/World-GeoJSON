@@ -1,0 +1,442 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "NLD",
+  "iso_a2": "NL",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "Netherlands",
+    "es": "Países Bajos"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "Natural Earth's outline includes the Caribbean Netherlands (Bonaire, Sint Eustatius and Saba).",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/NLD/NLD_ADM0.geojson",
+      "bytes": 17833,
+      "sha256": "9c18e8c9bb56f0ef8152fc8883167992134c63c34005a9b516566a703b37a407",
+      "features": 1,
+      "bbox": [
+        -68.417388,
+        12.02204,
+        7.198506,
+        53.558092
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/NLD/preview/NLD_ADM0.preview.geojson",
+      "preview_bytes": 1048,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/NLD/NLD_ADM1.geojson",
+      "bytes": 108390,
+      "sha256": "2421a3d8e718f740232d5617b1fbfd1214dd253f88d23dd52b10e9fece99429b",
+      "features": 12,
+      "bbox": [
+        3.30794,
+        50.750366,
+        7.227389,
+        53.576423
+      ],
+      "geometry_types": {
+        "Polygon": 12
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/NLD/preview/NLD_ADM1.preview.geojson",
+      "preview_bytes": 7437,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "National Georegister",
+      "src_year": "2022"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/NLD/NLD_ADM2.geojson",
+      "bytes": 629576,
+      "sha256": "b5524620f37a8f98e02c4bd68f8c3169704496940c13b1b98ab6f94fae3294b3",
+      "features": 344,
+      "bbox": [
+        3.30794,
+        50.750366,
+        7.227389,
+        53.576423
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 343
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/NLD/preview/NLD_ADM2.preview.geojson",
+      "preview_bytes": 116931,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/NLD/ADM2/NL-DR.geojson",
+          "bytes": 29354,
+          "sha256": "670b691ff10de53b4622f71a9cbd6ad3c4eb6d695ec96822528302fabb889b25",
+          "features": 12,
+          "bbox": [
+            6.11982,
+            52.612196,
+            7.09274,
+            53.203689
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-DR"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-FL.geojson",
+          "bytes": 9804,
+          "sha256": "bedc7dff97918f2812578537efbda38bf9dbb46a1190473577f149d47988d930",
+          "features": 6,
+          "bbox": [
+            5.060427,
+            52.249528,
+            6.017299,
+            52.843983
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-FL"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-FR.geojson",
+          "bytes": 43013,
+          "sha256": "878ef7dbd211792c59bd2e9c65495747cafe977f6fdf45970dd7506144055e05",
+          "features": 18,
+          "bbox": [
+            4.818376,
+            52.764805,
+            6.427615,
+            53.539713
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-FR"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-GE.geojson",
+          "bytes": 108766,
+          "sha256": "7884a3d1edf891ec39088f11baf3ad51dfd62c8f04c73cca27f7c8e36dcb01d9",
+          "features": 51,
+          "bbox": [
+            4.99393,
+            51.733581,
+            6.832427,
+            52.522025
+          ],
+          "geometry_types": {
+            "Polygon": 51
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-GE"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-GR.geojson",
+          "bytes": 27149,
+          "sha256": "b0f2bc537c62bee64a8e4466f0e021b863ca1b488556e989134fd3cdf5ff34fd",
+          "features": 10,
+          "bbox": [
+            6.167726,
+            52.838197,
+            7.227389,
+            53.576423
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-GR"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-LI.geojson",
+          "bytes": 55789,
+          "sha256": "007aac741fd1a228b4d89f47ab928089a07ba5cd90d31cea22600e32a82f2115",
+          "features": 31,
+          "bbox": [
+            5.566044,
+            50.750366,
+            6.226768,
+            51.778627
+          ],
+          "geometry_types": {
+            "Polygon": 31
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-LI"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-NB.geojson",
+          "bytes": 98489,
+          "sha256": "57693afc332875c5d8b43514e338468f2bb2563f4f2a0b6a65e6423d52bafdbe",
+          "features": 56,
+          "bbox": [
+            4.190163,
+            51.220909,
+            6.048119,
+            51.830731
+          ],
+          "geometry_types": {
+            "Polygon": 56
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-NB"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-NH.geojson",
+          "bytes": 63775,
+          "sha256": "0ff4203dbb616dfd14edbe126272466e2b04a8d183b2d38257cbdc4bc738b6c8",
+          "features": 44,
+          "bbox": [
+            4.47765,
+            52.165929,
+            5.37726,
+            53.214276
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 43
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-NH"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-OV.geojson",
+          "bytes": 52982,
+          "sha256": "edab13dfcec03a25d97405ce9a12c03dd17720b6362235d62ae7e35f21a90212",
+          "features": 25,
+          "bbox": [
+            5.777751,
+            52.11827,
+            7.072765,
+            52.854215
+          ],
+          "geometry_types": {
+            "Polygon": 25
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-OV"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-UT.geojson",
+          "bytes": 40570,
+          "sha256": "09365e0480a712a6537acc8a3566ec83be222ece07dd075b0bf1afabeeb8071d",
+          "features": 26,
+          "bbox": [
+            4.79208,
+            51.857361,
+            5.627309,
+            52.303393
+          ],
+          "geometry_types": {
+            "Polygon": 26
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-UT"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-ZE.geojson",
+          "bytes": 27734,
+          "sha256": "4a2c8a9f17e43808489e88ff04870629f5092e8de2b48fc45498d45f86f03b49",
+          "features": 13,
+          "bbox": [
+            3.30794,
+            51.200183,
+            4.277425,
+            51.78152
+          ],
+          "geometry_types": {
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-ZE"
+        },
+        {
+          "path": "data/earth/NLD/ADM2/NL-ZH.geojson",
+          "bytes": 73122,
+          "sha256": "b30cfd8f4dfb11751abaee0a9a6e0d34a4b267805bfaa9fe6f4a5630663e3ff2",
+          "features": 52,
+          "bbox": [
+            3.773676,
+            51.643778,
+            5.031414,
+            52.332511
+          ],
+          "geometry_types": {
+            "Polygon": 52
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NL-ZH"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "National Georegister",
+      "src_year": "2022"
+    }
+  ]
+}

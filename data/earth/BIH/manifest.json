@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BIH",
+  "iso_a2": "BA",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Bosnia and Herzegovina",
+    "es": "Bosnia y Herzegovina"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BIH/BIH_ADM0.geojson",
+      "bytes": 13044,
+      "sha256": "228f1f1908090b1d7428c658409d4c19c0ed3541e457f188f4fcbfb447328ac7",
+      "features": 1,
+      "bbox": [
+        15.716074,
+        42.559212,
+        19.618885,
+        45.284524
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BIH/preview/BIH_ADM0.preview.geojson",
+      "preview_bytes": 811,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BIH/BIH_ADM1.geojson",
+      "bytes": 92221,
+      "sha256": "c2286480158ea74527201021f486f7716c27259b3defa46bb15d3828820956e5",
+      "features": 3,
+      "bbox": [
+        15.7243,
+        42.55719,
+        19.62278,
+        45.270542
+      ],
+      "geometry_types": {
+        "MultiPolygon": 2,
+        "Polygon": 1
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BIH/preview/BIH_ADM1.preview.geojson",
+      "preview_bytes": 4991,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Wikimedia Commons",
+      "src_year": "2013"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/BIH/BIH_ADM3.geojson",
+      "bytes": 431561,
+      "sha256": "ce1f775b75a06ef52d617cad01cfdbe8e5e8a95686128fd49d09d7f738e55efa",
+      "features": 142,
+      "bbox": [
+        15.7243,
+        42.55719,
+        19.62278,
+        45.270542
+      ],
+      "geometry_types": {
+        "MultiPolygon": 2,
+        "Polygon": 140
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BIH/preview/BIH_ADM3.preview.geojson",
+      "preview_bytes": 56160,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/BIH/ADM3/BA-BIH.geojson",
+          "bytes": 226257,
+          "sha256": "e425e73b270a35b89f426fb5c14d382de6349789f404491eaa24980a19a41152",
+          "features": 80,
+          "bbox": [
+            15.7243,
+            42.60362,
+            19.03487,
+            45.232286
+          ],
+          "geometry_types": {
+            "Polygon": 80
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BA-BIH"
+        },
+        {
+          "path": "data/earth/BIH/ADM3/BA-BRC.geojson",
+          "bytes": 3750,
+          "sha256": "196bc39fdc8d1d3162476a5e23afe564971d937c6bf292c121c87de3cf062b0d",
+          "features": 1,
+          "bbox": [
+            18.522448,
+            44.712269,
+            19.005875,
+            44.966768
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BA-BRC"
+        },
+        {
+          "path": "data/earth/BIH/ADM3/BA-SRP.geojson",
+          "bytes": 201734,
+          "sha256": "9da85e67b8ac1514d56e80f19334d15e5ec2337b715d1b2120c87dcf0955a016",
+          "features": 61,
+          "bbox": [
+            16.194912,
+            42.55719,
+            19.62278,
+            45.270542
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 59
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BA-SRP"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Wikimedia Commons",
+      "src_year": "2013"
+    }
+  ]
+}

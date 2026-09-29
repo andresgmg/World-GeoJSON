@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SVK",
+  "iso_a2": "SK",
+  "m49_region": "Eastern Europe",
+  "name": {
+    "en": "Slovakia",
+    "es": "Eslovaquia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Slovakia are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SVK/SVK_ADM0.geojson",
+      "bytes": 12084,
+      "sha256": "22694573fdbe1905cce6783011d554882522f9d14d5e2b4c7e965fd0965d4e00",
+      "features": 1,
+      "bbox": [
+        16.84448,
+        47.750006,
+        22.539637,
+        49.60178
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SVK/preview/SVK_ADM0.preview.geojson",
+      "preview_bytes": 756,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

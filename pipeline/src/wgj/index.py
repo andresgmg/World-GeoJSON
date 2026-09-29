@@ -3,7 +3,7 @@
     wgj index
     wgj index --check     # CI: exit 1 if the committed file is stale
 
-One request instead of fifty-five. Each country's manifest is embedded
+One request instead of one per territory. Each country's manifest is embedded
 verbatim (so the index never disagrees with a manifest) plus a few derived
 fields a client needs before it has downloaded anything: the published
 levels, the licences that actually govern the files, which level is the

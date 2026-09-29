@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "LIE",
+  "iso_a2": "LI",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "Liechtenstein",
+    "es": "Liechtenstein"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Liechtenstein are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/LIE/LIE_ADM0.geojson",
+      "bytes": 873,
+      "sha256": "8c8c3a1f16c41679260d1bc899a89ced811ef0e23cfaebb1a025840157e3b2ca",
+      "features": 1,
+      "bbox": [
+        9.475886,
+        47.0524,
+        9.615723,
+        47.262801
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/LIE/preview/LIE_ADM0.preview.geojson",
+      "preview_bytes": 331,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

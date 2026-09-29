@@ -169,7 +169,9 @@ test("search", async () => {
 
 test("parseId", () => {
   assert.deepEqual(parseId("USA:ADM2:US-DE.new-castle"), { iso3: "USA", level: "ADM2", key: "US-DE.new-castle" });
+  assert.equal(parseId("FRA:ADM5:FR-IDF.paris").level, "ADM5");
   assert.throws(() => parseId("usa:ADM2:x"), InvalidFeatureId);
+  assert.throws(() => parseId("FRA:ADM6:x"), InvalidFeatureId);
 });
 
 test("persistent store round-trip and verification", async () => {

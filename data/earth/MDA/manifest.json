@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MDA",
+  "iso_a2": "MD",
+  "m49_region": "Eastern Europe",
+  "name": {
+    "en": "Moldova",
+    "es": "Moldavia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "The first level mixes districts, municipalities and the autonomous territorial units; communes are not in geoBoundaries.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MDA/MDA_ADM0.geojson",
+      "bytes": 15165,
+      "sha256": "c9c44c5ca376e79f1eead71c69594a44173fcffff68dc58570773c9bf890c27f",
+      "features": 1,
+      "bbox": [
+        26.617889,
+        45.461774,
+        30.131576,
+        48.486034
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MDA/preview/MDA_ADM0.preview.geojson",
+      "preview_bytes": 877,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/MDA/MDA_ADM1.geojson",
+      "bytes": 180632,
+      "sha256": "4fa27e9192b2b2329e51361253229f1115d5d06aa44853ab0b8a77de60901e80",
+      "features": 37,
+      "bbox": [
+        26.616355,
+        45.46728,
+        30.163138,
+        48.491499
+      ],
+      "geometry_types": {
+        "MultiPolygon": 6,
+        "Polygon": 31
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MDA/preview/MDA_ADM1.preview.geojson",
+      "preview_bytes": 18247,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "UNHCR, OCHA FISS",
+      "src_year": "2020"
+    }
+  ]
+}

@@ -13,7 +13,7 @@
       "type": "string"
     },
     "shapeGroup": { "type": "string", "pattern": "^[A-Z]{3}$" },
-    "shapeType": { "type": "string", "pattern": "^(ADM[0-4]|QUAD)$" },
+    "shapeType": { "type": "string", "pattern": "^(ADM[0-5]|QUAD)$" },
     "adm1ISO": {
       "description": "Key of the ADM1 unit containing this feature; present below ADM1 whenever the country publishes an ADM1. \"unassigned\" when the parent could not be determined.",
       "type": "string",
@@ -27,7 +27,7 @@
     "parentID": {
       "description": "Feature id of the parent at the previous published level.",
       "type": "string",
-      "pattern": "^[A-Z]{3}:(ADM[0-4]|QUAD):\\S+$"
+      "pattern": "^[A-Z]{3}:(ADM[0-5]|QUAD):\\S+$"
     }
   },
   "patternProperties": {

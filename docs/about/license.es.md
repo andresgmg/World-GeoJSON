@@ -60,8 +60,8 @@ solo dataset ODbL en esta colección colocaría discutiblemente la colección
 entera bajo ODbL — cambiando los términos para todos los consumidores
 existentes sin que se enteren. No es un intercambio que este proyecto vaya a
 hacer, aunque cueste cobertura real: un tercio de las entradas de América de
-geoBoundaries quedan descartadas por esta vía, y 15 países no tienen ADM1 aquí
-por ello.
+geoBoundaries y dos de cada cinco de las de Europa quedan descartadas por esta
+vía, y 33 países no tienen ADM1 aquí por ello.
 
 Los huecos se registran en la [Hoja de ruta](roadmap.md). Se cierran encontrando
 una fuente permisiva, no relajando la regla.

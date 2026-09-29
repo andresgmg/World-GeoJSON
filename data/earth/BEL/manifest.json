@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BEL",
+  "iso_a2": "BE",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "Belgium",
+    "es": "Bélgica"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Municipalities are a 2018 vintage (589, before the 2019 mergers that left 581).",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BEL/BEL_ADM0.geojson",
+      "bytes": 13188,
+      "sha256": "4d46a63af57d4ca23759ec2c55d24f1556fc9ede9b2a63ede49751fccd1ec988",
+      "features": 1,
+      "bbox": [
+        2.5218,
+        49.495223,
+        6.374525,
+        51.496238
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BEL/preview/BEL_ADM0.preview.geojson",
+      "preview_bytes": 796,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BEL/BEL_ADM1.geojson",
+      "bytes": 3871,
+      "sha256": "2525e2956f0300719ba06769f963387ac66ceb20d9fdcd9cbbe55bbc4792a04b",
+      "features": 3,
+      "bbox": [
+        2.546011,
+        49.497238,
+        6.405029,
+        51.502464
+      ],
+      "geometry_types": {
+        "MultiPolygon": 2,
+        "Polygon": 1
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BEL/preview/BEL_ADM1.preview.geojson",
+      "preview_bytes": 978,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Eurostat- European Commission",
+      "src_year": "2022"
+    },
+    {
+      "level": "ADM4",
+      "path": "data/earth/BEL/BEL_ADM4.geojson",
+      "bytes": 952617,
+      "sha256": "c95bf6073d51985af6e7c40dee71382c88cb6a2b369fae03c85ecd361015ceae",
+      "features": 589,
+      "bbox": [
+        2.54421,
+        49.49835,
+        6.406064,
+        51.505225
+      ],
+      "geometry_types": {
+        "MultiPolygon": 3,
+        "Polygon": 586
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BEL/preview/BEL_ADM4.preview.geojson",
+      "preview_bytes": 196108,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/BEL/ADM4/BE-BRU.geojson",
+          "bytes": 17760,
+          "sha256": "c8e2095edb465a1c1a799ea766e4ea093af3ede7b9a40e0dacf81394f954a040",
+          "features": 19,
+          "bbox": [
+            4.244296,
+            50.765698,
+            4.479478,
+            50.913727
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BE-BRU"
+        },
+        {
+          "path": "data/earth/BEL/ADM4/BE-VLG.geojson",
+          "bytes": 447134,
+          "sha256": "ec8be9c95534a86c6b96a7f917a20af7a8b82866726381f5b5d115416ff23b44",
+          "features": 307,
+          "bbox": [
+            2.54421,
+            50.688513,
+            5.908468,
+            51.505225
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 306
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BE-VLG"
+        },
+        {
+          "path": "data/earth/BEL/ADM4/BE-WAL.geojson",
+          "bytes": 487901,
+          "sha256": "69c0c660fb60c0cc7638df210dc99c5d65a1422981f190ebe3c7edabd8ff6466",
+          "features": 263,
+          "bbox": [
+            2.842893,
+            49.49835,
+            6.406064,
+            50.812478
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 262
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BE-WAL"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Namur Capitale, Statistics Belgium",
+      "src_year": "2018"
+    }
+  ]
+}

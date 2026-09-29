@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "DNK",
+  "iso_a2": "DK",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Denmark",
+    "es": "Dinamarca"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/DNK/DNK_ADM0.geojson",
+      "bytes": 46588,
+      "sha256": "ec29367246aeb957fdc65bad513963655c86793a94f0e892425cef82b4e89b4f",
+      "features": 1,
+      "bbox": [
+        8.094005,
+        54.56859,
+        15.151378,
+        57.751166
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/DNK/preview/DNK_ADM0.preview.geojson",
+      "preview_bytes": 2404,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/DNK/DNK_ADM1.geojson",
+      "bytes": 213994,
+      "sha256": "e6a2a77306c1be0df8cda6bf23f93edac6b31a7f94b66206229113756dc37152",
+      "features": 5,
+      "bbox": [
+        8.078255,
+        54.59366,
+        15.190642,
+        57.749209
+      ],
+      "geometry_types": {
+        "MultiPolygon": 5
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DNK/preview/DNK_ADM1.preview.geojson",
+      "preview_bytes": 10719,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "geoBoundaries, Web Vectors Map",
+      "src_year": "2021"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/DNK/DNK_ADM2.geojson",
+      "bytes": 206911,
+      "sha256": "c43bf9a48e24456712b2e5b8678741ab079a523c96682d961b30d386304ce204",
+      "features": 98,
+      "bbox": [
+        8.071462,
+        54.56587,
+        15.151908,
+        57.759859
+      ],
+      "geometry_types": {
+        "MultiPolygon": 27,
+        "Polygon": 71
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DNK/preview/DNK_ADM2.preview.geojson",
+      "preview_bytes": 33613,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/DNK/ADM2/DK-81.geojson",
+          "bytes": 32935,
+          "sha256": "9031ac5e739571faab23abf38ac292e963670da1362f89f24c330b3ba5ce4144",
+          "features": 11,
+          "bbox": [
+            8.207879,
+            56.554717,
+            11.232586,
+            57.759859
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DK-81"
+        },
+        {
+          "path": "data/earth/DNK/ADM2/DK-82.geojson",
+          "bytes": 53821,
+          "sha256": "1ecaa791042ab65053fbad9829dbd2daef5dddfa637728bce9e6f8a12b62f96f",
+          "features": 19,
+          "bbox": [
+            8.0939,
+            55.673365,
+            11.653761,
+            56.846624
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DK-82"
+        },
+        {
+          "path": "data/earth/DNK/ADM2/DK-83.geojson",
+          "bytes": 55156,
+          "sha256": "695b52fde45a6b1d17903e223afb13bf2dabd0828d23d4c0107aa774071213e7",
+          "features": 22,
+          "bbox": [
+            8.071462,
+            54.722845,
+            10.9587,
+            55.970969
+          ],
+          "geometry_types": {
+            "MultiPolygon": 9,
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DK-83"
+        },
+        {
+          "path": "data/earth/DNK/ADM2/DK-84.geojson",
+          "bytes": 27081,
+          "sha256": "1033260f5185144118196322655bb639367825ccc9cc19826774f01f09536e55",
+          "features": 29,
+          "bbox": [
+            11.843861,
+            54.983062,
+            15.151908,
+            56.127432
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 27
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DK-84"
+        },
+        {
+          "path": "data/earth/DNK/ADM2/DK-85.geojson",
+          "bytes": 38275,
+          "sha256": "2820264dd576ab51856e793a75fd02c73913ac31cbc69c4cafcfbe14be35da11",
+          "features": 17,
+          "bbox": [
+            10.875327,
+            54.56587,
+            12.554628,
+            56.00462
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DK-85"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2018"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[12.453031,41.902752,12.454035,41.903915],"features":[
+{"type":"Feature","id":"VAT:ADM0:VAT","properties":{"shapeName":"Vatican","shapeISO":"VAT","shapeGroup":"VAT","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[12.453137,41.902752],[12.454035,41.902752],[12.453983,41.903862],[12.453031,41.903915],[12.453137,41.902752]]]}}
+]}

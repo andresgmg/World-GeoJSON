@@ -17,7 +17,7 @@ Usar este proyecto son tres pasos.
 Los datos de límites administrativos son grandes, y este proyecto los guarda
 sin comprimir para que sigan siendo diffeables y consumibles directamente.
 Todos los archivos bajo `data/` están simplificados a una tolerancia de 100 m
-sobre el terreno, lo que deja el más grande — el ADM1 de Canadá — en 14,9 MB
+sobre el terreno, lo que deja los más grandes — los municipios de España y el ADM1 de Canadá — en 14,9 MB
 y ninguno por encima de 20 MB. Las 345 comunas de Chile pesan 7 MB.
 
 Eso tiene consecuencias que conviene saber de entrada:

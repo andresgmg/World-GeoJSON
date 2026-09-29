@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "PRT",
+  "iso_a2": "PT",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Portugal",
+    "es": "Portugal"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "Districts (ADM1) are ODbL and not published, so the municipalities (311 units against 308 concelhos) have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/PRT/PRT_ADM0.geojson",
+      "bytes": 27622,
+      "sha256": "261b99c042aa7c06ff892dc792112fea3db09532bf20dfd33cf73c23247b284a",
+      "features": 1,
+      "bbox": [
+        -31.284901,
+        30.029242,
+        -6.205947,
+        42.15363
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/PRT/preview/PRT_ADM0.preview.geojson",
+      "preview_bytes": 1515,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/PRT/PRT_ADM2.geojson",
+      "bytes": 236930,
+      "sha256": "8250d08b796c7db1223dc1e16124e8f005fa1d908cb522ac59caa9ca791c91b8",
+      "features": 311,
+      "bbox": [
+        -31.273462,
+        32.368492,
+        -6.196909,
+        42.157302
+      ],
+      "geometry_types": {
+        "MultiPolygon": 2,
+        "Polygon": 309
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/PRT/preview/PRT_ADM2.preview.geojson",
+      "preview_bytes": 93406,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Wikipedia",
+      "src_year": "2020"
+    }
+  ]
+}

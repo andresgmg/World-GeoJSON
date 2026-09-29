@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[12.3856,43.8921,12.4903,43.9672],"features":[
+{"type":"Feature","id":"SMR:ADM0:SMR","properties":{"shapeName":"San Marino","shapeISO":"SMR","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[12.4294,43.8921],[12.4903,43.9392],[12.4214,43.9672],[12.3856,43.9245],[12.4294,43.8921]]]}}
+]}

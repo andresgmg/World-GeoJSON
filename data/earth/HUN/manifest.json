@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "HUN",
+  "iso_a2": "HU",
+  "m49_region": "Eastern Europe",
+  "name": {
+    "en": "Hungary",
+    "es": "Hungría"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "Settlements are ODbL (OpenStreetMap) and not published. The first level is the 19 counties: geoBoundaries draws Budapest inside Pest county rather than as a unit of its own, although its metadata counts 20.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/HUN/HUN_ADM0.geojson",
+      "bytes": 17664,
+      "sha256": "ab8725bcb5ad1f60d089a0b4beb17c8f8449fa9bcd4f42c9ac5b6c7b676d79a7",
+      "features": 1,
+      "bbox": [
+        16.094035,
+        45.741343,
+        22.877601,
+        48.569233
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/HUN/preview/HUN_ADM0.preview.geojson",
+      "preview_bytes": 972,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/HUN/HUN_ADM1.geojson",
+      "bytes": 165882,
+      "sha256": "8b096919a5b21b4bb08a52edd7ab4580d5fbb2ba5992357dbcd8e79a28e0aa77",
+      "features": 19,
+      "bbox": [
+        16.127299,
+        45.763328,
+        22.890661,
+        48.574767
+      ],
+      "geometry_types": {
+        "Polygon": 19
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/HUN/preview/HUN_ADM1.preview.geojson",
+      "preview_bytes": 11203,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2011"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 `data/index.json` es el catálogo entero en un solo archivo: cada territorio y
 cada dataset, con el [manifiesto](manifest.md) de cada país incrustado tal
-cual. Una petición en vez de cincuenta y cinco, y el punto de entrada que
+cual. Una petición en vez de una por territorio, y el punto de entrada que
 leen las [bibliotecas cliente](../libraries/index.md).
 
 ## Qué es
@@ -22,7 +22,7 @@ está al día.
 {
   "schema_version": 1,
   "bodies": ["earth"],
-  "totals": { "countries": 55, "datasets": 95, "features": 16195, "bytes": 125679933 },
+  "totals": { "countries": 106, "datasets": 192, "features": 75460, "bytes": 232336401 },
   "countries": [ … ]
 }
 ```
@@ -81,8 +81,8 @@ La entrada de Chile, con los datasets abreviados:
 
 ## Tamaño y determinismo
 
-340 KB en disco, 39 KB comprimido con gzip — una fracción del archivo de datos
-más pequeño. No tiene marca de tiempo ni campo de versión, a propósito: el
+Unos 650 KB en disco, 80 KB comprimido con gzip — menos que la mayoría de
+los archivos de datos. No tiene marca de tiempo ni campo de versión, a propósito: el
 archivo es determinista byte a byte para un estado dado de los manifiestos, así
 que el CI puede regenerarlo y hacer `git diff`. La versión de los datos es la
 referencia de git desde la que lo descargaste.

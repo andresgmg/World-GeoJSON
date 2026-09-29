@@ -122,8 +122,8 @@ La reacción obvia ante un archivo de 72 MB, y una trampa.
   puntero de LFS — un stub de texto de 132 bytes — en lugar de los datos.
 - **Complica los clones parciales.** `--filter=blob:none` y el sparse checkout
   interactúan mal con LFS.
-- **No hace falta.** El tamaño empaquetado del repositorio es de unos 56 MiB
-  para un working tree de unos 309 MB, 166 MB de ellos bajo `data/`. El JSON
+- **No hace falta.** El tamaño empaquetado del repositorio es de unos 106 MiB
+  para un working tree de unos 465 MB, 319 MB de ellos bajo `data/`. El JSON
   comprime bien y Git lo está manejando sin problema.
 
 La solución real al tamaño de archivo es minificar y recortar la precisión de

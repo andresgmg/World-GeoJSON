@@ -37,7 +37,17 @@ cualquier otro:
 | `CC-BY-3.0`, `CC-BY-3.0-IGO` | Límites de país de OCHA / HDX |
 | `CC-BY-2.5` | Publicaciones nacionales antiguas |
 | `Etalab-2.0` | Francia y sus departamentos de ultramar |
+| `ODC-By-1.0` | Comunas de Francia (Open Data Commons Attribution — no su hermana ODbL) |
 | `OGL-Canada-2.0` | Canadá |
+| `OGL-UK-3.0` | Reino Unido (Office for National Statistics) |
+| `DL-DE-BY-2.0` | Alemania (Agencia Federal de Cartografía y Geodesia) |
+
+Todas exigen atribución y nada más: sin share-alike ni cláusula no comercial.
+`ODC-By-1.0` es la licencia de Open Data Commons que **no** es ODbL; el filtro
+del fetch las distingue por el nombre. Dos licencias gubernamentales
+permisivas encontradas en Europa no están en la lista porque no son licencias
+SPDX y sus términos no se pudieron comprobar al construir Europa: la de
+swisstopo (Suiza) y la del INE (provincias de España).
 
 ## Verde — usar libremente
 
@@ -66,9 +76,10 @@ cualquier otro:
 
     Medido sobre las 129 entradas de América en `gbOpen`, **43 (33%) son
     copyleft** — 35 ODbL y 8 CC-BY-SA, casi todas derivadas de OpenStreetMap.
-    Esas no se pueden usar aquí.
+    Sobre las 160 entradas de Europa son **64 (40%)** — 52 ODbL y 12
+    CC-BY-SA. Esas no se pueden usar aquí.
 
-    Lee siempre el campo `boundaryLicense` de la respuesta de la API para el
+    Lee siempre el campo `boundaryLicense` de los metadatos para el
     país **y el nivel** concretos que vayas a tomar. Chile es un buen ejemplo
     de por qué: su ADM1 y su ADM3 son CC BY 3.0 IGO, pero su ADM2 es ODbL.
 
@@ -94,9 +105,9 @@ cualquier otro:
 
 ## Los huecos de cobertura son aceptables; las violaciones de licencia no
 
-Excluir copyleft deja agujeros visibles — 15 países de América no tienen ADM1
-aquí porque su ADM1 de geoBoundaries es copyleft (13 ODbL, 2 CC-BY-SA) y aún
-no se ha encontrado una alternativa permisiva. Es el intercambio correcto.
+Excluir copyleft deja agujeros visibles — 15 países de América y 18 de Europa
+no tienen ADM1 aquí porque su ADM1 de geoBoundaries es copyleft (29 ODbL, 4
+CC-BY-SA) y aún no se ha encontrado una alternativa permisiva. Es el intercambio correcto.
 
 Los huecos se registran en la [Hoja de ruta](../about/roadmap.md) como
 "pendiente de fuente permisiva", y la forma de cerrar uno es encontrar un SDI

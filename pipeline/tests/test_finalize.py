@@ -10,7 +10,7 @@ import pytest
 from wgj import finalize as fz
 from wgj.geojson_io import bbox_of, serialise
 
-ID_RE = re.compile(r"^[A-Z]{3}:(ADM[0-4]|QUAD):\S+$")
+ID_RE = re.compile(r"^[A-Z]{3}:(ADM[0-5]|QUAD):\S+$")
 
 
 def test_apply_fixes() -> None:

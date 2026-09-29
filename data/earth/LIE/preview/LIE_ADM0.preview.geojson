@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[9.485,47.0524,9.6157,47.2628],"features":[
+{"type":"Feature","id":"LIE:ADM0:LIE","properties":{"shapeName":"Liechtenstein","shapeISO":"LIE","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[9.5212,47.2628],[9.485,47.1763],[9.5606,47.0524],[9.6157,47.1068],[9.5212,47.2628]]]}}
+]}

@@ -92,7 +92,7 @@ for await (const feature of world.features("BRA", "ADM2")) {
 await world.preview("CHL", "ADM3");                 // simplificado, ≤ 2 MB; solo shapeName, shapeISO, shapeType
 ```
 
-Un nivel publicado solo en partes (el ADM2 de Brasil, 33 MB combinado)
+Un nivel publicado solo en partes (el ADM2 de Brasil, el ADM5 de Francia)
 rechaza `get()` con `NoCombinedFile`; usa `iterParts()` o `features()`.
 
 Los objetos devueltos se cachean en memoria y se comparten entre llamadas:

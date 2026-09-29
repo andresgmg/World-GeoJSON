@@ -18,6 +18,16 @@ NE_ADM0_FILE = CACHE / "natural-earth" / "ne_10m_admin_0_countries.geojson"
 
 _NE_CODES: set[str] | None = None
 
+# Territories whose registry code is not an ISO 3166-1 code Natural Earth
+# uses. Kosovo has no ISO code; the registry uses XKX (the user-assigned code
+# the EU and geoBoundaries use) and Natural Earth its own ADM0_A3, KOS.
+NE_ALIASES: dict[str, str] = {"XKX": "KOS"}
+
+
+def ne_code(iso3: str) -> str:
+    """The code to look an entry up by in Natural Earth."""
+    return NE_ALIASES.get(iso3, iso3)
+
 
 def natural_earth_codes(src: Path) -> set[str]:
     """Every ADM0_A3 / ISO_A3 present in the global file, parsed once."""
@@ -50,7 +60,8 @@ def build_adm0(iso3: str, entry: dict) -> dict | None:
     # Check membership up front. mapshaper aborts with a confusing
     # "Table is missing one or more fields" when a filter matches nothing,
     # because an empty table has no columns for -filter-fields to keep.
-    if iso3 not in natural_earth_codes(src):
+    code = ne_code(iso3)
+    if code not in natural_earth_codes(src):
         print(f"  ADM0 — {iso3} is not in Natural Earth")
         return None
 
@@ -65,7 +76,7 @@ def build_adm0(iso3: str, entry: dict) -> dict | None:
         # ADM0_A3 rather than ISO_A3: Natural Earth sets ISO_A3 to "-99" for
         # territories whose status is contested, and those are exactly the ones
         # we still want to ship. Filtering happens before simplification.
-        pre=["-filter", f"ADM0_A3 === '{iso3}' || ISO_A3 === '{iso3}'"],
+        pre=["-filter", f"ADM0_A3 === '{code}' || ISO_A3 === '{code}'"],
         extra=[
             "-each",
             js_expr(

@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "IRL",
+  "iso_a2": "IE",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Ireland",
+    "es": "Irlanda"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "geoBoundaries' ADM2 has 166 units, matching the 2019 local electoral areas rather than the 31 local authorities.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/IRL/IRL_ADM0.geojson",
+      "bytes": 51556,
+      "sha256": "a69574b22904da481d00359e865aba99c72a7a5ba28fcf323d3f6d2fb4cf07e6",
+      "features": 1,
+      "bbox": [
+        -10.478179,
+        51.445705,
+        -5.99352,
+        55.386379
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/IRL/preview/IRL_ADM0.preview.geojson",
+      "preview_bytes": 2424,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/IRL/IRL_ADM1.geojson",
+      "bytes": 386809,
+      "sha256": "422e5b37d3061a930ebceb1384d256d011f52e26036052f86c87b56e5d2268c7",
+      "features": 4,
+      "bbox": [
+        -10.662647,
+        51.421663,
+        -5.998294,
+        55.435102
+      ],
+      "geometry_types": {
+        "MultiPolygon": 4
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/IRL/preview/IRL_ADM1.preview.geojson",
+      "preview_bytes": 17936,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Ordce Survey Ireland",
+      "src_year": "2022"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/IRL/IRL_ADM2.geojson",
+      "bytes": 1120825,
+      "sha256": "a035c8dbf1469964cf72cbdbccfdd585d3af98f86cb06c6ca6967b712096db46",
+      "features": 166,
+      "bbox": [
+        -10.661387,
+        51.421661,
+        -5.998294,
+        55.434965
+      ],
+      "geometry_types": {
+        "MultiPolygon": 23,
+        "Polygon": 143
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/IRL/preview/IRL_ADM2.preview.geojson",
+      "preview_bytes": 95865,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/IRL/ADM2/IE-C.geojson",
+          "bytes": 281147,
+          "sha256": "9cc99d463b75324e9d584373d7aabd3b475d5b2fc0165eff7a2e3948a8ddc443",
+          "features": 26,
+          "bbox": [
+            -10.301973,
+            52.665109,
+            -7.584171,
+            54.474345
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "IE-C"
+        },
+        {
+          "path": "data/earth/IRL/ADM2/IE-L.geojson",
+          "bytes": 338790,
+          "sha256": "ed6d2235c0183cbaeba31cdf43dd65d76d1f6fc0e029e505eb00909bc626bdea",
+          "features": 82,
+          "bbox": [
+            -8.083874,
+            52.109435,
+            -5.998294,
+            54.11383
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 78
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "IE-L"
+        },
+        {
+          "path": "data/earth/IRL/ADM2/IE-M.geojson",
+          "bytes": 354036,
+          "sha256": "7d316f063a48d2836d2a3bee51b35e1a8aa1be6c933a4a8d015310dda52d38cf",
+          "features": 45,
+          "bbox": [
+            -10.661387,
+            51.421661,
+            -6.950629,
+            53.168769
+          ],
+          "geometry_types": {
+            "MultiPolygon": 8,
+            "Polygon": 37
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "IE-M"
+        },
+        {
+          "path": "data/earth/IRL/ADM2/IE-U.geojson",
+          "bytes": 147125,
+          "sha256": "b462474ab7ebfa9beed75c8ea4aba6fb4bc347e4ec949bd1f7a25e5ef2b6e25c",
+          "features": 13,
+          "bbox": [
+            -8.832523,
+            53.765831,
+            -6.549729,
+            55.434965
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "IE-U"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Ordce Survey Ireland",
+      "src_year": "2015"
+    }
+  ]
+}

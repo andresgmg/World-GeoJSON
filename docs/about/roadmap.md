@@ -51,6 +51,63 @@ Also outstanding for this continent:
       municipal tier but no ADM1 upstream, so they cannot be split
 - [ ] Translate generated catalog pages into Spanish
 
+## Done — Europe
+
+**51 territories, 97 datasets, 59,265 features.** The same pipeline and
+sources as the Americas: outlines from Natural Earth, first-level and municipal
+tiers from geoBoundaries under permissive licences only. geoBoundaries is now
+read from a pinned commit of its repository rather than its API, so a rebuild
+fetches exactly the same files.
+
+Three attribution-only licences joined the allow-list for national data that
+geoBoundaries redistributes: the UK's Open Government Licence v3.0, Germany's
+Data licence Germany – attribution – 2.0 and Open Data Commons Attribution 1.0
+(France's communes). France's 35,010 communes also add a fifth level, ADM5, to
+the contract.
+
+Seventeen countries have both a first level and a municipal tier: Belgium,
+Bulgaria, Bosnia and Herzegovina, Belarus, Germany, Denmark, Spain, France,
+the United Kingdom, Greece, Ireland, Italy, North Macedonia, the Netherlands,
+Norway, Romania and Sweden. Kosovo is published as `XKX`, a user-assigned
+code, with the dispute stated in its manifest — see
+[Disputed boundaries](disputed-boundaries.md). **Svalbard and Jan Mayen**
+ships nothing: Natural Earth draws both inside Norway's outline.
+
+### Coverage gaps
+
+**Nineteen countries have no first-level divisions here.** Their geoBoundaries
+ADM1 is ODbL (Estonia, Finland, Croatia, Iceland, Liechtenstein, Lithuania,
+Luxembourg, Monaco, Montenegro, Poland, Portugal, Russia, San Marino, Serbia,
+Slovakia, Ukraine), CC-BY-SA (Austria, Kosovo) or under swisstopo's own
+licence, which is not on the allow-list (Switzerland). Iceland, Luxembourg,
+Portugal and Ukraine have a permissively licensed municipal tier, published
+without an ADM1 above it. Åland, the Faroe Islands, Guernsey, Gibraltar, the
+Isle of Man, Jersey and Vatican City have nothing below the outline upstream.
+
+**Seventeen countries have no municipal tier here** because it is copyleft
+or under a licence not on the allow-list: Austria, Switzerland, Czechia,
+Estonia, Finland, Croatia, Hungary, Lithuania, Poland, Russia, Serbia,
+Slovakia, Slovenia and Kosovo, plus Liechtenstein, Montenegro and San Marino,
+whose municipalities are their first level. Czechia, Hungary and Slovenia
+still publish their first level. Albania's 61 municipalities and Moldova's
+communes are not in geoBoundaries at all.
+
+Also outstanding for this continent:
+
+- [ ] Intermediate levels. The pipeline builds ADM1 and one municipal tier
+      per country, so permissively licensed levels in between are not here
+      yet: France's 96 départements and 320 arrondissements, Italy's 20
+      regions and 107 provinces, Germany's 38 government regions, Czechia's
+      77 districts, Belgium's 43 arrondissements, and the second levels of
+      Greece (14 units) and Bosnia and Herzegovina (12)
+- [ ] Germany's municipalities (Gemeinden) — not in geoBoundaries; the
+      published tier is the 401 districts
+- [ ] Newer vintages where a reform has happened since: Belgium's 2019
+      mergers, Norway's 2020 and 2024 reforms, Ukraine's 2020 raions,
+      Iceland's mergers (74 units against 64), Albania's 2015 municipalities
+- [ ] Catalog previews for the three levels too dense for 2 MB even at the
+      coarsest simplification: Spain ADM3, France ADM5 and Italy ADM4
+
 ## Next — from data repository to platform
 
 The Americas proved the pipeline. The next releases turn the repository into
@@ -118,7 +175,7 @@ server involved — they fetch static files. See
 
 ## Next — the other continents
 
-One PR each, reusing the pipeline: Europe, Africa, Asia, Oceania.
+One PR each, reusing the pipeline: Africa, Asia, Oceania.
 
 ## Later — global coverage
 
@@ -155,6 +212,17 @@ Tracked, not hidden.
 | 12 municipal units overlap no ADM1 parent | ARG ADM2 (8, Buenos Aires city), BRA ADM2 (3), USA ADM2 (1) | Kept in `unassigned` parts with `adm1ISO: "unassigned"` and no `parentID` |
 | Municipal tier assignment unverified for 19 territories | `pipeline/src/wgj/tables/countries.json` | Marked `verify` and shipped as `review` |
 | Peru's districts unavailable — geoBoundaries stops at provinces | Peru | Awaiting a source |
+| 19 countries have no permissively licensed ADM1 | Europe | Awaiting a permissive source |
+| `shapeISO` is `""` on 58,492 features — every European municipal dataset but Portugal's | 20 municipal datasets from geoBoundaries | By design, as above; use `id` |
+| 863 name-keyed ids carry a numeric suffix. Some are true namesakes (Lagoa and Calheta in Portugal, San Teodoro in Italy); others are one municipality drawn as several features upstream | FRA 791, ROU 48, UKR 10, NOR 6, PRT 5, BGR 1, GRC 1, ITA 1 | Stable per data version; may renumber on an upstream refresh — pin a version |
+| 129 communes overlap none of the 13 metropolitan regions | FRA ADM5 (the five overseas departments) | Kept in `ADM5/unassigned.geojson` |
+| No combined file: the level is published as its region parts only | FRA ADM5 | By design — a single file would exceed the 18 MiB budget. Use the parts (`iter_parts`) |
+| No catalog preview: over 2 MB even at the coarsest simplification | ESP ADM3, FRA ADM5, ITA ADM4 | The data files are complete; only the catalog map is missing |
+| Municipal tier assignment unverified for 11 territories | BEL, DEU, ESP, FRA, GBR, IRL, ISL, NOR, PRT, ROU, UKR | Marked `verify` and shipped as `review` |
+| Budapest is drawn inside Pest county: the metadata counts 20 units, the file has 19 | HUN ADM1 | Upstream; awaiting a fix or another source |
+| Sofia Province has 23 units against 22 municipalities: two are named Zlatitsa | BGR ADM2 (`BGR:ADM2:BG-23.zlatitsa-2`) | Upstream; awaiting a fix |
+| The first level is the five NUTS 1 macro-regions, not the 20 regions | ITA ADM1 | Upstream tiering; regions and provinces are an open item above |
+| Crimea: inside Russia's outline in Natural Earth, inside Ukraine's raions in geoBoundaries | RUS ADM0, UKR ADM0 and ADM2 | Documented in [Disputed boundaries](disputed-boundaries.md) |
 | Legacy files still at the repository root | `comunas.geojson` and friends | Deprecated; stay through 1.x, removed in v2.0.0 |
 
 ## Not planned

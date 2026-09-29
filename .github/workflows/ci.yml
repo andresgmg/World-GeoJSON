@@ -63,7 +63,7 @@ jobs:
         with:
           # The pipeline tests use three small countries as fixtures and every
           # manifest; the client tests use fixtures/ only. The rest of the
-          # 160 MB data tree is not needed.
+          # 320 MB data tree is not needed.
           sparse-checkout: |
             /*
             !/data/**

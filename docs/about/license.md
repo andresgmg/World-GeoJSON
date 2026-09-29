@@ -58,8 +58,9 @@ The reason is ODbL specifically. It defines a *Derivative Database*, and mixing
 one ODbL dataset into this collection would arguably place the entire
 collection under ODbL — changing the terms for every existing consumer without
 their knowledge. That is not a trade this project will make, even though it
-costs real coverage: a third of geoBoundaries' Americas entries are ruled out
-this way, and 15 countries have no ADM1 here as a result.
+costs real coverage: a third of geoBoundaries' Americas entries and two in
+five of its European ones are ruled out this way, and 33 countries have no
+ADM1 here as a result.
 
 Gaps are recorded on the [Roadmap](roadmap.md). They get closed by finding a
 permissive source, not by relaxing the rule.

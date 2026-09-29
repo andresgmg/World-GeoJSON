@@ -40,7 +40,7 @@ export const DEFAULT_BASE_URL = "https://raw.githubusercontent.com/andresgmg/Wor
 
 export const INDEX_PATH = "data/index.json";
 
-const FEATURE_ID = /^([A-Z]{3}):(ADM[0-4]|QUAD):(\S+)$/;
+const FEATURE_ID = /^([A-Z]{3}):(ADM[0-5]|QUAD):(\S+)$/;
 
 /** Split `"CHL:ADM3:01402"` into its territory, level and key. */
 export function parseId(featureId: string): FeatureId {

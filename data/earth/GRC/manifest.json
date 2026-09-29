@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GRC",
+  "iso_a2": "GR",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Greece",
+    "es": "Grecia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Mount Athos, autonomous, appears at every level.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GRC/GRC_ADM0.geojson",
+      "bytes": 130877,
+      "sha256": "2bc9522f72edd4ca1f6922c4a28ff067db8ad9940cc31837bc09c75aab65f103",
+      "features": 1,
+      "bbox": [
+        19.626475,
+        34.815009,
+        28.239757,
+        41.750476
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GRC/preview/GRC_ADM0.preview.geojson",
+      "preview_bytes": 6119,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/GRC/GRC_ADM1.geojson",
+      "bytes": 428592,
+      "sha256": "f95f02a4471308bbdb76fa897796a616e83135b65ceb29d3f7bb72c947c471ea",
+      "features": 8,
+      "bbox": [
+        19.373764,
+        34.803437,
+        29.606759,
+        41.749052
+      ],
+      "geometry_types": {
+        "MultiPolygon": 6,
+        "Polygon": 2
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GRC/preview/GRC_ADM1.preview.geojson",
+      "preview_bytes": 21854,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "EuroGeoGraphics, Regional IM Working Group - Europe",
+      "src_year": "2016"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/GRC/GRC_ADM3.geojson",
+      "bytes": 851772,
+      "sha256": "e2c1b3e5d6ec491b78f16b3ba7cb48aed952ff551f627c64f511a14ac66e167c",
+      "features": 326,
+      "bbox": [
+        19.379008,
+        34.809379,
+        29.593198,
+        41.740803
+      ],
+      "geometry_types": {
+        "MultiPolygon": 57,
+        "Polygon": 269
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GRC/preview/GRC_ADM3.preview.geojson",
+      "preview_bytes": 117924,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/GRC/ADM3/GR-AI.geojson",
+          "bytes": 89410,
+          "sha256": "006d7f3b347f677a14fb2a27723905ca56b4c99cace23ba779d0c0f23ccf2d29",
+          "features": 43,
+          "bbox": [
+            24.11809,
+            35.339431,
+            29.593198,
+            40.028484
+          ],
+          "geometry_types": {
+            "MultiPolygon": 21,
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GR-AI"
+        },
+        {
+          "path": "data/earth/GRC/ADM3/GR-AT.geojson",
+          "bytes": 91104,
+          "sha256": "bf6f2493c64e93cfdf6241cfec49ed5ec8a496cd0947c55de4d30c4073e99878",
+          "features": 66,
+          "bbox": [
+            22.890107,
+            35.837112,
+            24.081841,
+            38.331702
+          ],
+          "geometry_types": {
+            "MultiPolygon": 9,
+            "Polygon": 57
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GR-AT"
+        },
+        {
+          "path": "data/earth/GRC/ADM3/GR-CR.geojson",
+          "bytes": 61849,
+          "sha256": "8aaf95d97292cca39f87730b698d85ee303c5790fcbb46d7c4c6ad9cfcd49ffe",
+          "features": 23,
+          "bbox": [
+            23.473112,
+            34.809379,
+            26.313534,
+            35.693405
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GR-CR"
+        },
+        {
+          "path": "data/earth/GRC/ADM3/GR-EM.geojson",
+          "bytes": 97122,
+          "sha256": "74014b2f23d4a912a6146d1708a15f3e86265c55e2518616c41dbf7367ae692c",
+          "features": 30,
+          "bbox": [
+            20.015758,
+            38.949351,
+            22.16955,
+            40.94615
+          ],
+          "geometry_types": {
+            "Polygon": 30
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GR-EM"
+        },
+        {
+          "path": "data/earth/GRC/ADM3/GR-MA.geojson",
+          "bytes": 2506,
+          "sha256": "873eeedbef5523623c4b94a5b72b33c350d1ac0e3a3da3349137fa47fce4822b",
+          "features": 1,
+          "bbox": [
+            23.990955,
+            40.116895,
+            24.398657,
+            40.438867
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GR-MA"
+        },
+        {
+          "path": "data/earth/GRC/ADM3/GR-MH.geojson",
+          "bytes": 184101,
+          "sha256": "ba3e1757c30dca43e291ea8bd98be91a273f2388e6a3ca44f77e7f00dab45a6b",
+          "features": 61,
+          "bbox": [
+            21.699545,
+            39.914365,
+            26.627833,
+            41.740803
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 57
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GR-MH"
+        },
+        {
+          "path": "data/earth/GRC/ADM3/GR-PW.geojson",
+          "bytes": 171599,
+          "sha256": "87711a61922e9e6705cafc33cec66b487292c0ce3e50a1abc797eceafe513dd8",
+          "features": 52,
+          "bbox": [
+            19.379008,
+            36.38794,
+            23.457724,
+            39.899563
+          ],
+          "geometry_types": {
+            "MultiPolygon": 9,
+            "Polygon": 43
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GR-PW"
+        },
+        {
+          "path": "data/earth/GRC/ADM3/GR-TC.geojson",
+          "bytes": 154714,
+          "sha256": "574034c9792812fb1d877a5f47caefdc89b8a20502b5817301d9a813daf091bb",
+          "features": 50,
+          "bbox": [
+            21.109215,
+            37.952627,
+            24.681495,
+            40.164096
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 43
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GR-TC"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2010"
+    }
+  ]
+}

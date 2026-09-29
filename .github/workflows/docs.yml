@@ -37,7 +37,7 @@ jobs:
           # — but it does
           # copy each dataset's small preview next to its catalog page for
           # the interactive map. So check out the manifests and the previews
-          # (8 MB in total) and skip the data itself. Non-cone patterns are
+          # (about 13 MB in total) and skip the data itself. Non-cone patterns are
           # gitignore-style and later lines win.
           sparse-checkout: |
             /*

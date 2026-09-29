@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "LVA",
+  "iso_a2": "LV",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Latvia",
+    "es": "Letonia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "The 43 municipalities (36 districts and 7 state cities) of the 2021 reform are the first-level units.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/LVA/LVA_ADM0.geojson",
+      "bytes": 11601,
+      "sha256": "44ea7fe69f43633f92338048167439dca2d41b8664dcdaafdde0b31e1eab70b8",
+      "features": 1,
+      "bbox": [
+        20.968598,
+        55.666991,
+        28.217275,
+        58.075138
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/LVA/preview/LVA_ADM0.preview.geojson",
+      "preview_bytes": 726,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/LVA/LVA_ADM1.geojson",
+      "bytes": 406816,
+      "sha256": "e708d9294cf6947b498a505fda75adc5c8f3b3c38f22553f50617105d6eb1651",
+      "features": 43,
+      "bbox": [
+        20.962119,
+        55.674681,
+        28.241494,
+        58.085569
+      ],
+      "geometry_types": {
+        "Polygon": 43
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/LVA/preview/LVA_ADM1.preview.geojson",
+      "preview_bytes": 27503,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Geoportal of Latvia",
+      "src_year": "2021"
+    }
+  ]
+}

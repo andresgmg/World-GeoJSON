@@ -152,7 +152,7 @@ Every snippet below loads Chile's 16 regions from
     distances, reproject to a projected CRS appropriate for your area of
     interest first — for Chile, EPSG:5361.
 
-    For the larger files — Canada's ADM1 is 14.9 MB — download locally rather
+    For the larger files — Spain's municipalities and Canada's ADM1 are 14.9 MB each — download locally rather
     than streaming over HTTP; QGIS will re-request ranges repeatedly otherwise.
 
 === "R"

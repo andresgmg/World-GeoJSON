@@ -10,7 +10,7 @@
     "id": {
       "description": "Stable identifier: {ISO3}:{LEVEL}:{key}. Unique within the repository.",
       "type": "string",
-      "pattern": "^[A-Z]{3}:(ADM[0-4]|QUAD):\\S+$"
+      "pattern": "^[A-Z]{3}:(ADM[0-5]|QUAD):\\S+$"
     },
     "properties": { "$ref": "feature-properties.schema.json" },
     "geometry": {

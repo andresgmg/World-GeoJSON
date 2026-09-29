@@ -63,29 +63,39 @@ Argentina's entry:
 | Field | Meaning |
 |---|---|
 | `iso_a2`, `m49_region`, `name` | Identity, copied into the manifest |
-| `source` | Which provider `wgj build` uses: `geoboundaries` or `ide-chile` |
-| `municipal_level` | Which ADM level is the municipal tier (`ADM2`, `ADM3` or `ADM4`), or `null` when none is published. It cannot be inferred from the data: a Chilean comuna is ADM3, a Mexican municipio ADM2 |
+| `source` | Which provider `wgj build` uses: `geoboundaries`, `ide-chile`, or `natural-earth` for territories that get only an outline |
+| `municipal_level` | Which ADM level is the municipal tier (`ADM1` to `ADM5`), or `null` when none is published. It cannot be inferred from the data: a Chilean comuna is ADM3, a Mexican municipio ADM2 |
 | `adm1_term`, `adm2_term`, `municipal_term` | Local names for the levels, in both languages. They live here only, not in manifests |
 | `verify` | `true` marks an entry whose level assignment or unit count has not been checked against an official source; its manifest ships with `status: "review"` |
 | `note` | Copied into the manifest's `notes` on first build. One line |
+| `dissolve_by_name` | `true` merges municipal features that share `shapeName` before building, for sources that ship one unit as several features. Germany's coastal districts come as a land and a coastal-water polygon |
 
 ## 1. Fetch the sources
 
 ```bash
 wgj fetch --iso3 ARG          # one or more countries
-wgj fetch --continent americas
-wgj fetch --continent americas --dry-run
+wgj fetch --continent europe
+wgj fetch --continent europe --dry-run
 ```
 
 Downloads into `.cache/sources/`, which is git-ignored. Natural Earth's 10m
 admin-0 file supplies every country outline; geoBoundaries' gbOpen release
-supplies ADM1 and below, per country and level from
-`https://www.geoboundaries.org/api/current/gbOpen/{ISO3}/{LEVEL}/`; Chile's
-sub-national levels come from the IDE Chile / SUBDERE DPA 2023 package.
+supplies ADM1 and below; Chile's sub-national levels come from the IDE Chile /
+SUBDERE DPA 2023 package.
+
+geoBoundaries is read from its own repository pinned to one commit
+(`GB_REF` in `pipeline/src/wgj/sources/geoboundaries.py`), not from its API:
+the catalogue is `releaseData/geoBoundariesOpen-meta.csv` on
+`raw.githubusercontent.com`, and each dataset is downloaded from
+`media.githubusercontent.com`, because the repository stores the GeoJSON in
+Git LFS. A pinned commit makes a rebuild reproducible, where the API always
+answered "current". Moving the pin is a reviewed change; after moving it,
+delete `.cache/sources/geoboundaries-all.json`.
 
 **The licence filter lives here, on purpose.** gbOpen is a container of
 heterogeneous upstream licences, not a uniformly CC BY 4.0 dataset: a third of
-its Americas entries are ODbL or CC-BY-SA. Those are refused before they reach
+its Americas entries and two in five of its European ones are ODbL or
+CC-BY-SA. Those are refused before they reach
 the working tree, let alone git history. `--dry-run` shows what would be
 accepted and rejected without downloading anything.
 
@@ -93,7 +103,7 @@ accepted and rejected without downloading anything.
 
 ```bash
 wgj build ARG
-wgj build --continent americas --skip-existing
+wgj build --continent europe --skip-existing
 ```
 
 Reads the cache and writes `data/earth/ARG/`. For each level it:

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "HRV",
+  "iso_a2": "HR",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Croatia",
+    "es": "Croacia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Croatia are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/HRV/HRV_ADM0.geojson",
+      "bytes": 49106,
+      "sha256": "2ae52a22ccd054c9ff8a67b98c8135ac8380bd22d085803a89b73c37ec22536f",
+      "features": 1,
+      "bbox": [
+        13.501475,
+        42.416327,
+        19.407838,
+        46.546979
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/HRV/preview/HRV_ADM0.preview.geojson",
+      "preview_bytes": 2546,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

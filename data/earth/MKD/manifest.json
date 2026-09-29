@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MKD",
+  "iso_a2": "MK",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "North Macedonia",
+    "es": "Macedonia del Norte"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MKD/MKD_ADM0.geojson",
+      "bytes": 7272,
+      "sha256": "c1279b6341e424bbfb7dc9c238b74b103b11b743a130f549f2c57ee069cfb47d",
+      "features": 1,
+      "bbox": [
+        20.444157,
+        40.849394,
+        23.009582,
+        42.370335
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MKD/preview/MKD_ADM0.preview.geojson",
+      "preview_bytes": 574,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/MKD/MKD_ADM1.geojson",
+      "bytes": 69129,
+      "sha256": "8816f2c30e163b4e94167d621d8ab86149710807af94b5359ce1ca58c613e26e",
+      "features": 8,
+      "bbox": [
+        20.453139,
+        40.854683,
+        23.032498,
+        42.373789
+      ],
+      "geometry_types": {
+        "Polygon": 8
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MKD/preview/MKD_ADM1.preview.geojson",
+      "preview_bytes": 4949,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "EuroGeographics and NTES (Nomenclature of Territorial Units for Statistics - Republic of Macedonia State Statistical Office), Regional IM Working Group - Europe",
+      "src_year": "2016"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/MKD/MKD_ADM2.geojson",
+      "bytes": 210313,
+      "sha256": "05bde61e816eb195aa60f3f195346d094f212ab8f79d5f0cfbeab76875e6f4e5",
+      "features": 84,
+      "bbox": [
+        20.453139,
+        40.854683,
+        23.032498,
+        42.373789
+      ],
+      "geometry_types": {
+        "Polygon": 84
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MKD/preview/MKD_ADM2.preview.geojson",
+      "preview_bytes": 32136,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/MKD/ADM2/east.geojson",
+          "bytes": 29650,
+          "sha256": "64dc16eee2f3287aa0b7716acaf328046f2a6bfdd2edf738f98b4748199c69e1",
+          "features": 11,
+          "bbox": [
+            21.94712,
+            41.51796,
+            23.032498,
+            42.155158
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "east"
+        },
+        {
+          "path": "data/earth/MKD/ADM2/northeast.geojson",
+          "bytes": 19759,
+          "sha256": "b7d40b6b4aed08de2138abeccbac9386c34ccb830649b89a10c1f6c48c27f82a",
+          "features": 6,
+          "bbox": [
+            21.432903,
+            41.960567,
+            22.516224,
+            42.373789
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "northeast"
+        },
+        {
+          "path": "data/earth/MKD/ADM2/pelagonia.geojson",
+          "bytes": 28735,
+          "sha256": "15141f42bcef07551e02d1eec487ae9e90785997b38b6a5d899ec90f43b7b338",
+          "features": 9,
+          "bbox": [
+            20.829072,
+            40.854683,
+            21.932148,
+            41.605521
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "pelagonia"
+        },
+        {
+          "path": "data/earth/MKD/ADM2/polog.geojson",
+          "bytes": 23214,
+          "sha256": "f567e496758885c55776551d09cd987e3bb002e78c1e2e2f52b4c1568527e338",
+          "features": 9,
+          "bbox": [
+            20.514314,
+            41.490068,
+            21.242412,
+            42.206382
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "polog"
+        },
+        {
+          "path": "data/earth/MKD/ADM2/skopje.geojson",
+          "bytes": 28921,
+          "sha256": "d51ac908666c580c730784f2968c32393b7b3535b37351c472dea277f9cd3b74",
+          "features": 17,
+          "bbox": [
+            21.149874,
+            41.703782,
+            21.821309,
+            42.249191
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "skopje"
+        },
+        {
+          "path": "data/earth/MKD/ADM2/southeast.geojson",
+          "bytes": 24473,
+          "sha256": "92a3d56404d4b0a10d95783df04f9d27c7a3edaea69479519bf35520f35b803d",
+          "features": 10,
+          "bbox": [
+            22.214016,
+            41.117296,
+            22.979478,
+            41.787294
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "southeast"
+        },
+        {
+          "path": "data/earth/MKD/ADM2/southwest.geojson",
+          "bytes": 29204,
+          "sha256": "4159aaab81849ab7822cece58bc4d9d1a9233cc54fcc8534791e1579c0e81e12",
+          "features": 13,
+          "bbox": [
+            20.453139,
+            40.898333,
+            21.39745,
+            41.853153
+          ],
+          "geometry_types": {
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "southwest"
+        },
+        {
+          "path": "data/earth/MKD/ADM2/vardar.geojson",
+          "bytes": 26990,
+          "sha256": "2ba0e40389727d640c9b34559a0df34df7c5c4731b5223bdaf5b616ea59a85e3",
+          "features": 9,
+          "bbox": [
+            21.369408,
+            41.100244,
+            22.37047,
+            42.021736
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "vardar"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "EuroGeographics, Regional IM Working Group - Europe",
+      "src_year": "2016"
+    }
+  ]
+}

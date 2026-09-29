@@ -1,0 +1,561 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "DEU",
+  "iso_a2": "DE",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "Germany",
+    "es": "Alemania"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "DL-DE-BY-2.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Municipalities (Gemeinden) are not in geoBoundaries; the published tier is the districts (Kreise and kreisfreie Städte). Coastal and lakeside districts come upstream as a land and a water polygon; they are merged into one feature.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/DEU/DEU_ADM0.geojson",
+      "bytes": 63203,
+      "sha256": "7da3053e376f760cddd34f514fa9ba49892fab3d9838e5acb1f6fe348903db0d",
+      "features": 1,
+      "bbox": [
+        5.85249,
+        47.271121,
+        15.022059,
+        55.065334
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/DEU/preview/DEU_ADM0.preview.geojson",
+      "preview_bytes": 2946,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/DEU/DEU_ADM1.geojson",
+      "bytes": 841779,
+      "sha256": "18b6cd5894cc03e64baa69861fb79f39ac889a35f7bc0b11da1a19ed0e2384a1",
+      "features": 16,
+      "bbox": [
+        5.86625,
+        47.270265,
+        15.041585,
+        55.058695
+      ],
+      "geometry_types": {
+        "MultiPolygon": 10,
+        "Polygon": 6
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DEU/preview/DEU_ADM1.preview.geojson",
+      "preview_bytes": 38165,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "DL-DE-BY-2.0",
+      "src_provider": "Federal Agency for Cartography and Geodesy",
+      "src_year": "2021"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/DEU/DEU_ADM3.geojson",
+      "bytes": 3787902,
+      "sha256": "d6bedaca69a24e6bad690fddcfec2131fe7ae1479d5aab8de3eee884d9f77cf3",
+      "features": 401,
+      "bbox": [
+        5.86625,
+        47.270265,
+        15.041585,
+        55.058695
+      ],
+      "geometry_types": {
+        "MultiPolygon": 59,
+        "Polygon": 342
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DEU/preview/DEU_ADM3.preview.geojson",
+      "preview_bytes": 266990,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/DEU/ADM3/DE-BB.geojson",
+          "bytes": 217576,
+          "sha256": "d3018da912ca459bf02bf12c38cc2a802f4c7667342f7b47ee62a93004dd2e11",
+          "features": 18,
+          "bbox": [
+            11.265732,
+            51.361202,
+            14.765635,
+            53.558578
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 15
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-BB"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-BE.geojson",
+          "bytes": 8670,
+          "sha256": "d459fc5fb76dc57a404de7bb220257159efcf50f8fde886a3e67074afe19f25c",
+          "features": 1,
+          "bbox": [
+            13.088333,
+            52.338242,
+            13.759587,
+            52.674917
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-BE"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-BW.geojson",
+          "bytes": 446232,
+          "sha256": "5b1abeefc267725a220f422cf4ce7e61c2af1bcca5ad03101780595d36d47523",
+          "features": 44,
+          "bbox": [
+            7.51231,
+            47.532361,
+            10.495749,
+            49.791478
+          ],
+          "geometry_types": {
+            "MultiPolygon": 11,
+            "Polygon": 33
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-BW"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-BY.geojson",
+          "bytes": 958859,
+          "sha256": "84502dadaca174867fd521ecfc23f27aadf2fa4e26c572dac4f1c3da6e5b4e01",
+          "features": 96,
+          "bbox": [
+            8.975926,
+            47.270265,
+            13.839294,
+            50.564225
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 90
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-BY"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-HB.geojson",
+          "bytes": 9590,
+          "sha256": "b4210945a55a8d7a9de39a052d50540b5db1fd966b0f43f63fea658c7e7c8a81",
+          "features": 2,
+          "bbox": [
+            8.481735,
+            53.011021,
+            8.990913,
+            53.610051
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-HB"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-HE.geojson",
+          "bytes": 225516,
+          "sha256": "4bbf1a0114db72b2de5112fb33813e7944eab415e1ed14796fc4ad11caf02f99",
+          "features": 26,
+          "bbox": [
+            7.772651,
+            49.395538,
+            10.235999,
+            51.65745
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 24
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-HE"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-HH.geojson",
+          "bytes": 9407,
+          "sha256": "d409d06bca7805a71cce62499902d4987da1f305d0044137917a689be4df0e0a",
+          "features": 1,
+          "bbox": [
+            8.419951,
+            53.395078,
+            10.325959,
+            53.964343
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-HH"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-MV.geojson",
+          "bytes": 164011,
+          "sha256": "191a58f0a69f94a3777b8c768aa0a9a3e78b0278cbb436c0c964a0d585f0665d",
+          "features": 8,
+          "bbox": [
+            10.593673,
+            53.110303,
+            14.412381,
+            54.685011
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-MV"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-NI.geojson",
+          "bytes": 385249,
+          "sha256": "914bd217f0a8ea815d0f422869236682143c4438db51b37e4a69612447d7e7be",
+          "features": 45,
+          "bbox": [
+            6.639255,
+            51.295232,
+            11.597785,
+            53.89232
+          ],
+          "geometry_types": {
+            "MultiPolygon": 8,
+            "Polygon": 37
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-NI"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-NW.geojson",
+          "bytes": 367336,
+          "sha256": "a256b1e4c0bf2c2cdbd229c703d924aa64b57658ab16f8710fa91e780b80ea52",
+          "features": 53,
+          "bbox": [
+            5.86625,
+            50.323012,
+            9.461421,
+            52.531443
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 52
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-NW"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-RP.geojson",
+          "bytes": 266131,
+          "sha256": "dbec01cb2a817173f1ee3caf26df7d48ca6e186c810e4ec5d3c4ef0d469522d9",
+          "features": 36,
+          "bbox": [
+            6.112355,
+            48.966571,
+            8.508357,
+            50.942335
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 33
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-RP"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-SH.geojson",
+          "bytes": 147715,
+          "sha256": "da10d9fbb6a6101a32c4942b5a0270413102f7dd4bab3ae87bb093aef8d90e88",
+          "features": 15,
+          "bbox": [
+            7.870102,
+            53.359831,
+            11.312663,
+            55.058695
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-SH"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-SL.geojson",
+          "bytes": 40971,
+          "sha256": "36f3a48f1e74f3324ab3abaf72bd20764880610bfd6099c59da8b86859eb3c43",
+          "features": 6,
+          "bbox": [
+            6.356947,
+            49.111932,
+            7.403773,
+            49.639438
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-SL"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-SN.geojson",
+          "bytes": 164823,
+          "sha256": "0c94dfb3b4aa8a2c1815a891c0a84aba8f83a20a9c05e859eba0af05d4a6beca",
+          "features": 13,
+          "bbox": [
+            11.871463,
+            50.171613,
+            15.041585,
+            51.684974
+          ],
+          "geometry_types": {
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-SN"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-ST.geojson",
+          "bytes": 157049,
+          "sha256": "c5b8f868293f12ff368254bbc09cec058c0bee28ef50cbd82704274934a1e152",
+          "features": 14,
+          "bbox": [
+            10.561227,
+            50.938066,
+            13.187072,
+            53.041765
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-ST"
+        },
+        {
+          "path": "data/earth/DEU/ADM3/DE-TH.geojson",
+          "bytes": 220115,
+          "sha256": "38878d612d3737b876ccb764672a40a8981bc7876313f4189349ff7a8cb42e01",
+          "features": 23,
+          "bbox": [
+            9.876976,
+            50.204819,
+            12.654115,
+            51.649008
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 20
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DE-TH"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "DL-DE-BY-2.0",
+      "src_provider": "Federal Agency for Cartography and Geodesy",
+      "src_year": "2021"
+    }
+  ]
+}

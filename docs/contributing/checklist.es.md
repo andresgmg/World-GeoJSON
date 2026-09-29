@@ -24,7 +24,8 @@ demás necesita una persona.
 - [ ] **CI** — `source.license` y cada `datasets[].license` están en la lista
       blanca permisiva — el enum `license` de `schemas/manifest.schema.json`:
       `CC0-1.0`, `CC-BY-2.5`, `CC-BY-3.0`, `CC-BY-3.0-IGO`, `CC-BY-4.0`,
-      `Etalab-2.0`, `OGL-Canada-2.0`, `public-domain`. Cualquier otra cosa —
+      `DL-DE-BY-2.0`, `Etalab-2.0`, `ODC-By-1.0`, `OGL-Canada-2.0`,
+      `OGL-UK-3.0`, `public-domain`. Cualquier otra cosa —
       incluida toda variante ODbL y CC-BY-SA — se rechaza
 - [ ] **CI** — si `source.license` es `mixed`, `source.licenses` lista las
       licencias reales

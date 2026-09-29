@@ -2,7 +2,7 @@
 
 Cada directorio de dataset contiene un `manifest.json`. Es la **única** entrada
 de este sitio de documentación: todas las páginas del catálogo se generan a
-partir de él. Hoy hay 55, uno por territorio bajo `data/earth/`, y los 55 van
+partir de él. Hoy hay 106, uno por territorio bajo `data/earth/`, y todos van
 incrustados tal cual en el [índice global](index-json.md), `data/index.json`.
 
 ## Por qué existe
@@ -101,8 +101,8 @@ no tiene `notes`.
 
 | Campo | Significado |
 |---|---|
-| `level` | `ADM0`–`ADM4` |
-| `path` | El archivo del nivel completo, relativo a la raíz del repositorio. Ausente cuando el combinado era demasiado grande para publicarse (el ADM2 de Brasil hoy) |
+| `level` | `ADM0`–`ADM5` |
+| `path` | El archivo del nivel completo, relativo a la raíz del repositorio. Ausente cuando el combinado era demasiado grande para publicarse (el ADM2 de Brasil y el ADM5 de Francia hoy) |
 | `bytes`, `sha256` | Tamaño y hash de `path`; en un nivel partido sin combinado, `bytes` es la suma de las partes |
 | `features` | Número de features del **nivel completo**, para que el catálogo pueda dar siempre un total |
 | `bbox` | `[oeste, sur, este, norte]`, mínimo/máximo ingenuo de todas las coordenadas — ver la nota sobre el antimeridiano más abajo |
@@ -161,7 +161,7 @@ ADM3 de Chile, abreviado:
   dar siempre un total exista o no un archivo combinado.
 - `path` es el archivo de país completo, opcional, presente solo cuando cabe
   bajo el presupuesto de 18 MiB. El ADM2 de Brasil tiene 28 partes y ningún
-  `path`; su ausencia es normal y el catálogo lo indica.
+  `path`, el ADM5 de Francia 14; su ausencia es normal y el catálogo lo indica.
 - `code` es la clave de la unidad ADM1: su `shapeISO` tras las correcciones de
   `pipeline/src/wgj/tables/shapeiso_fixes.json`, que es también el valor de
   `adm1ISO` en cada feature de la parte y la clave del propio `id` del ADM1.
@@ -243,7 +243,7 @@ wgj index
 ```
 
 El escáner streamea cada archivo con `ijson` en memoria constante, así que
-incluso el archivo más grande del repositorio (el ADM1 de Canadá, 14,9 MB)
+incluso los archivos más grandes del repositorio (los municipios de España y el ADM1 de Canadá, 14,9 MB cada uno)
 cuesta unos segundos y unas decenas de megabytes de RAM en vez de más de un
 gigabyte de objetos Python parseados.
 
@@ -298,9 +298,9 @@ una regeneración limpia.
 ## El índice global y los assets de la release
 
 Los manifiestos van incrustados, tal cual, en **`data/index.json`** — un único
-archivo de 340 KB para todo el corpus, para que un cliente descubra cada
+archivo de 650 KB para todo el corpus, para que un cliente descubra cada
 territorio, nivel y archivo con `bytes`, `sha256`, `bbox` y licencia en una
-sola petición en vez de 55. Está documentado en
+sola petición en vez de una por territorio. Está documentado en
 [Índice global y esquemas](index-json.md), junto a los cinco JSON Schemas.
 
 Las releases etiquetadas distribuyen los mismos archivos de una segunda forma:
