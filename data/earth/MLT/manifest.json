@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MLT",
+  "iso_a2": "MT",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Malta",
+    "es": "Malta"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MLT/MLT_ADM0.geojson",
+      "bytes": 1485,
+      "sha256": "a877e2f96c3b2569b48f44cfcedaa515277a9cd87ebe7cec83ec616bf3228aaa",
+      "features": 1,
+      "bbox": [
+        14.183604,
+        35.801215,
+        14.567149,
+        36.075588
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MLT/preview/MLT_ADM0.preview.geojson",
+      "preview_bytes": 325,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/MLT/MLT_ADM1.geojson",
+      "bytes": 53308,
+      "sha256": "44041771ab484329252b12e58ddff60fc1523f852116840f79b92f4057960e7c",
+      "features": 68,
+      "bbox": [
+        14.183534,
+        35.806204,
+        14.576282,
+        36.083003
+      ],
+      "geometry_types": {
+        "MultiPolygon": 3,
+        "Polygon": 65
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MLT/preview/MLT_ADM1.preview.geojson",
+      "preview_bytes": 19794,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, d-maps.com",
+      "src_year": "2022"
+    }
+  ]
+}

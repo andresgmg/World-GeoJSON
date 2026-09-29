@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-5.3584,36.1193,-5.3388,36.1411],"features":[
+{"type":"Feature","id":"GIB:ADM0:GIB","properties":{"shapeName":"Gibraltar","shapeISO":"GIB","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[-5.3584,36.1411],[-5.3502,36.1193],[-5.3391,36.1238],[-5.3388,36.1411],[-5.3584,36.1411]]]}}
+]}

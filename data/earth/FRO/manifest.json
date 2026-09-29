@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "FRO",
+  "iso_a2": "FO",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Faroe Islands",
+    "es": "Islas Feroe"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "Self-governing territory of Denmark; geoBoundaries publishes ADM0 only.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/FRO/FRO_ADM0.geojson",
+      "bytes": 10826,
+      "sha256": "69d36d04eba535d4ba3d8ea619e8b3ae4496c67b6a79eb7c70a103ddd58d5555",
+      "features": 1,
+      "bbox": [
+        -7.644154,
+        61.39411,
+        -6.275787,
+        62.398912
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/FRO/preview/FRO_ADM0.preview.geojson",
+      "preview_bytes": 936,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

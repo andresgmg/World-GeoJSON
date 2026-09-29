@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "JEY",
+  "iso_a2": "JE",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Jersey",
+    "es": "Jersey"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "Natural Earth 10m Admin 0",
+    "url": "https://www.naturalearthdata.com/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "British Crown dependency; geoBoundaries has no Jersey dataset.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/JEY/JEY_ADM0.geojson",
+      "bytes": 1286,
+      "sha256": "cf7a78cf9239f4437b3b5056490a55c0cea6ccd601563f2faa6608220210ea13",
+      "features": 1,
+      "bbox": [
+        -2.242014,
+        49.171332,
+        -2.00829,
+        49.267035
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/JEY/preview/JEY_ADM0.preview.geojson",
+      "preview_bytes": 330,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

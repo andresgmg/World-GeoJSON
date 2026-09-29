@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ITA",
+  "iso_a2": "IT",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Italy",
+    "es": "Italia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0",
+      "public-domain"
+    ]
+  },
+  "notes": "geoBoundaries' ADM1 is the five NUTS 1 macro-regions; the 20 regions (ADM2) and 107 provinces (ADM3) exist upstream but are not built by this pipeline yet.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ITA/ITA_ADM0.geojson",
+      "bytes": 70694,
+      "sha256": "5f88a65f16ae90a9b2d376a291cb82e3d08b47bdb36343f3ba5503a3916a7a24",
+      "features": 1,
+      "bbox": [
+        6.602728,
+        35.489244,
+        18.517426,
+        47.085215
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ITA/preview/ITA_ADM0.preview.geojson",
+      "preview_bytes": 3168,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ITA/ITA_ADM1.geojson",
+      "bytes": 529406,
+      "sha256": "b1a9972dee4892736c8f9a9a63828bcdabba604824ad6324b62830b1f97bdf45",
+      "features": 5,
+      "bbox": [
+        6.626621,
+        35.493032,
+        18.520382,
+        47.091784
+      ],
+      "geometry_types": {
+        "MultiPolygon": 5
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ITA/preview/ITA_ADM1.preview.geojson",
+      "preview_bytes": 23262,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0",
+      "src_provider": "ISTAT, National Institute of Statistics",
+      "src_year": "2023"
+    },
+    {
+      "level": "ADM4",
+      "path": "data/earth/ITA/ITA_ADM4.geojson",
+      "bytes": 13813079,
+      "sha256": "4a9de54ec0a88360735e9d4c3a31478d979f419db4a7f1dde164f46843db8934",
+      "features": 7901,
+      "bbox": [
+        6.626621,
+        35.493032,
+        18.520382,
+        47.091784
+      ],
+      "geometry_types": {
+        "MultiPolygon": 340,
+        "Polygon": 7561
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/ITA/ADM4/centro.geojson",
+          "bytes": 2076235,
+          "sha256": "1fdfeb912b727653f910a84486c0d99ff7a4a545fb6e9f1b67ea8344d6bda255",
+          "features": 968,
+          "bbox": [
+            9.6867,
+            40.784786,
+            14.0275,
+            44.472707
+          ],
+          "geometry_types": {
+            "MultiPolygon": 59,
+            "Polygon": 909
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "centro"
+        },
+        {
+          "path": "data/earth/ITA/ADM4/isole.geojson",
+          "bytes": 1723748,
+          "sha256": "d2b5b932ff2a2b05896025fd789df5842c8fdc9bfaa6b96821a606574de1552c",
+          "features": 768,
+          "bbox": [
+            8.134449,
+            35.493032,
+            15.652759,
+            41.312587
+          ],
+          "geometry_types": {
+            "MultiPolygon": 67,
+            "Polygon": 701
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "isole"
+        },
+        {
+          "path": "data/earth/ITA/ADM4/nord-est.geojson",
+          "bytes": 2699922,
+          "sha256": "d1c72e64ac3b2d5d83daf9573ff236a0f011df6004d1d72659793386e5abae8e",
+          "features": 1390,
+          "bbox": [
+            9.198037,
+            43.731924,
+            13.918853,
+            47.091784
+          ],
+          "geometry_types": {
+            "MultiPolygon": 38,
+            "Polygon": 1352
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "nord-est"
+        },
+        {
+          "path": "data/earth/ITA/ADM4/nord-ovest.geojson",
+          "bytes": 4005649,
+          "sha256": "6c967f3706129cd3bcd4a007a9af770314ef7633eaef73b7c505204b3c3f1f36",
+          "features": 2992,
+          "bbox": [
+            6.626621,
+            43.776612,
+            11.427646,
+            46.635074
+          ],
+          "geometry_types": {
+            "MultiPolygon": 89,
+            "Polygon": 2903
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "nord-ovest"
+        },
+        {
+          "path": "data/earth/ITA/ADM4/sud.geojson",
+          "bytes": 3307882,
+          "sha256": "7f0315d9107c1de4924e38697aed4c40f42cee0b416ab4d670aa20f41fb569ad",
+          "features": 1783,
+          "bbox": [
+            13.018547,
+            37.915754,
+            18.520382,
+            42.895081
+          ],
+          "geometry_types": {
+            "MultiPolygon": 87,
+            "Polygon": 1696
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "sud"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0",
+      "src_provider": "ISTAT, National Institute of Statistics",
+      "src_year": "2023"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","bbox":[14.1182,45.4812,16.015,46.6726],"features":[
+{"type":"Feature","id":"SVN:ADM1:SI03","properties":{"shapeName":"Vzhodna","shapeISO":"SI03","shapeType":"ADM1"},"geometry":{"type":"Polygon","coordinates":[[[14.1182,45.4812],[15.6536,45.8418],[16.015,46.6726],[14.5652,46.3725],[14.7674,45.7594],[14.1182,45.4812]]]}},
+{"type":"Feature","id":"SVN:ADM1:SI04","properties":{"shapeName":"Zahodna Slovenija","shapeISO":"SI04","shapeType":"ADM1"},"geometry":{"type":"Polygon","coordinates":[[[14.5652,46.3725],[14.1182,45.4812],[14.7674,45.7594],[14.5652,46.3725]]]}}
+]}

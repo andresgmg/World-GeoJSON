@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "FRA",
+  "iso_a2": "FR",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "France",
+    "es": "Francia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "Etalab-2.0",
+      "ODC-By-1.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Communes (2020) are ODC-By. The 129 communes of the five overseas departments have no parent among the 13 metropolitan regions and are in ADM5/unassigned.geojson; Guadeloupe, Martinique and French Guiana also publish theirs as territories of their own. Natural Earth's outline includes the overseas regions.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/FRA/FRA_ADM0.geojson",
+      "bytes": 98050,
+      "sha256": "34ef324e118dd92a993e9e5336965557eb3aa57205b74b01598341b52c937682",
+      "features": 1,
+      "bbox": [
+        -61.797841,
+        -21.370782,
+        55.854503,
+        51.087541
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/FRA/preview/FRA_ADM0.preview.geojson",
+      "preview_bytes": 4440,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/FRA/FRA_ADM1.geojson",
+      "bytes": 1009610,
+      "sha256": "008408fd47260b6190881561ac971c363c80f2b19c8504dfb6a0f92eee038042",
+      "features": 13,
+      "bbox": [
+        -5.141241,
+        41.333571,
+        9.560091,
+        51.088756
+      ],
+      "geometry_types": {
+        "MultiPolygon": 7,
+        "Polygon": 6
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/FRA/preview/FRA_ADM1.preview.geojson",
+      "preview_bytes": 45034,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "Etalab-2.0",
+      "src_provider": "Institut national de l'information géographique et forestière (IGN-F)",
+      "src_year": "2022"
+    },
+    {
+      "level": "ADM5",
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/FRA/ADM5/FR-20R.geojson",
+          "bytes": 523546,
+          "sha256": "5f3e1af8a1348460d934d9c7dc3c83d80fdbafc54c20d917f34ede82b4a4e993",
+          "features": 360,
+          "bbox": [
+            8.5354,
+            41.335435,
+            9.560094,
+            43.011709
+          ],
+          "geometry_types": {
+            "MultiPolygon": 5,
+            "Polygon": 355
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-20R"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-ARA.geojson",
+          "bytes": 5139531,
+          "sha256": "615d839e83f7b7dcce159aaec2d9497d48ff39032e9812468578c4b4ae1d2d03",
+          "features": 4038,
+          "bbox": [
+            2.062878,
+            44.115493,
+            7.185565,
+            46.804287
+          ],
+          "geometry_types": {
+            "MultiPolygon": 9,
+            "Polygon": 4029
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-ARA"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-BFC.geojson",
+          "bytes": 4229987,
+          "sha256": "3c9bb85186af3eadfe358bdcefdf6a779534a41d6d3bd2d54aed603c074b9158",
+          "features": 3702,
+          "bbox": [
+            2.844895,
+            46.156065,
+            7.143363,
+            48.399245
+          ],
+          "geometry_types": {
+            "MultiPolygon": 9,
+            "Polygon": 3693
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-BFC"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-BRE.geojson",
+          "bytes": 1902949,
+          "sha256": "3b8ecad2b8c73f2232671476af55dfa9d0951f8eee74793692bced0bd52b8cc6",
+          "features": 1208,
+          "bbox": [
+            -5.139987,
+            47.278257,
+            -1.015613,
+            48.884564
+          ],
+          "geometry_types": {
+            "MultiPolygon": 33,
+            "Polygon": 1175
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-BRE"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-CVL.geojson",
+          "bytes": 2276376,
+          "sha256": "06f023175e4942c4b71d6903f6cea170929e7a211066851de73a92d42dd52eaa",
+          "features": 1757,
+          "bbox": [
+            0.052739,
+            46.346901,
+            3.128598,
+            48.941034
+          ],
+          "geometry_types": {
+            "MultiPolygon": 6,
+            "Polygon": 1751
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-CVL"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-GES.geojson",
+          "bytes": 5588368,
+          "sha256": "e9696466d014c1224914504f7164819f226750a671bbe97de121fc619dda4747",
+          "features": 5121,
+          "bbox": [
+            3.383665,
+            47.420341,
+            8.232497,
+            50.168184
+          ],
+          "geometry_types": {
+            "MultiPolygon": 24,
+            "Polygon": 5097
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-GES"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-HDF.geojson",
+          "bytes": 3722221,
+          "sha256": "70a6f69d85482f9bd117f1918d4222033d113ca55801ed88319d4445f3d2703e",
+          "features": 3789,
+          "bbox": [
+            1.380641,
+            48.837427,
+            4.255837,
+            51.088989
+          ],
+          "geometry_types": {
+            "MultiPolygon": 9,
+            "Polygon": 3780
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-HDF"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-IDF.geojson",
+          "bytes": 1270762,
+          "sha256": "85a37ef649866dae675792dc502338b2595a1dbb7ffae923d1c9c04c2975dafd",
+          "features": 1287,
+          "bbox": [
+            1.4463,
+            48.120077,
+            3.558985,
+            49.241463
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 1286
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-IDF"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-NAQ.geojson",
+          "bytes": 5747831,
+          "sha256": "06044a0ea79a2db663f35d82fd02adc087f613fa7eb817b19ea564d65c0a338e",
+          "features": 4314,
+          "bbox": [
+            -1.792351,
+            42.777857,
+            2.611285,
+            47.175991
+          ],
+          "geometry_types": {
+            "MultiPolygon": 8,
+            "Polygon": 4306
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-NAQ"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-NOR.geojson",
+          "bytes": 2918803,
+          "sha256": "d6f4f1ed67f83d03ed523de11c0132859539245e0af565e24af5910a245a3fa3",
+          "features": 2652,
+          "bbox": [
+            -1.947923,
+            48.17989,
+            1.802398,
+            50.071381
+          ],
+          "geometry_types": {
+            "MultiPolygon": 13,
+            "Polygon": 2639
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-NOR"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-OCC.geojson",
+          "bytes": 5505378,
+          "sha256": "75dd221e46780de39c539ec6e372270931fd2b1b94e99c27ea04172a28305ad6",
+          "features": 4454,
+          "bbox": [
+            -0.326875,
+            42.332921,
+            4.845569,
+            45.046664
+          ],
+          "geometry_types": {
+            "MultiPolygon": 18,
+            "Polygon": 4436
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-OCC"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-PAC.geojson",
+          "bytes": 1424266,
+          "sha256": "0b6f2159441f3f81de60034881ec2548e2676770d6a6acacc95551ae78173103",
+          "features": 961,
+          "bbox": [
+            4.230213,
+            42.982141,
+            7.717541,
+            45.126844
+          ],
+          "geometry_types": {
+            "MultiPolygon": 11,
+            "Polygon": 950
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-PAC"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/FR-PDL.geojson",
+          "bytes": 1943784,
+          "sha256": "7ca82576f866733650b21020cbafa2a4be40a05082b87c2b32482c39027a2a34",
+          "features": 1238,
+          "bbox": [
+            -2.622084,
+            46.266662,
+            0.916651,
+            48.567994
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 1235
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "FR-PDL"
+        },
+        {
+          "path": "data/earth/FRA/ADM5/unassigned.geojson",
+          "bytes": 572261,
+          "sha256": "b8e347e09c0af78b830425544031356952dda0b30236e5f71411cbdbb92ce8a8",
+          "features": 129,
+          "bbox": [
+            -61.809839,
+            -21.389029,
+            55.836461,
+            16.510487
+          ],
+          "geometry_types": {
+            "MultiPolygon": 21,
+            "Polygon": 108
+          },
+          "properties": [
+            "adm1ISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "unassigned"
+        }
+      ],
+      "features": 35010,
+      "bytes": 42766063,
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "geometry_types": {
+        "MultiPolygon": 170,
+        "Polygon": 34840
+      },
+      "bbox": [
+        -61.809839,
+        -21.389029,
+        55.836461,
+        51.088989
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "ODC-By-1.0",
+      "src_provider": "Republic of France, Regulatory Authority for Electronic Communications, Posts and Press Distribution (ARCEP)",
+      "src_year": "2020",
+      "unassigned": 129
+    }
+  ]
+}

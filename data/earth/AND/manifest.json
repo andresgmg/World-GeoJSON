@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "AND",
+  "iso_a2": "AD",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Andorra",
+    "es": "Andorra"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/AND/AND_ADM0.geojson",
+      "bytes": 1313,
+      "sha256": "53f584bd44a0ef52e5c4cb9a1b647892e038faf702e3d1215de7485fdae01210",
+      "features": 1,
+      "bbox": [
+        1.406456,
+        42.428677,
+        1.765091,
+        42.649362
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/AND/preview/AND_ADM0.preview.geojson",
+      "preview_bytes": 307,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/AND/AND_ADM1.geojson",
+      "bytes": 11400,
+      "sha256": "5a2d0638ff17ccbcbabf1b6d5cf8f8556cd31008fed759ba2e2aeb9aad96a5ff",
+      "features": 7,
+      "bbox": [
+        1.412288,
+        42.429738,
+        1.786363,
+        42.655247
+      ],
+      "geometry_types": {
+        "Polygon": 7
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/AND/preview/AND_ADM1.preview.geojson",
+      "preview_bytes": 2197,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2007"
+    }
+  ]
+}

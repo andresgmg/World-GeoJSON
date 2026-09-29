@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "NOR",
+  "iso_a2": "NO",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Norway",
+    "es": "Noruega"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Municipalities are a 2013 vintage (431, before the 2020 reform) and counties 2022 (11). Natural Earth's outline includes Svalbard, Jan Mayen and Bouvet Island.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/NOR/NOR_ADM0.geojson",
+      "bytes": 334561,
+      "sha256": "0df0d098209782d46ba89c5e2e1c0d3734642318984b9d68a0b430dd03db2a4f",
+      "features": 1,
+      "bbox": [
+        -9.117421,
+        -54.462498,
+        33.640391,
+        80.770087
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/NOR/preview/NOR_ADM0.preview.geojson",
+      "preview_bytes": 15147,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/NOR/NOR_ADM1.geojson",
+      "bytes": 2009155,
+      "sha256": "6b0e43300d140e8b583a7581acf50336dcbae2caab6a988dbf38ae55925501a7",
+      "features": 11,
+      "bbox": [
+        4.612123,
+        57.973866,
+        31.150933,
+        71.185496
+      ],
+      "geometry_types": {
+        "MultiPolygon": 9,
+        "Polygon": 2
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/NOR/preview/NOR_ADM1.preview.geojson",
+      "preview_bytes": 97937,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Kartverket",
+      "src_year": "2022"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/NOR/NOR_ADM2.geojson",
+      "bytes": 3175631,
+      "sha256": "e0f8ca090ef86f111266b1635654d49bdaf10a07ab5080feafe364265b8b3761",
+      "features": 431,
+      "bbox": [
+        4.612123,
+        57.973866,
+        31.150933,
+        71.185496
+      ],
+      "geometry_types": {
+        "MultiPolygon": 172,
+        "Polygon": 259
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/NOR/preview/NOR_ADM2.preview.geojson",
+      "preview_bytes": 272045,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/NOR/ADM2/NO-03.geojson",
+          "bytes": 5651,
+          "sha256": "0084a93290bb45d7cd0b8bd6c2139987ecad5871dd924c54bd7c7d376f4534a0",
+          "features": 1,
+          "bbox": [
+            10.489165,
+            59.809931,
+            10.951389,
+            60.135106
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-03"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-11.geojson",
+          "bytes": 153552,
+          "sha256": "32577b6eb44e73859a9d72091376c68f82ba01da3237b96908bbf27a96db126d",
+          "features": 26,
+          "bbox": [
+            4.854174,
+            58.278021,
+            7.214667,
+            59.844574
+          ],
+          "geometry_types": {
+            "MultiPolygon": 14,
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-11"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-15.geojson",
+          "bytes": 237787,
+          "sha256": "8d8ac5f52154f3ac9558877e1bce149f58bfccfb5378e521934836d9b993b303",
+          "features": 35,
+          "bbox": [
+            5.340912,
+            61.92344,
+            9.364831,
+            63.477466
+          ],
+          "geometry_types": {
+            "MultiPolygon": 21,
+            "Polygon": 14
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-15"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-18.geojson",
+          "bytes": 571084,
+          "sha256": "3db64dfcb3704d8922e1bd12903d63e4223706f8a4e2f7d6773891a57363702e",
+          "features": 43,
+          "bbox": [
+            11.706719,
+            64.939497,
+            18.151355,
+            69.328044
+          ],
+          "geometry_types": {
+            "MultiPolygon": 32,
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-18"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-30.geojson",
+          "bytes": 257375,
+          "sha256": "bd4579875453f2df4dc7afc5527aac4477fa8595d29f5415ce21ba25a667b459",
+          "features": 65,
+          "bbox": [
+            7.438842,
+            58.876909,
+            11.945505,
+            61.09172
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 58
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-30"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-34.geojson",
+          "bytes": 208122,
+          "sha256": "14419d2df72c8e99306239a0357764b05cc3a988335b05fa25dacb5c30b892e4",
+          "features": 46,
+          "bbox": [
+            7.34253,
+            59.840785,
+            12.870847,
+            62.696928
+          ],
+          "geometry_types": {
+            "Polygon": 46
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-34"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-38.geojson",
+          "bytes": 144677,
+          "sha256": "08d7a6b68f1e504c79dd2eb1432c5d8fcf62822334d2fcec947d5318f245ae61",
+          "features": 31,
+          "bbox": [
+            7.096287,
+            58.770214,
+            10.564812,
+            60.188272
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 24
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-38"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-42.geojson",
+          "bytes": 182082,
+          "sha256": "8d109f7980284be16a8b37d36abab4d790e6257deb15b7219626aea7d4ff209e",
+          "features": 30,
+          "bbox": [
+            6.381212,
+            57.973866,
+            9.366075,
+            59.672687
+          ],
+          "geometry_types": {
+            "MultiPolygon": 11,
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-42"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-46.geojson",
+          "bytes": 491143,
+          "sha256": "9bdc4773fe05153c32405914d44fc8351c4dd527c7e474e899ced00fcc94ff77",
+          "features": 58,
+          "bbox": [
+            4.612123,
+            59.47542,
+            8.322053,
+            62.218757
+          ],
+          "geometry_types": {
+            "MultiPolygon": 31,
+            "Polygon": 27
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-46"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-50.geojson",
+          "bytes": 356202,
+          "sha256": "b5a5728ba685d2bc1e0b4fed1e4ec7ca5937051b2c5505be698766c5573c5c1f",
+          "features": 52,
+          "bbox": [
+            8.155875,
+            62.255727,
+            14.325675,
+            65.148987
+          ],
+          "geometry_types": {
+            "MultiPolygon": 23,
+            "Polygon": 29
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-50"
+        },
+        {
+          "path": "data/earth/NOR/ADM2/NO-54.geojson",
+          "bytes": 568851,
+          "sha256": "9c3e5bc93429a3823cd5f1441f3067277914888aca26e15e2e2effa92572204b",
+          "features": 44,
+          "bbox": [
+            15.594084,
+            68.356014,
+            31.150933,
+            71.185496
+          ],
+          "geometry_types": {
+            "MultiPolygon": 26,
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NO-54"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Geonorge, Mapping Authority of Norway",
+      "src_year": "2013"
+    }
+  ]
+}

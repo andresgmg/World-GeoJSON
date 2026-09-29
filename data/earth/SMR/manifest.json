@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SMR",
+  "iso_a2": "SM",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "San Marino",
+    "es": "San Marino"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for San Marino are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SMR/SMR_ADM0.geojson",
+      "bytes": 641,
+      "sha256": "01d4969c324ad12d47f136db9410b0e44cd6d18a0a4b73ffaefde3f540a0760a",
+      "features": 1,
+      "bbox": [
+        12.385629,
+        43.892056,
+        12.492392,
+        43.982567
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SMR/preview/SMR_ADM0.preview.geojson",
+      "preview_bytes": 337,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

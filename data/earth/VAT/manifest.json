@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "VAT",
+  "iso_a2": "VA",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Vatican City",
+    "es": "Ciudad del Vaticano"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/VAT/VAT_ADM0.geojson",
+      "bytes": 381,
+      "sha256": "b8121e35613069a1e13cbcf7f6302199e790114b15b8db6698f613a275c02eab",
+      "features": 1,
+      "bbox": [
+        12.453031,
+        41.902752,
+        12.454035,
+        41.903915
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/VAT/preview/VAT_ADM0.preview.geojson",
+      "preview_bytes": 329,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

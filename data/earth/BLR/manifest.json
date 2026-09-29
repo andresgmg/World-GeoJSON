@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BLR",
+  "iso_a2": "BY",
+  "m49_region": "Eastern Europe",
+  "name": {
+    "en": "Belarus",
+    "es": "Bielorrusia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BLR/BLR_ADM0.geojson",
+      "bytes": 25197,
+      "sha256": "8f5e440261376514b34aa920d89dd627e6ecec419cd0f75f5ba021adb2e04f90",
+      "features": 1,
+      "bbox": [
+        23.165645,
+        51.235168,
+        32.719532,
+        56.156806
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BLR/preview/BLR_ADM0.preview.geojson",
+      "preview_bytes": 1285,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BLR/BLR_ADM1.geojson",
+      "bytes": 172113,
+      "sha256": "60bb9b06da169471f29bc8288aa7e67c3ea42d79383270d6fb999ac5c2ce9fdb",
+      "features": 7,
+      "bbox": [
+        23.179592,
+        51.276415,
+        32.767324,
+        56.184902
+      ],
+      "geometry_types": {
+        "Polygon": 7
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BLR/preview/BLR_ADM1.preview.geojson",
+      "preview_bytes": 8218,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0",
+      "src_provider": "geoBoundaries, CIESIN",
+      "src_year": "2005"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/BLR/BLR_ADM2.geojson",
+      "bytes": 870025,
+      "sha256": "c610dbf4b7773e92ab10e899ac003b49aa204952d38c81298c76972b705cde1f",
+      "features": 118,
+      "bbox": [
+        23.179592,
+        51.276415,
+        32.767324,
+        56.184902
+      ],
+      "geometry_types": {
+        "Polygon": 118
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BLR/preview/BLR_ADM2.preview.geojson",
+      "preview_bytes": 65366,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/BLR/ADM2/BY-BR.geojson",
+          "bytes": 120740,
+          "sha256": "bf8baccfcf6f55d994a44b09318146231fb99fb8b3445b4b413558edbc35f985",
+          "features": 16,
+          "bbox": [
+            23.179592,
+            51.486859,
+            27.62793,
+            53.402978
+          ],
+          "geometry_types": {
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BY-BR"
+        },
+        {
+          "path": "data/earth/BLR/ADM2/BY-HM.geojson",
+          "bytes": 1784,
+          "sha256": "9ca9c93c6529ff276885fef6156ca18efdcf6e775651274cb9a1ee2140a4a6da",
+          "features": 1,
+          "bbox": [
+            27.4432,
+            53.809559,
+            27.743781,
+            53.958898
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BY-HM"
+        },
+        {
+          "path": "data/earth/BLR/ADM2/BY-HO.geojson",
+          "bytes": 152365,
+          "sha256": "7fd6851b5be3bf0761c6017c8c2e6f603d1333764b044d9dc0877cd1ec4166e5",
+          "features": 21,
+          "bbox": [
+            27.274374,
+            51.276415,
+            31.813917,
+            53.343511
+          ],
+          "geometry_types": {
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BY-HO"
+        },
+        {
+          "path": "data/earth/BLR/ADM2/BY-HR.geojson",
+          "bytes": 101319,
+          "sha256": "50c5b25190bf496d369c23c1764786631caedfc1d7b0de6598d0956f4df96b09",
+          "features": 17,
+          "bbox": [
+            23.508164,
+            52.744984,
+            26.704336,
+            55.004348
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BY-HR"
+        },
+        {
+          "path": "data/earth/BLR/ADM2/BY-MA.geojson",
+          "bytes": 135983,
+          "sha256": "57fabd4a0b99343e74149a47379daad9ab2208594f1951b63a4f7728b29f30cf",
+          "features": 20,
+          "bbox": [
+            28.094646,
+            52.683953,
+            32.767324,
+            54.485404
+          ],
+          "geometry_types": {
+            "Polygon": 20
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BY-MA"
+        },
+        {
+          "path": "data/earth/BLR/ADM2/BY-MI.geojson",
+          "bytes": 188163,
+          "sha256": "68dd5a6cad7498b052adee4b4ddcce6b9d7d4b84911fcc9cccf307d9d5f76ed1",
+          "features": 22,
+          "bbox": [
+            26.013876,
+            52.39109,
+            29.50195,
+            55.009009
+          ],
+          "geometry_types": {
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BY-MI"
+        },
+        {
+          "path": "data/earth/BLR/ADM2/BY-VI.geojson",
+          "bytes": 170212,
+          "sha256": "87aad36f3bc1ed17bdfd0bb6e90f8b011f508fd8d00cab11ab17d5b15cda815b",
+          "features": 21,
+          "bbox": [
+            26.209464,
+            54.224509,
+            31.206634,
+            56.184902
+          ],
+          "geometry_types": {
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BY-VI"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0",
+      "src_provider": "geoBoundaries, CIESIN",
+      "src_year": "2005"
+    }
+  ]
+}

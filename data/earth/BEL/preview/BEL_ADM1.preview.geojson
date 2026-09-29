@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","bbox":[2.8633,49.6171,6.405,51.4667],"features":[
+{"type":"Feature","id":"BEL:ADM1:BE-BRU","properties":{"shapeName":"Brussels Hoofdstedelijk","shapeISO":"BE-BRU","shapeType":"ADM1"},"geometry":{"type":"Polygon","coordinates":[[[4.2831,50.8136],[4.4851,50.7931],[4.435,50.899],[4.2831,50.8136]]]}},
+{"type":"Feature","id":"BEL:ADM1:BE-VLG","properties":{"shapeName":"Vlaams Gewest","shapeISO":"BE-VLG","shapeType":"ADM1"},"geometry":{"type":"Polygon","coordinates":[[[5.6876,50.8119],[5.0408,51.4667],[3.3658,51.3698],[2.8633,50.7083],[3.0187,50.7735],[3.177,50.7562],[5.6876,50.8119]],[[4.2831,50.8136],[4.435,50.899],[4.4851,50.7931],[4.2831,50.8136]]]}},
+{"type":"Feature","id":"BEL:ADM1:BE-WAL","properties":{"shapeName":"Wallonne Gewest","shapeISO":"BE-WAL","shapeType":"ADM1"},"geometry":{"type":"Polygon","coordinates":[[[5.682,50.7574],[5.6876,50.8119],[3.177,50.7562],[5.3935,49.6171],[6.405,50.3233],[5.8921,50.7552],[5.682,50.7574]]]}}
+]}

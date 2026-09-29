@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "LUX",
+  "iso_a2": "LU",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "Luxembourg",
+    "es": "Luxemburgo"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "Cantons (ADM1) are ODbL and not published; the communes are geoBoundaries' ADM3 (102, 2018).",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/LUX/LUX_ADM0.geojson",
+      "bytes": 4177,
+      "sha256": "20942f0555b51bc7cd527cf9540ad6912c49c07f988826a25d07a983b7789ba9",
+      "features": 1,
+      "bbox": [
+        5.714927,
+        49.441324,
+        6.502269,
+        50.174975
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/LUX/preview/LUX_ADM0.preview.geojson",
+      "preview_bytes": 449,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/LUX/LUX_ADM3.geojson",
+      "bytes": 171760,
+      "sha256": "426e9be8efdeecb3e0d164cb7215d310f7912bea64077473ccc719a08a5792d1",
+      "features": 102,
+      "bbox": [
+        5.734293,
+        49.446802,
+        6.529415,
+        50.181695
+      ],
+      "geometry_types": {
+        "MultiPolygon": 2,
+        "Polygon": 100
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/LUX/preview/LUX_ADM3.preview.geojson",
+      "preview_bytes": 33406,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Le Gouvernement du Grande Duche de Luxembourg",
+      "src_year": "2018"
+    }
+  ]
+}

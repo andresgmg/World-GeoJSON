@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "LTU",
+  "iso_a2": "LT",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Lithuania",
+    "es": "Lituania"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' counties and municipalities are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/LTU/LTU_ADM0.geojson",
+      "bytes": 12103,
+      "sha256": "a296f6c957f9298a08ac28dc3518f2eabc5cc7c4625af528b5c8aac9466c8ef2",
+      "features": 1,
+      "bbox": [
+        20.924569,
+        53.886841,
+        26.80072,
+        56.442602
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/LTU/preview/LTU_ADM0.preview.geojson",
+      "preview_bytes": 797,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

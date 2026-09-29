@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "RUS",
+  "iso_a2": "RU",
+  "m49_region": "Eastern Europe",
+  "name": {
+    "en": "Russia",
+    "es": "Rusia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published. Natural Earth draws Crimea inside Russia's outline; Ukraine and most states consider it Ukrainian territory. The outline crosses the antimeridian.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/RUS/RUS_ADM0.geojson",
+      "bytes": 812250,
+      "sha256": "73dd644a967546999b9806e325aa565ea220d6236388e3cb7899dc862c47c917",
+      "features": 1,
+      "bbox": [
+        -180.0,
+        41.192681,
+        180.0,
+        81.85871
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/RUS/preview/RUS_ADM0.preview.geojson",
+      "preview_bytes": 34742,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

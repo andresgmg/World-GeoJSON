@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ISL",
+  "iso_a2": "IS",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Iceland",
+    "es": "Islandia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "ADM1 is ODbL and not published, so the municipalities (74, a 2016 vintage; 64 today) have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ISL/ISL_ADM0.geojson",
+      "bytes": 70040,
+      "sha256": "9ab275e7d0eda1f4cab61647d8b0e551c4ecc3f531800e4ca9d9591ca703f888",
+      "features": 1,
+      "bbox": [
+        -24.539906,
+        63.396715,
+        -13.502919,
+        66.564154
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ISL/preview/ISL_ADM0.preview.geojson",
+      "preview_bytes": 3134,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/ISL/ISL_ADM2.geojson",
+      "bytes": 598660,
+      "sha256": "d810f4f424f2feb77391b1398849e6be4dc700cf55064f0c343d7f7719877f8e",
+      "features": 74,
+      "bbox": [
+        -24.53234,
+        63.295977,
+        -13.494619,
+        66.564616
+      ],
+      "geometry_types": {
+        "MultiPolygon": 28,
+        "Polygon": 46
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ISL/preview/ISL_ADM2.preview.geojson",
+      "preview_bytes": 49076,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "National Land Survey of Iceland",
+      "src_year": "2016"
+    }
+  ]
+}

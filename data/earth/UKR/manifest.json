@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "UKR",
+  "iso_a2": "UA",
+  "m49_region": "Eastern Europe",
+  "name": {
+    "en": "Ukraine",
+    "es": "Ucrania"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "Oblasts are ODbL and not published; the raions are a 2006 vintage, before the 2020 reform. Natural Earth draws Crimea inside Russia's outline, not Ukraine's; geoBoundaries' raions include Crimea.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/UKR/UKR_ADM0.geojson",
+      "bytes": 56735,
+      "sha256": "24de32c4d1f0c9a4f1f5c0495d2f9c7ce282a46dc974f8f41932412b1c48b4c9",
+      "features": 1,
+      "bbox": [
+        22.13284,
+        45.213568,
+        40.159543,
+        52.368949
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/UKR/preview/UKR_ADM0.preview.geojson",
+      "preview_bytes": 2589,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/UKR/UKR_ADM2.geojson",
+      "bytes": 429161,
+      "sha256": "bf958edc5d889d18a3e0b0f2597a8025da36c95e0be9c59ef27e46d66c1a1852",
+      "features": 495,
+      "bbox": [
+        22.128409,
+        44.241671,
+        40.187307,
+        52.377968
+      ],
+      "geometry_types": {
+        "Polygon": 495
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/UKR/preview/UKR_ADM2.preview.geojson",
+      "preview_bytes": 149072,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2006"
+    }
+  ]
+}

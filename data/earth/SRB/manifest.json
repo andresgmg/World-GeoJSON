@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SRB",
+  "iso_a2": "RS",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Serbia",
+    "es": "Serbia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Serbia are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published. Natural Earth draws Kosovo separately; see XKX.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SRB/SRB_ADM0.geojson",
+      "bytes": 19741,
+      "sha256": "5bd3ed299a4ba81f3af8269427b00e498998bc47ceb7c5c75edbd58fe354e637",
+      "features": 1,
+      "bbox": [
+        18.844978,
+        42.234945,
+        22.984571,
+        46.173875
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SRB/preview/SRB_ADM0.preview.geojson",
+      "preview_bytes": 1064,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

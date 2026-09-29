@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MNE",
+  "iso_a2": "ME",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Montenegro",
+    "es": "Montenegro"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Montenegro are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MNE/MNE_ADM0.geojson",
+      "bytes": 7599,
+      "sha256": "a1d867bcbee72a539ddc98fb84b3a8602e67a70de02c75e21868fd291d1e0173",
+      "features": 1,
+      "bbox": [
+        18.433531,
+        41.852362,
+        20.355171,
+        43.547886
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MNE/preview/MNE_ADM0.preview.geojson",
+      "preview_bytes": 567,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

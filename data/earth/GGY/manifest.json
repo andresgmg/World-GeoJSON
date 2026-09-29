@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GGY",
+  "iso_a2": "GG",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Guernsey",
+    "es": "Guernsey"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "British Crown dependency; geoBoundaries publishes ADM0 only.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GGY/GGY_ADM0.geojson",
+      "bytes": 1579,
+      "sha256": "f1bd5499730990eecf3b020a3d7743a9b5d34452bb2363894ccf942ae47f18d1",
+      "features": 1,
+      "bbox": [
+        -2.673451,
+        49.411566,
+        -2.170318,
+        49.731391
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GGY/preview/GGY_ADM0.preview.geojson",
+      "preview_bytes": 317,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "XKX",
+  "iso_a2": "XK",
+  "m49_region": "Southern Europe",
+  "name": {
+    "en": "Kosovo",
+    "es": "Kosovo"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "XKX is a user-assigned code, not ISO 3166-1. Kosovo declared independence from Serbia in 2008; Serbia and a number of states do not recognise it. The outline follows Natural Earth, which draws Kosovo separately. geoBoundaries' subdivisions are copyleft (CC-BY-SA, from OpenStreetMap) and not published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/XKX/XKX_ADM0.geojson",
+      "bytes": 5673,
+      "sha256": "4bb26f688e0ced2d6e4d594df1d3cdc563fb03d0c5f512c173fe7891081082f4",
+      "features": 1,
+      "bbox": [
+        20.024751,
+        41.84401,
+        21.772758,
+        43.263071
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/XKX/preview/XKX_ADM0.preview.geojson",
+      "preview_bytes": 491,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

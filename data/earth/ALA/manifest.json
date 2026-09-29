@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ALA",
+  "iso_a2": "AX",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Åland Islands",
+    "es": "Islas Åland"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "Natural Earth 10m Admin 0",
+    "url": "https://www.naturalearthdata.com/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "Autonomous region of Finland. Natural Earth draws it as its own unit; geoBoundaries has no Åland dataset.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ALA/ALA_ADM0.geojson",
+      "bytes": 10451,
+      "sha256": "0c4251a87ed305f783f8338960435637f13439ece29f7575ae511f4c45ed8b2c",
+      "features": 1,
+      "bbox": [
+        19.513194,
+        59.904486,
+        21.09669,
+        60.48078
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ALA/preview/ALA_ADM0.preview.geojson",
+      "preview_bytes": 748,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

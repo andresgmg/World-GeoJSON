@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MCO",
+  "iso_a2": "MC",
+  "m49_region": "Western Europe",
+  "name": {
+    "en": "Monaco",
+    "es": "Mónaco"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Monaco are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MCO/MCO_ADM0.geojson",
+      "bytes": 517,
+      "sha256": "af3ccaa3366fec8945113191cb3654331b989fcec81633462284668e9933715c",
+      "features": 1,
+      "bbox": [
+        7.36575,
+        43.717969,
+        7.437454,
+        43.763506
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MCO/preview/MCO_ADM0.preview.geojson",
+      "preview_bytes": 323,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

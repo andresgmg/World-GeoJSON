@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "IMN",
+  "iso_a2": "IM",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Isle of Man",
+    "es": "Isla de Man"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "British Crown dependency; geoBoundaries publishes ADM0 only.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/IMN/IMN_ADM0.geojson",
+      "bytes": 1820,
+      "sha256": "862592579fc3ca0ca9b3ab9b1e8de546fed013adb41822f71750d1ca4cca2b61",
+      "features": 1,
+      "bbox": [
+        -4.790151,
+        54.056952,
+        -4.31192,
+        54.419013
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/IMN/preview/IMN_ADM0.preview.geojson",
+      "preview_bytes": 334,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

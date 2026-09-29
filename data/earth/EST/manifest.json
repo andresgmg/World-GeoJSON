@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "EST",
+  "iso_a2": "EE",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "Estonia",
+    "es": "Estonia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Estonia are copyleft (ODbL or CC-BY-SA, from OpenStreetMap); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/EST/EST_ADM0.geojson",
+      "bytes": 22677,
+      "sha256": "cde3b0f955b8e30e11793b4b738e5775597f4b42e67062cefdaec01dc68803d7",
+      "features": 1,
+      "bbox": [
+        21.832367,
+        57.515819,
+        28.186475,
+        59.670885
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/EST/preview/EST_ADM0.preview.geojson",
+      "preview_bytes": 1251,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

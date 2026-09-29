@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GBR",
+  "iso_a2": "GB",
+  "m49_region": "Northern Europe",
+  "name": {
+    "en": "United Kingdom",
+    "es": "Reino Unido"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-09-29",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "OGL-UK-3.0",
+      "public-domain"
+    ]
+  },
+  "notes": "ADM2 has 216 units from the Office for National Statistics (2019), the upper-tier counties and unitary authorities.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GBR/GBR_ADM0.geojson",
+      "bytes": 152013,
+      "sha256": "cae39fa1845007833abc173744430a0b50de998467f9c18bc6e2a1b665845c64",
+      "features": 1,
+      "bbox": [
+        -8.621002,
+        49.909613,
+        1.771169,
+        60.847886
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GBR/preview/GBR_ADM0.preview.geojson",
+      "preview_bytes": 6930,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/GBR/GBR_ADM1.geojson",
+      "bytes": 97324,
+      "sha256": "177d184363b0bc89b67371f0b88c022d2790bf56352d435c4887e22645dc977c",
+      "features": 4,
+      "bbox": [
+        -8.645449,
+        49.884826,
+        1.754926,
+        60.843381
+      ],
+      "geometry_types": {
+        "MultiPolygon": 4
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GBR/preview/GBR_ADM1.preview.geojson",
+      "preview_bytes": 4940,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Eurostat- European Commission",
+      "src_year": "2021"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/GBR/GBR_ADM2.geojson",
+      "bytes": 475010,
+      "sha256": "8497102d853490dbbf6aa9efe3c05a559d6ea8e9a2785f355a2b68d54320a1ec",
+      "features": 216,
+      "bbox": [
+        -8.650007,
+        49.882346,
+        1.76368,
+        60.845669
+      ],
+      "geometry_types": {
+        "MultiPolygon": 28,
+        "Polygon": 188
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GBR/preview/GBR_ADM2.preview.geojson",
+      "preview_bytes": 79162,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/GBR/ADM2/GB-ENG.geojson",
+          "bytes": 247136,
+          "sha256": "37b3eca5bf7b732b10946ac3b7d5e785ff1bacbea31db34ab30de5ca1a81c6ba",
+          "features": 151,
+          "bbox": [
+            -6.364979,
+            49.882346,
+            1.76368,
+            55.811089
+          ],
+          "geometry_types": {
+            "MultiPolygon": 15,
+            "Polygon": 136
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GB-ENG"
+        },
+        {
+          "path": "data/earth/GBR/ADM2/GB-NIR.geojson",
+          "bytes": 25360,
+          "sha256": "d77c4255a170554f35aa1ac6ca8589c6753d06ff00e25ed8de23bc2335bf57cb",
+          "features": 11,
+          "bbox": [
+            -8.178225,
+            54.022873,
+            -5.433869,
+            55.312062
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GB-NIR"
+        },
+        {
+          "path": "data/earth/GBR/ADM2/GB-SCT.geojson",
+          "bytes": 158384,
+          "sha256": "1202b6d02b60c37ec75ce38a6dc5d5f4c3cac600e088e2d6de57eb2c7deb91bd",
+          "features": 32,
+          "bbox": [
+            -8.650007,
+            54.63324,
+            -0.740226,
+            60.845669
+          ],
+          "geometry_types": {
+            "MultiPolygon": 7,
+            "Polygon": 25
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GB-SCT"
+        },
+        {
+          "path": "data/earth/GBR/ADM2/GB-WLS.geojson",
+          "bytes": 44402,
+          "sha256": "cbdc83d690df0078b5ff82a2b395f0e244373d77f2c195afa8648ccb77e679c7",
+          "features": 22,
+          "bbox": [
+            -5.353335,
+            51.381001,
+            -2.650398,
+            53.430007
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GB-WLS"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "OGL-UK-3.0",
+      "src_provider": "Office for National Statistics Open Geography Portal",
+      "src_year": "2019"
+    }
+  ]
+}
