@@ -57,9 +57,9 @@
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.22",
-    "@types/node": "^22.20.4",
+    "@types/node": "^26.6.3",
     "geoworld": "*",
-    "typescript": "~5.9.3"
+    "typescript": "~7.0.2"
   },
   "peerDependenciesMeta": {
     "leaflet": {
