@@ -20,7 +20,7 @@ https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@main/<ruta>
     actualmente el segundo, así que jsDelivr puede negarse a servirlo. Trata
     el CDN como una optimización que probar, no como una dependencia: las URLs
     raw de GitHub son la ruta fiable hoy, y los
-    [assets de la release](#assets-de-la-release) lo son a partir de v1.0.0.
+    [assets de la release](#assets-de-la-release) son la descarga fijada.
 
     El `comunas.geojson` heredado de 72 MB en la raíz del repositorio supera
     el límite por archivo en cualquier caso. Usa
@@ -30,16 +30,15 @@ https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@main/<ruta>
 una corrección de límites que se mergee aguas arriba cambia lo que recibe tu
 aplicación, en silencio.
 
-=== "Fijado (cuando exista la etiqueta v1.0.0)"
+=== "Fijado"
 
     ```
-    https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<ruta>
+    https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0/<ruta>
     ```
 
-    `v1.0.0` se etiqueta desde el merge del contrato de datos — ver
-    [Versionado y estabilidad](../about/versioning.md). Hasta entonces solo
-    resuelve `@main`. A partir de v1.0.0, los zips por país adjuntos a la
-    GitHub Release son la descarga fijada recomendada.
+    `v1.1.0` es la release de datos más reciente — ver
+    [Versionado y estabilidad](../about/versioning.md). Los zips por país
+    adjuntos a su GitHub Release son la descarga fijada recomendada.
 
 === "Última versión"
 
@@ -59,11 +58,11 @@ Pero **no es un CDN**: sin caché de borde, y con límite de peticiones. Bien
 para desarrollo, scripts y descargas desde servidor; mal para tráfico de
 navegador en producción.
 
-La misma URL con una etiqueta en lugar de `main` fija una versión de los datos
-— una vez etiquetada `v1.0.0`:
+La misma URL con una etiqueta en lugar de `main` fija una versión de los
+datos:
 
 ```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.0.0/<ruta>
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/<ruta>
 ```
 
 ## Assets de la release
@@ -79,8 +78,9 @@ cuando un CDN rechaza el repositorio por su tamaño:
 | `index.json` | El [índice global](../reference/index-json.md) |
 | `SHA256SUMS` | Hashes de todos los assets |
 
-La primera es `v1.0.0`, etiquetada desde el merge del contrato de datos:
-<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.0.0>. Las notas
+La primera fue `v1.0.0`, etiquetada desde el merge del contrato de datos; la
+más reciente es `v1.1.0`, que añade Europa:
+<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.1.0>. Las notas
 de la release son la sección correspondiente del
 [Registro de cambios](../about/changelog.md).
 

@@ -16,7 +16,7 @@ npm install geoworld geoworld-react
 import { createClient } from "geoworld";
 import { GeoWorldProvider, useBoundaries, useCountries } from "geoworld-react";
 
-const world = createClient({ version: "1.0.0" });
+const world = createClient({ version: "1.1.0" });
 
 export function App() {
   return (

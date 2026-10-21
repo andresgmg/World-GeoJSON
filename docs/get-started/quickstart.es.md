@@ -44,7 +44,7 @@ en todos.
     import { createClient } from "geoworld";
     import { withLeaflet } from "geoworld-leaflet";
 
-    const world = createClient({ version: "1.0.0" });
+    const world = createClient({ version: "1.1.0" });
     await withLeaflet(L).addBoundaries(map, world, "CHL", "ADM1", {
       fit: true,
       onEachFeature: (f, l) => l.bindTooltip(f.properties.shapeName),
@@ -92,7 +92,7 @@ en todos.
     import { createClient } from "geoworld";
     import { addBoundaries } from "geoworld-maplibre";
 
-    const world = createClient({ version: "1.0.0" });
+    const world = createClient({ version: "1.1.0" });
     const regiones = await addBoundaries(map, world, "CHL", "ADM1", { fit: true });
     ```
 

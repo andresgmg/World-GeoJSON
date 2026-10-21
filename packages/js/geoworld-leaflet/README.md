@@ -14,7 +14,7 @@ npm install geoworld geoworld-leaflet leaflet
 import { createClient } from "geoworld";
 import { layerById, withLeaflet } from "geoworld-leaflet";
 
-const world = createClient({ version: "1.0.0" });
+const world = createClient({ version: "1.1.0" });
 const gw = withLeaflet(L);                                  // window.L, or import * as L from "leaflet"
 
 const regions = await gw.addBoundaries(map, world, "CHL", "ADM1", {

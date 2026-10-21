@@ -38,19 +38,17 @@ merge of the data contract — the change that gave every feature its `id`, the
 hierarchy fields, corrected `shapeISO` values, the global index and the
 schemas. No tag existed before it, so nothing was ever pinned to the 0.x
 files; their `shapeISO` and part-file changes are listed in the
-[Changelog](changelog.md) as breaking against the unreleased `main`. Until the
-tag exists the only reference is `main`, reached through raw URLs:
+[Changelog](changelog.md) as breaking against the unreleased `main`.
+**`v1.1.0`**, the latest, adds Europe and the ADM5 level — a minor release:
+every data file published in 1.0.0 is byte-identical in 1.1.0 (only previews
+were re-serialised by the pipeline rewrite).
+
+**Pin a tag in production** — the raw URL with the tag in place of `main`, or
+jsDelivr's `@tag` form:
 
 ```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/<path>
-```
-
-Once `v1.0.0` is tagged, **pin the tag in production** — the same raw URL with
-the tag in place of `main`, or jsDelivr's `@tag` form:
-
-```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.0.0/<path>
-https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<path>
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/<path>
+https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0/<path>
 ```
 
 `main` follows the default branch, so an upstream boundary correction reaches

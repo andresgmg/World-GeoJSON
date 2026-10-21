@@ -6,6 +6,14 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Cambiado
+
+- Los clientes `geoworld` (Python y JavaScript) usan por defecto los datos
+  `1.1.0`. Llega con las próximas etiquetas `python-v*` y `js-v*`; hasta
+  entonces, pasa `version="1.1.0"` / `{ version: "1.1.0" }` para leer Europa.
+
+## [1.1.0] — 2026-10-21
+
 ### Añadido — Europa
 
 - **51 territorios, 97 datasets, 59.265 features**, con lo que el repositorio

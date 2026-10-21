@@ -18,7 +18,7 @@ https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@main/<path>
     ADM1. The repository as a whole currently exceeds the second, so jsDelivr
     may refuse it. Treat the CDN as an optimisation to try, not a dependency:
     raw GitHub URLs are the reliable path today, and the
-    [Release assets](#release-assets) are from v1.0.0 on.
+    [Release assets](#release-assets) are the pinned download.
 
     The legacy 72 MB `comunas.geojson` in the repository root is above the
     per-file limit regardless. Use `data/earth/CHL/CHL_ADM3.geojson`.
@@ -26,16 +26,15 @@ https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@main/<path>
 **Pin a tag in production.** `@main` follows the default branch, so a boundary
 correction merged upstream changes what your application receives, silently.
 
-=== "Pinned (once v1.0.0 is tagged)"
+=== "Pinned"
 
     ```
-    https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<path>
+    https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0/<path>
     ```
 
-    `v1.0.0` is tagged from the merge of the data contract — see
-    [Versioning & stability](../about/versioning.md). Until then only `@main`
-    resolves. From v1.0.0 on, the per-country zips attached to the GitHub
-    Release are the recommended pinned download.
+    `v1.1.0` is the latest data release — see
+    [Versioning & stability](../about/versioning.md). The per-country zips
+    attached to its GitHub Release are the recommended pinned download.
 
 === "Latest"
 
@@ -54,11 +53,10 @@ browser `fetch` works. But it is **not a CDN**: no edge caching, and it is
 rate-limited. Fine for development, scripts and server-side downloads; poor for
 production browser traffic.
 
-The same URL with a tag in place of `main` pins a data version — once
-`v1.0.0` is tagged:
+The same URL with a tag in place of `main` pins a data version:
 
 ```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.0.0/<path>
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/<path>
 ```
 
 ## Release assets
@@ -74,8 +72,9 @@ repository for its size:
 | `index.json` | The [global index](../reference/index-json.md) |
 | `SHA256SUMS` | Hashes of every asset |
 
-The first is `v1.0.0`, tagged from the merge of the data contract:
-<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.0.0>. The release
+The first was `v1.0.0`, tagged from the merge of the data contract; the
+latest is `v1.1.0`, which adds Europe:
+<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.1.0>. The release
 notes are the matching section of the [Changelog](../about/changelog.md).
 
 ## The global index
