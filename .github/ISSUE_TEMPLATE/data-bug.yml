@@ -28,7 +28,7 @@ body:
     attributes:
       label: Data version
       description: The release tag you read the file from, or `main` and the commit.
-      placeholder: "v1.1.0"
+      placeholder: "v1.2.0"
     validations:
       required: true
   - type: dropdown

@@ -16,7 +16,7 @@ descarga los archivos que pides, los cachea y verifica su `sha256` contra el
     ```python
     from geoworld import GeoWorld
 
-    world = GeoWorld("1.1.0")
+    world = GeoWorld("1.2.0")
     regions = world.get("CHL", "ADM1")        # una FeatureCollection GeoJSON (dict)
     regions["features"][0]["id"]              # "CHL:ADM1:CL-CO"
     ```
@@ -30,7 +30,7 @@ descarga los archivos que pides, los cachea y verifica su `sha256` contra el
     ```ts
     import { createClient } from "geoworld";
 
-    const world = createClient({ version: "1.1.0" });
+    const world = createClient({ version: "1.2.0" });
     const regions = await world.get("CHL", "ADM1");   // una FeatureCollection GeoJSON
     regions.features[0].id;                           // "CHL:ADM1:CL-CO"
     ```
@@ -119,8 +119,8 @@ release de datos por defecto:
 
 | | Biblioteca | Datos por defecto | Soporta esquema |
 |---|---|---|---|
-| Python | `geoworld` 0.1.0 | `1.1.0` | 1 |
-| JavaScript | `geoworld` 0.2.0, y los tres adaptadores en la misma versión | `1.1.0` | 1 |
+| Python | `geoworld` 0.1.0 | `1.2.0` | 1 |
+| JavaScript | `geoworld` 0.2.0, y los tres adaptadores en la misma versión | `1.2.0` | 1 |
 
 Los paquetes JavaScript avanzan en bloque: un número de versión, una etiqueta,
 y cada adaptador declara `geoworld` como peer en esa menor.

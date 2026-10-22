@@ -43,7 +43,7 @@ function render(element: ReactElement, store?: Store): string {
 }
 
 test("useGeoWorld exposes the provided client", () => {
-  assert.equal(render(createElement(ClientVersion)), "<span>1.1.0</span>");
+  assert.equal(render(createElement(ClientVersion)), "<span>1.2.0</span>");
 });
 
 test("hooks read the server snapshot: idle before priming, success after", async () => {

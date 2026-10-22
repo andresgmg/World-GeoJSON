@@ -30,7 +30,7 @@ def test_default_urls() -> None:
     world = GeoWorld(cache=False)
     assert world.version == DEFAULT_DATA_VERSION
     assert world.base_url == f"{DEFAULT_BASE_URL}/v{DEFAULT_DATA_VERSION}"
-    assert world.url_for("data/index.json").endswith("/v1.1.0/data/index.json")
+    assert world.url_for("data/index.json").endswith("/v1.2.0/data/index.json")
     assert GeoWorld("2.3.4", cache=False).base_url.endswith("/v2.3.4")
     assert (
         GeoWorld(base_url="https://cdn.example/wg/", cache=False).base_url

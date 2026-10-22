@@ -3,7 +3,7 @@
  *
  * ```ts
  * import { createClient } from "geoworld";
- * const world = createClient({ version: "1.1.0" });
+ * const world = createClient({ version: "1.2.0" });
  * const regions = await world.get("CHL", "ADM1");
  * regions.features[0].id; // "CHL:ADM1:CL-CO"
  * ```

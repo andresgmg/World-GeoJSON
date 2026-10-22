@@ -14,12 +14,12 @@ pip install "geoworld[geopandas]"   # añade to_geopandas()
 ```python
 from geoworld import GeoWorld
 
-world = GeoWorld("1.1.0")
+world = GeoWorld("1.2.0")
 ```
 
 | Argumento | Por defecto | Significado |
 |---|---|---|
-| `version` | `"1.1.0"` (`geoworld.DEFAULT_DATA_VERSION`) | Una etiqueta de release de datos sin la `v`, o `"main"` |
+| `version` | `"1.2.0"` (`geoworld.DEFAULT_DATA_VERSION`) | Una etiqueta de release de datos sin la `v`, o `"main"` |
 | `base_url` | `https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v{version}` | Cualquier host estático con la disposición del repositorio, incluido `file:///…` |
 | `cache_dir` | directorio de caché de la plataforma (abajo) | Dónde se guardan los archivos, como `<cache_dir>/<versión>/<ruta>` |
 | `cache` | `True` | `False` mantiene los archivos solo en memoria |
@@ -48,7 +48,7 @@ world.levels("CHL")              # ["ADM0", "ADM1", "ADM2", "ADM3"]
 world.dataset("CHL", "ADM3")     # la entrada del nivel: path, bytes, sha256, bbox, license, …
 world.bbox("CHL", "ADM3")        # [-109.449861, -56.525107, -66.416176, -17.498399]
 world.parts("USA", "ADM2")       # ["US-AK", "US-AL", …, "unassigned"]
-world.url("CHL", "ADM1")         # ".../v1.1.0/data/earth/CHL/CHL_ADM1.geojson"
+world.url("CHL", "ADM1")         # ".../v1.2.0/data/earth/CHL/CHL_ADM1.geojson"
 world.url("USA", "ADM2", "US-CA")
 world.url("CHL", "ADM3", preview=True)
 ```
@@ -124,12 +124,12 @@ Todos heredan de `geoworld.GeoWorldError`:
 ## Sin conexión y espejos
 
 Cualquier directorio con la disposición del repositorio sirve como fuente: un
-checkout, o un `world-geojson-v1.1.0-all.zip` descomprimido de los
+checkout, o un `world-geojson-v1.2.0-all.zip` descomprimido de los
 [assets de la release](../get-started/download.md).
 
 ```python
-GeoWorld("1.1.0", base_url="file:///opt/world-geojson")
-GeoWorld("1.1.0", base_url="https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0")
+GeoWorld("1.2.0", base_url="file:///opt/world-geojson")
+GeoWorld("1.2.0", base_url="https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.2.0")
 ```
 
 La `version` nombra el espacio de caché; mantenla igual a lo que contiene el

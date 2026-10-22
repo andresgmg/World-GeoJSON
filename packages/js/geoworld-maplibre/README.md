@@ -13,7 +13,7 @@ npm install geoworld geoworld-maplibre maplibre-gl
 import { createClient } from "geoworld";
 import { addBoundaries, clearFeatureState, setFeatureState } from "geoworld-maplibre";
 
-const world = createClient({ version: "1.1.0" });
+const world = createClient({ version: "1.2.0" });
 const regions = await addBoundaries(map, world, "CHL", "ADM1", { fit: true });
 // regions.source === "geoworld-CHL-ADM1", regions.layers === ["…-fill", "…-line"]
 

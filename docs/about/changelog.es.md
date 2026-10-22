@@ -6,6 +6,24 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Cambiado
+
+- Los clientes `geoworld` (Python y JavaScript) usan por defecto los datos
+  `1.2.0`. Llega con las próximas etiquetas `python-v*` y `js-v*`; hasta
+  entonces, pasa `version="1.2.0"` / `{ version: "1.2.0" }` para leer África.
+
+### Corregido — workflow de release
+
+- Publicar `v1.2.0` falló después de construir los assets: `ls -la dist | head`
+  con `pipefail` aborta el paso en cuanto hay más assets de los que `head` lee.
+  Ahora el listado es completo.
+- Una release fallida o prematura se puede volver a publicar: lanza el workflow
+  en `main` con la etiqueta. Los datos salen de la etiqueta; los pasos y las
+  notas, de `main`, así que una sección del changelog escrita después de la
+  etiqueta llega a las notas.
+
+## [1.2.0] — 2026-10-22
+
 ### Añadido — África
 
 - **60 territorios, 125 datasets, 7.934 features**, con lo que el repositorio
@@ -39,6 +57,12 @@ Centroafricana, Etiopía, Sierra Leona, Namibia); esos países se publican como
 "Suhag" junto a otra llamada "Suhag-2" (fijada en `id_overrides.json`). Las
 1.579 comunas de Madagascar no tienen primer nivel por encima, así que 150
 comparten nombre y llevan un sufijo numérico en su `id`.
+
+### Corregido — build de JavaScript
+
+- Los builds CommonJS vuelven a usar `"moduleResolution": "Node10"`: TypeScript
+  5.9, al que están fijados los workspaces, rechaza `Bundler` con
+  `"module": "CommonJS"`, y `npm run build` fallaba en `main`.
 
 ### Corregido — pipeline
 

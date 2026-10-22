@@ -33,10 +33,10 @@ aplicación, en silencio.
 === "Fijado"
 
     ```
-    https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0/<ruta>
+    https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.2.0/<ruta>
     ```
 
-    `v1.1.0` es la release de datos más reciente — ver
+    `v1.2.0` es la release de datos más reciente — ver
     [Versionado y estabilidad](../about/versioning.md). Los zips por país
     adjuntos a su GitHub Release son la descarga fijada recomendada.
 
@@ -62,7 +62,7 @@ La misma URL con una etiqueta en lugar de `main` fija una versión de los
 datos:
 
 ```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/<ruta>
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.2.0/<ruta>
 ```
 
 ## Assets de la release
@@ -79,8 +79,8 @@ cuando un CDN rechaza el repositorio por su tamaño:
 | `SHA256SUMS` | Hashes de todos los assets |
 
 La primera fue `v1.0.0`, etiquetada desde el merge del contrato de datos; la
-más reciente es `v1.1.0`, que añade Europa:
-<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.1.0>. Las notas
+más reciente es `v1.2.0`, que añade África:
+<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.2.0>. Las notas
 de la release son la sección correspondiente del
 [Registro de cambios](../about/changelog.md).
 

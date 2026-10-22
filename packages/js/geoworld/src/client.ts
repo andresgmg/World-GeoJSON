@@ -33,7 +33,7 @@ export const VERSION = "0.2.0";
 export const SUPPORTED_SCHEMA_VERSION = 1;
 
 /** The data release used when none is given. */
-export const DEFAULT_DATA_VERSION = "1.1.0";
+export const DEFAULT_DATA_VERSION = "1.2.0";
 
 /** Files are read from `${DEFAULT_BASE_URL}/v${version}/${path}` unless `baseUrl` is given. */
 export const DEFAULT_BASE_URL = "https://raw.githubusercontent.com/andresgmg/World-GeoJSON";
@@ -87,7 +87,7 @@ export function summarise(country: Country): CountrySummary {
 }
 
 export interface ClientOptions {
-  /** A data release tag without the `v` (`"1.1.0"`), or `"main"` to follow the branch (warns). */
+  /** A data release tag without the `v` (`"1.2.0"`), or `"main"` to follow the branch (warns). */
   version?: string;
   /**
    * Where the repository tree is served from. Defaults to
@@ -153,7 +153,7 @@ export class GeoWorld {
     if (this.version === "main") {
       console.warn(
         "geoworld: version 'main' follows a moving branch: results change between runs and " +
-          "nothing is persisted. Pin a release, e.g. createClient({ version: '1.1.0' }).",
+          "nothing is persisted. Pin a release, e.g. createClient({ version: '1.2.0' }).",
       );
       if (typeof cache !== "string") cache = "memory";
     }

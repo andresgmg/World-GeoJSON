@@ -39,16 +39,18 @@ hierarchy fields, corrected `shapeISO` values, the global index and the
 schemas. No tag existed before it, so nothing was ever pinned to the 0.x
 files; their `shapeISO` and part-file changes are listed in the
 [Changelog](changelog.md) as breaking against the unreleased `main`.
-**`v1.1.0`**, the latest, adds Europe and the ADM5 level — a minor release:
-every data file published in 1.0.0 is byte-identical in 1.1.0 (only previews
-were re-serialised by the pipeline rewrite).
+**`v1.1.0`** added Europe and the ADM5 level, and **`v1.2.0`**, the latest,
+adds Africa — both minor releases. Every data file published in 1.0.0 is
+byte-identical in 1.1.0 (only previews were re-serialised by the pipeline
+rewrite), and every one published in 1.1.0 is byte-identical in 1.2.0, but
+for France's manifest, whose note changed, and the index.
 
 **Pin a tag in production** — the raw URL with the tag in place of `main`, or
 jsDelivr's `@tag` form:
 
 ```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/<path>
-https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0/<path>
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.2.0/<path>
+https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.2.0/<path>
 ```
 
 `main` follows the default branch, so an upstream boundary correction reaches
@@ -68,6 +70,12 @@ and a `SHA256SUMS`, with the matching Changelog section as its notes — for
 consumers who want a download rather than a clone or a CDN. See
 [Download & CDN](../get-started/download.md#release-assets). `CITATION.cff`
 at the repository root carries the version to cite.
+
+Write the version's Changelog section before pushing its tag, so the release
+notes find it. A release that failed, or was tagged before its section
+existed, is published again by running the Release workflow on `main` by hand
+(Actions → Release → Run workflow) with the tag: the data comes from the tag,
+the workflow and the notes from `main`.
 
 ## The legacy root files
 
