@@ -35,7 +35,7 @@ body:
     attributes:
       label: Data version
       description: What the client was pinned to (`version=`), and `base_url`/`baseUrl` if not the default.
-      placeholder: "1.1.0"
+      placeholder: "1.2.0"
   - type: textarea
     id: repro
     attributes:

@@ -43,17 +43,19 @@ su `id`, los campos de jerarquía, los valores de `shapeISO` corregidos, el
 índice global y los esquemas. Antes no existía ninguna etiqueta, así que nada
 estuvo nunca fijado a los archivos 0.x; sus cambios de `shapeISO` y de
 archivos de parte se listan en el [Registro de cambios](changelog.md) como
-rompedores respecto al `main` sin publicar. **`v1.1.0`**, la más reciente,
-añade Europa y el nivel ADM5 — una release menor: todos los archivos de datos
-publicados en 1.0.0 son idénticos byte a byte en 1.1.0 (solo los previews se
-reserializaron con la reescritura del pipeline).
+rompedores respecto al `main` sin publicar. **`v1.1.0`** añadió Europa y
+el nivel ADM5, y **`v1.2.0`**, la más reciente, añade África — ambas releases
+menores. Todos los archivos de datos publicados en 1.0.0 son idénticos byte a
+byte en 1.1.0 (solo los previews se reserializaron con la reescritura del
+pipeline), y todos los publicados en 1.1.0 lo son en 1.2.0, salvo el
+manifiesto de Francia, cuya nota cambió, y el índice.
 
 **Fija una etiqueta en producción** — la URL cruda con la etiqueta en lugar de
 `main`, o la forma `@etiqueta` de jsDelivr:
 
 ```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/<ruta>
-https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0/<ruta>
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.2.0/<ruta>
+https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.2.0/<ruta>
 ```
 
 `main` sigue la rama por defecto, así que una corrección de límites aguas
@@ -73,6 +75,13 @@ del país con su manifiesto y sus previews), `world-geojson-vX.Y.Z-all.zip`,
 cambios como notas — para quien prefiera una descarga a un clon o un CDN. Ver
 [Descarga y CDN](../get-started/download.md#assets-de-la-release). El
 `CITATION.cff` de la raíz del repositorio lleva la versión que citar.
+
+Escribe la sección del Registro de cambios de la versión antes de subir su
+etiqueta, para que las notas de la release la encuentren. Una release que falló,
+o que se etiquetó antes de que existiera su sección, se vuelve a publicar
+lanzando a mano el workflow Release sobre `main` (Actions → Release → Run
+workflow) con la etiqueta: los datos salen de la etiqueta; el workflow y las
+notas, de `main`.
 
 ## Los archivos heredados de la raíz
 

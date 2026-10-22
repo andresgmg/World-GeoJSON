@@ -30,7 +30,7 @@ test("default urls", () => {
   const world = createClient();
   assert.equal(world.version, DEFAULT_DATA_VERSION);
   assert.equal(world.baseUrl, `${DEFAULT_BASE_URL}/v${DEFAULT_DATA_VERSION}`);
-  assert.ok(world.urlFor("data/index.json").endsWith("/v1.1.0/data/index.json"));
+  assert.ok(world.urlFor("data/index.json").endsWith("/v1.2.0/data/index.json"));
   assert.ok(createClient({ version: "2.3.4" }).baseUrl.endsWith("/v2.3.4"));
   assert.equal(createClient({ baseUrl: "https://cdn.example/wg/" }).baseUrl, "https://cdn.example/wg");
 });
@@ -178,7 +178,7 @@ test("persistent store round-trip and verification", async () => {
   const store = new MemoryCache();
   const world = client({ cache: store });
   await world.get("ABW", "ADM0");
-  const key = "1.1.0/data/earth/ABW/ABW_ADM0.geojson";
+  const key = "1.2.0/data/earth/ABW/ABW_ADM0.geojson";
   const onDisk = await readFile(join(FIXTURES, "data/earth/ABW/ABW_ADM0.geojson"));
   assert.deepEqual(store.get(key), new Uint8Array(onDisk));
   // A second client reads from the store, and re-hashes what it reads.

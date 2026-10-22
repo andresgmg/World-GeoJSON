@@ -31,14 +31,14 @@ to a data release — `geoworld` has the same API in Python and JavaScript:
 ```python
 from geoworld import GeoWorld  # pip install geoworld
 
-world = GeoWorld("1.1.0")
+world = GeoWorld("1.2.0")
 world.get("CHL", "ADM1")["features"][0]["id"]  # "CHL:ADM1:CL-CO"
 world.children("CHL:ADM1:CL-TA")  # the provinces of Tarapacá
 ```
 
 ```js
 import { createClient } from "geoworld";  // npm install geoworld
-const world = createClient({ version: "1.1.0" });
+const world = createClient({ version: "1.2.0" });
 (await world.get("CHL", "ADM1")).features[0].id;   // "CHL:ADM1:CL-CO"
 ```
 
@@ -79,7 +79,7 @@ All four stay unchanged through the 1.x series and are removed in v2.0.0. See
    `schemas/`, a stable Feature `id` (`{ISO3}:{LEVEL}:{key}`) and
    `parentID`/`parentISO`/`adm1ISO` on every sub-national feature, released
    as `v1.0.0`. Every data release's GitHub Release carries per-country zips,
-   `index.json` and `SHA256SUMS`; the latest is `v1.1.0`, which adds Europe.
+   `index.json` and `SHA256SUMS`; the latest is `v1.2.0`, which adds Africa.
 2. **Pipeline as a package** — done: the `wgj` command, installed from
    `pipeline/`, with tests that run on `fixtures/data/` and previews cut from
    Python.
@@ -151,14 +151,14 @@ una release de datos — `geoworld` tiene la misma API en Python y JavaScript:
 ```python
 from geoworld import GeoWorld  # pip install geoworld
 
-world = GeoWorld("1.1.0")
+world = GeoWorld("1.2.0")
 world.get("CHL", "ADM1")["features"][0]["id"]  # "CHL:ADM1:CL-CO"
 world.children("CHL:ADM1:CL-TA")  # las provincias de Tarapacá
 ```
 
 ```js
 import { createClient } from "geoworld";  // npm install geoworld
-const world = createClient({ version: "1.1.0" });
+const world = createClient({ version: "1.2.0" });
 (await world.get("CHL", "ADM1")).features[0].id;   // "CHL:ADM1:CL-CO"
 ```
 
@@ -202,8 +202,8 @@ v2.0.0. Ver
    `schemas/`, un `id` de Feature estable (`{ISO3}:{LEVEL}:{clave}`) y
    `parentID`/`parentISO`/`adm1ISO` en cada feature subnacional, publicados
    como `v1.0.0`. La GitHub Release de cada versión de datos lleva zips por
-   país, `index.json` y `SHA256SUMS`; la más reciente es `v1.1.0`, que añade
-   Europa.
+   país, `index.json` y `SHA256SUMS`; la más reciente es `v1.2.0`, que añade
+   África.
 2. **Pipeline como paquete** — hecho: el comando `wgj`, instalado desde
    `pipeline/`, con tests que corren sobre `fixtures/data/` y previews
    generados desde Python.

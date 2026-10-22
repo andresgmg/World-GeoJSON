@@ -6,6 +6,24 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
+### Changed
+
+- The `geoworld` clients (Python and JavaScript) default to data `1.2.0`.
+  This ships with the next `python-v*` and `js-v*` tags; until then, pass
+  `version="1.2.0"` / `{ version: "1.2.0" }` to read Africa.
+
+### Fixed — release workflow
+
+- Publishing `v1.2.0` failed after the assets were built: `ls -la dist | head`
+  under `pipefail` aborts the step once there are more assets than `head`
+  reads. The listing is complete now.
+- A failed or premature release can be re-published: dispatch the workflow on
+  `main` with the tag. The data comes from the tag; the steps and the release
+  notes from `main`, so a changelog section written after the tag reaches the
+  notes.
+
+## [1.2.0] — 2026-10-22
+
 ### Added — Africa
 
 - **60 territories, 125 datasets, 7,934 features**, bringing the repository
@@ -37,6 +55,12 @@ Leone, Namibia); those countries ship as `review`. Egypt has fourteen units
 named "Zemam Out" and two named "Suhag" beside one named "Suhag-2" (pinned in
 `id_overrides.json`). Madagascar's 1,579 communes have no first level above
 them, so 150 share a name and carry a numeric suffix in their `id`.
+
+### Fixed — JavaScript build
+
+- The CommonJS builds use `"moduleResolution": "Node10"` again: TypeScript
+  5.9, which the workspaces are pinned to, rejects `Bundler` with
+  `"module": "CommonJS"`, and `npm run build` failed on `main`.
 
 ### Fixed — pipeline
 

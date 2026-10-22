@@ -43,7 +43,7 @@ Every snippet below loads Chile's 16 regions from
     import { createClient } from "geoworld";
     import { withLeaflet } from "geoworld-leaflet";
 
-    const world = createClient({ version: "1.1.0" });
+    const world = createClient({ version: "1.2.0" });
     await withLeaflet(L).addBoundaries(map, world, "CHL", "ADM1", {
       fit: true,
       onEachFeature: (f, l) => l.bindTooltip(f.properties.shapeName),
@@ -91,7 +91,7 @@ Every snippet below loads Chile's 16 regions from
     import { createClient } from "geoworld";
     import { addBoundaries } from "geoworld-maplibre";
 
-    const world = createClient({ version: "1.1.0" });
+    const world = createClient({ version: "1.2.0" });
     const regions = await addBoundaries(map, world, "CHL", "ADM1", { fit: true });
     ```
 

@@ -8,7 +8,15 @@ name: Release
 on:
   push:
     tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+  # Re-publish an existing tag with the workflow as it is on the branch it is
+  # dispatched from (main): the data comes from the tag, the steps and the
+  # release notes from the branch. For a tag whose run failed, or one pushed
+  # before its changelog section was written.
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing data tag to publish, e.g. v1.2.0"
+        required: true
 
 permissions:
   contents: write
@@ -17,10 +25,13 @@ jobs:
   release:
     name: Publish data release
     runs-on: ubuntu-latest
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          ref: ${{ inputs.tag || github.ref }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -42,7 +53,7 @@ jobs:
       - name: Build assets
         run: |
           set -euo pipefail
-          tag="${GITHUB_REF_NAME}"
+          tag="${TAG}"
           mkdir -p dist
           for dir in data/*/*/; do
             body=$(basename "$(dirname "$dir")")
@@ -52,16 +63,27 @@ jobs:
           zip -qr "dist/world-geojson-${tag}-all.zip" data -x 'data/index.json'
           cp data/index.json "dist/index.json"
           (cd dist && sha256sum ./* > SHA256SUMS)
-          ls -la dist | head -80
+          # The whole listing, not `| head`: under pipefail, head closing the
+          # pipe makes ls fail with a write error once there are more lines
+          # than it reads (v1.2.0's 169 assets aborted the first run here).
+          ls -la dist
+          echo "$(ls dist | wc -l) files"
           du -sh dist
 
       - name: Release notes from the changelog
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          # The changelog of the commit this run belongs to: the tag itself on
+          # a tag push, the branch head on a dispatch, so a section written
+          # after the tag still reaches the release notes.
+          gh api "repos/${GITHUB_REPOSITORY}/contents/docs/about/changelog.md?ref=${GITHUB_SHA}" \
+            -H "Accept: application/vnd.github.raw" > "${RUNNER_TEMP}/changelog.md"
           python - <<'PY'
           import os, re
           from pathlib import Path
-          tag = os.environ["GITHUB_REF_NAME"].lstrip("v")
-          text = Path("docs/about/changelog.md").read_text("utf-8")
+          tag = os.environ["TAG"].lstrip("v")
+          text = Path(os.environ["RUNNER_TEMP"], "changelog.md").read_text("utf-8")
           m = re.search(rf"^## \[{re.escape(tag)}\][^\n]*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
           body = m.group(1).strip() if m else "See docs/about/changelog.md."
           intro = (
@@ -76,7 +98,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" \
-            --title "World GeoJSON ${GITHUB_REF_NAME}" \
+          gh release create "${TAG}" \
+            --title "World GeoJSON ${TAG}" \
             --notes-file dist/NOTES.md \
             dist/world-geojson-*.zip dist/index.json dist/SHA256SUMS

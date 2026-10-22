@@ -29,10 +29,10 @@ correction merged upstream changes what your application receives, silently.
 === "Pinned"
 
     ```
-    https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0/<path>
+    https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.2.0/<path>
     ```
 
-    `v1.1.0` is the latest data release — see
+    `v1.2.0` is the latest data release — see
     [Versioning & stability](../about/versioning.md). The per-country zips
     attached to its GitHub Release are the recommended pinned download.
 
@@ -56,7 +56,7 @@ production browser traffic.
 The same URL with a tag in place of `main` pins a data version:
 
 ```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/<path>
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.2.0/<path>
 ```
 
 ## Release assets
@@ -73,8 +73,8 @@ repository for its size:
 | `SHA256SUMS` | Hashes of every asset |
 
 The first was `v1.0.0`, tagged from the merge of the data contract; the
-latest is `v1.1.0`, which adds Europe:
-<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.1.0>. The release
+latest is `v1.2.0`, which adds Africa:
+<https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.2.0>. The release
 notes are the matching section of the [Changelog](../about/changelog.md).
 
 ## The global index

@@ -16,7 +16,7 @@ pip install "geoworld[geopandas]"   # adds to_geopandas()
 ```python
 from geoworld import GeoWorld
 
-world = GeoWorld("1.1.0")  # a data release; the library has its own version
+world = GeoWorld("1.2.0")  # a data release; the library has its own version
 
 world.countries()  # every territory: levels, licence, feature counts
 world.country("CHL")["terms"]  # {"adm1": {"en": "Region", "es": "Región"}, …}
@@ -51,7 +51,7 @@ Pass `base_url` to read from any static host with the same layout, including a
 local checkout or an unzipped release asset:
 
 ```python
-GeoWorld("1.1.0", base_url="file:///opt/world-geojson")
+GeoWorld("1.2.0", base_url="file:///opt/world-geojson")
 ```
 
 Downloads are cached under the platform cache directory

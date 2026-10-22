@@ -14,12 +14,12 @@ npm install geoworld
 ```ts
 import { createClient } from "geoworld";
 
-const world = createClient({ version: "1.1.0" });
+const world = createClient({ version: "1.2.0" });
 ```
 
 | Option | Default | Meaning |
 |---|---|---|
-| `version` | `"1.1.0"` (`DEFAULT_DATA_VERSION`) | A data release tag without the `v`, or `"main"` |
+| `version` | `"1.2.0"` (`DEFAULT_DATA_VERSION`) | A data release tag without the `v`, or `"main"` |
 | `baseUrl` | `https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v{version}` | Any static host with the repository layout |
 | `fetch` | `globalThis.fetch` | Your own `fetch` (a proxy, a test double, a rate limiter) |
 | `cache` | `"memory"` | `"memory"`, `"none"`, or a `CacheLike` store that persists the bytes |
@@ -65,7 +65,7 @@ await world.levels("CHL");              // ["ADM0", "ADM1", "ADM2", "ADM3"]
 await world.dataset("CHL", "ADM3");     // the level's entry: path, bytes, sha256, bbox, license, …
 await world.bbox("CHL", "ADM3");        // [-109.449861, -56.525107, -66.416176, -17.498399]
 await world.parts("USA", "ADM2");       // ["US-AK", "US-AL", …, "unassigned"]
-await world.url("CHL", "ADM1");         // ".../v1.1.0/data/earth/CHL/CHL_ADM1.geojson"
+await world.url("CHL", "ADM1");         // ".../v1.2.0/data/earth/CHL/CHL_ADM1.geojson"
 await world.url("USA", "ADM2", { part: "US-CA" });
 await world.url("CHL", "ADM3", { preview: true });
 ```
@@ -121,7 +121,7 @@ await world.search("valpar", "CHL");           // all levels of the territory
 the stable `id` is what map libraries key on. MapLibre:
 
 ```ts
-const world = createClient({ version: "1.1.0" });
+const world = createClient({ version: "1.2.0" });
 map.addSource("regions", {
   type: "geojson",
   data: await world.url("CHL", "ADM1"),   // let MapLibre fetch it…
@@ -158,12 +158,12 @@ All extend `GeoWorldError`:
 ## Offline and mirrors
 
 Any host with the repository layout works as a source, including a directory
-served locally or an unzipped `world-geojson-v1.1.0-all.zip` from the
+served locally or an unzipped `world-geojson-v1.2.0-all.zip` from the
 [release assets](../get-started/download.md).
 
 ```ts
-createClient({ version: "1.1.0", baseUrl: "https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0" });
-createClient({ version: "1.1.0", baseUrl: "http://localhost:8080/world-geojson" });
+createClient({ version: "1.2.0", baseUrl: "https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.2.0" });
+createClient({ version: "1.2.0", baseUrl: "http://localhost:8080/world-geojson" });
 ```
 
 The `version` names the cache namespace; keep it equal to what the mirror

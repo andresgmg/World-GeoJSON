@@ -5,7 +5,7 @@
  * import { createClient } from "geoworld";
  * import { addBoundaries, setFeatureState } from "geoworld-maplibre";
  *
- * const world = createClient({ version: "1.1.0" });
+ * const world = createClient({ version: "1.2.0" });
  * const regions = await addBoundaries(map, world, "CHL", "ADM1", { fit: true });
  * setFeatureState(map, regions.source, "CHL:ADM1:CL-RM", { hover: true });
  * ```

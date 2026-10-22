@@ -1,7 +1,7 @@
 """geoworld — a thin client for the World GeoJSON administrative boundaries.
 
     >>> from geoworld import GeoWorld
-    >>> world = GeoWorld("1.1.0")
+    >>> world = GeoWorld("1.2.0")
     >>> world.get("CHL", "ADM1")["features"][0]["id"]
     'CHL:ADM1:CL-CO'
 
