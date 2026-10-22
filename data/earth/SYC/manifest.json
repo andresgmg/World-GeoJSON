@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SYC",
+  "iso_a2": "SC",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Seychelles",
+    "es": "Seychelles"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "geoBoundaries' ADM1 is copyleft (CC-BY-SA); its ADM3 holds the districts and is published without an ADM1 above it.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SYC/SYC_ADM0.geojson",
+      "bytes": 7258,
+      "sha256": "59802a2f3ef7879ffbc0f93cd6dc97f350b892c74724d4b10d1c95c7858a7e24",
+      "features": 1,
+      "bbox": [
+        46.207367,
+        -9.755548,
+        56.287446,
+        -3.791111
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SYC/preview/SYC_ADM0.preview.geojson",
+      "preview_bytes": 580,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/SYC/SYC_ADM3.geojson",
+      "bytes": 51044,
+      "sha256": "4f06d73d7fc3f751572213411d915a84dd53799c9e3d6c9aee6325d1afd12cc8",
+      "features": 27,
+      "bbox": [
+        46.203571,
+        -10.206038,
+        56.294338,
+        -3.714252
+      ],
+      "geometry_types": {
+        "MultiPolygon": 5,
+        "Polygon": 22
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SYC/preview/SYC_ADM3.preview.geojson",
+      "preview_bytes": 9386,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Seychelles National Bureau of Statistics, OCHA ROSEA",
+      "src_year": "2020"
+    }
+  ]
+}

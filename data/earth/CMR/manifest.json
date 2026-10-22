@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CMR",
+  "iso_a2": "CM",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "Cameroon",
+    "es": "Camerún"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Communes are copyleft (ODbL) and not published; the regions are.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CMR/CMR_ADM0.geojson",
+      "bytes": 30116,
+      "sha256": "1cde1bb9277d0f37bce12fb9df01a6ec4c0eb2a5ef1669c72873a0bd63f3c419",
+      "features": 1,
+      "bbox": [
+        8.505056,
+        1.654551,
+        16.207723,
+        13.081141
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CMR/preview/CMR_ADM0.preview.geojson",
+      "preview_bytes": 1476,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/CMR/CMR_ADM1.geojson",
+      "bytes": 82559,
+      "sha256": "eb0e5b6c2b5d0966fa7aae375e71bb5e55868b29fbcccbb10ffe95dcc9ba4344",
+      "features": 10,
+      "bbox": [
+        8.50122,
+        1.655927,
+        16.187788,
+        13.079035
+      ],
+      "geometry_types": {
+        "Polygon": 10
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/CMR/preview/CMR_ADM1.preview.geojson",
+      "preview_bytes": 5675,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0",
+      "src_provider": "geoBoundaries, Wikimedia",
+      "src_year": "2016"
+    }
+  ]
+}

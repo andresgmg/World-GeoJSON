@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GMB",
+  "iso_a2": "GM",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Gambia",
+    "es": "Gambia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GMB/GMB_ADM0.geojson",
+      "bytes": 9207,
+      "sha256": "f496a1b043f10f1f898ebe81b41258475f8c6ca57884fedca304f2b5bd158261",
+      "features": 1,
+      "bbox": [
+        -16.829701,
+        13.065009,
+        -13.818713,
+        13.819984
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GMB/preview/GMB_ADM0.preview.geojson",
+      "preview_bytes": 637,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/GMB/GMB_ADM1.geojson",
+      "bytes": 72056,
+      "sha256": "fe2c48d92281074495b63bd4863d64cce735cd54f781e88933e30ff6e7a38fdc",
+      "features": 8,
+      "bbox": [
+        -16.814265,
+        13.043467,
+        -13.791118,
+        13.823236
+      ],
+      "geometry_types": {
+        "MultiPolygon": 2,
+        "Polygon": 6
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GMB/preview/GMB_ADM1.preview.geojson",
+      "preview_bytes": 6693,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Knippenberg, Erwin, & Moritz, Meyer. “The Hidden Potential of Mobile Phone Data Insights on COVID-19 in the Gambia.” Data Blog, The World Bank Data Catalog",
+      "src_year": "2020"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/GMB/GMB_ADM2.geojson",
+      "bytes": 125820,
+      "sha256": "0c7ddbca50df6eefae0d4f6a9d2ed8445588eedaeba9e67a5ebc563c47a9ff83",
+      "features": 48,
+      "bbox": [
+        -16.814265,
+        13.043467,
+        -13.791118,
+        13.823236
+      ],
+      "geometry_types": {
+        "Polygon": 48
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GMB/preview/GMB_ADM2.preview.geojson",
+      "preview_bytes": 18926,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/GMB/ADM2/GM-B.geojson",
+          "bytes": 2337,
+          "sha256": "d8c3e223dafbe4ad56b652e0c4c66ec19246120007690c56abcc8b77dc9809c2",
+          "features": 3,
+          "bbox": [
+            -16.627071,
+            13.442376,
+            -16.570258,
+            13.473614
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GM-B"
+        },
+        {
+          "path": "data/earth/GMB/ADM2/GM-L.geojson",
+          "bytes": 14915,
+          "sha256": "c63ec2afef435c9d56587596877c1e72bfa839ec0cd76cf05351b82b468988ef",
+          "features": 6,
+          "bbox": [
+            -16.223921,
+            13.241212,
+            -15.168621,
+            13.558579
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GM-L"
+        },
+        {
+          "path": "data/earth/GMB/ADM2/GM-N.geojson",
+          "bytes": 20300,
+          "sha256": "9364e7efb58844bd77d4d66a7551d3ba2dae2a5532d8025151bad370ecfa8b3b",
+          "features": 7,
+          "bbox": [
+            -16.549359,
+            13.328164,
+            -15.304257,
+            13.646526
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GM-N"
+        },
+        {
+          "path": "data/earth/GMB/ADM2/GM-U.geojson",
+          "bytes": 22154,
+          "sha256": "556a042d22c75668efb733b67a0b1f854540aa1401aa83d89e4b796c6bafe8c9",
+          "features": 7,
+          "bbox": [
+            -14.546139,
+            13.216894,
+            -13.791118,
+            13.579492
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GM-U"
+        },
+        {
+          "path": "data/earth/GMB/ADM2/brikama.geojson",
+          "bytes": 27138,
+          "sha256": "5855bb1ad0fb9bafc97a06a5beaa39a3ae9c8b34f55ce692297da04244b7c69f",
+          "features": 9,
+          "bbox": [
+            -16.814265,
+            13.043467,
+            -15.80121,
+            13.444026
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "brikama"
+        },
+        {
+          "path": "data/earth/GMB/ADM2/janjanbureh.geojson",
+          "bytes": 14327,
+          "sha256": "f8156d48221f4009ff7b4750c1d3cb2412939d22c2b9dc5f3e59ef690af869c7",
+          "features": 6,
+          "bbox": [
+            -15.371883,
+            13.32135,
+            -14.49805,
+            13.724267
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "janjanbureh"
+        },
+        {
+          "path": "data/earth/GMB/ADM2/kanifing.geojson",
+          "bytes": 5549,
+          "sha256": "5bae1134d0dbc9f02f3ea8393298566e867532fee436aceb53fcc4ef119c73f4",
+          "features": 5,
+          "bbox": [
+            -16.72457,
+            13.384474,
+            -16.628906,
+            13.489165
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "kanifing"
+        },
+        {
+          "path": "data/earth/GMB/ADM2/kuntaur.geojson",
+          "bytes": 19747,
+          "sha256": "ac19e3894e92c979d4f03a8115069713ca82a9993e56cd921c4670ad2bb9963c",
+          "features": 5,
+          "bbox": [
+            -15.462575,
+            13.434687,
+            -14.446858,
+            13.823236
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "kuntaur"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "geoBoundaries, Knippenberg, Erwin, & Moritz, Meyer. “The Hidden Potential of Mobile Phone Data Insights on COVID-19 in the Gambia.” The World Bank Data Catalog",
+      "src_year": "2020"
+    }
+  ]
+}

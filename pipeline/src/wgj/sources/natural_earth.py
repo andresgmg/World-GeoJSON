@@ -23,10 +23,32 @@ _NE_CODES: set[str] | None = None
 # the EU and geoBoundaries use) and Natural Earth its own ADM0_A3, KOS.
 NE_ALIASES: dict[str, str] = {"XKX": "KOS"}
 
+# Registry entries whose outline is the union of several Natural Earth units.
+# Natural Earth draws Somaliland (SOL, no ISO code) apart from Somalia; ISO
+# 3166 has a single entry for both, and geoBoundaries' Somali districts cover
+# both, so SOM is the two units dissolved together. No line is edited: the
+# union only drops the boundary between them. See disputed-boundaries.md.
+NE_MERGE: dict[str, tuple[str, ...]] = {"SOM": ("SOM", "SOL")}
+
 
 def ne_code(iso3: str) -> str:
     """The code to look an entry up by in Natural Earth."""
     return NE_ALIASES.get(iso3, iso3)
+
+
+def ne_codes(iso3: str) -> tuple[str, ...]:
+    """Every Natural Earth unit that makes up an entry's outline."""
+    return NE_MERGE.get(iso3, (ne_code(iso3),))
+
+
+def ne_filter(codes: tuple[str, ...]) -> str:
+    """mapshaper -filter expression selecting the given units.
+
+    ADM0_A3 rather than ISO_A3 alone: Natural Earth sets ISO_A3 to "-99" for
+    territories whose status is contested, and those are exactly the ones we
+    still want to ship.
+    """
+    return " || ".join(f"ADM0_A3 === '{c}' || ISO_A3 === '{c}'" for c in codes)
 
 
 def natural_earth_codes(src: Path) -> set[str]:
@@ -60,9 +82,10 @@ def build_adm0(iso3: str, entry: dict) -> dict | None:
     # Check membership up front. mapshaper aborts with a confusing
     # "Table is missing one or more fields" when a filter matches nothing,
     # because an empty table has no columns for -filter-fields to keep.
-    code = ne_code(iso3)
-    if code not in natural_earth_codes(src):
-        print(f"  ADM0 — {iso3} is not in Natural Earth")
+    codes = ne_codes(iso3)
+    missing = [c for c in codes if c not in natural_earth_codes(src)]
+    if missing:
+        print(f"  ADM0 — {', '.join(missing)} not in Natural Earth")
         return None
 
     out_dir = earth() / iso3
@@ -70,18 +93,23 @@ def build_adm0(iso3: str, entry: dict) -> dict | None:
     dest = out_dir / f"{iso3}_ADM0.geojson"
 
     print("  ADM0")
+    # Filtering (and, for a merged entry, dissolving) happens before
+    # simplification. A dissolve without fields drops every attribute, so a
+    # merged outline takes its name from the registry instead.
+    pre = ["-filter", ne_filter(codes)]
+    name = "NAME_LONG || NAME"
+    if len(codes) > 1:
+        pre.append("-dissolve")
+        name = json.dumps(entry["name"]["en"])
     simp = simplify(
         src,
         dest,
-        # ADM0_A3 rather than ISO_A3: Natural Earth sets ISO_A3 to "-99" for
-        # territories whose status is contested, and those are exactly the ones
-        # we still want to ship. Filtering happens before simplification.
-        pre=["-filter", f"ADM0_A3 === '{code}' || ISO_A3 === '{code}'"],
+        pre=pre,
         extra=[
             "-each",
             js_expr(
                 {
-                    "shapeName": "NAME_LONG || NAME",
+                    "shapeName": name,
                     "shapeISO": f"'{iso3}'",
                     "shapeGroup": f"'{iso3}'",
                     "shapeType": "'ADM0'",

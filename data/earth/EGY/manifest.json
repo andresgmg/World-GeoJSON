@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "EGY",
+  "iso_a2": "EG",
+  "m49_region": "Northern Africa",
+  "name": {
+    "en": "Egypt",
+    "es": "Egipto"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Governorates (ADM1) are copyleft (ODbL) and not published, so the districts have no ADM1 above them. Natural Earth draws the Halaib Triangle, claimed by Sudan, inside Egypt's outline.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/EGY/EGY_ADM0.geojson",
+      "bytes": 41314,
+      "sha256": "5b7b5e60cedee2b262bb28a178d9b95b25f381bf4cebdb52b85393d0e6064377",
+      "features": 1,
+      "bbox": [
+        24.688343,
+        21.994369,
+        36.899181,
+        31.65648
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/EGY/preview/EGY_ADM0.preview.geojson",
+      "preview_bytes": 1935,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/EGY/EGY_ADM2.geojson",
+      "bytes": 1077536,
+      "sha256": "9b8aedd3a5097e1747fd7f8ec6218954798e2b76f9bdb2280690337d7015fbc7",
+      "features": 365,
+      "bbox": [
+        24.694508,
+        21.999128,
+        36.908707,
+        31.67028
+      ],
+      "geometry_types": {
+        "MultiPolygon": 62,
+        "Polygon": 303
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/EGY/preview/EGY_ADM2.preview.geojson",
+      "preview_bytes": 151363,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "OCHA ROMENA/HDX, Central Agency for Public Mobilization and Statistics (CAPMAS)",
+      "src_year": "2020"
+    }
+  ]
+}

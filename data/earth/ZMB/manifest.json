@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ZMB",
+  "iso_a2": "ZM",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Zambia",
+    "es": "Zambia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ZMB/ZMB_ADM0.geojson",
+      "bytes": 33919,
+      "sha256": "cb963fbfc97fce7884511078057b175802104b56882f024c1ffcf39e1f21a7cd",
+      "features": 1,
+      "bbox": [
+        21.979878,
+        -18.069232,
+        33.674203,
+        -8.194124
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ZMB/preview/ZMB_ADM0.preview.geojson",
+      "preview_bytes": 1664,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ZMB/ZMB_ADM1.geojson",
+      "bytes": 628777,
+      "sha256": "9de718fb396950c0ebd345baa461994d0752ba86834dce34f8f5ab7b0c7f4703",
+      "features": 10,
+      "bbox": [
+        21.996207,
+        -18.077374,
+        33.709698,
+        -8.271976
+      ],
+      "geometry_types": {
+        "Polygon": 10
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ZMB/preview/ZMB_ADM1.preview.geojson",
+      "preview_bytes": 27238,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Zambia Data Hub",
+      "src_year": "2020"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/ZMB/ZMB_ADM2.geojson",
+      "bytes": 1979942,
+      "sha256": "d884c1b33dbab8c3360932139bb938cc79b765c0b352c4c4fe20b0d2587cfea8",
+      "features": 116,
+      "bbox": [
+        21.996207,
+        -18.077374,
+        33.709698,
+        -8.271976
+      ],
+      "geometry_types": {
+        "Polygon": 116
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ZMB/preview/ZMB_ADM2.preview.geojson",
+      "preview_bytes": 111007,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-01.geojson",
+          "bytes": 259981,
+          "sha256": "bb4a4bff729d54e0a6e6caece418e00db0cb7aed568728eb87bb448218297f8f",
+          "features": 16,
+          "bbox": [
+            21.997768,
+            -17.638073,
+            25.596932,
+            -13.714891
+          ],
+          "geometry_types": {
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-01"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-02.geojson",
+          "bytes": 215175,
+          "sha256": "543501e3c1178bbe158a32dfbc830cf29e2d86bfe7626d56ab06d1a41742539a",
+          "features": 12,
+          "bbox": [
+            25.218135,
+            -16.564482,
+            31.436522,
+            -12.002396
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-02"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-03.geojson",
+          "bytes": 163845,
+          "sha256": "b5d677114c72e2e83b4b998b18bd4654199518af1020d1c33cff4a33b02a9751",
+          "features": 14,
+          "bbox": [
+            29.978338,
+            -14.997935,
+            33.549582,
+            -11.57519
+          ],
+          "geometry_types": {
+            "Polygon": 14
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-03"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-04.geojson",
+          "bytes": 155639,
+          "sha256": "52a458d4310db2fd7ab8e79ab68cec6c36fee7c6bece27ecefcd0ab518cea3b0",
+          "features": 12,
+          "bbox": [
+            28.380006,
+            -12.46023,
+            30.469145,
+            -8.378273
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-04"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-05.geojson",
+          "bytes": 256785,
+          "sha256": "d14b65b4b52e3ae5a295c0f2b1a71b82de3485fd2737546c7a25aff796b81f74",
+          "features": 12,
+          "bbox": [
+            29.080049,
+            -11.506202,
+            32.356412,
+            -8.271976
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-05"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-06.geojson",
+          "bytes": 312834,
+          "sha256": "4de8d462d566d9121faa6f754d9fd749e8c5d8ce65dd46c591549ab207b5d924",
+          "features": 11,
+          "bbox": [
+            21.996207,
+            -14.733354,
+            27.628904,
+            -10.888015
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-06"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-07.geojson",
+          "bytes": 171204,
+          "sha256": "3108920553d559805e1b42258e665e443e54554a03a95fec993d21f74274bef1",
+          "features": 13,
+          "bbox": [
+            24.971578,
+            -18.077374,
+            28.856946,
+            -15.470097
+          ],
+          "geometry_types": {
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-07"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-08.geojson",
+          "bytes": 132603,
+          "sha256": "bfaff447dd9f66e7d72e976c9b2237594265c4caf278bdce61325a98ed382d40",
+          "features": 10,
+          "bbox": [
+            26.779438,
+            -13.936298,
+            29.071047,
+            -12.221676
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-08"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-09.geojson",
+          "bytes": 62506,
+          "sha256": "df4e57be48df598b9674d786e2a2b1a84ece731504dc4f0ea07d08ddf2d40295",
+          "features": 7,
+          "bbox": [
+            27.769137,
+            -16.31061,
+            30.422444,
+            -14.642745
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-09"
+        },
+        {
+          "path": "data/earth/ZMB/ADM2/ZM-10.geojson",
+          "bytes": 250202,
+          "sha256": "d8e95148d913e19ec3cc41a0f7e01d2205155401f87cf534c540463879c1cca1",
+          "features": 9,
+          "bbox": [
+            29.780779,
+            -13.435007,
+            33.709698,
+            -9.056073
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZM-10"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "GRID3, Office of the Surveyor General",
+      "src_year": "2020"
+    }
+  ]
+}

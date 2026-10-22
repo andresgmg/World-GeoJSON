@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "KEN",
+  "iso_a2": "KE",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Kenya",
+    "es": "Kenia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "The 47 counties are the devolved local governments. Natural Earth draws the Ilemi Triangle, claimed by South Sudan, inside Kenya's outline.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/KEN/KEN_ADM0.geojson",
+      "bytes": 18440,
+      "sha256": "9738ec6f2f2aff241b26a8795d7e71fc2149543f428628a9eede1c20fdec3d66",
+      "features": 1,
+      "bbox": [
+        33.890468,
+        -4.677504,
+        41.885019,
+        5.030376
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/KEN/preview/KEN_ADM0.preview.geojson",
+      "preview_bytes": 999,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/KEN/KEN_ADM1.geojson",
+      "bytes": 667317,
+      "sha256": "f7ef1aa50ad486007caf3d64c0d5ed162985596e74bc8b80167a8dbed2d198e1",
+      "features": 47,
+      "bbox": [
+        33.911819,
+        -4.702209,
+        41.906258,
+        5.430648
+      ],
+      "geometry_types": {
+        "MultiPolygon": 4,
+        "Polygon": 43
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/KEN/preview/KEN_ADM1.preview.geojson",
+      "preview_bytes": 40684,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "RCMRD GeoPortal, Africa GeoPortal",
+      "src_year": "2020"
+    }
+  ]
+}

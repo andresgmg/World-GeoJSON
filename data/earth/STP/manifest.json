@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "STP",
+  "iso_a2": "ST",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "São Tomé and Príncipe",
+    "es": "Santo Tomé y Príncipe"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for São Tomé and Príncipe are copyleft (ODbL); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/STP/STP_ADM0.geojson",
+      "bytes": 2193,
+      "sha256": "e3fdf55bc4b61b6fce65177c7524de5610aa6c39a4cf79199decc856877a482f",
+      "features": 1,
+      "bbox": [
+        6.461681,
+        0.024115,
+        7.462738,
+        1.699774
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/STP/preview/STP_ADM0.preview.geojson",
+      "preview_bytes": 352,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

@@ -6,6 +6,43 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
+### Added — Africa
+
+- **60 territories, 125 datasets, 7,934 features**, bringing the repository
+  to 166 territories, 317 datasets and 83,394 features. Same sources and the
+  same pinned geoBoundaries commit; no licence was added to the allow-list.
+- Twenty countries have both tiers; Cameroon, Ethiopia, Kenya, Libya and
+  Namibia a first level only; twenty-two a municipal tier without an ADM1
+  above it, Réunion and Mayotte among them without an outline (Natural Earth
+  draws them inside France); thirteen the outline only.
+- **Somalia** is Natural Earth's Somalia and Somaliland dissolved into one
+  outline (`NE_MERGE`), matching ISO 3166 and geoBoundaries' districts.
+  **Western Sahara** follows Natural Earth's default view. Both, with Abyei,
+  Halaib, Ilemi, Chagos, the Scattered Islands and Mayotte, are new cases in
+  [Disputed boundaries](disputed-boundaries.md).
+- First-level ISO 3166-2 codes corrected in `shapeiso_fixes.json` for Côte
+  d'Ivoire (none upstream), South Africa, Zimbabwe, the Central African
+  Republic, Benin, Gambia and Sudan. When a fix clears a code, the municipal
+  join now falls back to the unit's name instead of leaving its children
+  unassigned.
+
+**Not included, and why.** Twenty-nine countries have no first level here and
+eleven no municipal tier, because geoBoundaries has them under ODbL or
+CC-BY-SA. Namibia's constituencies are left out because seven of them carry
+the wrong name. See the [Roadmap](roadmap.md).
+
+**Upstream quirks worth knowing.** Many tiers predate a reform (Burundi,
+Angola, Burkina Faso, Mali, the Central African Republic, Ethiopia, Sierra
+Leone, Namibia); those countries ship as `review`. Egypt has fourteen units
+named "Zemam Out" and two named "Suhag" beside one named "Suhag-2" (pinned in
+`id_overrides.json`). Madagascar's 1,579 communes have no first level above
+them, so 150 share a name and carry a numeric suffix in their `id`.
+
+### Fixed — pipeline
+
+- A country whose first `wgj build` fails no longer leaves a half-built
+  directory behind, which `--skip-existing` used to take for finished.
+
 ### Changed
 
 - The `geoworld` clients (Python and JavaScript) default to data `1.1.0`.

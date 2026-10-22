@@ -22,7 +22,7 @@ está al día.
 {
   "schema_version": 1,
   "bodies": ["earth"],
-  "totals": { "countries": 106, "datasets": 192, "features": 75460, "bytes": 232336401 },
+  "totals": { "countries": 166, "datasets": 317, "features": 83394, "bytes": 276481043 },
   "countries": [ … ]
 }
 ```
@@ -81,7 +81,7 @@ La entrada de Chile, con los datasets abreviados:
 
 ## Tamaño y determinismo
 
-Unos 650 KB en disco, 80 KB comprimido con gzip — menos que la mayoría de
+Unos 1 MB en disco, 130 KB comprimido con gzip — menos que la mayoría de
 los archivos de datos. No tiene marca de tiempo ni campo de versión, a propósito: el
 archivo es determinista byte a byte para un estado dado de los manifiestos, así
 que el CI puede regenerarlo y hacer `git diff`. La versión de los datos es la

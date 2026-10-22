@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ZWE",
+  "iso_a2": "ZW",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Zimbabwe",
+    "es": "Zimbabue"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ZWE/ZWE_ADM0.geojson",
+      "bytes": 17515,
+      "sha256": "8aa1755a435d71ece47c0a71482027d42e01f46038872c3cde3e23a153445655",
+      "features": 1,
+      "bbox": [
+        25.21937,
+        -22.39734,
+        33.042768,
+        -15.614808
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ZWE/preview/ZWE_ADM0.preview.geojson",
+      "preview_bytes": 977,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ZWE/ZWE_ADM1.geojson",
+      "bytes": 367949,
+      "sha256": "fb98e6b7bd6c8cff395e052fc321fb358b155c22db40195029b69bb378ecb246",
+      "features": 10,
+      "bbox": [
+        25.237881,
+        -22.420963,
+        33.067178,
+        -15.607146
+      ],
+      "geometry_types": {
+        "Polygon": 10
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ZWE/preview/ZWE_ADM1.preview.geojson",
+      "preview_bytes": 17482,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Zimbabwe National Statistics Agency (ZIMSTAT www.zimstat.co.zw) Central Statistics Office, OCHA ROSEA",
+      "src_year": "2020"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/ZWE/ZWE_ADM2.geojson",
+      "bytes": 870767,
+      "sha256": "08e7d090017633e28e969c8140b418e993f8fccb98d81f3104170f1866eeb6c6",
+      "features": 91,
+      "bbox": [
+        25.237881,
+        -22.420963,
+        33.067178,
+        -15.607146
+      ],
+      "geometry_types": {
+        "Polygon": 91
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ZWE/preview/ZWE_ADM2.preview.geojson",
+      "preview_bytes": 61107,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-BU.geojson",
+          "bytes": 3178,
+          "sha256": "f943b40a70b6227b38476a28299585cf8211b7138ef68c073400610158d6bc1a",
+          "features": 1,
+          "bbox": [
+            28.387415,
+            -20.258672,
+            28.696783,
+            -19.961475
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-BU"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-HA.geojson",
+          "bytes": 9961,
+          "sha256": "2680a384fea41617dd6b16db5e86b50c60c0212163492d296b28e932a170ec5f",
+          "features": 4,
+          "bbox": [
+            30.877435,
+            -18.050645,
+            31.221657,
+            -17.665559
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-HA"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-MA.geojson",
+          "bytes": 102856,
+          "sha256": "ac167e4b4180c8ee7a21a7448fb3d8ec59cee2af227741582ee6a4bc1cef01ed",
+          "features": 10,
+          "bbox": [
+            31.188503,
+            -21.327248,
+            33.067178,
+            -17.245659
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-MA"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-MC.geojson",
+          "bytes": 89590,
+          "sha256": "06f1cb3db09a5b78b95277353e3c5072e79ab84f41087ca47f5e0932152ec190",
+          "features": 10,
+          "bbox": [
+            30.046417,
+            -17.740229,
+            32.756797,
+            -15.618543
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-MC"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-ME.geojson",
+          "bytes": 105806,
+          "sha256": "0296331da30c63adfeaf89482c86502210dc86ab57d4b108654e484ae3f9180b",
+          "features": 11,
+          "bbox": [
+            30.554921,
+            -19.260546,
+            32.994321,
+            -16.693583
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-ME"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-MI.geojson",
+          "bytes": 126138,
+          "sha256": "edd781fb0267478aeb7208196fc1ddc7a30a2f1e14aa98c25502d0f542c7472d",
+          "features": 14,
+          "bbox": [
+            27.997499,
+            -21.043417,
+            30.870544,
+            -17.11707
+          ],
+          "geometry_types": {
+            "Polygon": 14
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-MI"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-MN.geojson",
+          "bytes": 103286,
+          "sha256": "95f69f754a7c3a625fdc2d8ce8d7b7db0fb0b4ee66e3cd46bd38250859b9a0f9",
+          "features": 9,
+          "bbox": [
+            25.237881,
+            -20.36194,
+            29.233795,
+            -16.87658
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-MN"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-MS.geojson",
+          "bytes": 82895,
+          "sha256": "cf372a47e008dcf393214b342afbb9d4f685fafef4f55136eaa22f1608d4eaa8",
+          "features": 10,
+          "bbox": [
+            26.702292,
+            -22.35493,
+            31.113331,
+            -19.480533
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-MS"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-MV.geojson",
+          "bytes": 99967,
+          "sha256": "576f1da445e39ebfcb93d60b78b4244bf651272691b2fdf6168feff259962370",
+          "features": 9,
+          "bbox": [
+            29.730701,
+            -22.420963,
+            32.446042,
+            -19.148562
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-MV"
+        },
+        {
+          "path": "data/earth/ZWE/ADM2/ZW-MW.geojson",
+          "bytes": 147923,
+          "sha256": "8f1bd16dc00523fc8b22b69b549d3867b23da4df15e018021b7ee6bb464def9d",
+          "features": 13,
+          "bbox": [
+            28.013959,
+            -18.911521,
+            30.962546,
+            -15.607146
+          ],
+          "geometry_types": {
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZW-MW"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Zimbabwe National Statistics Agency (ZIMSTAT www.zimstat.co.zw) Central Statistics Office, OCHA ROSEA",
+      "src_year": "2020"
+    }
+  ]
+}

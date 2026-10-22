@@ -1,0 +1,497 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CIV",
+  "iso_a2": "CI",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Côte d'Ivoire",
+    "es": "Costa de Marfil"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CIV/CIV_ADM0.geojson",
+      "bytes": 33362,
+      "sha256": "024a7670e415d6c17351eecbe2df064f56501fac4e1da99d922bf9f8779a035d",
+      "features": 1,
+      "bbox": [
+        -8.61872,
+        4.344062,
+        -2.506328,
+        10.726478
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CIV/preview/CIV_ADM0.preview.geojson",
+      "preview_bytes": 1606,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/CIV/CIV_ADM1.geojson",
+      "bytes": 408525,
+      "sha256": "ecf85039cd13c17ede71b2aa85d38ee463e1ed9f5b3527392527c20bc6fedd9c",
+      "features": 14,
+      "bbox": [
+        -8.584147,
+        4.360553,
+        -2.492309,
+        10.745651
+      ],
+      "geometry_types": {
+        "Polygon": 14
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/CIV/preview/CIV_ADM1.preview.geojson",
+      "preview_bytes": 19542,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "World Bank Group, OCHA Côte d’Ivoire",
+      "src_year": "2016"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/CIV/CIV_ADM2.geojson",
+      "bytes": 620982,
+      "sha256": "2416c40322e76b1c5445825f17aa8ea3bfe6eca7a08287bcfccbb214b23498c0",
+      "features": 33,
+      "bbox": [
+        -8.584147,
+        4.360553,
+        -2.492309,
+        10.745651
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 32
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/CIV/preview/CIV_ADM2.preview.geojson",
+      "preview_bytes": 33117,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/CIV/ADM2/CI-AB.geojson",
+          "bytes": 7351,
+          "sha256": "a2f4756f7fd7418e4c2f525118c5f71e632dd50a6b7cd8f3d0da7f5aba890077",
+          "features": 1,
+          "bbox": [
+            -4.461135,
+            5.218829,
+            -3.716347,
+            5.605083
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-AB"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-BS.geojson",
+          "bytes": 51192,
+          "sha256": "8d46a838a7a68c7073bf4294363e570d60c6cdaf12f699eeb7b69ff911f848ec",
+          "features": 3,
+          "bbox": [
+            -7.607221,
+            4.360553,
+            -5.367527,
+            6.558297
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-BS"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-CM.geojson",
+          "bytes": 30574,
+          "sha256": "15bbf7293040f6eb644fa3e0515ea9cd87d10de5ce7207b4f5c9160bf66cd605",
+          "features": 2,
+          "bbox": [
+            -3.851496,
+            5.074789,
+            -2.724997,
+            7.3561
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-CM"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-DN.geojson",
+          "bytes": 45948,
+          "sha256": "2ba83342e15e545a0eb039fb24569ff8ca7c2c79239edac9d12971d6b5733686",
+          "features": 2,
+          "bbox": [
+            -8.159307,
+            8.511963,
+            -6.58621,
+            10.45959
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-DN"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-GD.geojson",
+          "bytes": 22281,
+          "sha256": "17d07ca2183c3c76ce6318a8ee5bd9df15f270229b50c639c774ea98d0515a6b",
+          "features": 2,
+          "bbox": [
+            -6.412119,
+            5.159599,
+            -4.935763,
+            6.650208
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-GD"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-LC.geojson",
+          "bytes": 69375,
+          "sha256": "e4927214994602fb3e37ddfc1cfb5a0db15825caf7399baabc33d9f07976b711",
+          "features": 4,
+          "bbox": [
+            -5.67659,
+            6.186371,
+            -3.495732,
+            8.048031
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-LC"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-LG.geojson",
+          "bytes": 43515,
+          "sha256": "f355361e739d3c562a3ab5b5160e9d1c321722b4ef09e63faba3d94d9a29e4fd",
+          "features": 3,
+          "bbox": [
+            -5.508251,
+            5.090051,
+            -3.299341,
+            6.644062
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-LG"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-MG.geojson",
+          "bytes": 67504,
+          "sha256": "85c53b6b0a4ba5a79d59efd1227145d0090a748ebf9f6318f76400df96696e38",
+          "features": 3,
+          "bbox": [
+            -8.584147,
+            5.617935,
+            -6.973073,
+            8.154557
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-MG"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-SM.geojson",
+          "bytes": 25386,
+          "sha256": "45e3a4f4d97f63b1945aa2e5807d80d77ab94f4c311d7ea96aa63e3ffca3899e",
+          "features": 2,
+          "bbox": [
+            -7.086234,
+            6.260994,
+            -5.39974,
+            7.803232
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-SM"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-SV.geojson",
+          "bytes": 90895,
+          "sha256": "49d8dc31c688867716b5327ffcbb7a0692269d89637e901f0b44150a59882363",
+          "features": 3,
+          "bbox": [
+            -6.967831,
+            8.538627,
+            -3.794636,
+            10.745651
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-SV"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-VB.geojson",
+          "bytes": 46336,
+          "sha256": "bfc5a6f179fe20efe6c154970b0b3a4ccb61decbf41a4549a671d6622c79f294",
+          "features": 2,
+          "bbox": [
+            -5.772191,
+            7.227968,
+            -3.899953,
+            9.427629
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-VB"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-WR.geojson",
+          "bytes": 70652,
+          "sha256": "278bc1ff2d0f831e0b379c2ffe376bf36df683ec555f263142f125000c534c48",
+          "features": 3,
+          "bbox": [
+            -8.242098,
+            7.5437,
+            -5.337361,
+            9.210217
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-WR"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-YM.geojson",
+          "bytes": 9001,
+          "sha256": "7e8c0c67a757eb1a181641aa2a177641c17d5e27e47e48adeb2ace7a89cad6ce",
+          "features": 1,
+          "bbox": [
+            -5.531535,
+            6.551195,
+            -4.954361,
+            7.079446
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-YM"
+        },
+        {
+          "path": "data/earth/CIV/ADM2/CI-ZZ.geojson",
+          "bytes": 42122,
+          "sha256": "9877db9a052874616d158a85f4af16af31bc361e1f0d6071cebb56171d5a2e74",
+          "features": 2,
+          "bbox": [
+            -4.307038,
+            7.056672,
+            -2.492309,
+            9.958069
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CI-ZZ"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "World Bank",
+      "src_year": "2016"
+    }
+  ]
+}

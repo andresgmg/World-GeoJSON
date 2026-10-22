@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ETH",
+  "iso_a2": "ET",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Ethiopia",
+    "es": "Etiopía"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Zones and woredas are copyleft (ODbL) and not published; the regions are, in a vintage that predates the 2020–2023 creation of new regions.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ETH/ETH_ADM0.geojson",
+      "bytes": 22588,
+      "sha256": "8f9f197e28acb45e6c3947e9049fc205a97e526599457301d8bc824b14c7bf66",
+      "features": 1,
+      "bbox": [
+        32.9898,
+        3.403333,
+        47.979169,
+        14.879532
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ETH/preview/ETH_ADM0.preview.geojson",
+      "preview_bytes": 1175,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ETH/ETH_ADM1.geojson",
+      "bytes": 250696,
+      "sha256": "1fbef23091b41d9e6cb0661333aba871aeef861519347cf47c0c4294cf524b61",
+      "features": 11,
+      "bbox": [
+        33.002242,
+        3.400365,
+        47.959255,
+        14.846023
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 10
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ETH/preview/ETH_ADM1.preview.geojson",
+      "preview_bytes": 12971,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Open Africa, Code for Ethiopia",
+      "src_year": "2016"
+    }
+  ]
+}

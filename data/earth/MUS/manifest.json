@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MUS",
+  "iso_a2": "MU",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Mauritius",
+    "es": "Mauricio"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' districts are copyleft (ODbL); only the Natural Earth outline is published. Mauritius claims the Chagos Archipelago (see IOT) and Tromelin (see ATF).",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MUS/MUS_ADM0.geojson",
+      "bytes": 2870,
+      "sha256": "1c41370bcf49fe145d001276b0ac6a2a8e7c5c8c92e263f93bb32892cf92b9cb",
+      "features": 1,
+      "bbox": [
+        56.524181,
+        -20.517348,
+        63.493907,
+        -10.323907
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MUS/preview/MUS_ADM0.preview.geojson",
+      "preview_bytes": 381,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

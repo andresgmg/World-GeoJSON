@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "REU",
+  "iso_a2": "RE",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Réunion",
+    "es": "Reunión"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "Etalab-2.0"
+  },
+  "notes": "A French overseas department. Natural Earth draws it inside France's outline, so no ADM0 is published; geoBoundaries has its arrondissements (ADM3) and communes (ADM4), and the communes are published. The same communes are in FRA ADM5.",
+  "datasets": [
+    {
+      "level": "ADM4",
+      "path": "data/earth/REU/REU_ADM4.geojson",
+      "bytes": 65072,
+      "sha256": "de586add8a4d701ec9e156d39e400329f48c57bb02f4bde4997bfd317f4833f0",
+      "features": 24,
+      "bbox": [
+        55.216497,
+        -21.389074,
+        55.836613,
+        -20.872066
+      ],
+      "geometry_types": {
+        "Polygon": 24
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/REU/preview/REU_ADM4.preview.geojson",
+      "preview_bytes": 9101,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "Etalab-2.0",
+      "src_provider": "Institut national de l'information géographique et forestière (IGN-F)",
+      "src_year": "2022"
+    }
+  ]
+}

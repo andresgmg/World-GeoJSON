@@ -2,7 +2,7 @@
 
 Cada directorio de dataset contiene un `manifest.json`. Es la **única** entrada
 de este sitio de documentación: todas las páginas del catálogo se generan a
-partir de él. Hoy hay 106, uno por territorio bajo `data/earth/`, y todos van
+partir de él. Hoy hay 166, uno por territorio bajo `data/earth/`, y todos van
 incrustados tal cual en el [índice global](index-json.md), `data/index.json`.
 
 ## Por qué existe
@@ -298,7 +298,7 @@ una regeneración limpia.
 ## El índice global y los assets de la release
 
 Los manifiestos van incrustados, tal cual, en **`data/index.json`** — un único
-archivo de 650 KB para todo el corpus, para que un cliente descubra cada
+archivo de 1 MB para todo el corpus, para que un cliente descubra cada
 territorio, nivel y archivo con `bytes`, `sha256`, `bbox` y licencia en una
 sola petición en vez de una por territorio. Está documentado en
 [Índice global y esquemas](index-json.md), junto a los cinco JSON Schemas.

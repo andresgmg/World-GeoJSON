@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SOM",
+  "iso_a2": "SO",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Somalia",
+    "es": "Somalia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "The outline is Natural Earth's Somalia and Somaliland dissolved into one, matching ISO 3166's single entry and geoBoundaries' districts. Somaliland declared independence in 1991 and functions de facto as a separate state, recognised by few or no others. Regions (ADM1) are copyleft and not published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SOM/SOM_ADM0.geojson",
+      "bytes": 19717,
+      "sha256": "507a69893792d7525a251646159f19e95ad96a3857aa4b5233b7deca331f96ef",
+      "features": 1,
+      "bbox": [
+        40.965385,
+        -1.696303,
+        51.417038,
+        11.989119
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SOM/preview/SOM_ADM0.preview.geojson",
+      "preview_bytes": 1054,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/SOM/SOM_ADM2.geojson",
+      "bytes": 158386,
+      "sha256": "ae8edab1398e8497b4b49f0f145f9c72c62a025aab395644b9cea7b90b6188ae",
+      "features": 118,
+      "bbox": [
+        40.990214,
+        -1.662066,
+        51.414631,
+        11.988735
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 117
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SOM/preview/SOM_ADM2.preview.geojson",
+      "preview_bytes": 38013,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Global Polio Eradication Initiative (GPEI), Frank Salet",
+      "src_year": "2022"
+    }
+  ]
+}

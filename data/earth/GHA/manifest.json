@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GHA",
+  "iso_a2": "GH",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Ghana",
+    "es": "Ghana"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (ADM1) are copyleft (CC-BY-SA) and not published, so the districts have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GHA/GHA_ADM0.geojson",
+      "bytes": 16831,
+      "sha256": "2f8046cbf249c133b1b1d88194908013b7dade42086f5188cfa9f0d91de08519",
+      "features": 1,
+      "bbox": [
+        -3.262509,
+        4.737128,
+        1.187968,
+        11.162937
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GHA/preview/GHA_ADM0.preview.geojson",
+      "preview_bytes": 937,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/GHA/GHA_ADM2.geojson",
+      "bytes": 1702689,
+      "sha256": "681bf015bee417b7c0d192af619f515ffd231a3d30037917c3b5b437ec3ad572",
+      "features": 260,
+      "bbox": [
+        -3.262058,
+        4.739049,
+        1.200215,
+        11.174842
+      ],
+      "geometry_types": {
+        "MultiPolygon": 7,
+        "Polygon": 253
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GHA/preview/GHA_ADM2.preview.geojson",
+      "preview_bytes": 138907,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "USAID Ghana HPNO, Ghana Statistical Service",
+      "src_year": "2019"
+    }
+  ]
+}

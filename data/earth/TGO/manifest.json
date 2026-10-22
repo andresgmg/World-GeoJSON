@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "TGO",
+  "iso_a2": "TG",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Togo",
+    "es": "Togo"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Togo are copyleft (CC-BY-SA and ODbL); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/TGO/TGO_ADM0.geojson",
+      "bytes": 9747,
+      "sha256": "9919c0d71623f66a5faea16c1106d578f0d97d680d51ca99d665144827167be1",
+      "features": 1,
+      "bbox": [
+        -0.166109,
+        6.100491,
+        1.782351,
+        11.13498
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/TGO/preview/TGO_ADM0.preview.geojson",
+      "preview_bytes": 645,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

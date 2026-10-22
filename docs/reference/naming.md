@@ -57,14 +57,17 @@ would be tens of megabytes and unusable in a browser. Splitting by first-level
 division keeps every file small, lets consumers fetch only the state they care
 about, and keeps everything inside the per-file size budget.
 
-Split levels exist today for ARG, BEL, BGR, BIH, BLR, BLZ, BOL, BRA, CHL, DEU,
-DNK, DOM, ECU, ESP, FRA, GBR, GRC, IRL, ITA, MEX, MKD, NLD, NOR, PRY, ROU, SWE
-and USA.
+Split levels exist today for AGO, ARG, BDI, BEL, BEN, BFA, BGR, BIH, BLR, BLZ,
+BOL, BRA, CAF, CHL, CIV, DEU, DJI, DNK, DOM, ECU, ESP, FRA, GBR, GIN, GMB, GRC,
+IRL, ITA, LBR, MEX, MKD, MLI, NGA, NLD, NOR, PRY, ROU, RWA, SDN, SEN, SLE, SSD,
+SWE, USA, ZAF, ZMB and ZWE.
 
-**Eighteen territories have a municipal tier but no ADM1 to split it by**, so
-they ship the whole-country file only: COL, CRI, GLP, GTM, GUF, GUY, HND, HTI,
-ISL, LUX, MTQ, PAN, PRI, PRT, SLV, SUR, UKR and VIR. (Most of these are countries whose
-geoBoundaries ADM1 is copyleft; see the [Roadmap](../about/roadmap.md).)
+**Forty territories have a municipal tier but no ADM1 to split it by**, so they
+ship the whole-country file only: BWA, COD, COG, COL, COM, CRI, EGY, ERI, GAB,
+GHA, GLP, GNQ, GTM, GUF, GUY, HND, HTI, ISL, LSO, LUX, MDG, MOZ, MRT, MTQ, MWI,
+MYT, NER, PAN, PRI, PRT, REU, SLV, SOM, SUR, SYC, TCD, TZA, UGA, UKR and VIR.
+(Most of these are countries whose geoBoundaries ADM1 is copyleft; see the
+[Roadmap](../about/roadmap.md).)
 
 ### Part codes
 

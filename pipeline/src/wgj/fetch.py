@@ -9,9 +9,10 @@ git-ignored.
 
 Licence filtering happens at this stage, on purpose. geoBoundaries' `gbOpen`
 release is a container of heterogeneous upstream licences, not a uniformly
-CC BY 4.0 dataset: a third of its Americas entries are ODbL or CC-BY-SA. Data
-that cannot be redistributed should never reach the working tree, let alone git
-history, where removing it means rewriting history and breaking every clone.
+CC BY 4.0 dataset: a third of its Americas and African entries are ODbL or
+CC-BY-SA. Data that cannot be redistributed should never reach the working
+tree, let alone git history, where removing it means rewriting history and
+breaking every clone.
 """
 
 from __future__ import annotations

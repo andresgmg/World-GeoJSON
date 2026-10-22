@@ -1,0 +1,596 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BDI",
+  "iso_a2": "BI",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Burundi",
+    "es": "Burundi"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "Provinces (18) and communes (119) predate the 2025 reform, which left 5 provinces and 42 communes.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BDI/BDI_ADM0.geojson",
+      "bytes": 6617,
+      "sha256": "42a1d51c875ff0025e0e4523b6100829db2fc4fa793096655588a2eef682bfde",
+      "features": 1,
+      "bbox": [
+        28.986892,
+        -4.463344,
+        30.833962,
+        -2.303062
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BDI/preview/BDI_ADM0.preview.geojson",
+      "preview_bytes": 565,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BDI/BDI_ADM1.geojson",
+      "bytes": 107706,
+      "sha256": "cdeb58f147a2839726f3f664eebd6dae6b29d9d48c4ace99bd1ab1e155c610d7",
+      "features": 18,
+      "bbox": [
+        29.000658,
+        -4.467304,
+        30.852253,
+        -2.312298
+      ],
+      "geometry_types": {
+        "Polygon": 18
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BDI/preview/BDI_ADM1.preview.geojson",
+      "preview_bytes": 8663,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia",
+      "src_year": "2014"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/BDI/BDI_ADM2.geojson",
+      "bytes": 441932,
+      "sha256": "590681ba14d25bb3404e34180340e2b4a7f83f8524ed1ae607c4a5b1ef8f9dc5",
+      "features": 119,
+      "bbox": [
+        29.000345,
+        -4.470001,
+        30.850504,
+        -2.30907
+      ],
+      "geometry_types": {
+        "Polygon": 119
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BDI/preview/BDI_ADM2.preview.geojson",
+      "preview_bytes": 49974,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/BDI/ADM2/BI-BB.geojson",
+          "bytes": 18793,
+          "sha256": "e0d647ab7a1114fa87928a9647fbf39bab6f6cce3a9299eedf8a5c88d76feadb",
+          "features": 5,
+          "bbox": [
+            29.222623,
+            -3.31922,
+            29.561345,
+            -2.91502
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-BB"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-BL.geojson",
+          "bytes": 23571,
+          "sha256": "204472aba1704134582f696a384874e426b40172ba8eca47b76897c4a8a644c2",
+          "features": 9,
+          "bbox": [
+            29.211046,
+            -3.676085,
+            29.598558,
+            -3.249048
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-BL"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-BM.geojson",
+          "bytes": 5292,
+          "sha256": "2079f0ae1ca81a996b5ae6869c2bdb09aa510b13188a9cf94fe42a13e9479464",
+          "features": 3,
+          "bbox": [
+            29.287944,
+            -3.485575,
+            29.425697,
+            -3.303247
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-BM"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-BR.geojson",
+          "bytes": 24734,
+          "sha256": "a41acc3882ec88b6dbc1902688c18e6774de2f5b828126d8f3164508f23ba9e0",
+          "features": 6,
+          "bbox": [
+            29.488738,
+            -4.161577,
+            29.916166,
+            -3.557982
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-BR"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-CA.geojson",
+          "bytes": 24081,
+          "sha256": "52bb28cea9b2286d0809a3dd7d5943607781869bf6e16224af11910bb1cbc938",
+          "features": 5,
+          "bbox": [
+            30.316436,
+            -3.396795,
+            30.850504,
+            -2.892831
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-CA"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-CI.geojson",
+          "bytes": 30094,
+          "sha256": "a394ef9de4353c2e9a5e5316041ff47862bef4874a138437ffe7b47404da4982",
+          "features": 6,
+          "bbox": [
+            29.000345,
+            -3.10391,
+            29.485196,
+            -2.590879
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-CI"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-GI.geojson",
+          "bytes": 40184,
+          "sha256": "785e512d55d50be974fb1ce640a48670b83b23e5ca785ebeeb644f028a9ad7f1",
+          "features": 11,
+          "bbox": [
+            29.717616,
+            -3.845078,
+            30.104959,
+            -3.05869
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-GI"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-KI.geojson",
+          "bytes": 21445,
+          "sha256": "da1ba894e0eb46a3e4ab62da190e58834697dfc0682bbeda01055dc9559ef179",
+          "features": 7,
+          "bbox": [
+            29.920446,
+            -2.784133,
+            30.41793,
+            -2.327129
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-KI"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-KR.geojson",
+          "bytes": 25597,
+          "sha256": "3aaa8458945d52615e5dd889a95467e00380db8957fe59b7ad0cae063a7cb58e",
+          "features": 7,
+          "bbox": [
+            29.896781,
+            -3.393871,
+            30.349889,
+            -2.904144
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-KR"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-KY.geojson",
+          "bytes": 26567,
+          "sha256": "04fb95da4d08d156b3afd8dca36eee1ae8170ec9f3afc23a978fe68f9618c4d4",
+          "features": 9,
+          "bbox": [
+            29.430283,
+            -3.22926,
+            29.879236,
+            -2.786472
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-KY"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-MA.geojson",
+          "bytes": 30555,
+          "sha256": "1b286748cbdefe429c5db7f636a246ab609055c0e280b207304efd71b69953a5",
+          "features": 6,
+          "bbox": [
+            29.536874,
+            -4.470001,
+            30.191719,
+            -4.003001
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-MA"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-MU.geojson",
+          "bytes": 15976,
+          "sha256": "d947908b2eecbb566880e5522b5c2e8abb1dd35ca18a138a70de9d6777ecf5da",
+          "features": 5,
+          "bbox": [
+            29.502488,
+            -3.426223,
+            29.851808,
+            -3.10749
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-MU"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-MW.geojson",
+          "bytes": 20689,
+          "sha256": "95970f3159e94c3e6c411dc3797636115b62779d142e16e9c301e8ae93cfc80b",
+          "features": 6,
+          "bbox": [
+            29.566116,
+            -3.720205,
+            29.875007,
+            -3.297831
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-MW"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-MY.geojson",
+          "bytes": 27601,
+          "sha256": "ddc0d13b731bcb0c5a87d5ad978a43bdba84341ad6cb4fd529bfb36f182f0d44",
+          "features": 7,
+          "bbox": [
+            30.077131,
+            -3.15871,
+            30.54311,
+            -2.30907
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-MY"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-NG.geojson",
+          "bytes": 24508,
+          "sha256": "0046a7985c653df490f0fc0785af2ca9a2b0fee02391d9d38ecac01c117fedae",
+          "features": 9,
+          "bbox": [
+            29.635974,
+            -3.0876,
+            30.193385,
+            -2.655063
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-NG"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-RM.geojson",
+          "bytes": 22579,
+          "sha256": "16fbba128fd1ff56e1e0f5c89aeb83aff5b93ed45055422ed52ac338504b7848",
+          "features": 5,
+          "bbox": [
+            29.310527,
+            -4.19135,
+            29.607332,
+            -3.558816
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-RM"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-RT.geojson",
+          "bytes": 29097,
+          "sha256": "d565ae7f923658ebcab9491730fe8b960a76dd2b663d581c6415c378598d5596",
+          "features": 6,
+          "bbox": [
+            29.813434,
+            -4.097801,
+            30.411067,
+            -3.632638
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-RT"
+        },
+        {
+          "path": "data/earth/BDI/ADM2/BI-RY.geojson",
+          "bytes": 32104,
+          "sha256": "a23a2cc81ceecdc897313a478a47db96ca5b34ea98f176ee7745aee9a2c30550",
+          "features": 7,
+          "bbox": [
+            30.041065,
+            -3.727752,
+            30.678075,
+            -3.187933
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BI-RY"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "New York University Spatial Data Repository, Stanford University, Map Maker Limited",
+      "src_year": "2007"
+    }
+  ]
+}

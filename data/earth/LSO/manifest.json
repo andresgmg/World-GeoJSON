@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "LSO",
+  "iso_a2": "LS",
+  "m49_region": "Southern Africa",
+  "name": {
+    "en": "Lesotho",
+    "es": "Lesoto"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Districts (ADM1) are copyleft (ODbL) and not published, so the ADM2 units have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/LSO/LSO_ADM0.geojson",
+      "bytes": 7369,
+      "sha256": "d789a8a349f2a41a818d5f34a05fbffee1f743b47387a79a6cfb765e06d62704",
+      "features": 1,
+      "bbox": [
+        27.002155,
+        -30.658799,
+        29.435908,
+        -28.570761
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/LSO/preview/LSO_ADM0.preview.geojson",
+      "preview_bytes": 562,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/LSO/LSO_ADM2.geojson",
+      "bytes": 520086,
+      "sha256": "afdf648581d229a6970c837c6b6639d642b0d1d390ff9ce3cc6d486c294c7d00",
+      "features": 78,
+      "bbox": [
+        27.01125,
+        -30.677848,
+        29.457366,
+        -28.57103
+      ],
+      "geometry_types": {
+        "Polygon": 78
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/LSO/preview/LSO_ADM2.preview.geojson",
+      "preview_bytes": 42388,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "FAO and the Ministry of Local Government, OCHA ROSEA",
+      "src_year": "2020"
+    }
+  ]
+}

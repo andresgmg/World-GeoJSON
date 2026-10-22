@@ -143,3 +143,26 @@ def test_shapeiso_correction_flows_into_ids_and_parts(data_copy: Path) -> None:
     ids = [f["id"] for f in json.loads((d / "BRB_ADM1.geojson").read_text("utf-8"))["features"]]
     assert all(":" in i and i.split(":")[2] == i.split(":")[2].lower() for i in ids), ids
     shutil.rmtree(d)
+
+
+def test_cleared_adm1_code_falls_back_to_the_name_for_the_join(tmp_path: Path) -> None:
+    """Gambia: two local government areas share each ISO region code, so the
+    fixes clear them; the municipal join must still find a key for them."""
+    from wgj.sources.geoboundaries import apply_shapeiso_fixes
+
+    def feat(name: str, code: str, src: str) -> dict:
+        props = {"shapeName": name, "shapeISO": code, "src_shape_id": src}
+        return {"type": "Feature", "properties": props, "geometry": None}
+
+    path = tmp_path / "GMB_ADM1.geojson"
+    data = {
+        "type": "FeatureCollection",
+        "features": [
+            feat("Brikama", "GM-W", "31243875B88426941804625"),
+            feat("Banjul", "GM-B", "31243875B86288540800273"),
+        ],
+    }
+    path.write_text(json.dumps(data), "utf-8")
+    assert apply_shapeiso_fixes(path, "GMB", "ADM1") == 1
+    codes = [f["properties"]["shapeISO"] for f in json.loads(path.read_text("utf-8"))["features"]]
+    assert codes == ["brikama", "GM-B"]

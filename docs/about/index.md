@@ -27,13 +27,13 @@ over](../reference/planetary.md).
 
 | | |
 |---|---|
-| Territories | 106 (the Americas 55, Europe 51) |
-| Datasets | 192 |
-| Features | 75,460 |
+| Territories | 166 (the Americas 55, Europe 51, Africa 60) |
+| Datasets | 317 |
+| Features | 83,394 |
 | Bodies | 1 of 3 planned |
 | Data licence | Permissive only, recorded per dataset |
 
-Africa, Asia and Oceania follow, one continent per release. See
+Asia and Oceania follow, one continent per release. See
 [Roadmap](roadmap.md).
 
 The four legacy files in the repository root predate the conventions and are

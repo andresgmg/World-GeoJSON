@@ -1,0 +1,392 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SSD",
+  "iso_a2": "SS",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "South Sudan",
+    "es": "Sudán del Sur"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "South Sudan claims Abyei, Kafia Kingi and the Ilemi Triangle, which Natural Earth draws inside Sudan and Kenya.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SSD/SSD_ADM0.geojson",
+      "bytes": 24015,
+      "sha256": "28ba004b2be4eeb935c679c78e09cfa7d05940aa03eae00cde59e2341797ca3b",
+      "features": 1,
+      "bbox": [
+        24.121556,
+        3.490202,
+        35.920835,
+        12.216155
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SSD/preview/SSD_ADM0.preview.geojson",
+      "preview_bytes": 1234,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/SSD/SSD_ADM1.geojson",
+      "bytes": 151066,
+      "sha256": "718deead62b44712120f83355e7919c093b5de9ffd61dc2bad93ada489b367b8",
+      "features": 10,
+      "bbox": [
+        24.150734,
+        3.480292,
+        35.951924,
+        12.236352
+      ],
+      "geometry_types": {
+        "Polygon": 10
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SSD/preview/SSD_ADM1.preview.geojson",
+      "preview_bytes": 10612,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "South Sudan Information Management Working Group (IMWG), National Bureau of Statistics (NBS), and OCHA, OCHA South Sudan",
+      "src_year": "2020"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/SSD/SSD_ADM2.geojson",
+      "bytes": 211707,
+      "sha256": "a48ee2ce55f5f799b682f12ceeed3a600b24f4566b2e2ae619c21faff8516830",
+      "features": 78,
+      "bbox": [
+        24.150734,
+        3.480292,
+        35.951924,
+        12.236352
+      ],
+      "geometry_types": {
+        "Polygon": 78
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SSD/preview/SSD_ADM2.preview.geojson",
+      "preview_bytes": 32579,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/SSD/ADM2/SS-BN.geojson",
+          "bytes": 6828,
+          "sha256": "a3ad0dad6f785fda2dd5de07f7aeb58db8330b89112e307cb8941513d0e1a660",
+          "features": 5,
+          "bbox": [
+            26.136305,
+            7.892373,
+            28.03606,
+            9.895781
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-BN"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-BW.geojson",
+          "bytes": 45994,
+          "sha256": "ed3a5bd564d7d017496bbe74a3c7b2c6448ee6b50ffbccbdb209ceaaa7d3d1da",
+          "features": 3,
+          "bbox": [
+            24.150734,
+            6.649802,
+            28.536156,
+            10.438683
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-BW"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-EC.geojson",
+          "bytes": 18581,
+          "sha256": "cd52656cfb429da05c7792ba59e670655760549cb45accbc2c5b6c4a1229a1e1",
+          "features": 6,
+          "bbox": [
+            29.79663,
+            3.480292,
+            32.173154,
+            6.251062
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-EC"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-EE.geojson",
+          "bytes": 15144,
+          "sha256": "84e95c313267543ec84c17216b341ec285bb3020779b3a536d494c84ea1a0e01",
+          "features": 8,
+          "bbox": [
+            31.724288,
+            3.505564,
+            35.951924,
+            6.008192
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-EE"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-EW.geojson",
+          "bytes": 38878,
+          "sha256": "6514866fdeb48ed03ca6d232191d894219b8badee3f9900ad11c886417a81907",
+          "features": 10,
+          "bbox": [
+            26.288842,
+            4.280106,
+            31.018461,
+            6.797651
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-EW"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-JG.geojson",
+          "bytes": 38297,
+          "sha256": "c15fae9bf6694cf159fae8319abd3d1bc529bcd205169be1cac1ad63b3f97af7",
+          "features": 11,
+          "bbox": [
+            30.209851,
+            5.720879,
+            35.021284,
+            9.51738
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-JG"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-LK.geojson",
+          "bytes": 7776,
+          "sha256": "823e5df0aa04e1f076895c1c388d7f8b7a5486d39735568c744971bab0801f4a",
+          "features": 8,
+          "bbox": [
+            28.462971,
+            5.675484,
+            31.697317,
+            7.832605
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-LK"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-NU.geojson",
+          "bytes": 26810,
+          "sha256": "5fd2b67c14c7b2981d05f4d927f9b92a707f6e0316e15dd84b64cd52fa4c96e5",
+          "features": 12,
+          "bbox": [
+            30.756009,
+            7.987981,
+            34.148303,
+            12.236352
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-NU"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-UY.geojson",
+          "bytes": 7962,
+          "sha256": "386a5353689bb598cedb3458172dd28451106ad9930ab83648e59c3ea638dff8",
+          "features": 9,
+          "bbox": [
+            28.694723,
+            7.067215,
+            30.84607,
+            10.288802
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-UY"
+        },
+        {
+          "path": "data/earth/SSD/ADM2/SS-WR.geojson",
+          "bytes": 6236,
+          "sha256": "822e87d04d5689eeb0aa517cf9d1a9e2a43fe462382cbcafdd48760741d6b131",
+          "features": 6,
+          "bbox": [
+            27.862246,
+            6.388121,
+            29.697964,
+            9.352104
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SS-WR"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "South Sudan Information Management Working Group (IMWG), National Bureau of Statistics (NBS), and OCHA, OCHA South Sudan",
+      "src_year": "2020"
+    }
+  ]
+}

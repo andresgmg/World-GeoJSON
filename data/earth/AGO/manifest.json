@@ -1,0 +1,597 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "AGO",
+  "iso_a2": "AO",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "Angola",
+    "es": "Angola"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "Provinces (18) and municipalities predate the 2024 reform, which created 21 provinces and 326 municipalities.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/AGO/AGO_ADM0.geojson",
+      "bytes": 36337,
+      "sha256": "cbd6fa26b9445f36da468b9c64c24679a668f7e0eeb6a9da537741ac134e8ba2",
+      "features": 1,
+      "bbox": [
+        11.669394,
+        -18.031405,
+        24.061714,
+        -4.391204
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/AGO/preview/AGO_ADM0.preview.geojson",
+      "preview_bytes": 1798,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/AGO/AGO_ADM1.geojson",
+      "bytes": 454066,
+      "sha256": "d7845872e1f9c78cd8cf3adc8af7d85768b6930086747944b3f52a5c84ee1ef1",
+      "features": 18,
+      "bbox": [
+        11.668749,
+        -18.039104,
+        24.087494,
+        -4.388063
+      ],
+      "geometry_types": {
+        "MultiPolygon": 3,
+        "Polygon": 15
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/AGO/preview/AGO_ADM1.preview.geojson",
+      "preview_bytes": 28502,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "U.S. Census Bureau",
+      "src_year": "2021"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/AGO/AGO_ADM2.geojson",
+      "bytes": 2484947,
+      "sha256": "c904787d512ee668225e1cda57863a7096e2a8fabacfadccf9a12b3e3b9201ba",
+      "features": 157,
+      "bbox": [
+        11.640893,
+        -18.0391,
+        24.074783,
+        -4.358052
+      ],
+      "geometry_types": {
+        "Polygon": 157
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/AGO/preview/AGO_ADM2.preview.geojson",
+      "preview_bytes": 144727,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/AGO/ADM2/AO-BGO.geojson",
+          "bytes": 51147,
+          "sha256": "2b9bc398b7d48e374baa612ae0b5dc4d98051b31cc7e4e22b25bb4cfe1a8b86a",
+          "features": 5,
+          "bbox": [
+            13.096495,
+            -8.976222,
+            14.97994,
+            -7.633664
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-BGO"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-BGU.geojson",
+          "bytes": 122078,
+          "sha256": "9e425a09ae4d5b123a3224b7daa544990da6f0589fed4e408609a6090e4bcc4b",
+          "features": 9,
+          "bbox": [
+            12.510674,
+            -13.966465,
+            15.104616,
+            -11.765584
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-BGU"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-BIE.geojson",
+          "bytes": 174483,
+          "sha256": "14454f173f48ea2a2a5750c07371edd9c93cc0ef12fddc6a2db29d19d72eabe9",
+          "features": 9,
+          "bbox": [
+            15.705083,
+            -14.305537,
+            19.222453,
+            -10.574577
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-BIE"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-CAB.geojson",
+          "bytes": 27485,
+          "sha256": "59034db3b9162932802a1f21bf8a6f2d7f90589b2dee31c88734d8a7f477cf04",
+          "features": 4,
+          "bbox": [
+            12.009244,
+            -5.774041,
+            13.113833,
+            -4.358052
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-CAB"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-CCU.geojson",
+          "bytes": 250167,
+          "sha256": "da41fc6188be08930a02d49f7c505939227a693bcb3562def81b431616eab560",
+          "features": 9,
+          "bbox": [
+            16.463707,
+            -18.0391,
+            23.392007,
+            -13.561609
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-CCU"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-CNN.geojson",
+          "bytes": 83591,
+          "sha256": "c2111cbc5b5edbc534988764031de0791b7fab6d8fe2e2a30c1d4948c2e07a70",
+          "features": 6,
+          "bbox": [
+            13.137174,
+            -17.437279,
+            17.40655,
+            -15.108413
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-CNN"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-CNO.geojson",
+          "bytes": 104680,
+          "sha256": "b462fecfa43d8d0c423071f8d2f465d2b70a0285b623b56745a3c46cf4fd10d3",
+          "features": 11,
+          "bbox": [
+            14.029616,
+            -9.780693,
+            15.830401,
+            -7.959563
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-CNO"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-CUS.geojson",
+          "bytes": 154076,
+          "sha256": "dee2429dd81edc4156d218d4d8702fee39f7560f2903108b881b2dc310fa6f39",
+          "features": 12,
+          "bbox": [
+            13.495227,
+            -12.227267,
+            16.608886,
+            -9.677028
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-CUS"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-HUA.geojson",
+          "bytes": 119903,
+          "sha256": "203e16a622d862f831305ba14c0ee23c6edc17ffc6f487260d4bfc7c4224a90e",
+          "features": 11,
+          "bbox": [
+            14.792593,
+            -13.765934,
+            16.600274,
+            -11.452754
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-HUA"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-HUI.geojson",
+          "bytes": 208977,
+          "sha256": "4ef5a537af19b8a2c8dd9b1279ce059d22af123fe7f36aef60ea15ba7f9bfdee",
+          "features": 13,
+          "bbox": [
+            13.183046,
+            -16.343741,
+            16.752924,
+            -13.324079
+          ],
+          "geometry_types": {
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-HUI"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-LNO.geojson",
+          "bytes": 145663,
+          "sha256": "f963912b464432ef861372bab331498cb2dfa1d5f293b810152652911811422c",
+          "features": 9,
+          "bbox": [
+            17.316839,
+            -10.461274,
+            21.928235,
+            -6.915225
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-LNO"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-LSU.geojson",
+          "bytes": 117447,
+          "sha256": "580228adcd1c5106876801e9ca1daf482bf5cb85c572b697fb5251f2172b4a8d",
+          "features": 4,
+          "bbox": [
+            18.462643,
+            -11.510531,
+            22.318142,
+            -8.350003
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-LSU"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-LUA.geojson",
+          "bytes": 46525,
+          "sha256": "18333cce143ddcb76aa3378eeb4807fc0d49464f84ae27b2c9210c329151a853",
+          "features": 5,
+          "bbox": [
+            12.993666,
+            -10.445975,
+            14.569877,
+            -8.625722
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-LUA"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-MAL.geojson",
+          "bytes": 245004,
+          "sha256": "cfcfab16b361bb4f95bacf995c42de7a7f2fde08d4cfd3fed488c7be5013dfb2",
+          "features": 14,
+          "bbox": [
+            15.075134,
+            -11.738088,
+            18.84057,
+            -7.334444
+          ],
+          "geometry_types": {
+            "Polygon": 14
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-MAL"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-MOX.geojson",
+          "bytes": 226239,
+          "sha256": "188d4bf11dea8dbb01c597ff484c06290bfd354d9f41936c1465b80f9e6483aa",
+          "features": 9,
+          "bbox": [
+            17.896663,
+            -16.198633,
+            24.074783,
+            -10.631485
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-MOX"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-NAM.geojson",
+          "bytes": 131865,
+          "sha256": "b7fb1d8988af8a544ad8bb36d9e690725f3adb1a0840b2479334ecca3bbb21d6",
+          "features": 5,
+          "bbox": [
+            11.640893,
+            -17.255928,
+            13.666512,
+            -13.560747
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-NAM"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-UIG.geojson",
+          "bytes": 192710,
+          "sha256": "1ae37497c0256a66368927bb14b4c6e3f8c900dab6f7c7e67669f9ef1e7f1a67",
+          "features": 16,
+          "bbox": [
+            13.811101,
+            -8.431289,
+            17.109901,
+            -5.846385
+          ],
+          "geometry_types": {
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-UIG"
+        },
+        {
+          "path": "data/earth/AGO/ADM2/AO-ZAI.geojson",
+          "bytes": 84471,
+          "sha256": "418b3ef372d2ad1f31cbbbf2bb097678eab7b5d88061702f73df51ff5fd32567",
+          "features": 6,
+          "bbox": [
+            12.263882,
+            -7.820906,
+            14.978185,
+            -5.840549
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "AO-ZAI"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2006"
+    }
+  ]
+}

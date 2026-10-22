@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "DZA",
+  "iso_a2": "DZ",
+  "m49_region": "Northern Africa",
+  "name": {
+    "en": "Algeria",
+    "es": "Argelia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Algeria are copyleft (CC-BY-SA and ODbL); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/DZA/DZA_ADM0.geojson",
+      "bytes": 26131,
+      "sha256": "698dd4350de3aadf16ec1c5488954af7d4c5373f429e46e417c1e9a67f5a31a7",
+      "features": 1,
+      "bbox": [
+        -8.682385,
+        18.975561,
+        11.968861,
+        37.09394
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/DZA/preview/DZA_ADM0.preview.geojson",
+      "preview_bytes": 1330,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

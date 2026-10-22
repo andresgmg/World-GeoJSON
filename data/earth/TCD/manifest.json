@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "TCD",
+  "iso_a2": "TD",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "Chad",
+    "es": "Chad"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Provinces (ADM1) are copyleft (ODbL) and not published, so the departments have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/TCD/TCD_ADM0.geojson",
+      "bytes": 25368,
+      "sha256": "f932789141bd927cd84253af0f1b0d74497815787dcd3eb720c8d64fdf882bb3",
+      "features": 1,
+      "bbox": [
+        13.449184,
+        7.455567,
+        23.984406,
+        23.44472
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/TCD/preview/TCD_ADM0.preview.geojson",
+      "preview_bytes": 1292,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/TCD/TCD_ADM2.geojson",
+      "bytes": 158377,
+      "sha256": "39ff29584076b816a3ffb54ec65213b863633e7a6edc505218029a9396768b1b",
+      "features": 70,
+      "bbox": [
+        13.47348,
+        7.44107,
+        24.0,
+        23.439444
+      ],
+      "geometry_types": {
+        "Polygon": 70
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/TCD/preview/TCD_ADM2.preview.geojson",
+      "preview_bytes": 26234,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "OCHA Chad, OCHA Chad",
+      "src_year": "2019"
+    }
+  ]
+}

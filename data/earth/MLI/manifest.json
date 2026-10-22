@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MLI",
+  "iso_a2": "ML",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Mali",
+    "es": "Malí"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (9) predate the 2023 reform that created 19.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MLI/MLI_ADM0.geojson",
+      "bytes": 36953,
+      "sha256": "4db389de514518a987728eb8ba17b3ec5c51dc5289e1a80c634186d4566943be",
+      "features": 1,
+      "bbox": [
+        -12.26413,
+        10.140054,
+        4.235638,
+        24.995065
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MLI/preview/MLI_ADM0.preview.geojson",
+      "preview_bytes": 1754,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/MLI/MLI_ADM1.geojson",
+      "bytes": 210455,
+      "sha256": "6f1466eeeadc04a2c2c1efe4017cec4dbd2d4bad69a5ca0aba0d83a13f0b6fc8",
+      "features": 9,
+      "bbox": [
+        -12.239237,
+        10.141371,
+        4.24467,
+        24.999512
+      ],
+      "geometry_types": {
+        "Polygon": 9
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MLI/preview/MLI_ADM1.preview.geojson",
+      "preview_bytes": 12292,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "DNCT - Direction Nationale des Collectivités Territoriales, United Nations Office for the Coordination of Humanitarian Affairs, Mali",
+      "src_year": "2021"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/MLI/MLI_ADM3.geojson",
+      "bytes": 1103245,
+      "sha256": "5fb2fbdc7b15ec4c52dd16a6ca4258ec433249ad6d092cef5f6de28094b9f186",
+      "features": 701,
+      "bbox": [
+        -12.239237,
+        10.141371,
+        4.24467,
+        24.999512
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 700
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MLI/preview/MLI_ADM3.preview.geojson",
+      "preview_bytes": 238182,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/MLI/ADM3/ML-1.geojson",
+          "bytes": 216301,
+          "sha256": "338ae1571b6fc74842b0e3c8f6ca51c610e391ef4f8cdc70e3acfdf858be40e5",
+          "features": 129,
+          "bbox": [
+            -12.239237,
+            11.893484,
+            -8.132316,
+            15.698838
+          ],
+          "geometry_types": {
+            "Polygon": 129
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-1"
+        },
+        {
+          "path": "data/earth/MLI/ADM3/ML-2.geojson",
+          "bytes": 158139,
+          "sha256": "fd0219d53107f6145199a63c2dfb93c0753a44e26711b99f0511512e14ed5fb8",
+          "features": 108,
+          "bbox": [
+            -9.136138,
+            11.455775,
+            -5.964313,
+            15.49748
+          ],
+          "geometry_types": {
+            "Polygon": 108
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-2"
+        },
+        {
+          "path": "data/earth/MLI/ADM3/ML-3.geojson",
+          "bytes": 274242,
+          "sha256": "46a23d91c23f77c2a740d223e8127ccdf86a09fcda5d5f9765d5b1b482612764",
+          "features": 146,
+          "bbox": [
+            -8.679508,
+            10.141371,
+            -4.367424,
+            12.814422
+          ],
+          "geometry_types": {
+            "Polygon": 146
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-3"
+        },
+        {
+          "path": "data/earth/MLI/ADM3/ML-4.geojson",
+          "bytes": 156606,
+          "sha256": "d3a1e2eacb859b335d5896ddbffea359e06309a4bab033fdfffbe05eec62f6ed",
+          "features": 119,
+          "bbox": [
+            -7.081341,
+            12.545899,
+            -3.958407,
+            15.551256
+          ],
+          "geometry_types": {
+            "Polygon": 119
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-4"
+        },
+        {
+          "path": "data/earth/MLI/ADM3/ML-5.geojson",
+          "bytes": 136932,
+          "sha256": "3c4cc65d9aa8b66a3a3b15094bd2e425b46ada95ae3c57a2bf137be9959beaac",
+          "features": 108,
+          "bbox": [
+            -5.665573,
+            13.152737,
+            -0.741958,
+            15.897931
+          ],
+          "geometry_types": {
+            "Polygon": 108
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-5"
+        },
+        {
+          "path": "data/earth/MLI/ADM3/ML-6.geojson",
+          "bytes": 97296,
+          "sha256": "7890adecbaa36a993a25377452ccfe8ae2528d10cb8c4fec32d15a1c880a774b",
+          "features": 52,
+          "bbox": [
+            -6.572009,
+            14.996328,
+            -0.014339,
+            24.999512
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 51
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-6"
+        },
+        {
+          "path": "data/earth/MLI/ADM3/ML-7.geojson",
+          "bytes": 35032,
+          "sha256": "5c409735584d2baca4f8d3903a2694f79bf1bfa40fa2411641a730ac5ce83dd6",
+          "features": 23,
+          "bbox": [
+            -1.609463,
+            14.940192,
+            4.24467,
+            19.036584
+          ],
+          "geometry_types": {
+            "Polygon": 23
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-7"
+        },
+        {
+          "path": "data/earth/MLI/ADM3/ML-8.geojson",
+          "bytes": 21139,
+          "sha256": "110064cf3d4995556768f8f1c3b3f7b3f92170fd6bb8de2ed104bcab36396441",
+          "features": 10,
+          "bbox": [
+            -2.056461,
+            17.699585,
+            4.242843,
+            21.906762
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-8"
+        },
+        {
+          "path": "data/earth/MLI/ADM3/ML-BKO.geojson",
+          "bytes": 8282,
+          "sha256": "04e05afb2cefd0999e8d3eaa98e397843b005503a2f9bde532a3630417b88fbf",
+          "features": 6,
+          "bbox": [
+            -8.081477,
+            12.50289,
+            -7.91215,
+            12.711431
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ML-BKO"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "DNCT - Direction Nationale des Colelctivités Territorielles, DNP - Direction Nationale de la Population, United Nations Office for the Coordination of Humanitarian Affairs, Mali",
+      "src_year": "2017"
+    }
+  ]
+}

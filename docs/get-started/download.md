@@ -81,7 +81,7 @@ notes are the matching section of the [Changelog](../about/changelog.md).
 
 Fetch `data/index.json` first and only then the files you need: it lists every
 territory and dataset with `path`, `bytes`, `sha256`, `bbox` and licence, and
-embeds every manifest, in about 650 KB (80 KB gzipped). It is served from the same
+embeds every manifest, in about 1 MB (130 KB gzipped). It is served from the same
 URLs as the data —
 
 ```
@@ -109,8 +109,8 @@ preview against 7 MB in full.
 
 For working with the data locally or in a pipeline.
 
-The repository's pack is about 106 MiB and the working tree about 465 MB —
-319 MB under `data/` and most of the rest the four legacy files in the root.
+The repository's pack is about 126 MiB and the working tree about 550 MB —
+400 MB under `data/` and most of the rest the four legacy files in the root.
 A full clone is not enormous, but a sparse checkout of one country is a lot
 smaller.
 

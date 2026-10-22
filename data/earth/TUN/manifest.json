@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "TUN",
+  "iso_a2": "TN",
+  "m49_region": "Northern Africa",
+  "name": {
+    "en": "Tunisia",
+    "es": "Túnez"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Tunisia are copyleft (ODbL); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/TUN/TUN_ADM0.geojson",
+      "bytes": 14819,
+      "sha256": "504b241646883f3f75cb738f682be3bd2f53a5fabcff1f350aa26aa725112887",
+      "features": 1,
+      "bbox": [
+        7.479832,
+        30.228905,
+        11.564131,
+        37.345201
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/TUN/preview/TUN_ADM0.preview.geojson",
+      "preview_bytes": 853,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[6.4617,0.0336,6.7401,0.4071],"features":[
+{"type":"Feature","id":"STP:ADM0:STP","properties":{"shapeName":"São Tomé and Principe","shapeISO":"STP","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[6.6814,0.4071],[6.5331,0.3481],[6.4617,0.2222],[6.5164,0.0336],[6.7401,0.2186],[6.6814,0.4071]]]}}
+]}

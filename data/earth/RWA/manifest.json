@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "RWA",
+  "iso_a2": "RW",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Rwanda",
+    "es": "Ruanda"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Sectors, cells and villages (ADM3–ADM5) are below the municipal tier and not built.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/RWA/RWA_ADM0.geojson",
+      "bytes": 6971,
+      "sha256": "edcd368f9cc73bf42079ef41e151d509cbb4fe4e1f5a5f05a4aa1011fcf9b6f5",
+      "features": 1,
+      "bbox": [
+        28.857236,
+        -2.826855,
+        30.887809,
+        -1.058694
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/RWA/preview/RWA_ADM0.preview.geojson",
+      "preview_bytes": 566,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/RWA/RWA_ADM1.geojson",
+      "bytes": 97697,
+      "sha256": "17f4d473a83ef8d8a2bb9419768dd95d8fe64ed13f52e4d8510c94757d461e4a",
+      "features": 5,
+      "bbox": [
+        28.861708,
+        -2.839926,
+        30.899044,
+        -1.04745
+      ],
+      "geometry_types": {
+        "Polygon": 5
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/RWA/preview/RWA_ADM1.preview.geojson",
+      "preview_bytes": 5092,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "The Rwanda Geo Portal",
+      "src_year": "2020"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/RWA/RWA_ADM2.geojson",
+      "bytes": 222164,
+      "sha256": "ee308eb215bdf10a7336fd2d155287e591965ea1f67a3174666565a9619e4ded",
+      "features": 30,
+      "bbox": [
+        28.861731,
+        -2.84023,
+        30.899747,
+        -1.047167
+      ],
+      "geometry_types": {
+        "Polygon": 30
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/RWA/preview/RWA_ADM2.preview.geojson",
+      "preview_bytes": 16506,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/RWA/ADM2/RW-01.geojson",
+          "bytes": 14290,
+          "sha256": "dd513fbf2d020405d86d3d31019df02039a0bf5ee2c4fd7580f864633f531864",
+          "features": 3,
+          "bbox": [
+            29.977707,
+            -2.079365,
+            30.27715,
+            -1.779656
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "RW-01"
+        },
+        {
+          "path": "data/earth/RWA/ADM2/RW-02.geojson",
+          "bytes": 52159,
+          "sha256": "d819ceba7f1a8c50e8b0ccca33cb449a41b9b768e91bc1ad6cfe1c6523e9fb37",
+          "features": 7,
+          "bbox": [
+            29.959629,
+            -2.438077,
+            30.899747,
+            -1.047167
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "RW-02"
+        },
+        {
+          "path": "data/earth/RWA/ADM2/RW-03.geojson",
+          "bytes": 35340,
+          "sha256": "22eef16b8bbc0e787861919d1f9a966326b8b4cd1a8f7ccf01246e9fbcd7b6af",
+          "features": 5,
+          "bbox": [
+            29.450002,
+            -1.913378,
+            30.275624,
+            -1.308887
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "RW-03"
+        },
+        {
+          "path": "data/earth/RWA/ADM2/RW-04.geojson",
+          "bytes": 54281,
+          "sha256": "65f1be82b4581955dc19d5b2261d702f1c71922e380a98f37dbe3496e51ce19a",
+          "features": 7,
+          "bbox": [
+            28.861731,
+            -2.744671,
+            29.675149,
+            -1.506018
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "RW-04"
+        },
+        {
+          "path": "data/earth/RWA/ADM2/RW-05.geojson",
+          "bytes": 66457,
+          "sha256": "604dbf5fece4be540a71193028ea77a34dbf8e96aca3f5d395089c28aeed89da",
+          "features": 8,
+          "bbox": [
+            29.264653,
+            -2.84023,
+            30.020724,
+            -1.731182
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "RW-05"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Open Data Rwanda",
+      "src_year": "2012"
+    }
+  ]
+}

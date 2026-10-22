@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MOZ",
+  "iso_a2": "MZ",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Mozambique",
+    "es": "Mozambique"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Provinces (ADM1) are copyleft (ODbL) and not published, so the districts have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MOZ/MOZ_ADM0.geojson",
+      "bytes": 52910,
+      "sha256": "c6bebae7bc92d93072eb1ed4ab860613a9f5b6a6e675b3f316e9e52ccbc40987",
+      "features": 1,
+      "bbox": [
+        30.213845,
+        -26.860272,
+        40.847992,
+        -10.469008
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MOZ/preview/MOZ_ADM0.preview.geojson",
+      "preview_bytes": 2422,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/MOZ/MOZ_ADM2.geojson",
+      "bytes": 2295954,
+      "sha256": "28af6720412bbba0e0c29a81695e480d8d76bc5072e7e18d42326709b2152d29",
+      "features": 159,
+      "bbox": [
+        30.211725,
+        -26.867041,
+        40.840333,
+        -10.473765
+      ],
+      "geometry_types": {
+        "MultiPolygon": 21,
+        "Polygon": 138
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MOZ/preview/MOZ_ADM2.preview.geojson",
+      "preview_bytes": 138507,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Mozambique INE (Instituto Nacional de Estatistica), OCHA ROSEA",
+      "src_year": "2019"
+    }
+  ]
+}

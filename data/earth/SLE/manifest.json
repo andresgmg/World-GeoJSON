@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SLE",
+  "iso_a2": "SL",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Sierra Leone",
+    "es": "Sierra Leona"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Provinces (4) and districts (14) predate the 2017 reform that created a fifth province and 16 districts.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SLE/SLE_ADM0.geojson",
+      "bytes": 15310,
+      "sha256": "9755fbfd2a42472aa9c5ae030b960f3c2431904eb56f7eac80df418561ebb436",
+      "features": 1,
+      "bbox": [
+        -13.301096,
+        6.91942,
+        -10.282236,
+        9.996006
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SLE/preview/SLE_ADM0.preview.geojson",
+      "preview_bytes": 906,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/SLE/SLE_ADM1.geojson",
+      "bytes": 124789,
+      "sha256": "5dd3338d02879e4b0f3b2c6b639c3f8dbcd9fdb6a0ad6be2ecb27cbd05f0d4fb",
+      "features": 4,
+      "bbox": [
+        -13.309011,
+        6.923379,
+        -10.270559,
+        9.999253
+      ],
+      "geometry_types": {
+        "MultiPolygon": 3,
+        "Polygon": 1
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SLE/preview/SLE_ADM1.preview.geojson",
+      "preview_bytes": 6485,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Government of Sierra Leone, OCHA ROWCA",
+      "src_year": "2014"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/SLE/SLE_ADM2.geojson",
+      "bytes": 232606,
+      "sha256": "f75fbc4835d4481d87cc9169809240a299e8ba289b573303dc094847ad44f6d8",
+      "features": 14,
+      "bbox": [
+        -13.309011,
+        6.923379,
+        -10.270559,
+        9.999253
+      ],
+      "geometry_types": {
+        "MultiPolygon": 5,
+        "Polygon": 9
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SLE/preview/SLE_ADM2.preview.geojson",
+      "preview_bytes": 13570,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/SLE/ADM2/SL-E.geojson",
+          "bytes": 45031,
+          "sha256": "91ef7af48b711d0155bb1f2b64b76d9a80fbb1bf8a9df919c8f897353df7a813",
+          "features": 3,
+          "bbox": [
+            -11.592258,
+            7.340922,
+            -10.270559,
+            9.077827
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SL-E"
+        },
+        {
+          "path": "data/earth/SLE/ADM2/SL-N.geojson",
+          "bytes": 107749,
+          "sha256": "702f8793c704ac7f807e6232f168fe520b9d5d9b0c440c88bbda2af80a20106b",
+          "features": 5,
+          "bbox": [
+            -13.309011,
+            8.23651,
+            -10.578555,
+            9.999253
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SL-N"
+        },
+        {
+          "path": "data/earth/SLE/ADM2/SL-S.geojson",
+          "bytes": 67628,
+          "sha256": "2a57aa857f85e1082b0677c94cf61bfd8fda01618a0b32e13f6c61113286126a",
+          "features": 4,
+          "bbox": [
+            -13.07613,
+            6.923379,
+            -11.142781,
+            8.488802
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SL-S"
+        },
+        {
+          "path": "data/earth/SLE/ADM2/SL-W.geojson",
+          "bytes": 12469,
+          "sha256": "79ca5e5d94330e9fba17e395a8f08f675b0ff29a2df0c169cd1d4ac6f29628d3",
+          "features": 2,
+          "bbox": [
+            -13.298864,
+            8.094272,
+            -12.913335,
+            8.499809
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SL-W"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Government of Sierra Leone, OCHA ROWCA",
+      "src_year": "2017"
+    }
+  ]
+}

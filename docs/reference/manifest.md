@@ -1,7 +1,7 @@
 # Manifest format
 
 Every dataset directory contains a `manifest.json`. It is the **only** input to
-this documentation site: every catalog page is generated from it. There are 106
+this documentation site: every catalog page is generated from it. There are 166
 of them today, one per territory under `data/earth/`, and all are embedded
 verbatim in the [global index](index-json.md), `data/index.json`.
 
@@ -291,7 +291,7 @@ and the committed manifests must match a fresh regeneration.
 
 ## The global index and the release assets
 
-The manifests are embedded, verbatim, in **`data/index.json`** — one 650 KB
+The manifests are embedded, verbatim, in **`data/index.json`** — one 1 MB
 file for the whole corpus, so a client discovers every territory, level and
 file with `bytes`, `sha256`, `bbox` and licence in a single request instead of
 one per territory. It is documented on [Global index & schemas](index-json.md), alongside the

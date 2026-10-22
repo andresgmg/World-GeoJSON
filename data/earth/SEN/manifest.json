@@ -1,0 +1,498 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SEN",
+  "iso_a2": "SN",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Senegal",
+    "es": "Senegal"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SEN/SEN_ADM0.geojson",
+      "bytes": 31049,
+      "sha256": "6bdea7c318843edc73ac525ef51a38b677d1d627dfadc97b4ac890549a0369f4",
+      "features": 1,
+      "bbox": [
+        -17.536041,
+        12.305607,
+        -11.377776,
+        16.691385
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SEN/preview/SEN_ADM0.preview.geojson",
+      "preview_bytes": 1541,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/SEN/SEN_ADM1.geojson",
+      "bytes": 248022,
+      "sha256": "afd9337f3b709380f76295aba4f22cf2d360bc45593b9de79c6acf7ea9e656f0",
+      "features": 14,
+      "bbox": [
+        -17.530879,
+        12.307766,
+        -11.34837,
+        16.693735
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 13
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SEN/preview/SEN_ADM1.preview.geojson",
+      "preview_bytes": 14121,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Government of Senegal, OCHA ROWCA",
+      "src_year": "2019"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/SEN/SEN_ADM2.geojson",
+      "bytes": 432119,
+      "sha256": "94c4fd6f1b27ae74021777912d099d6c4e9282ab3c0c37c855eb5a7587a866a2",
+      "features": 45,
+      "bbox": [
+        -17.530879,
+        12.307766,
+        -11.34837,
+        16.693735
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 44
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SEN/preview/SEN_ADM2.preview.geojson",
+      "preview_bytes": 29797,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/SEN/ADM2/SN-DB.geojson",
+          "bytes": 14754,
+          "sha256": "1cb61ca2ded5aa702a71ebee14b839a5b16e68b1f179a5b19b1c8d4710d67390",
+          "features": 3,
+          "bbox": [
+            -16.687089,
+            14.514397,
+            -15.43637,
+            15.027074
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-DB"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-DK.geojson",
+          "bytes": 10265,
+          "sha256": "c971c8e7e86fba94f25e1b1d604a87d17e698a55a2ee4410454a0e0e96338002",
+          "features": 4,
+          "bbox": [
+            -17.530879,
+            14.586814,
+            -17.126192,
+            14.88634
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-DK"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-FK.geojson",
+          "bytes": 24392,
+          "sha256": "6cb1dcaa03637623d561c7c61da4ddd953896521157548372cb2e74b400c8e54",
+          "features": 3,
+          "bbox": [
+            -16.793084,
+            13.593316,
+            -15.462218,
+            14.752393
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-FK"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-KA.geojson",
+          "bytes": 20453,
+          "sha256": "69a3434ad58a54feb8b6174b778105be5cbe7e8d0b41e25015d34d5354eb33c6",
+          "features": 4,
+          "bbox": [
+            -15.862902,
+            13.743161,
+            -14.582597,
+            14.723188
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-KA"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-KD.geojson",
+          "bytes": 44191,
+          "sha256": "094efae674ffacf5da94d480f6e921df99f7da79c5432dc28e6fab8ab75526ab",
+          "features": 3,
+          "bbox": [
+            -15.355695,
+            12.674477,
+            -13.451058,
+            13.600463
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-KD"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-KE.geojson",
+          "bytes": 61619,
+          "sha256": "c64c0f924ccce1db4ad73d6cc5b373b463319eb486d375e129979284cd0c1bbb",
+          "features": 3,
+          "bbox": [
+            -13.239611,
+            12.307766,
+            -11.34837,
+            13.461013
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-KE"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-KL.geojson",
+          "bytes": 20741,
+          "sha256": "a176492e3148d428f26985444f50d463d35abee10fed99aa60135f0f94c5f502",
+          "features": 3,
+          "bbox": [
+            -16.388183,
+            13.591744,
+            -15.414428,
+            14.498125
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-KL"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-LG.geojson",
+          "bytes": 16878,
+          "sha256": "06d0dbd6576b8d5390bfd4e52e5e97c4fca854524e96dc16c6198903967d5757",
+          "features": 3,
+          "bbox": [
+            -16.810054,
+            14.61253,
+            -14.496412,
+            16.187429
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-LG"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-MT.geojson",
+          "bytes": 32433,
+          "sha256": "1953a87b070a1f0f97c9a559b4dd69531c2bc31da3e30933d3966319f679a69b",
+          "features": 3,
+          "bbox": [
+            -14.849298,
+            14.406433,
+            -12.58705,
+            16.148144
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-MT"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-SE.geojson",
+          "bytes": 27532,
+          "sha256": "c57736ae39f88fc972957e640af5cc8d6aa7153ffee7769e84dfb40f737bbcb8",
+          "features": 3,
+          "bbox": [
+            -16.022253,
+            12.424853,
+            -15.112272,
+            13.395286
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-SE"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-SL.geojson",
+          "bytes": 27397,
+          "sha256": "be443df1a6764cf160eb416f958e987068b33a47bb2129d171b5d382561b27b3",
+          "features": 3,
+          "bbox": [
+            -16.525611,
+            15.493817,
+            -13.702104,
+            16.693735
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-SL"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-TC.geojson",
+          "bytes": 91749,
+          "sha256": "5fc13b068e84bd7efd824c2eca60fa9e39fb74da1b2d95bfb342df5da3183a54",
+          "features": 4,
+          "bbox": [
+            -14.833595,
+            12.629939,
+            -11.864178,
+            15.11117
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-TC"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-TH.geojson",
+          "bytes": 21135,
+          "sha256": "de380f4a955aa950a8740cdaf674ed25fd30a7ddccd7576e35a8f2d06f868b41",
+          "features": 3,
+          "bbox": [
+            -17.176757,
+            14.05389,
+            -16.176272,
+            15.360191
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-TH"
+        },
+        {
+          "path": "data/earth/SEN/ADM2/SN-ZG.geojson",
+          "bytes": 19783,
+          "sha256": "f977a58be811660480922135fd64db00a2cf76e11949cd37dd9312cba2edc52d",
+          "features": 3,
+          "bbox": [
+            -16.793999,
+            12.337969,
+            -15.888446,
+            13.170447
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SN-ZG"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Government of Senegal, OCHA ROWCA",
+      "src_year": "2019"
+    }
+  ]
+}

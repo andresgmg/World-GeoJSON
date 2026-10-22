@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MDG",
+  "iso_a2": "MG",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Madagascar",
+    "es": "Madagascar"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (ADM1) are copyleft (ODbL) and not published, so the communes have no ADM1 above them. Madagascar claims the Scattered Islands (see ATF).",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MDG/MDG_ADM0.geojson",
+      "bytes": 37757,
+      "sha256": "1b00ae1931e51fac2659a746937056f391b7af5f38e8f79954219cf2e58487ee",
+      "features": 1,
+      "bbox": [
+        43.222911,
+        -25.598565,
+        50.503917,
+        -11.943617
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MDG/preview/MDG_ADM0.preview.geojson",
+      "preview_bytes": 1836,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/MDG/MDG_ADM3.geojson",
+      "bytes": 6308295,
+      "sha256": "f526757472fcc40d8491127d5aabcc450e52518abaf943ba43e8770cbc810a1e",
+      "features": 1579,
+      "bbox": [
+        43.176924,
+        -25.605753,
+        50.484487,
+        -11.951426
+      ],
+      "geometry_types": {
+        "MultiPolygon": 30,
+        "Polygon": 1549
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MDG/preview/MDG_ADM3.preview.geojson",
+      "preview_bytes": 706811,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Madagascar National Disaster Management Office (BNGRC), OCHA ROSA",
+      "src_year": "2020"
+    }
+  ]
+}

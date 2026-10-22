@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GNQ",
+  "iso_a2": "GQ",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "Equatorial Guinea",
+    "es": "Guinea Ecuatorial"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Provinces (ADM1) are copyleft (ODbL) and not published, so the ADM2 units have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GNQ/GNQ_ADM0.geojson",
+      "bytes": 5257,
+      "sha256": "1d3f4ab94a333cd8ea6e2d5407da81e6c9ddb584350298fcb51f59435e21dedc",
+      "features": 1,
+      "bbox": [
+        5.61199,
+        -1.475681,
+        11.336341,
+        3.772406
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GNQ/preview/GNQ_ADM0.preview.geojson",
+      "preview_bytes": 518,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/GNQ/GNQ_ADM2.geojson",
+      "bytes": 95586,
+      "sha256": "9c90f94c364efba062b03075d76c82d3fae06b33b7e8fc062c329f4c3473131d",
+      "features": 28,
+      "bbox": [
+        5.616739,
+        -1.463957,
+        11.406377,
+        3.783976
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 27
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GNQ/preview/GNQ_ADM2.preview.geojson",
+      "preview_bytes": 11119,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "World Resources Institute, Congo Forest Basin Atlas",
+      "src_year": "2013"
+    }
+  ]
+}

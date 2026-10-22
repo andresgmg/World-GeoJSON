@@ -57,15 +57,17 @@ de decenas de megabytes e inutilizable en un navegador. Partir por la primera
 división mantiene todos los archivos pequeños, permite descargar solo el estado
 que interesa, y deja todo dentro del presupuesto de tamaño por archivo.
 
-Hoy existen niveles partidos para ARG, BEL, BGR, BIH, BLR, BLZ, BOL, BRA, CHL,
-DEU, DNK, DOM, ECU, ESP, FRA, GBR, GRC, IRL, ITA, MEX, MKD, NLD, NOR, PRY, ROU,
-SWE y USA.
+Hoy existen niveles partidos para AGO, ARG, BDI, BEL, BEN, BFA, BGR, BIH, BLR,
+BLZ, BOL, BRA, CAF, CHL, CIV, DEU, DJI, DNK, DOM, ECU, ESP, FRA, GBR, GIN, GMB,
+GRC, IRL, ITA, LBR, MEX, MKD, MLI, NGA, NLD, NOR, PRY, ROU, RWA, SDN, SEN, SLE,
+SSD, SWE, USA, ZAF, ZMB y ZWE.
 
-**Dieciocho territorios tienen tier municipal pero ningún ADM1 por el que
-partirlo**, así que publican solo el archivo de país completo: COL, CRI, GLP,
-GTM, GUF, GUY, HND, HTI, ISL, LUX, MTQ, PAN, PRI, PRT, SLV, SUR, UKR y VIR. (La mayoría son países
-cuyo ADM1 en geoBoundaries es copyleft; ver la
-[Hoja de ruta](../about/roadmap.md).)
+**Cuarenta territorios tienen tier municipal pero ningún ADM1 por el que partirlo**,
+así que publican solo el archivo de país completo: BWA, COD, COG, COL, COM,
+CRI, EGY, ERI, GAB, GHA, GLP, GNQ, GTM, GUF, GUY, HND, HTI, ISL, LSO, LUX, MDG,
+MOZ, MRT, MTQ, MWI, MYT, NER, PAN, PRI, PRT, REU, SLV, SOM, SUR, SYC, TCD, TZA,
+UGA, UKR y VIR. (La mayoría son países cuyo ADM1 en geoBoundaries es copyleft;
+ver la [Hoja de ruta](../about/roadmap.md).)
 
 ### Códigos de parte
 

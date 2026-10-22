@@ -14,6 +14,7 @@ from wgj.mapshaper import js_expr, run_mapshaper
 from wgj.paths import CACHE, earth
 from wgj.registry import shapeiso_fixes
 from wgj.simplify import SIZE_BUDGET, simplify
+from wgj.text import slug
 
 # The catalogue and the files come from geoBoundaries' own repository, pinned
 # to one commit, rather than from www.geoboundaries.org/api/current/…: the API
@@ -312,9 +313,17 @@ def apply_shapeiso_fixes(path: Path, iso3: str, level: str) -> int:
     data = json.loads(path.read_text("utf-8"))
     changed = 0
     for f in data.get("features", []):
-        before = f["properties"].get("shapeISO")
-        apply_fixes(f["properties"], level_fixes)
-        changed += f["properties"].get("shapeISO") != before
+        props = f["properties"]
+        before = props.get("shapeISO")
+        apply_fixes(props, level_fixes)
+        # A fix that clears a duplicated code (Gambia's local government
+        # areas share their ISO region's code) would leave the join with no
+        # key, and every child of that unit unassigned. Fall back to the name,
+        # as adm1_key_expr does for an empty upstream code; wgj.finalize applies
+        # the same fix and clears the code again in the published file.
+        if level == "ADM1" and not props.get("shapeISO"):
+            props["shapeISO"] = slug(props.get("shapeName") or "unknown")
+        changed += props.get("shapeISO") != before
     if changed:
         path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
     return changed

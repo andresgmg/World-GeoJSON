@@ -25,7 +25,7 @@
       "public-domain"
     ]
   },
-  "notes": "Communes (2020) are ODC-By. The 129 communes of the five overseas departments have no parent among the 13 metropolitan regions and are in ADM5/unassigned.geojson; Guadeloupe, Martinique and French Guiana also publish theirs as territories of their own. Natural Earth's outline includes the overseas regions.",
+  "notes": "Communes (2020) are ODC-By. The 129 communes of the five overseas departments have no parent among the 13 metropolitan regions and are in ADM5/unassigned.geojson; Guadeloupe, Martinique, French Guiana, Réunion and Mayotte also publish theirs as territories of their own. Natural Earth's outline includes the overseas regions.",
   "datasets": [
     {
       "level": "ADM0",

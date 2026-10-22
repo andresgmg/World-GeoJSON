@@ -113,6 +113,58 @@ Pendiente en este continente:
       incluso con la simplificación más gruesa: España ADM3, Francia ADM5 e
       Italia ADM4
 
+## Hecho — África
+
+**60 territorios, 125 datasets, 7.934 features.** El mismo pipeline y las
+mismas fuentes: contornos desde Natural Earth, primer nivel y tier municipal
+desde geoBoundaries solo con licencias permisivas, leídos desde el mismo commit
+fijado. No hizo falta ninguna licencia nueva: cada entrada africana está en la
+lista blanca o es copyleft.
+
+Veinte países tienen primer nivel y tier municipal: Angola, Burundi, Benín,
+Burkina Faso, la República Centroafricana, Costa de Marfil, Yibuti, Guinea,
+Gambia, Liberia, Malí, Nigeria, Ruanda, Sudán, Senegal, Sierra Leona, Sudán del
+Sur, Sudáfrica, Zambia y Zimbabue. Camerún, Etiopía, Kenia, Libia y Namibia
+tienen solo primer nivel. Reunión y Mayotte publican sus comunas sin contorno,
+como Guadalupe y Martinica: Natural Earth las dibuja dentro de Francia.
+
+El contorno de Somalia es la unión de Somalia y Somalilandia de Natural Earth,
+coherente con ISO 3166 y con los distritos somalíes de geoBoundaries. El Sáhara
+Occidental sigue la vista por defecto de Natural Earth, que deja fuera de
+Marruecos solo la zona al este del muro marroquí. Ambos casos, junto con
+Chagos, las Islas Dispersas, Mayotte, Halaib, Abyei y el triángulo de Ilemi,
+están en [Fronteras disputadas](disputed-boundaries.md).
+
+### Huecos de cobertura
+
+**Veintinueve países no tienen aquí divisiones de primer nivel** porque su
+ADM1 en geoBoundaries es ODbL (Argelia, Cabo Verde, Chad, Comoras, Congo, RD
+del Congo, Egipto, Guinea Ecuatorial, Eritrea, Esuatini, Guinea-Bisáu,
+Lesoto, Madagascar, Malaui, Mauricio, Marruecos, Mozambique, Níger, Santo Tomé
+y Príncipe, Somalia, Tanzania, Togo, Túnez, Uganda) o CC-BY-SA (Botsuana,
+Gabón, Ghana, Mauritania, Seychelles). La mayoría sí tiene un tier municipal
+con licencia permisiva, publicado sin ADM1 por encima. El Sáhara Occidental,
+los Territorios Australes Franceses, el Territorio Británico del Océano Índico
+y Santa Elena no tienen nada por debajo del contorno en origen.
+
+**Once países no tienen aquí tier municipal** porque es copyleft: Argelia,
+Camerún, Etiopía, Marruecos, Túnez, Guinea-Bisáu, Santo Tomé y Príncipe,
+Esuatini, Togo, y Cabo Verde y Mauricio, cuyos municipios son su primer nivel.
+Las circunscripciones de Namibia se dejan fuera por calidad, no por licencia
+(ver la tabla de abajo).
+
+Pendiente en este continente:
+
+- [ ] Vigencias más recientes donde ha habido reformas: Burundi (2025: 5
+      provincias, 42 comunas), Angola (2024: 21 provincias), Burkina Faso
+      (2025), Malí (2023: 19 regiones), la República Centroafricana (2020: 20
+      prefecturas), Etiopía (regiones nuevas de 2020 a 2023), Sierra Leona
+      (2017) y Namibia (2013: 14 regiones)
+- [ ] Las circunscripciones de Namibia desde una fuente con nombres fiables
+- [ ] Niveles intermedios que el pipeline aún no construye, entre ellos los 52
+      municipios de distrito y metropolitanos de Sudáfrica, los subcondados de
+      Kenia, los cercles de Malí y las prefecturas de Guinea
+
 ## Siguiente — de repositorio de datos a plataforma
 
 América demostró el pipeline. Las próximas releases convierten el repositorio en
@@ -184,7 +236,7 @@ por `id`. Sin servidor de por medio — descargan archivos estáticos. Ver
 
 ## Siguiente — los demás continentes
 
-Un PR cada uno, reutilizando el pipeline: África, Asia y Oceanía.
+Un PR cada uno, reutilizando el pipeline: Asia y Oceanía.
 
 ## Más adelante — cobertura global
 
@@ -233,6 +285,15 @@ Registrados, no escondidos.
 | La provincia de Sofía tiene 23 unidades frente a 22 municipios: dos se llaman Zlatitsa | BGR ADM2 (`BGR:ADM2:BG-23.zlatitsa-2`) | En origen; pendiente de corrección |
 | El primer nivel son las cinco macrorregiones NUTS 1, no las 20 regiones | ITA ADM1 | Niveles tal como vienen en origen; regiones y provincias están pendientes arriba |
 | Crimea: dentro del contorno de Rusia en Natural Earth, dentro de los raiones de Ucrania en geoBoundaries | RUS ADM0, UKR ADM0 y ADM2 | Documentado en [Fronteras disputadas](disputed-boundaries.md) |
+| 29 países sin ADM1 con licencia permisiva | África | Pendiente de fuente permisiva |
+| `shapeISO` es `""` en 7.490 features — todos los datasets municipales africanos salvo el de Seychelles | 41 datasets municipales de geoBoundaries | Por diseño, como arriba; usa `id` |
+| 193 ids basados en el nombre llevan sufijo numérico, sobre todo comunas malgaches que comparten nombre en distritos distintos — el primer nivel de Madagascar no se publica, así que el nombre es la única clave | MDG 150, EGY 33, MLI 4, GIN 2, NER 2, UGA 2 | Estables por versión de datos; pueden renumerarse con un refresco de la fuente — fija una versión |
+| Catorce unidades egipcias se llaman "Zemam Out", y dos se llaman "Suhag" junto a otra llamada "Suhag-2" | EGY ADM2 | Nombres de origen; el segundo Suhag queda fijado como `suhag-3` en `id_overrides.json` |
+| Asignación del tier municipal sin verificar en 18 territorios | AGO, BDI, BFA, BWA, CAF, CIV, COM, ETH, GMB, GNQ, LSO, MDG, MLI, MYT, REU, SLE, SYC, UGA | Marcados `verify` y publicados como `review` |
+| Circunscripciones fuera: siete de 109 se llaman "Luderitz" y seis no solapan con ninguna región | NAM ADM2 | Pendiente de una fuente mejor |
+| Las áreas de gobierno local comparten el código ISO de su región (Brikama y Kanifing están en GM-W; Janjanbureh y Kuntaur en GM-M), así que cuatro se indexan por nombre | GMB ADM1 | Códigos ISO correctos; documentado en `shapeiso_fixes.json` |
+| Los códigos de primer nivel de origen faltaban o estaban mal formados y se corrigen en `shapeiso_fixes.json` | CIV (ninguno), ZAF (sin prefijo `ZA-`), ZWE (no ISO), CAF, BEN, SDN | Corregido |
+| Sáhara Occidental: Natural Earth dibuja la zona al oeste del muro marroquí dentro de Marruecos | MAR ADM0, ESH ADM0 | Documentado en [Fronteras disputadas](disputed-boundaries.md) |
 | Archivos heredados aún en la raíz | `comunas.geojson` y compañía | Obsoletos; se mantienen durante la serie 1.x y se retiran en v2.0.0 |
 
 ## No previsto

@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "DJI",
+  "iso_a2": "DJ",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Djibouti",
+    "es": "Yibuti"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/DJI/DJI_ADM0.geojson",
+      "bytes": 4712,
+      "sha256": "da793d83b25f236403680d2ea8d9cfd465594191bd16002fbd80924c8c2886d8",
+      "features": 1,
+      "bbox": [
+        41.74911,
+        10.929825,
+        43.418712,
+        12.707913
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/DJI/preview/DJI_ADM0.preview.geojson",
+      "preview_bytes": 458,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/DJI/DJI_ADM1.geojson",
+      "bytes": 8460,
+      "sha256": "73481f3fc67eb58429fc6ce23b9ddaff28bd2eda806eea8a270b0d7c336e2984",
+      "features": 6,
+      "bbox": [
+        41.74911,
+        10.929825,
+        43.418712,
+        12.707913
+      ],
+      "geometry_types": {
+        "Polygon": 6
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DJI/preview/DJI_ADM1.preview.geojson",
+      "preview_bytes": 1877,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth",
+      "src_year": "2021"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/DJI/DJI_ADM2.geojson",
+      "bytes": 17341,
+      "sha256": "65b1b5508d9d768030ee1ab09f839a55bc45eb0a86dc22d3492965ae2831e44b",
+      "features": 11,
+      "bbox": [
+        41.773441,
+        10.909915,
+        43.416981,
+        12.706836
+      ],
+      "geometry_types": {
+        "Polygon": 11
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/DJI/preview/DJI_ADM2.preview.geojson",
+      "preview_bytes": 3559,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/DJI/ADM2/DJ-AR.geojson",
+          "bytes": 2214,
+          "sha256": "b34134ef47c6465ed9b3a3b9eb50d4e6f87271795813522d2e4f29642bde8927",
+          "features": 1,
+          "bbox": [
+            42.754475,
+            11.370086,
+            43.254692,
+            11.615763
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DJ-AR"
+        },
+        {
+          "path": "data/earth/DJI/ADM2/DJ-AS.geojson",
+          "bytes": 1316,
+          "sha256": "ad58aff47f2de133c82a5d61d86cc914097092df7bbbc3a9ec0fa7de453b244e",
+          "features": 1,
+          "bbox": [
+            42.660419,
+            10.975044,
+            43.193569,
+            11.492
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DJ-AS"
+        },
+        {
+          "path": "data/earth/DJI/ADM2/DJ-DI.geojson",
+          "bytes": 5609,
+          "sha256": "901a18e4d4679f03175505c972fe68ac9739853e35444964f73c913a46f599ad",
+          "features": 3,
+          "bbox": [
+            41.773441,
+            10.909915,
+            42.818481,
+            11.932071
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DJ-DI"
+        },
+        {
+          "path": "data/earth/DJI/ADM2/DJ-OB.geojson",
+          "bytes": 3359,
+          "sha256": "24917d342d2649abbd8c74cb775ddae71140ef1bc6f2e148b2e8b5e08b986983",
+          "features": 2,
+          "bbox": [
+            42.70948,
+            11.829838,
+            43.416981,
+            12.706836
+          ],
+          "geometry_types": {
+            "Polygon": 2
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DJ-OB"
+        },
+        {
+          "path": "data/earth/DJI/ADM2/DJ-TA.geojson",
+          "bytes": 5203,
+          "sha256": "11044adc1d949a0ace43522b18219f822461fda876f49c43816368a988a3482f",
+          "features": 4,
+          "bbox": [
+            42.039867,
+            11.549195,
+            43.069176,
+            12.524871
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "DJ-TA"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "FEWS, OCHA FISS",
+      "src_year": "2020"
+    }
+  ]
+}

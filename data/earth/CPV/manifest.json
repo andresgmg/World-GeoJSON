@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CPV",
+  "iso_a2": "CV",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Cabo Verde",
+    "es": "Cabo Verde"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' municipalities are copyleft (ODbL); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CPV/CPV_ADM0.geojson",
+      "bytes": 10140,
+      "sha256": "7b9a0b18ea9a6d37e2232db30bf40159df6e7573e305b9d36be90c191d47f49b",
+      "features": 1,
+      "bbox": [
+        -25.360422,
+        14.803941,
+        -22.666575,
+        17.196601
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CPV/preview/CPV_ADM0.preview.geojson",
+      "preview_bytes": 844,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

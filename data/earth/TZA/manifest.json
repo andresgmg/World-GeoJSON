@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "TZA",
+  "iso_a2": "TZ",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Tanzania",
+    "es": "Tanzania"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (ADM1) are copyleft (ODbL) and not published, so the districts have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/TZA/TZA_ADM0.geojson",
+      "bytes": 38521,
+      "sha256": "5cb805ba76da569224e55f3ff286b4c506d8d0eae6601e1865efa72b4044beba",
+      "features": 1,
+      "bbox": [
+        29.321032,
+        -11.731272,
+        40.449392,
+        -0.98583
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/TZA/preview/TZA_ADM0.preview.geojson",
+      "preview_bytes": 1890,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/TZA/TZA_ADM2.geojson",
+      "bytes": 2344950,
+      "sha256": "767dc927577b2e91214e8dbb8f3aff4a45cd3bca94d49f79810c71bf9609c39a",
+      "features": 170,
+      "bbox": [
+        29.590673,
+        -11.762349,
+        40.444735,
+        -0.983143
+      ],
+      "geometry_types": {
+        "MultiPolygon": 28,
+        "Polygon": 142
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/TZA/preview/TZA_ADM2.preview.geojson",
+      "preview_bytes": 147360,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Tanzania National Bureau of Statistics / UN OCHA ROSA, OCHA ROSA",
+      "src_year": "2021"
+    }
+  ]
+}

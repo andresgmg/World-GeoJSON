@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SHN",
+  "iso_a2": "SH",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Saint Helena, Ascension and Tristan da Cunha",
+    "es": "Santa Elena, Ascensión y Tristán de Acuña"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "British Overseas Territory; geoBoundaries publishes ADM0 only.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SHN/SHN_ADM0.geojson",
+      "bytes": 2207,
+      "sha256": "353ea59b5e5e748e1c42d7519194d952abe22b53fcf7126fece42f77dff0cbc4",
+      "features": 1,
+      "bbox": [
+        -14.417714,
+        -40.397882,
+        -5.65038,
+        -7.877862
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SHN/preview/SHN_ADM0.preview.geojson",
+      "preview_bytes": 346,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

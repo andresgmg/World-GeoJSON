@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MYT",
+  "iso_a2": "YT",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Mayotte",
+    "es": "Mayotte"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "Etalab-2.0"
+  },
+  "notes": "A French overseas department, claimed by Comoros. Natural Earth draws it inside France's outline, so no ADM0 is published; geoBoundaries publishes the communes (ADM4) only. The same communes are in FRA ADM5.",
+  "datasets": [
+    {
+      "level": "ADM4",
+      "path": "data/earth/MYT/MYT_ADM4.geojson",
+      "bytes": 20562,
+      "sha256": "f6b32ec5c03e90f03013b20d5cd24bd70b3131d3d18a072219632c005f1e96db",
+      "features": 17,
+      "bbox": [
+        45.018477,
+        -13.000103,
+        45.297951,
+        -12.63659
+      ],
+      "geometry_types": {
+        "MultiPolygon": 5,
+        "Polygon": 12
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MYT/preview/MYT_ADM4.preview.geojson",
+      "preview_bytes": 5299,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "Etalab-2.0",
+      "src_provider": "Institut national de l'information géographique et forestière (IGN-F)",
+      "src_year": "2022"
+    }
+  ]
+}

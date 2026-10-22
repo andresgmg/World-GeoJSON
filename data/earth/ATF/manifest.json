@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ATF",
+  "iso_a2": "TF",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "French Southern Territories",
+    "es": "Territorios Australes Franceses"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "Natural Earth 10m Admin 0",
+    "url": "https://www.naturalearthdata.com/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "Natural Earth's outline includes the Scattered Islands in the Indian Ocean (Glorioso, Juan de Nova, Bassas da India, Europa, Tromelin), claimed variously by Madagascar, Comoros and Mauritius. geoBoundaries has no dataset for it.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ATF/ATF_ADM0.geojson",
+      "bytes": 12396,
+      "sha256": "7ac6a590e56094c17970481e960d4b4dd35dbb067c2d513bbd376a98ec245849",
+      "features": 1,
+      "bbox": [
+        39.728282,
+        -49.721612,
+        77.585216,
+        -11.550632
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ATF/preview/ATF_ADM0.preview.geojson",
+      "preview_bytes": 764,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}
