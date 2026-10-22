@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BWA",
+  "iso_a2": "BW",
+  "m49_region": "Southern Africa",
+  "name": {
+    "en": "Botswana",
+    "es": "Botsuana"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "Districts (ADM1) are copyleft (CC-BY-SA) and not published, so the sub-districts have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BWA/BWA_ADM0.geojson",
+      "bytes": 21633,
+      "sha256": "c69999fd7c8c378e540750162d9b5e44174cc3e88584d47077aa0cda8514f160",
+      "features": 1,
+      "bbox": [
+        19.978346,
+        -26.891794,
+        29.350074,
+        -17.781808
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BWA/preview/BWA_ADM0.preview.geojson",
+      "preview_bytes": 1170,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/BWA/BWA_ADM2.geojson",
+      "bytes": 161716,
+      "sha256": "47aff6c14245b5680c944ff3c366e1faae20537c0c8caa8cf58c275959922f68",
+      "features": 25,
+      "bbox": [
+        19.999534,
+        -26.907249,
+        29.360781,
+        -17.78081
+      ],
+      "geometry_types": {
+        "Polygon": 25
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BWA/preview/BWA_ADM2.preview.geojson",
+      "preview_bytes": 13525,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "RCMRD",
+      "src_year": "2015"
+    }
+  ]
+}

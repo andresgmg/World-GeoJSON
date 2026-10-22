@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "CAF",
+  "iso_a2": "CF",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "Central African Republic",
+    "es": "República Centroafricana"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-2.5",
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Prefectures predate the 2020 reform that brought them to 20.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/CAF/CAF_ADM0.geojson",
+      "bytes": 37086,
+      "sha256": "740d2f827f9552753ba13c14a82feb4d1b2646de97ce5a19388f316dd9bb8587",
+      "features": 1,
+      "bbox": [
+        14.387266,
+        2.236454,
+        27.441301,
+        11.000828
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/CAF/preview/CAF_ADM0.preview.geojson",
+      "preview_bytes": 1773,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/CAF/CAF_ADM1.geojson",
+      "bytes": 62415,
+      "sha256": "83b0b765eb1e78799a4ee8de94d38fabb39eb73020dc7723162574da2f8efcdc",
+      "features": 17,
+      "bbox": [
+        14.421285,
+        2.220683,
+        27.45276,
+        11.001839
+      ],
+      "geometry_types": {
+        "Polygon": 17
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/CAF/preview/CAF_ADM1.preview.geojson",
+      "preview_bytes": 6691,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-2.5",
+      "src_provider": "geoBoundaries, Wikimedia",
+      "src_year": "2006"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/CAF/CAF_ADM3.geojson",
+      "bytes": 1096458,
+      "sha256": "af9167d23852b660d6f0f4eb1961497a1279c9609decefa131cc66d1e599f6a1",
+      "features": 175,
+      "bbox": [
+        14.420095,
+        2.223446,
+        27.463423,
+        11.007562
+      ],
+      "geometry_types": {
+        "Polygon": 175
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/CAF/preview/CAF_ADM3.preview.geojson",
+      "preview_bytes": 89312,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/CAF/ADM3/CF-AC.geojson",
+          "bytes": 189064,
+          "sha256": "7df302b58f90d58f493cda8b5917ee4dfccc976c6458a54680ebb3e1a4d8eaa1",
+          "features": 20,
+          "bbox": [
+            16.676384,
+            5.55972,
+            19.076939,
+            8.575101
+          ],
+          "geometry_types": {
+            "Polygon": 20
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-AC"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-BB.geojson",
+          "bytes": 40439,
+          "sha256": "e2803457e3d762d955c542f2fee07f2260212ce2a276e36bb3c371d5589139bf",
+          "features": 3,
+          "bbox": [
+            18.862453,
+            7.017216,
+            22.394993,
+            9.774716
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-BB"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-BGF.geojson",
+          "bytes": 6926,
+          "sha256": "bef6b80b974c25b017bae67dbad7782a1fbc08379dbf30ca66b203c553dc4430",
+          "features": 8,
+          "bbox": [
+            18.52403,
+            4.323675,
+            18.644089,
+            4.431044
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-BGF"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-BK.geojson",
+          "bytes": 62657,
+          "sha256": "7d4ac9dd31158b50afdab5a81a18cce262dcc560a15a5cb89b092b236b7f9109",
+          "features": 15,
+          "bbox": [
+            20.454098,
+            4.221614,
+            22.151379,
+            5.731382
+          ],
+          "geometry_types": {
+            "Polygon": 15
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-BK"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-HK.geojson",
+          "bytes": 72767,
+          "sha256": "55d5fde1b97cbe98f4039da5e151315d3390b3d6295181a40ca02fe7d26095fd",
+          "features": 6,
+          "bbox": [
+            21.10166,
+            5.477056,
+            24.596104,
+            9.241941
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-HK"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-HM.geojson",
+          "bytes": 66277,
+          "sha256": "72dea57e8491f3cc9749a75301733e915456f9c2bda73731e2d20ecc389242ce",
+          "features": 5,
+          "bbox": [
+            24.260706,
+            4.90552,
+            27.463423,
+            8.282278
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-HM"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-HS.geojson",
+          "bytes": 58861,
+          "sha256": "815db973b3d9f56f29e28bacf174151dd6c4e64bd47ef04e658119cc7d02d42f",
+          "features": 12,
+          "bbox": [
+            14.678273,
+            3.676732,
+            17.122217,
+            5.390554
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-HS"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-KB.geojson",
+          "bytes": 43939,
+          "sha256": "d8b7cb022e39342ca235ef5f67378b88f97f57cae50e60be301af9225b394e8f",
+          "features": 6,
+          "bbox": [
+            18.649436,
+            6.433328,
+            20.158609,
+            8.569158
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-KB"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-KG.geojson",
+          "bytes": 31834,
+          "sha256": "5348e0400a9107fa1f027e88d2352c940df934c178d9946c7a399dfe45501238",
+          "features": 8,
+          "bbox": [
+            18.607773,
+            4.940462,
+            20.018053,
+            6.554166
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-KG"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-LB.geojson",
+          "bytes": 61508,
+          "sha256": "39402430e73f91617926a229d9bc631249440f7b0c9a61a2ef51c5dff0d88897",
+          "features": 12,
+          "bbox": [
+            16.735128,
+            3.471083,
+            18.635091,
+            5.024983
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-LB"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-MB.geojson",
+          "bytes": 70314,
+          "sha256": "3122f147773efe07f97f8949d7f31b220ca98e167a133150ac10b498ee0fc0fc",
+          "features": 10,
+          "bbox": [
+            21.73722,
+            4.112092,
+            25.189722,
+            6.752611
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-MB"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-MP.geojson",
+          "bytes": 48197,
+          "sha256": "2e5a5fd6623349b533a48623c38c56cbda61379806f4f0bb47adf84a9581c98b",
+          "features": 8,
+          "bbox": [
+            16.489437,
+            3.869331,
+            19.142055,
+            5.907497
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-MP"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-NM.geojson",
+          "bytes": 77366,
+          "sha256": "2051372fa6d337d72bf86f503453b4e6eae4f02938aa0e4cc8e6205ef5c28064",
+          "features": 15,
+          "bbox": [
+            14.420095,
+            4.939716,
+            16.524818,
+            6.757491
+          ],
+          "geometry_types": {
+            "Polygon": 15
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-NM"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-OP.geojson",
+          "bytes": 107456,
+          "sha256": "d1225cb41a66ed02acb7769f61e79abf915653512e73617470ab6d5fcc16faed",
+          "features": 23,
+          "bbox": [
+            14.94614,
+            5.554724,
+            17.131589,
+            7.87835
+          ],
+          "geometry_types": {
+            "Polygon": 23
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-OP"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-SE.geojson",
+          "bytes": 33588,
+          "sha256": "8929ad57e30901905bb26cf301b72e8c0381dce3ecfa1f832f46c870d456ffa8",
+          "features": 5,
+          "bbox": [
+            15.281929,
+            2.223446,
+            17.3733,
+            4.259716
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-SE"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-UK.geojson",
+          "bytes": 94619,
+          "sha256": "cd422898f9404af143afbe6b8450371947d1199ecd0ac1c109f1df7344ece13f",
+          "features": 16,
+          "bbox": [
+            19.464999,
+            4.518708,
+            21.944626,
+            7.703638
+          ],
+          "geometry_types": {
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-UK"
+        },
+        {
+          "path": "data/earth/CAF/ADM3/CF-VK.geojson",
+          "bytes": 32061,
+          "sha256": "a4d3c09f8f8af20e8a3cb11c564dedce79a002a85dfe1eb5b7603a699e96e708",
+          "features": 3,
+          "bbox": [
+            20.820359,
+            8.581658,
+            23.697857,
+            11.007562
+          ],
+          "geometry_types": {
+            "Polygon": 3
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "CF-VK"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Agency for Technical Cooperation and Development (ACTED), OCHA Central African Republic",
+      "src_year": "2018"
+    }
+  ]
+}

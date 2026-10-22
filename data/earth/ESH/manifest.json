@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ESH",
+  "iso_a2": "EH",
+  "m49_region": "Northern Africa",
+  "name": {
+    "en": "Western Sahara",
+    "es": "Sáhara Occidental"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "Natural Earth 10m Admin 0",
+    "url": "https://www.naturalearthdata.com/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "A non-self-governing territory on the UN list; sovereignty is disputed between Morocco and the Sahrawi Arab Democratic Republic. The outline follows Natural Earth's default view, which covers only the area east of the Moroccan berm; the area west of it is inside Morocco's outline. geoBoundaries has no Western Sahara dataset.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ESH/ESH_ADM0.geojson",
+      "bytes": 6693,
+      "sha256": "5cdb1d48d4ed2b3d5434556310680442e1053afba07b6589abc7b53b39697fa1",
+      "features": 1,
+      "bbox": [
+        -17.104644,
+        20.766913,
+        -8.680809,
+        27.661464
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ESH/preview/ESH_ADM0.preview.geojson",
+      "preview_bytes": 548,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

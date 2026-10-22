@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "IOT",
+  "iso_a2": "IO",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "British Indian Ocean Territory",
+    "es": "Territorio Británico del Océano Índico"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "Natural Earth 10m Admin 0",
+    "url": "https://www.naturalearthdata.com/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "The Chagos Archipelago, administered by the United Kingdom and claimed by Mauritius; the two signed a treaty in 2025 to transfer sovereignty. The outline follows Natural Earth. geoBoundaries has no dataset for it.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/IOT/IOT_ADM0.geojson",
+      "bytes": 2427,
+      "sha256": "2d6aacab059f2ed23477ab3503bb0a4121ae7bb001146d8c6216bf67624ac178",
+      "features": 1,
+      "bbox": [
+        71.260997,
+        -7.432224,
+        72.49464,
+        -5.226983
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/IOT/preview/IOT_ADM0.preview.geojson",
+      "preview_bytes": 480,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

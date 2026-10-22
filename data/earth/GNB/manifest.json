@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GNB",
+  "iso_a2": "GW",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Guinea-Bissau",
+    "es": "Guinea-Bisáu"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Guinea-Bissau are copyleft (ODbL); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GNB/GNB_ADM0.geojson",
+      "bytes": 29289,
+      "sha256": "762855e41fa69395d8a8e2ca4b753f1c35c6b8d46ff3967aa39ac3efddabdf55",
+      "features": 1,
+      "bbox": [
+        -16.728437,
+        10.927639,
+        -13.660712,
+        12.679434
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GNB/preview/GNB_ADM0.preview.geojson",
+      "preview_bytes": 1630,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

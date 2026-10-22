@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "LBR",
+  "iso_a2": "LR",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Liberia",
+    "es": "Liberia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/LBR/LBR_ADM0.geojson",
+      "bytes": 14703,
+      "sha256": "52efa01be98ab5a0a316ce64ceccf20c8f7b8860e45370e8434396f6421ad8a9",
+      "features": 1,
+      "bbox": [
+        -11.476186,
+        4.347235,
+        -7.384118,
+        8.565396
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/LBR/preview/LBR_ADM0.preview.geojson",
+      "preview_bytes": 859,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/LBR/LBR_ADM1.geojson",
+      "bytes": 206531,
+      "sha256": "2b58d7a1fbe55e983d8ce4e0b797648f5e292db972afd03cb5dabba2f1f9093b",
+      "features": 15,
+      "bbox": [
+        -11.500397,
+        4.354004,
+        -7.36856,
+        8.552497
+      ],
+      "geometry_types": {
+        "Polygon": 15
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/LBR/preview/LBR_ADM1.preview.geojson",
+      "preview_bytes": 12458,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "UNMIL, OCHA ROWCA",
+      "src_year": "2021"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/LBR/LBR_ADM2.geojson",
+      "bytes": 483663,
+      "sha256": "968cfdbd60867f30ea5b7023f520d88dd8bec1c8fb079f2aa63ee0c0786df6da",
+      "features": 136,
+      "bbox": [
+        -11.500397,
+        4.354004,
+        -7.36856,
+        8.552497
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 135
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/LBR/preview/LBR_ADM2.preview.geojson",
+      "preview_bytes": 56210,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/LBR/ADM2/LR-BG.geojson",
+          "bytes": 41178,
+          "sha256": "ae4820bff80ddec3b0f0bc0c93824ee38f167d6cb757169dc586a161db06f822",
+          "features": 12,
+          "bbox": [
+            -10.5105,
+            6.402867,
+            -9.101395,
+            7.435065
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-BG"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-BM.geojson",
+          "bytes": 19799,
+          "sha256": "ff4ae138f62bbdd2e062a5af8e99058e8984d8b3395303fd302ac04413ad009d",
+          "features": 4,
+          "bbox": [
+            -11.088487,
+            6.474233,
+            -10.504205,
+            6.984721
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-BM"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-CM.geojson",
+          "bytes": 28984,
+          "sha256": "aeeed430e2fa95ff4d53c16856fb90d4bbe1b11133d19dcba9ab96b5d7458b21",
+          "features": 5,
+          "bbox": [
+            -11.500397,
+            6.572943,
+            -10.515434,
+            7.531811
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-CM"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-GB.geojson",
+          "bytes": 51776,
+          "sha256": "29eadf18480e996d6bc7c9078a60dfaebdca3fa4443b4730abe6a557986cf9c2",
+          "features": 8,
+          "bbox": [
+            -10.382199,
+            5.568619,
+            -9.158322,
+            6.745834
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-GB"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-GG.geojson",
+          "bytes": 27786,
+          "sha256": "8e1d8fede9dde48f16d08515d839277ddf3d94728616dbf7177880c2abec21c0",
+          "features": 8,
+          "bbox": [
+            -9.095889,
+            5.493838,
+            -7.384539,
+            6.50435
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-GG"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-GK.geojson",
+          "bytes": 42113,
+          "sha256": "4b3f2db46ccd3ca078cbd4f03701c4f0b934a5fc035675dab63a6cb970b7ee13",
+          "features": 18,
+          "bbox": [
+            -8.709189,
+            4.448699,
+            -7.797046,
+            5.170631
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-GK"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-GP.geojson",
+          "bytes": 21621,
+          "sha256": "75447b0e6462cc8ca751af491d96c6b06226fa0122b5312f6ce1c847e807304a",
+          "features": 6,
+          "bbox": [
+            -10.954848,
+            6.842977,
+            -9.636307,
+            8.013504
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-GP"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-LO.geojson",
+          "bytes": 30142,
+          "sha256": "192c9121fac67ce741cccdafa0f4aad8473c5f3a90d54ecf5d556261c3a1bd75",
+          "features": 7,
+          "bbox": [
+            -10.607119,
+            7.176099,
+            -9.346978,
+            8.552497
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-LO"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-MG.geojson",
+          "bytes": 16311,
+          "sha256": "f03616c0669cab83ad430067f6ea366edf9be6d5210ad5c3998e21d6d12df982",
+          "features": 4,
+          "bbox": [
+            -10.659052,
+            6.124356,
+            -9.873201,
+            6.897004
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-MG"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-MO.geojson",
+          "bytes": 22387,
+          "sha256": "1133f7d276879c05f8af091df580bf81166cb8fd1e31947c6eb343942b941871",
+          "features": 5,
+          "bbox": [
+            -10.95848,
+            6.217586,
+            -10.367941,
+            6.829452
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-MO"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-MY.geojson",
+          "bytes": 19629,
+          "sha256": "8ad24e884e1098388cbc979ced04f58c78fa667c500d0cd734acdfe545627dec",
+          "features": 7,
+          "bbox": [
+            -8.087714,
+            4.354004,
+            -7.524937,
+            5.142443
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-MY"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-NI.geojson",
+          "bytes": 40769,
+          "sha256": "b33ede4f0dbc35298a86a7762d7b3c30b7cdde85e2a34c578b373bb7caa0db2a",
+          "features": 17,
+          "bbox": [
+            -9.220284,
+            5.819324,
+            -8.275468,
+            7.70229
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-NI"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-RG.geojson",
+          "bytes": 25272,
+          "sha256": "8b735f41f5b5753adc1b19dc2dd7ee90c2999b33aecb728d85dc9094e37dd6ad",
+          "features": 8,
+          "bbox": [
+            -9.733498,
+            5.270208,
+            -9.067628,
+            6.499243
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-RG"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-RI.geojson",
+          "bytes": 26068,
+          "sha256": "bfcaa2e8e58e86ae84dd476168422a8cd73ad807d8f3e4a4e7b9d8479be0be8a",
+          "features": 10,
+          "bbox": [
+            -8.252783,
+            4.820778,
+            -7.36856,
+            5.60584
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-RI"
+        },
+        {
+          "path": "data/earth/LBR/ADM2/LR-SI.geojson",
+          "bytes": 71078,
+          "sha256": "ae71d80dc603f8801bd05362d41da26f15a2698bf0074367cdc9c3ac02fa76bb",
+          "features": 17,
+          "bbox": [
+            -9.427124,
+            4.807511,
+            -8.071398,
+            5.861368
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "LR-SI"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "UNMIL, OCHA ROWCA",
+      "src_year": "2021"
+    }
+  ]
+}

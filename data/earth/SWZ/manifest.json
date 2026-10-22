@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SWZ",
+  "iso_a2": "SZ",
+  "m49_region": "Southern Africa",
+  "name": {
+    "en": "Eswatini",
+    "es": "Esuatini"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Eswatini are copyleft (ODbL); only the Natural Earth outline is published.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SWZ/SWZ_ADM0.geojson",
+      "bytes": 2154,
+      "sha256": "aee10c24dab78d685c237e233259dc649e215cc81d663af0918cffa6dfed528b",
+      "features": 1,
+      "bbox": [
+        30.782906,
+        -27.316264,
+        32.117398,
+        -25.735999
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SWZ/preview/SWZ_ADM0.preview.geojson",
+      "preview_bytes": 367,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

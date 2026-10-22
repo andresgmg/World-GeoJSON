@@ -1,0 +1,626 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "SDN",
+  "iso_a2": "SD",
+  "m49_region": "Northern Africa",
+  "name": {
+    "en": "Sudan",
+    "es": "Sudán"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "The first level is the 18 states plus the Abyei Area, which has no ISO 3166-2 code. Natural Earth draws Abyei and Kafia Kingi, both claimed by South Sudan, inside Sudan's outline, and the Halaib Triangle inside Egypt's.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/SDN/SDN_ADM0.geojson",
+      "bytes": 25251,
+      "sha256": "b9fe3fbcfeb0bf38f211d8fac4443f21a10353466cd4a2873c93bcad7cd4e4cb",
+      "features": 1,
+      "bbox": [
+        21.809449,
+        8.681642,
+        38.603852,
+        22.226965
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/SDN/preview/SDN_ADM0.preview.geojson",
+      "preview_bytes": 1298,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/SDN/SDN_ADM1.geojson",
+      "bytes": 217136,
+      "sha256": "b56519795f01006d9881cf1923e4b09221e5b76f3fa7bbaec668fff6e638557c",
+      "features": 19,
+      "bbox": [
+        21.81368,
+        8.641329,
+        38.582364,
+        23.142872
+      ],
+      "geometry_types": {
+        "Polygon": 19
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SDN/preview/SDN_ADM1.preview.geojson",
+      "preview_bytes": 15096,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Information Management Working Group (IMWG), OCHA ROSEA",
+      "src_year": "2020"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/SDN/SDN_ADM2.geojson",
+      "bytes": 532318,
+      "sha256": "eee6847d9480c7fffb482297ce893a5d03bda897e9e86b5ecd7586e91469dca5",
+      "features": 189,
+      "bbox": [
+        21.81368,
+        8.641329,
+        38.582364,
+        23.142872
+      ],
+      "geometry_types": {
+        "Polygon": 189
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/SDN/preview/SDN_ADM2.preview.geojson",
+      "preview_bytes": 75400,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/SDN/ADM2/SD-DC.geojson",
+          "bytes": 20378,
+          "sha256": "01e2ddc52c9562c1ac7cec21f503ca1945c75cc52a6f69845cb21ddea209f6eb",
+          "features": 9,
+          "bbox": [
+            22.553217,
+            11.025886,
+            24.715088,
+            13.559326
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-DC"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-DE.geojson",
+          "bytes": 20291,
+          "sha256": "3a67e4625a422e8ee875aa81735136c982592a58f37f32ddd3eda97a0a87941f",
+          "features": 9,
+          "bbox": [
+            25.286037,
+            9.486818,
+            27.583138,
+            12.97262
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-DE"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-DN.geojson",
+          "bytes": 35211,
+          "sha256": "e4ccb5858f2e1f736f4febcf1cdeaff13cbcc9d9d2daf2a839aa30e2e1dca63e",
+          "features": 17,
+          "bbox": [
+            22.782502,
+            11.748108,
+            27.545625,
+            20.020536
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-DN"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-DS.geojson",
+          "bytes": 51917,
+          "sha256": "a21c31316d6b37e25e42575549447ffdf7f28d006e897cee08f27812026e61ab",
+          "features": 21,
+          "bbox": [
+            22.874444,
+            8.641329,
+            25.970886,
+            13.130737
+          ],
+          "geometry_types": {
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-DS"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-DW.geojson",
+          "bytes": 24941,
+          "sha256": "7f9929715065c8e7766ad729eba712c10e6041da76796755bb0290928b6ef1b2",
+          "features": 8,
+          "bbox": [
+            21.81368,
+            12.020481,
+            23.246782,
+            14.983608
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-DW"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-GD.geojson",
+          "bytes": 30979,
+          "sha256": "b85b55320ab921bb01da7ecbe13b678fb11cc1293c1ed1cda6323ab806d028bc",
+          "features": 12,
+          "bbox": [
+            33.568726,
+            12.657896,
+            36.546995,
+            15.762878
+          ],
+          "geometry_types": {
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-GD"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-GK.geojson",
+          "bytes": 34222,
+          "sha256": "a8da309ae24ff599edf9baccc27faa59fc55113b7327b2bb0f672677b242262e",
+          "features": 14,
+          "bbox": [
+            27.064179,
+            9.603355,
+            29.981927,
+            14.123052
+          ],
+          "geometry_types": {
+            "Polygon": 14
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-GK"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-GZ.geojson",
+          "bytes": 32865,
+          "sha256": "8729da5767351d2963e79872498d594359b2bad4200f6434bc236c7e458a098e",
+          "features": 8,
+          "bbox": [
+            32.349487,
+            13.554871,
+            34.285522,
+            15.467896
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-GZ"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-KA.geojson",
+          "bytes": 21088,
+          "sha256": "c43730b3d6cdd18ce9e179382654917198fdf9ce3787f89a24417f3c610212bf",
+          "features": 11,
+          "bbox": [
+            34.215604,
+            14.206299,
+            37.031028,
+            17.207275
+          ],
+          "geometry_types": {
+            "Polygon": 11
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-KA"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-KH.geojson",
+          "bytes": 22887,
+          "sha256": "9c1d15348c606aca98c017feb35cb2b90a948db4212d63db34481f23830cf241",
+          "features": 7,
+          "bbox": [
+            31.697875,
+            15.182681,
+            34.380676,
+            16.630127
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-KH"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-KN.geojson",
+          "bytes": 28577,
+          "sha256": "d3e05500ff3685bcb22b0fd7d6f0136a1a9139c5fe88840fe453840ac58a7dc4",
+          "features": 8,
+          "bbox": [
+            26.940996,
+            12.253925,
+            32.355713,
+            16.529531
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-KN"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-KS.geojson",
+          "bytes": 52908,
+          "sha256": "2b95b345fd5edcf455c5d0ed549db5ec198bfa88eb216134f087b46cc04ef642",
+          "features": 17,
+          "bbox": [
+            29.223786,
+            9.718909,
+            32.459901,
+            12.745728
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-KS"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-NB.geojson",
+          "bytes": 18699,
+          "sha256": "4f97e9fbd3dcb4f838b82ee8c064d2df206fe1882ac21b8d3398dc7b8d325875",
+          "features": 7,
+          "bbox": [
+            33.140521,
+            9.498592,
+            35.090521,
+            12.562291
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-NB"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-NO.geojson",
+          "bytes": 11050,
+          "sha256": "995e98e6930cb8919f24d0dbb49e2fdc8ca81bf763d0a6555b11948843493487",
+          "features": 7,
+          "bbox": [
+            24.997821,
+            16.524653,
+            32.653687,
+            22.225392
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-NO"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-NR.geojson",
+          "bytes": 19538,
+          "sha256": "2d35cc44113f46000e75df738ae1173638c8ec19cd492aabef9e4f2ee15cad61",
+          "features": 7,
+          "bbox": [
+            31.885681,
+            15.683289,
+            35.671082,
+            21.999692
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-NR"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-NW.geojson",
+          "bytes": 22224,
+          "sha256": "2c7b675cb1f8a2dd856889dddf3b9c95629f5eec4514a983907f52dc21d19172",
+          "features": 9,
+          "bbox": [
+            31.52948,
+            11.945086,
+            33.255108,
+            15.229492
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-NW"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-RS.geojson",
+          "bytes": 60246,
+          "sha256": "862051d4e520c378326c46af0c4fa4d690bac8d3a24144df1236a86c7e2bbb0b",
+          "features": 10,
+          "bbox": [
+            33.258484,
+            17.001526,
+            38.582364,
+            23.142872
+          ],
+          "geometry_types": {
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-RS"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/SD-SI.geojson",
+          "bytes": 24238,
+          "sha256": "487d6cdd9cd356e1c6a5dc51a5e32492b555bdc0a8e9b81f25a740c5724a4b43",
+          "features": 7,
+          "bbox": [
+            32.9115,
+            11.739502,
+            35.699821,
+            14.103088
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "SD-SI"
+        },
+        {
+          "path": "data/earth/SDN/ADM2/abyei-pca.geojson",
+          "bytes": 1685,
+          "sha256": "fbd752a11e10bede0c9ac9ee87059b3b34d7e63351c69a8fe2b22719b5500df0",
+          "features": 1,
+          "bbox": [
+            27.83062,
+            9.343225,
+            29.0001,
+            10.167526
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "abyei-pca"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "OCHA ROSEA, Information Management Working Group",
+      "src_year": "2020"
+    }
+  ]
+}

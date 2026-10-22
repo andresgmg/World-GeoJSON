@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GIN",
+  "iso_a2": "GN",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Guinea",
+    "es": "Guinea"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GIN/GIN_ADM0.geojson",
+      "bytes": 35564,
+      "sha256": "162ded13538abb5498e670005483fffec7a666437474a90725592527ec493af4",
+      "features": 1,
+      "bbox": [
+        -15.081125,
+        7.190208,
+        -7.662447,
+        12.673388
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GIN/preview/GIN_ADM0.preview.geojson",
+      "preview_bytes": 1701,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/GIN/GIN_ADM1.geojson",
+      "bytes": 150361,
+      "sha256": "aaacc14d3104bdc2badbd08bfbe8bd2661a52de82fe70387a4ff47117d2c6804",
+      "features": 8,
+      "bbox": [
+        -15.086256,
+        7.193552,
+        -7.641072,
+        12.676213
+      ],
+      "geometry_types": {
+        "MultiPolygon": 3,
+        "Polygon": 5
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GIN/preview/GIN_ADM1.preview.geojson",
+      "preview_bytes": 8895,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "World Food Programme, OCHA ROWCA",
+      "src_year": "2017"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/GIN/GIN_ADM3.geojson",
+      "bytes": 609010,
+      "sha256": "6601d6724904306d29d6e9f9803123701d7ff7d334c0a0256077b5c01932d382",
+      "features": 340,
+      "bbox": [
+        -15.086256,
+        7.193552,
+        -7.641072,
+        12.676213
+      ],
+      "geometry_types": {
+        "MultiPolygon": 7,
+        "Polygon": 333
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GIN/preview/GIN_ADM3.preview.geojson",
+      "preview_bytes": 118329,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/GIN/ADM3/GN-B.geojson",
+          "bytes": 92435,
+          "sha256": "e15228fde7eb4015f14e3cb478426db357c2605f2ea29c11ef40d471955e24bd",
+          "features": 37,
+          "bbox": [
+            -15.086256,
+            9.835579,
+            -12.561209,
+            12.676213
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 34
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GN-B"
+        },
+        {
+          "path": "data/earth/GIN/ADM3/GN-C.geojson",
+          "bytes": 7191,
+          "sha256": "3bce10b9aba75b162ec03d306989bd86cde0ebec9941c082d4c12281ea6cead6",
+          "features": 5,
+          "bbox": [
+            -13.843816,
+            9.441113,
+            -13.46002,
+            9.753296
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GN-C"
+        },
+        {
+          "path": "data/earth/GIN/ADM3/GN-D.geojson",
+          "bytes": 71983,
+          "sha256": "f0ae53d6a7c6da67e438d5dafaeaef55bc44ac4ea46b494a4063afc3df78e376",
+          "features": 45,
+          "bbox": [
+            -13.98072,
+            9.037539,
+            -12.1251,
+            11.38299
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 42
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GN-D"
+        },
+        {
+          "path": "data/earth/GIN/ADM3/GN-F.geojson",
+          "bytes": 73080,
+          "sha256": "83de50f4dba65728dbf25f7847b05f9ae5ef8b1c451626d7f0c0ac8b1919d74c",
+          "features": 41,
+          "bbox": [
+            -11.527931,
+            8.808269,
+            -9.597887,
+            12.225479
+          ],
+          "geometry_types": {
+            "Polygon": 41
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GN-F"
+        },
+        {
+          "path": "data/earth/GIN/ADM3/GN-K.geojson",
+          "bytes": 130413,
+          "sha256": "2323dca68c3ca7965b67d133f7b7c5f364bef66412c391a759a17e68dbcf61f9",
+          "features": 57,
+          "bbox": [
+            -10.908789,
+            8.764279,
+            -7.94721,
+            12.50263
+          ],
+          "geometry_types": {
+            "Polygon": 57
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GN-K"
+        },
+        {
+          "path": "data/earth/GIN/ADM3/GN-L.geojson",
+          "bytes": 72088,
+          "sha256": "40656673ffa3d87bfd95e8d468c1ac1eaac32a4e7d62c084873f628174c3f0b1",
+          "features": 53,
+          "bbox": [
+            -12.996361,
+            10.987454,
+            -11.047884,
+            12.44284
+          ],
+          "geometry_types": {
+            "Polygon": 53
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GN-L"
+        },
+        {
+          "path": "data/earth/GIN/ADM3/GN-M.geojson",
+          "bytes": 51271,
+          "sha256": "51d02bd3f0b0abc1e67434a45e4521e90571fae50b043463ec140b4c980ddab4",
+          "features": 36,
+          "bbox": [
+            -12.98175,
+            9.87138,
+            -11.137166,
+            11.337872
+          ],
+          "geometry_types": {
+            "Polygon": 36
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GN-M"
+        },
+        {
+          "path": "data/earth/GIN/ADM3/GN-N.geojson",
+          "bytes": 111179,
+          "sha256": "6baccffc04e0ce68847ed7ae7909be89ca9a929e6eb9b5c018077079de981987",
+          "features": 66,
+          "bbox": [
+            -10.71892,
+            7.193552,
+            -7.641072,
+            9.587204
+          ],
+          "geometry_types": {
+            "Polygon": 66
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "GN-N"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "World Food Programme, OCHA ROWCA",
+      "src_year": "2021"
+    }
+  ]
+}

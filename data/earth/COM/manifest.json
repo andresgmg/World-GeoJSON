@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "COM",
+  "iso_a2": "KM",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Comoros",
+    "es": "Comoras"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "The islands (ADM1) are copyleft (ODbL) and not published, so the communes have no ADM1 above them. Comoros claims Mayotte (MYT).",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/COM/COM_ADM0.geojson",
+      "bytes": 3177,
+      "sha256": "20fbe84d75d24456b458aaa34c005efae46a38fb73ace1909386af63f22c19e9",
+      "features": 1,
+      "bbox": [
+        43.213227,
+        -12.380304,
+        44.529063,
+        -11.361261
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/COM/preview/COM_ADM0.preview.geojson",
+      "preview_bytes": 484,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/COM/COM_ADM3.geojson",
+      "bytes": 62446,
+      "sha256": "e27579dda313fa9fdbbd0137d62b933e95540234de77e367e771fd3cfc9aba37",
+      "features": 55,
+      "bbox": [
+        43.228556,
+        -12.421025,
+        44.540033,
+        -11.36584
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 54
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/COM/preview/COM_ADM3.preview.geojson",
+      "preview_bytes": 17060,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "Comoros National Disaster Management Agency (COSEP-Centre des secours et de la protection civil), OCHA ROSEA",
+      "src_year": "2019"
+    }
+  ]
+}

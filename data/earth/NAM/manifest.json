@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "NAM",
+  "iso_a2": "NA",
+  "m49_region": "Southern Africa",
+  "name": {
+    "en": "Namibia",
+    "es": "Namibia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "The regions are a pre-2013 vintage: 13 units, with Kavango not yet split into Kavango East and West, and Caprivi under its former name (Zambezi since 2013). geoBoundaries' constituencies (ADM2, 2007) are left out: seven carry the name 'Luderitz' although only one is in Lüderitz, and six overlap no region.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/NAM/NAM_ADM0.geojson",
+      "bytes": 26587,
+      "sha256": "4289be2151ef036c6fa30f5a30d64902d8e1ab8ee6bb858ef967b8117bacf742",
+      "features": 1,
+      "bbox": [
+        11.717621,
+        -28.959368,
+        25.259781,
+        -16.951057
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/NAM/preview/NAM_ADM0.preview.geojson",
+      "preview_bytes": 1357,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/NAM/NAM_ADM1.geojson",
+      "bytes": 87674,
+      "sha256": "1a2dbbc5d6e77375e6725ef58a6c662eb1c8bb6a9fd51d4e8055d08d87044a89",
+      "features": 13,
+      "bbox": [
+        11.717621,
+        -28.959368,
+        25.259781,
+        -16.951057
+      ],
+      "geometry_types": {
+        "Polygon": 13
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/NAM/preview/NAM_ADM1.preview.geojson",
+      "preview_bytes": 7039,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth",
+      "src_year": "2022"
+    }
+  ]
+}

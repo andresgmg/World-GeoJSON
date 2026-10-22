@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ERI",
+  "iso_a2": "ER",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Eritrea",
+    "es": "Eritrea"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (ADM1) are copyleft (ODbL) and not published, so the subregions have no ADM1 above them. Natural Earth draws Badme, awarded to Eritrea in 2002, inside Eritrea's outline.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ERI/ERI_ADM0.geojson",
+      "bytes": 21553,
+      "sha256": "145daa2365833c17e9849852bf46ab3d44f018e602a2de104b9ee613cd0528d2",
+      "features": 1,
+      "bbox": [
+        36.423647,
+        12.360022,
+        43.123871,
+        18.004828
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ERI/preview/ERI_ADM0.preview.geojson",
+      "preview_bytes": 1131,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/ERI/ERI_ADM2.geojson",
+      "bytes": 518152,
+      "sha256": "3f67931831c9b3954cc3394f299cc8379802e1939060008f460974e43ee00888",
+      "features": 58,
+      "bbox": [
+        36.434008,
+        12.354304,
+        43.152115,
+        18.004839
+      ],
+      "geometry_types": {
+        "MultiPolygon": 9,
+        "Polygon": 49
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ERI/preview/ERI_ADM2.preview.geojson",
+      "preview_bytes": 37860,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "OCHA ROSEA, OCHA ROSEA",
+      "src_year": "2020"
+    }
+  ]
+}

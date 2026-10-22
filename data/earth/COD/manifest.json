@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "COD",
+  "iso_a2": "CD",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "DR Congo",
+    "es": "RD del Congo"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Provinces (ADM1) are copyleft (ODbL) and not published, so the territories have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/COD/COD_ADM0.geojson",
+      "bytes": 61071,
+      "sha256": "98e273644485614b01fa02703ee696b90e2c995cfde826c9d2e1f8456b070679",
+      "features": 1,
+      "bbox": [
+        12.210541,
+        -13.458351,
+        31.280447,
+        5.37528
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/COD/preview/COD_ADM0.preview.geojson",
+      "preview_bytes": 2789,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/COD/COD_ADM2.geojson",
+      "bytes": 1914263,
+      "sha256": "b389fce944c660ba1122da2a449cacab98202c6c2bc994668ddfb8832ad0f05c",
+      "features": 189,
+      "bbox": [
+        12.205665,
+        -13.455998,
+        31.305221,
+        5.386098
+      ],
+      "geometry_types": {
+        "Polygon": 189
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/COD/preview/COD_ADM2.preview.geojson",
+      "preview_bytes": 127913,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "Referenciel Géographique Commun, OCHA DR Congo",
+      "src_year": "2019"
+    }
+  ]
+}

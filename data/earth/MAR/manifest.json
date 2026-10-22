@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MAR",
+  "iso_a2": "MA",
+  "m49_region": "Northern Africa",
+  "name": {
+    "en": "Morocco",
+    "es": "Marruecos"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "geoBoundaries' subdivisions for Morocco are copyleft (ODbL); only the Natural Earth outline is published. Natural Earth's default view draws the part of Western Sahara west of the Moroccan berm inside Morocco's outline; the UN lists Western Sahara as a non-self-governing territory, and its sovereignty is disputed between Morocco and the Sahrawi Arab Democratic Republic. See ESH.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MAR/MAR_ADM0.geojson",
+      "bytes": 22516,
+      "sha256": "b898002af2f686888b3b891990ca068e562ef7dd1eb2f34d2c22cb6d8ccc9b0a",
+      "features": 1,
+      "bbox": [
+        -17.013743,
+        21.419971,
+        -1.031999,
+        35.926519
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MAR/preview/MAR_ADM0.preview.geojson",
+      "preview_bytes": 1181,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    }
+  ]
+}

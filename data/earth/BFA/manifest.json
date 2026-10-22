@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BFA",
+  "iso_a2": "BF",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Burkina Faso",
+    "es": "Burkina Faso"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (13) predate the 2025 reform, which created 17.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BFA/BFA_ADM0.geojson",
+      "bytes": 23270,
+      "sha256": "8bd5d74a4ef360d9841ec6c15e8a1ebac0505353e150e7b9096e101d443cd55b",
+      "features": 1,
+      "bbox": [
+        -5.522578,
+        9.391883,
+        2.390169,
+        15.079908
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BFA/preview/BFA_ADM0.preview.geojson",
+      "preview_bytes": 1197,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BFA/BFA_ADM1.geojson",
+      "bytes": 319981,
+      "sha256": "a7f7fe7c6e4d49a3f49c690a085c731796321c3d580c7ce3d5c22ed595105a53",
+      "features": 13,
+      "bbox": [
+        -5.51892,
+        9.40111,
+        2.4054,
+        15.08259
+      ],
+      "geometry_types": {
+        "Polygon": 13
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BFA/preview/BFA_ADM1.preview.geojson",
+      "preview_bytes": 15116,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "World Bank",
+      "src_year": "2017"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/BFA/BFA_ADM3.geojson",
+      "bytes": 1305543,
+      "sha256": "bc2bd076eb47686ae432ffde9a3151a19604f920e2685101e9dcd6c77fe3329e",
+      "features": 351,
+      "bbox": [
+        -5.51892,
+        9.40111,
+        2.4054,
+        15.08259
+      ],
+      "geometry_types": {
+        "Polygon": 351
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BFA/preview/BFA_ADM3.preview.geojson",
+      "preview_bytes": 150419,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/BFA/ADM3/BF-01.geojson",
+          "bytes": 169215,
+          "sha256": "e73e95f48f2c483a7f1453403be98126c6651f1962167b09aec77781e7a3833f",
+          "features": 47,
+          "bbox": [
+            -4.65018,
+            11.23941,
+            -2.4414,
+            13.71847
+          ],
+          "geometry_types": {
+            "Polygon": 47
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-01"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-02.geojson",
+          "bytes": 97563,
+          "sha256": "af0ae3ffa7817dc87f12df3303ba99d9f2d18ad081c5c498c539d3a880ef5183",
+          "features": 17,
+          "bbox": [
+            -5.51892,
+            9.59407,
+            -3.6731,
+            11.02283
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-02"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-03.geojson",
+          "bytes": 18611,
+          "sha256": "134cd47566a3c956291b408cedc8349abc0302e8880bce7d15c0b746d73c00dc",
+          "features": 7,
+          "bbox": [
+            -1.82685,
+            12.05131,
+            -1.06398,
+            12.68486
+          ],
+          "geometry_types": {
+            "Polygon": 7
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-03"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-04.geojson",
+          "bytes": 102300,
+          "sha256": "689ea65fe67fd83778ae4f48a03a6322e75c3541b051c1ae8ecabaa2d84ed18f",
+          "features": 30,
+          "bbox": [
+            -0.90226,
+            10.90218,
+            0.58826,
+            12.56067
+          ],
+          "geometry_types": {
+            "Polygon": 30
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-04"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-05.geojson",
+          "bytes": 92125,
+          "sha256": "b541153d36d85816ad28ee3097529c83ab149e456143079678eda59160eb9160",
+          "features": 28,
+          "bbox": [
+            -1.90515,
+            12.47938,
+            -0.21301,
+            13.99874
+          ],
+          "geometry_types": {
+            "Polygon": 28
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-05"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-06.geojson",
+          "bytes": 119352,
+          "sha256": "6db8a826fc49392973cd738068b0e972de9618c319786472b80d1e82bfe1ad17",
+          "features": 38,
+          "bbox": [
+            -2.92888,
+            10.97614,
+            -1.30929,
+            12.84173
+          ],
+          "geometry_types": {
+            "Polygon": 38
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-06"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-07.geojson",
+          "bytes": 82523,
+          "sha256": "bdddabdbedbfc82d10a8c1f77eb7235da9524d5cec19424ee6c83da9458df8c8",
+          "features": 19,
+          "bbox": [
+            -2.05144,
+            10.95909,
+            -0.55826,
+            12.20435
+          ],
+          "geometry_types": {
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-07"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-08.geojson",
+          "bytes": 133543,
+          "sha256": "13bf22bc3bac270d147288c57fcb375020b02d327b22fac8f2c5927e632e253d",
+          "features": 27,
+          "bbox": [
+            -0.39048,
+            10.931,
+            2.4054,
+            13.57831
+          ],
+          "geometry_types": {
+            "Polygon": 27
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-08"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-09.geojson",
+          "bytes": 142552,
+          "sha256": "65cad0b1374967ae7e77bc6ddfc2dc0d6198c41d8daa60dc2485c6a84b28eac7",
+          "features": 33,
+          "bbox": [
+            -5.49653,
+            10.67012,
+            -2.82997,
+            12.10766
+          ],
+          "geometry_types": {
+            "Polygon": 33
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-09"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-10.geojson",
+          "bytes": 84649,
+          "sha256": "96e2cd324425fea0d44a69f7bcd45f410bdf0153348f0b5762e5a8263e2ec29c",
+          "features": 31,
+          "bbox": [
+            -2.95371,
+            12.61624,
+            -1.53208,
+            14.29786
+          ],
+          "geometry_types": {
+            "Polygon": 31
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-10"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-11.geojson",
+          "bytes": 67094,
+          "sha256": "dcf452283c01b0065a13658208cb5e4fbe5bb6cb6ddf00b573c026fd4d1ca815",
+          "features": 20,
+          "bbox": [
+            -2.08299,
+            11.87431,
+            -0.41194,
+            12.93312
+          ],
+          "geometry_types": {
+            "Polygon": 20
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-11"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-12.geojson",
+          "bytes": 94802,
+          "sha256": "3b87b802649efa587cdd96b1653e2d7b3e7f81d9493166cc655b136b01e781ce",
+          "features": 26,
+          "bbox": [
+            -2.10582,
+            12.96993,
+            1.28297,
+            15.08259
+          ],
+          "geometry_types": {
+            "Polygon": 26
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-12"
+        },
+        {
+          "path": "data/earth/BFA/ADM3/BF-13.geojson",
+          "bytes": 102250,
+          "sha256": "e874fe0c2c1a59c7a7541c8b4032a5d342da235873c6706a3a2e6e7d70d2e3f0",
+          "features": 28,
+          "bbox": [
+            -3.99998,
+            9.40111,
+            -2.6062,
+            11.36811
+          ],
+          "geometry_types": {
+            "Polygon": 28
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BF-13"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "New York University Spatial Data Repository, Stanford University, Map Maker Limited",
+      "src_year": "2007"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MRT",
+  "iso_a2": "MR",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Mauritania",
+    "es": "Mauritania"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (ADM1) are copyleft (CC-BY-SA) and not published, so the departments have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MRT/MRT_ADM0.geojson",
+      "bytes": 24966,
+      "sha256": "9fc910b87f6bb2ccf86c27175926f477db93c7e554e9ec0119a195cf811a7e4f",
+      "features": 1,
+      "bbox": [
+        -17.081175,
+        14.734399,
+        -4.821613,
+        27.285416
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MRT/preview/MRT_ADM0.preview.geojson",
+      "preview_bytes": 1282,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/MRT/MRT_ADM2.geojson",
+      "bytes": 94168,
+      "sha256": "55f4343a108d2f2585abcb47b64f3c2cd33ac7c3df597ee3f0841de60fa4639d",
+      "features": 57,
+      "bbox": [
+        -17.1016,
+        14.7197,
+        -4.8333,
+        27.3632
+      ],
+      "geometry_types": {
+        "Polygon": 57
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MRT/preview/MRT_ADM2.preview.geojson",
+      "preview_bytes": 20079,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "World Food Programme, OCHA ROWCA",
+      "src_year": "2020"
+    }
+  ]
+}

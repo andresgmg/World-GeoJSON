@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "LBY",
+  "iso_a2": "LY",
+  "m49_region": "Northern Africa",
+  "name": {
+    "en": "Libya",
+    "es": "Libia"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "The 22 districts (shabiyat) are the first level; municipalities are not in geoBoundaries.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/LBY/LBY_ADM0.geojson",
+      "bytes": 14349,
+      "sha256": "cd24df8c4491796b71e042de0e26381f3f09543854c89e00322bc5ca249dd72a",
+      "features": 1,
+      "bbox": [
+        9.286544,
+        19.496124,
+        25.156261,
+        33.181225
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/LBY/preview/LBY_ADM0.preview.geojson",
+      "preview_bytes": 844,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/LBY/LBY_ADM1.geojson",
+      "bytes": 46663,
+      "sha256": "f3ab471d4c88caad11596058d5adf294c569c38b7198c3f6481d729b1e51efba",
+      "features": 22,
+      "bbox": [
+        9.286544,
+        19.496124,
+        25.156261,
+        33.181225
+      ],
+      "geometry_types": {
+        "Polygon": 22
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/LBY/preview/LBY_ADM1.preview.geojson",
+      "preview_bytes": 7582,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth",
+      "src_year": "2021"
+    }
+  ]
+}

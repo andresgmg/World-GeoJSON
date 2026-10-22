@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "ZAF",
+  "iso_a2": "ZA",
+  "m49_region": "Southern Africa",
+  "name": {
+    "en": "South Africa",
+    "es": "Sudáfrica"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "ADM2 holds the 52 district and metropolitan municipalities; ADM3 the local and metropolitan municipalities. Wards (ADM4) are not built.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/ZAF/ZAF_ADM0.geojson",
+      "bytes": 50073,
+      "sha256": "5a1bdbd721ca422cafa79f8be5ea9e4f918d035dc54ca40edf984c261b7871aa",
+      "features": 1,
+      "bbox": [
+        16.469981,
+        -46.965753,
+        37.977794,
+        -22.126452
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/ZAF/preview/ZAF_ADM0.preview.geojson",
+      "preview_bytes": 2357,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/ZAF/ZAF_ADM1.geojson",
+      "bytes": 551102,
+      "sha256": "609dd1baa6dbb62992a520e2d012c92569790422a81ecad78ef6c2a6a3526f45",
+      "features": 9,
+      "bbox": [
+        16.45189,
+        -34.83413,
+        32.944985,
+        -22.12503
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 8
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ZAF/preview/ZAF_ADM1.preview.geojson",
+      "preview_bytes": 31007,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "OCHA ROSEA, South African Municipal Demarcation Board",
+      "src_year": "2020"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/ZAF/ZAF_ADM3.geojson",
+      "bytes": 1996346,
+      "sha256": "978fb9c56e4e7c35767601a69d2fbe91add24185a9a898d37fba7fb3fa9ae28a",
+      "features": 213,
+      "bbox": [
+        16.45189,
+        -34.83413,
+        32.944985,
+        -22.12503
+      ],
+      "geometry_types": {
+        "MultiPolygon": 4,
+        "Polygon": 209
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/ZAF/preview/ZAF_ADM3.preview.geojson",
+      "preview_bytes": 154301,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-EC.geojson",
+          "bytes": 465004,
+          "sha256": "2378b8a888ac83fd580d9e734f2404cc5e4fe90e7dd3946fe64224ec28a67750",
+          "features": 33,
+          "bbox": [
+            22.73574,
+            -34.21365,
+            30.19464,
+            -30.0018
+          ],
+          "geometry_types": {
+            "Polygon": 33
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-EC"
+        },
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-FS.geojson",
+          "bytes": 214760,
+          "sha256": "7df2e688b535a16526e792e958a6ed56e36a85947cfd5f99b2822f7f2465f641",
+          "features": 19,
+          "bbox": [
+            24.34662,
+            -30.69388,
+            29.78513,
+            -26.66879
+          ],
+          "geometry_types": {
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-FS"
+        },
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-GP.geojson",
+          "bytes": 48183,
+          "sha256": "7957194ab128f3fa00ebbcac18a1882a9122131e86e8ae613f5625cf35109ee2",
+          "features": 9,
+          "bbox": [
+            27.15634,
+            -26.92369,
+            29.09842,
+            -25.109612
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-GP"
+        },
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-KZN.geojson",
+          "bytes": 421339,
+          "sha256": "1fea1313e1ba00c69317d9176f4e1dfeceeb9557c45bd0600ff76fd48fda6806",
+          "features": 44,
+          "bbox": [
+            28.8736,
+            -31.08218,
+            32.944985,
+            -26.80442
+          ],
+          "geometry_types": {
+            "Polygon": 44
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-KZN"
+        },
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-LP.geojson",
+          "bytes": 194196,
+          "sha256": "380af749e483d2d147bcf217fe378fa6921cb3fdcccba88ed74896a6704414a5",
+          "features": 22,
+          "bbox": [
+            26.40765,
+            -25.42279,
+            31.883835,
+            -22.12503
+          ],
+          "geometry_types": {
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-LP"
+        },
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-MP.geojson",
+          "bytes": 126453,
+          "sha256": "5f1fd6c95f800355f970f511fdf5d5f3b4a8849510997c958a549d1b7a21756c",
+          "features": 17,
+          "bbox": [
+            28.243465,
+            -27.50602,
+            32.03359,
+            -23.98124
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-MP"
+        },
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-NC.geojson",
+          "bytes": 208250,
+          "sha256": "a051d50f844dad7a89c1bf405dc6009e3c0e1006a817f6a7ee9edd6835a924dc",
+          "features": 26,
+          "bbox": [
+            16.45189,
+            -32.944995,
+            25.54933,
+            -24.76586
+          ],
+          "geometry_types": {
+            "Polygon": 26
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-NC"
+        },
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-NW.geojson",
+          "bytes": 124094,
+          "sha256": "b3c6858623d697d68f1b3ca94794f02c0742f3c698ffe0ef61def27bf3fa94e6",
+          "features": 18,
+          "bbox": [
+            22.62913,
+            -28.11314,
+            28.29823,
+            -24.63663
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-NW"
+        },
+        {
+          "path": "data/earth/ZAF/ADM3/ZA-WC.geojson",
+          "bytes": 194781,
+          "sha256": "2c41cc8e76fffd8a7a034b050da46a921dcec34b6b8de91613cfa86f758667d2",
+          "features": 25,
+          "bbox": [
+            17.75758,
+            -34.83413,
+            24.22241,
+            -30.43026
+          ],
+          "geometry_types": {
+            "MultiPolygon": 4,
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "ZA-WC"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "OCHA ROSEA, South African Municipal Demarcation Board",
+      "src_year": "2020"
+    }
+  ]
+}

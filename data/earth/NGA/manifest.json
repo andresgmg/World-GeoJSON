@@ -1,0 +1,1109 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "NGA",
+  "iso_a2": "NG",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Nigeria",
+    "es": "Nigeria"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-4.0",
+      "public-domain"
+    ]
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/NGA/NGA_ADM0.geojson",
+      "bytes": 35760,
+      "sha256": "7610ad0d180d53e2fa71434fffc00a97784595b415c712098b085e2989161773",
+      "features": 1,
+      "bbox": [
+        2.671082,
+        4.272162,
+        14.669936,
+        13.880291
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/NGA/preview/NGA_ADM0.preview.geojson",
+      "preview_bytes": 1725,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/NGA/NGA_ADM1.geojson",
+      "bytes": 597391,
+      "sha256": "982b673e5231d4a113c99cd4ed676dc3c7015e8343951b55749f10fe04c983f5",
+      "features": 37,
+      "bbox": [
+        2.692613,
+        4.270204,
+        14.677968,
+        13.885714
+      ],
+      "geometry_types": {
+        "Polygon": 37
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/NGA/preview/NGA_ADM1.preview.geojson",
+      "preview_bytes": 32846,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "GRID3",
+      "src_year": "2022"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/NGA/NGA_ADM2.geojson",
+      "bytes": 2610790,
+      "sha256": "4ec39e7ba5a4b63956451f33066a328b014c4326b45a0da09643a938441f81af",
+      "features": 774,
+      "bbox": [
+        2.692613,
+        4.270204,
+        14.677968,
+        13.885714
+      ],
+      "geometry_types": {
+        "MultiPolygon": 25,
+        "Polygon": 749
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/NGA/preview/NGA_ADM2.preview.geojson",
+      "preview_bytes": 309945,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/NGA/ADM2/NG-AB.geojson",
+          "bytes": 40808,
+          "sha256": "e667af8d183a7b02acf3b0fe44d86a8cb03b4c01005ad1493c7fd7caa07d8c37",
+          "features": 17,
+          "bbox": [
+            7.141636,
+            4.821805,
+            7.987501,
+            6.04215
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-AB"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-AD.geojson",
+          "bytes": 78623,
+          "sha256": "fc2218e462dbd949a9d91e5944ffb0c43a07e8090c136964805417586f51621c",
+          "features": 21,
+          "bbox": [
+            11.341521,
+            7.391217,
+            13.750674,
+            10.949461
+          ],
+          "geometry_types": {
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-AD"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-AK.geojson",
+          "bytes": 57216,
+          "sha256": "973e3369ca797fe4587aa5d22adbff464a7bc69071f2f7a9582805d8a541f265",
+          "features": 31,
+          "bbox": [
+            7.460275,
+            4.468633,
+            8.343998,
+            5.519353
+          ],
+          "geometry_types": {
+            "Polygon": 31
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-AK"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-AN.geojson",
+          "bytes": 51213,
+          "sha256": "93809eb28189d47dce1e9b46bb1e2485b7be615c5ee20ffa36b2f0b9fe952748",
+          "features": 21,
+          "bbox": [
+            6.600627,
+            5.681609,
+            7.339063,
+            6.753429
+          ],
+          "geometry_types": {
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-AN"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-BA.geojson",
+          "bytes": 140596,
+          "sha256": "5b37f54d1b30619c9b21f6dc0ee0f0b142574f784b6a4f81cf9b570dde41222a",
+          "features": 20,
+          "bbox": [
+            8.745074,
+            9.447322,
+            11.008532,
+            12.532466
+          ],
+          "geometry_types": {
+            "Polygon": 20
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-BA"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-BE.geojson",
+          "bytes": 70923,
+          "sha256": "3c5a5bca754ae952f9721e76cf5534fdd371be192e242f6a02c13373de87fdee",
+          "features": 23,
+          "bbox": [
+            7.530514,
+            6.401266,
+            9.888608,
+            8.158168
+          ],
+          "geometry_types": {
+            "Polygon": 23
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-BE"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-BO.geojson",
+          "bytes": 107262,
+          "sha256": "fa69cbd676027a26633a8b46e735603014c55be26d7666aa991a60d13e12eeeb",
+          "features": 27,
+          "bbox": [
+            11.529811,
+            10.024699,
+            14.677968,
+            13.721438
+          ],
+          "geometry_types": {
+            "Polygon": 27
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-BO"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-BY.geojson",
+          "bytes": 26308,
+          "sha256": "3e4a928142b7d57f33e130ab578d251746099d621741e1126a70dfb763038ac0",
+          "features": 8,
+          "bbox": [
+            5.375165,
+            4.270204,
+            6.607241,
+            5.380566
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-BY"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-CR.geojson",
+          "bytes": 48843,
+          "sha256": "074aef5491e59304f4c681a5e86eb96ddc0d7e63e0a54a2e476edcf55d2b2767",
+          "features": 18,
+          "bbox": [
+            7.840874,
+            4.68874,
+            9.474412,
+            6.896413
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-CR"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-DE.geojson",
+          "bytes": 71898,
+          "sha256": "676be3b19e4edc6a20bc5dd3847d50fc358c1553b44f5bbbceb5b9f9871651a6",
+          "features": 25,
+          "bbox": [
+            4.976784,
+            5.011776,
+            6.769402,
+            6.501234
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-DE"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-EB.geojson",
+          "bytes": 49005,
+          "sha256": "d56ca3e61ff69f4127e81b7b08fd67891125b7d9b28cd822b335e397123b6eec",
+          "features": 13,
+          "bbox": [
+            7.503497,
+            5.6848,
+            8.456825,
+            6.800126
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 12
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-EB"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-ED.geojson",
+          "bytes": 66134,
+          "sha256": "4010cc8fefc215d97a491351d8a71931aff980d895f6563aeab21b74d509f9c4",
+          "features": 18,
+          "bbox": [
+            5.012897,
+            5.746387,
+            6.715769,
+            7.591417
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-ED"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-EK.geojson",
+          "bytes": 34139,
+          "sha256": "663a524fc7cf01a878c75f7ad25e99915409c038782497f9808e5d4468443d84",
+          "features": 16,
+          "bbox": [
+            4.863862,
+            7.283187,
+            5.791615,
+            8.111246
+          ],
+          "geometry_types": {
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-EK"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-EN.geojson",
+          "bytes": 39296,
+          "sha256": "3eb5c223ab5d8dd942fba8bfd5ebf27f36138bbebc07a402b7f32cb84d55e4db",
+          "features": 17,
+          "bbox": [
+            6.860966,
+            5.92464,
+            7.903396,
+            7.10155
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-EN"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-FC.geojson",
+          "bytes": 19319,
+          "sha256": "9a3336109fafef613052b71542e6232199726ed1c556b7a0ff8b4134a7c1d840",
+          "features": 6,
+          "bbox": [
+            6.779962,
+            8.419336,
+            7.72408,
+            9.408685
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-FC"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-GO.geojson",
+          "bytes": 34491,
+          "sha256": "10383c0e316d1d3df2aa0b58f79fb7e8b27c879b97fd03f0d3081b7098d8cb09",
+          "features": 11,
+          "bbox": [
+            10.494281,
+            9.525596,
+            11.854544,
+            11.286718
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 10
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-GO"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-IM.geojson",
+          "bytes": 68290,
+          "sha256": "911e6434cfc0a9ae0973f9cd0cbf4341ac5ff3252dfc6b16cafbd515e102d4ba",
+          "features": 27,
+          "bbox": [
+            6.63908,
+            5.194552,
+            7.432286,
+            5.938931
+          ],
+          "geometry_types": {
+            "MultiPolygon": 5,
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-IM"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-JI.geojson",
+          "bytes": 106368,
+          "sha256": "493031a570ff8b68817f2350787c61a9f82f49139539bde52bf2f68edd120861",
+          "features": 27,
+          "bbox": [
+            8.127836,
+            10.94221,
+            10.60563,
+            13.014821
+          ],
+          "geometry_types": {
+            "Polygon": 27
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-JI"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-KD.geojson",
+          "bytes": 128057,
+          "sha256": "621145d217b0a81a75f5f8768a53a9941cbbb00309f42eebc91a40ee446156c2",
+          "features": 23,
+          "bbox": [
+            6.092243,
+            9.000641,
+            8.818318,
+            11.523989
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-KD"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-KE.geojson",
+          "bytes": 103661,
+          "sha256": "5952689b62c82242cf51661b947809caad2ff88d5f36dc7141ca5ad77c38cb56",
+          "features": 21,
+          "bbox": [
+            3.475,
+            10.100172,
+            6.204432,
+            13.264426
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 20
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-KE"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-KN.geojson",
+          "bytes": 158113,
+          "sha256": "a2e234f716d23f25ca2c7fa4b3aee5cc54ccedbd1dc4e906df1d0731baf85103",
+          "features": 44,
+          "bbox": [
+            7.675171,
+            10.543359,
+            9.360312,
+            12.604604
+          ],
+          "geometry_types": {
+            "Polygon": 44
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-KN"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-KO.geojson",
+          "bytes": 61107,
+          "sha256": "885cba70aadcd5797a3ebd85080b8dde723d69264ddf2d3f9969b30ff425793e",
+          "features": 21,
+          "bbox": [
+            5.321503,
+            6.557928,
+            7.802608,
+            8.738791
+          ],
+          "geometry_types": {
+            "Polygon": 21
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-KO"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-KT.geojson",
+          "bytes": 124607,
+          "sha256": "3a09c0bdfaae44a87b0f5d5a340720fc810465d3c30d46b4e1ab6eaf4d65e759",
+          "features": 34,
+          "bbox": [
+            6.852,
+            11.128836,
+            9.047338,
+            13.352275
+          ],
+          "geometry_types": {
+            "Polygon": 34
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-KT"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-KW.geojson",
+          "bytes": 48103,
+          "sha256": "ba3433f0c9b1f062ea7afb1558e7ef286d6cdd29121de6b4884ab125fd0e3c80",
+          "features": 16,
+          "bbox": [
+            2.742958,
+            8.007673,
+            6.208536,
+            10.156666
+          ],
+          "geometry_types": {
+            "MultiPolygon": 2,
+            "Polygon": 14
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-KW"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-LA.geojson",
+          "bytes": 37888,
+          "sha256": "20d1b26e42dc563b0d5fdf8ed45a0bd48a20a157b05fac267095c0eae1def6ed",
+          "features": 20,
+          "bbox": [
+            2.698831,
+            6.367826,
+            4.36863,
+            6.700437
+          ],
+          "geometry_types": {
+            "Polygon": 20
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-LA"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-NA.geojson",
+          "bytes": 44924,
+          "sha256": "82152ec1e143649b691dbd38f931a28d53549a5b94221f58fd2b8e18e7eb9ff5",
+          "features": 13,
+          "bbox": [
+            6.934631,
+            7.766183,
+            9.61753,
+            9.329255
+          ],
+          "geometry_types": {
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-NA"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-NI.geojson",
+          "bytes": 96801,
+          "sha256": "3119d82956527764ac6e857b09bfb717df6d05158e0a1962fe80e75be01be908",
+          "features": 25,
+          "bbox": [
+            3.581944,
+            8.183006,
+            7.378645,
+            11.390633
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 24
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-NI"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-OG.geojson",
+          "bytes": 72651,
+          "sha256": "3cb030af4b82a958b02964eb72d60de86dfcf4058cb036466ed913b655243a40",
+          "features": 20,
+          "bbox": [
+            2.700318,
+            6.297285,
+            4.609586,
+            7.952301
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 19
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-OG"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-ON.geojson",
+          "bytes": 55357,
+          "sha256": "c7a2f5c58988e01a5824ad5b181c468e6facfb16534b4353dfe8f09f9b144736",
+          "features": 18,
+          "bbox": [
+            4.37612,
+            5.887739,
+            6.004126,
+            7.750246
+          ],
+          "geometry_types": {
+            "Polygon": 18
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-ON"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-OS.geojson",
+          "bytes": 61032,
+          "sha256": "535e10d583c676cd112bf93de6371746e2ed4f946820b36f82d45572799b7011",
+          "features": 30,
+          "bbox": [
+            4.052929,
+            6.980735,
+            5.057633,
+            8.095503
+          ],
+          "geometry_types": {
+            "Polygon": 30
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-OS"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-OY.geojson",
+          "bytes": 86326,
+          "sha256": "927d294d28a6d4d4098c0736fdbfcd2b3512e76f870c4c3d571aed8c5c0e02e7",
+          "features": 33,
+          "bbox": [
+            2.692613,
+            7.080101,
+            4.568998,
+            9.188311
+          ],
+          "geometry_types": {
+            "MultiPolygon": 3,
+            "Polygon": 30
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-OY"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-PL.geojson",
+          "bytes": 65133,
+          "sha256": "73cc0f183fe3244ce5cb1d04a219d82138193114cf1fd56945a7632e1e53673e",
+          "features": 17,
+          "bbox": [
+            8.55365,
+            8.366914,
+            10.640037,
+            10.380446
+          ],
+          "geometry_types": {
+            "Polygon": 17
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-PL"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-RI.geojson",
+          "bytes": 50090,
+          "sha256": "b3599fc5d78faa1692ce3a5480b58982e595e22bbfcd673fa03238e53abdcdd6",
+          "features": 23,
+          "bbox": [
+            6.398394,
+            4.31195,
+            7.590608,
+            5.689925
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 22
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-RI"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-SO.geojson",
+          "bytes": 65694,
+          "sha256": "5be54af410f55a1be8adfbd297a234b8c0b23772eba123133c851b68d77006aa",
+          "features": 23,
+          "bbox": [
+            4.124885,
+            11.530315,
+            6.792772,
+            13.885714
+          ],
+          "geometry_types": {
+            "Polygon": 23
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-SO"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-TA.geojson",
+          "bytes": 68327,
+          "sha256": "15a4d58b82a4f5003918fe54866fe594fb55afd23169b2761bb7247c69a50879",
+          "features": 16,
+          "bbox": [
+            9.115717,
+            6.433055,
+            11.8825,
+            9.615353
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 15
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-TA"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-YO.geojson",
+          "bytes": 93459,
+          "sha256": "86f42a25f2af115c36b9c27d406afd46a45d0c5b570f9723f8a89258f9b81f2b",
+          "features": 17,
+          "bbox": [
+            9.66199,
+            10.567635,
+            12.503922,
+            13.389122
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 16
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-YO"
+        },
+        {
+          "path": "data/earth/NGA/ADM2/NG-ZA.geojson",
+          "bytes": 81868,
+          "sha256": "0f506ff4a8e073b42a1b06401467dd482a1d2d52507afb5ca991787c0028a25f",
+          "features": 14,
+          "bbox": [
+            4.860745,
+            10.963452,
+            7.246568,
+            13.182451
+          ],
+          "geometry_types": {
+            "MultiPolygon": 1,
+            "Polygon": 13
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "NG-ZA"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-4.0",
+      "src_provider": "GRID3",
+      "src_year": "2022"
+    }
+  ]
+}

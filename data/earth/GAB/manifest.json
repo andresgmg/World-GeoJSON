@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "GAB",
+  "iso_a2": "GA",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "Gabon",
+    "es": "Gabón"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Provinces (ADM1) are copyleft (CC-BY-SA) and not published, so the departments have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/GAB/GAB_ADM0.geojson",
+      "bytes": 30595,
+      "sha256": "49abd27c2fd8c8bf54f084f1a269eb97bce581f9545ecc5e4fa851a61b8c7e85",
+      "features": 1,
+      "bbox": [
+        8.695567,
+        -3.936856,
+        14.498991,
+        2.322495
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/GAB/preview/GAB_ADM0.preview.geojson",
+      "preview_bytes": 1510,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/GAB/GAB_ADM2.geojson",
+      "bytes": 208302,
+      "sha256": "63818d15bf869ae74173957af5a200b673239da197c3d5f3501295f1161ffdb9",
+      "features": 49,
+      "bbox": [
+        8.699777,
+        -3.991052,
+        14.519302,
+        2.311365
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 48
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/GAB/preview/GAB_ADM2.preview.geojson",
+      "preview_bytes": 21338,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0",
+      "src_provider": "geoBoundaries, Wikimedia",
+      "src_year": "2018"
+    }
+  ]
+}

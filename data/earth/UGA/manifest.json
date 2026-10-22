@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "UGA",
+  "iso_a2": "UG",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Uganda",
+    "es": "Uganda"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "review",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "Regions (ADM1) are copyleft (ODbL) and not published, so the districts have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/UGA/UGA_ADM0.geojson",
+      "bytes": 12425,
+      "sha256": "cb04e13154172f699ad52db6698495f9325a71e5b0273ccdb6e8851aabab24ff",
+      "features": 1,
+      "bbox": [
+        29.54846,
+        -1.475206,
+        35.006473,
+        4.219692
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/UGA/preview/UGA_ADM0.preview.geojson",
+      "preview_bytes": 756,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/UGA/UGA_ADM2.geojson",
+      "bytes": 426443,
+      "sha256": "895c54e5ffa68e7cd7e4d83d0536300c35312eb64b003bfbabdbaa79d4cac6ba",
+      "features": 151,
+      "bbox": [
+        29.568382,
+        -1.4732,
+        35.026762,
+        4.228399
+      ],
+      "geometry_types": {
+        "MultiPolygon": 6,
+        "Polygon": 145
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/UGA/preview/UGA_ADM2.preview.geojson",
+      "preview_bytes": 55732,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2006"
+    }
+  ]
+}

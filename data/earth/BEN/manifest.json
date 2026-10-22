@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "BEN",
+  "iso_a2": "BJ",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Benin",
+    "es": "Benín"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/BEN/BEN_ADM0.geojson",
+      "bytes": 12512,
+      "sha256": "b938ab03c9c90aa35265ee5d8e55cac42333cbaf8fc90ddd0b60cbbf728c5994",
+      "features": 1,
+      "bbox": [
+        0.759881,
+        6.213894,
+        3.837419,
+        12.399244
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/BEN/preview/BEN_ADM0.preview.geojson",
+      "preview_bytes": 762,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM1",
+      "path": "data/earth/BEN/BEN_ADM1.geojson",
+      "bytes": 31807,
+      "sha256": "66d410a8ec4c845cef08b7a06686632202b2c61e2b0d5cf799bde80003544b90",
+      "features": 12,
+      "bbox": [
+        0.768701,
+        6.210692,
+        3.843349,
+        12.411364
+      ],
+      "geometry_types": {
+        "Polygon": 12
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BEN/preview/BEN_ADM1.preview.geojson",
+      "preview_bytes": 4244,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "geoBoundaries, Wikimedia Commons",
+      "src_year": "2012"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/BEN/BEN_ADM2.geojson",
+      "bytes": 154184,
+      "sha256": "4d6f4710d709577512bf93075fd9291c68b179009f6a2396b8785fa46836059a",
+      "features": 77,
+      "bbox": [
+        0.774575,
+        6.225748,
+        3.851701,
+        12.40861
+      ],
+      "geometry_types": {
+        "Polygon": 77
+      },
+      "properties": [
+        "adm1ISO",
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/BEN/preview/BEN_ADM2.preview.geojson",
+      "preview_bytes": 25985,
+      "split_by": "ADM1",
+      "parts": [
+        {
+          "path": "data/earth/BEN/ADM2/BJ-AK.geojson",
+          "bytes": 22858,
+          "sha256": "6db45313f854d80c271b64e98aff98f45c479ea7eba50dd2ec492a33a9ea763b",
+          "features": 9,
+          "bbox": [
+            0.774575,
+            9.94034,
+            2.335594,
+            11.473834
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-AK"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-AL.geojson",
+          "bytes": 24319,
+          "sha256": "c7f0763998bfd8138d8f5efa4585b4c10c6b73f845af2a4ca811161ec1d6f5f5",
+          "features": 6,
+          "bbox": [
+            2.019249,
+            10.528493,
+            3.849127,
+            12.40861
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-AL"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-AQ.geojson",
+          "bytes": 10772,
+          "sha256": "9de2e00136334cf0347638879e530ad239bacb9aa4ee6075ca4b927b5f7c352e",
+          "features": 8,
+          "bbox": [
+            1.941729,
+            6.286008,
+            2.500647,
+            6.976104
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-AQ"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-BO.geojson",
+          "bytes": 22444,
+          "sha256": "64f4e107f86ef56b786ee1a5854ffac12e06dee4fb2bb7eb8397f48f65e1bb5c",
+          "features": 8,
+          "bbox": [
+            1.963434,
+            8.764182,
+            3.851701,
+            10.647753
+          ],
+          "geometry_types": {
+            "Polygon": 8
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-BO"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-CO.geojson",
+          "bytes": 14511,
+          "sha256": "ed5f2e0f558c1369884dd53df396f918c346a3d70abfcacdefc41a680f07f310",
+          "features": 6,
+          "bbox": [
+            1.619739,
+            7.442769,
+            2.761885,
+            8.772683
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-CO"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-DO.geojson",
+          "bytes": 9964,
+          "sha256": "231b2bc909c220a6a06c43267c6e0d558cb9529d3cac5e181816f4cdfde5b410",
+          "features": 4,
+          "bbox": [
+            1.341589,
+            8.477983,
+            2.238555,
+            10.039431
+          ],
+          "geometry_types": {
+            "Polygon": 4
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-DO"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-KO.geojson",
+          "bytes": 7940,
+          "sha256": "c34fd6a48b6fd226da4d1db8d47c6b6c65f239c50cf0a5864f4b541e76b5ae71",
+          "features": 6,
+          "bbox": [
+            1.557832,
+            6.711121,
+            2.100307,
+            7.494696
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-KO"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-LI.geojson",
+          "bytes": 815,
+          "sha256": "2c92704dec38f8a1e25b5a144149ff7fcd862ac203a69cb44f08e90534211905",
+          "features": 1,
+          "bbox": [
+            2.357786,
+            6.339252,
+            2.497966,
+            6.405761
+          ],
+          "geometry_types": {
+            "Polygon": 1
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-LI"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-MO.geojson",
+          "bytes": 8550,
+          "sha256": "fc42251510f635876ac7d8f2da7bd30cccac9131aff98d9c52a0ac52958011eb",
+          "features": 6,
+          "bbox": [
+            1.5753,
+            6.225748,
+            2.034433,
+            6.781491
+          ],
+          "geometry_types": {
+            "Polygon": 6
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-MO"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-OU.geojson",
+          "bytes": 9481,
+          "sha256": "35845680ce851d83059c07d9e68c671e935f9677bbdd2c84e59ba3a0096fb6e7",
+          "features": 9,
+          "bbox": [
+            2.388246,
+            6.347426,
+            2.720289,
+            6.961956
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-OU"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-PL.geojson",
+          "bytes": 7771,
+          "sha256": "5b8a3e9d89f1f78c99b3ee250a7f3879c1bbe81c938ca36d34b28879e414a9eb",
+          "features": 5,
+          "bbox": [
+            2.40551,
+            6.507771,
+            2.799681,
+            7.689757
+          ],
+          "geometry_types": {
+            "Polygon": 5
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-PL"
+        },
+        {
+          "path": "data/earth/BEN/ADM2/BJ-ZO.geojson",
+          "bytes": 15715,
+          "sha256": "f50d4def78924bc39c8f1e9c5bc05d8fa2e47d3f108b34e213d0b90d4a509964",
+          "features": 9,
+          "bbox": [
+            1.631449,
+            6.913587,
+            2.55559,
+            7.661111
+          ],
+          "geometry_types": {
+            "Polygon": 9
+          },
+          "properties": [
+            "adm1ISO",
+            "parentID",
+            "parentISO",
+            "shapeGroup",
+            "shapeISO",
+            "shapeName",
+            "shapeType",
+            "src_shape_id"
+          ],
+          "code": "BJ-ZO"
+        }
+      ],
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Map Maker Ltd., Stanford earthworks",
+      "src_year": "2007"
+    }
+  ]
+}

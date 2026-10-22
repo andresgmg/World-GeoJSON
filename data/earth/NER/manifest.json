@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "NER",
+  "iso_a2": "NE",
+  "m49_region": "Western Africa",
+  "name": {
+    "en": "Niger",
+    "es": "Níger"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (ADM1) are copyleft (ODbL) and not published, so the communes have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/NER/NER_ADM0.geojson",
+      "bytes": 21321,
+      "sha256": "6d2efb1aacc9e06c63d604891534d81817e1b806c6336809b882be36e581b762",
+      "features": 1,
+      "bbox": [
+        0.152941,
+        11.695773,
+        15.970322,
+        23.517351
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/NER/preview/NER_ADM0.preview.geojson",
+      "preview_bytes": 1106,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM3",
+      "path": "data/earth/NER/NER_ADM3.geojson",
+      "bytes": 403946,
+      "sha256": "71f6eafc1227fd8edd612d21fa32f1f2cca0e4ee6f5337c00388c5710f415c51",
+      "features": 266,
+      "bbox": [
+        0.161629,
+        11.724027,
+        15.982936,
+        23.52818
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1,
+        "Polygon": 265
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/NER/preview/NER_ADM3.preview.geojson",
+      "preview_bytes": 85084,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0",
+      "src_provider": "OCHA ROWCA, Open Street Map",
+      "src_year": "2012"
+    }
+  ]
+}

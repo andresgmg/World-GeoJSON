@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","bbox":[-5.7701,-16.0157,-5.6627,-15.9089],"features":[
+{"type":"Feature","id":"SHN:ADM0:SHN","properties":{"shapeName":"Saint Helena","shapeISO":"SHN","shapeType":"ADM0"},"geometry":{"type":"Polygon","coordinates":[[[-5.7218,-15.9089],[-5.7701,-15.9452],[-5.7637,-16.0157],[-5.6627,-15.9796],[-5.7218,-15.9089]]]}}
+]}

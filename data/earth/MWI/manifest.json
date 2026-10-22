@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "MWI",
+  "iso_a2": "MW",
+  "m49_region": "Eastern Africa",
+  "name": {
+    "en": "Malawi",
+    "es": "Malaui"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "mixed",
+    "licenses": [
+      "CC-BY-3.0-IGO",
+      "public-domain"
+    ]
+  },
+  "notes": "Regions (ADM1) are copyleft (ODbL) and not published, so the districts have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/MWI/MWI_ADM0.geojson",
+      "bytes": 18174,
+      "sha256": "f5c1fca1de12b27ec2f2e0c405eb146ce6f442278705c7b4e78920ac3de703c8",
+      "features": 1,
+      "bbox": [
+        32.663308,
+        -17.135335,
+        35.904299,
+        -9.381235
+      ],
+      "geometry_types": {
+        "MultiPolygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/MWI/preview/MWI_ADM0.preview.geojson",
+      "preview_bytes": 1005,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/MWI/MWI_ADM2.geojson",
+      "bytes": 396589,
+      "sha256": "4a2dfa22e7496c1852a443e9917573a6c24c981d3a8a2327d2b4d8872b0eddf4",
+      "features": 28,
+      "bbox": [
+        32.671618,
+        -17.126279,
+        35.918417,
+        -9.36387
+      ],
+      "geometry_types": {
+        "MultiPolygon": 4,
+        "Polygon": 24
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/MWI/preview/MWI_ADM2.preview.geojson",
+      "preview_bytes": 23356,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "CC-BY-3.0-IGO",
+      "src_provider": "National Statistics Office of Malawi, OCHA ROSEA",
+      "src_year": "2020"
+    }
+  ]
+}

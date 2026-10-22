@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "body": "earth",
+  "iso_a3": "COG",
+  "iso_a2": "CG",
+  "m49_region": "Middle Africa",
+  "name": {
+    "en": "Congo",
+    "es": "Congo"
+  },
+  "crs": {
+    "authority": "OGC",
+    "code": "CRS84",
+    "epsg": 4326
+  },
+  "status": "ok",
+  "source": {
+    "name": "geoBoundaries (gbOpen)",
+    "url": "https://www.geoboundaries.org/",
+    "retrieved": "2026-10-22",
+    "license": "public-domain"
+  },
+  "notes": "Departments (ADM1) are copyleft (ODbL) and not published, so the districts have no ADM1 above them.",
+  "datasets": [
+    {
+      "level": "ADM0",
+      "path": "data/earth/COG/COG_ADM0.geojson",
+      "bytes": 28568,
+      "sha256": "e76afff024a8cb5102f016d96b949fed48bb7a98832ca61a8f1daebb88c2c487",
+      "features": 1,
+      "bbox": [
+        11.114016,
+        -5.019631,
+        18.642407,
+        3.708276
+      ],
+      "geometry_types": {
+        "Polygon": 1
+      },
+      "properties": [
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType"
+      ],
+      "preview": "data/earth/COG/preview/COG_ADM0.preview.geojson",
+      "preview_bytes": 1433,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "Natural Earth"
+    },
+    {
+      "level": "ADM2",
+      "path": "data/earth/COG/COG_ADM2.geojson",
+      "bytes": 235362,
+      "sha256": "bd42f8b81424a81ba13e88a6d1b6cc6f39a9f345507445e64b4888d6a5d8c531",
+      "features": 46,
+      "bbox": [
+        11.20501,
+        -5.028313,
+        18.64984,
+        3.70308
+      ],
+      "geometry_types": {
+        "Polygon": 46
+      },
+      "properties": [
+        "parentID",
+        "parentISO",
+        "shapeGroup",
+        "shapeISO",
+        "shapeName",
+        "shapeType",
+        "src_shape_id"
+      ],
+      "preview": "data/earth/COG/preview/COG_ADM2.preview.geojson",
+      "preview_bytes": 21525,
+      "simplification": {
+        "method": "visvalingam",
+        "tolerance_m": 100
+      },
+      "license": "public-domain",
+      "src_provider": "New York University Spatial Data Repository, Stanford University, Map Maker Limited",
+      "src_year": "2007"
+    }
+  ]
+}
