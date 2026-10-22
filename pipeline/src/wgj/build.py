@@ -24,6 +24,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import shutil
 from collections.abc import Callable
 
 from wgj.licensing import spdx
@@ -80,6 +81,10 @@ def main(argv: list[str] | None = None) -> int:
             continue
 
         print(f"\n{iso3} — {entry['name']['en']} ({entry.get('source')})")
+        # A country built for the first time and abandoned halfway (finalize
+        # refusing an id collision, a mapshaper error) must not survive as a
+        # directory, or the next --skip-existing run takes it for finished.
+        fresh = not (earth() / iso3).exists()
         try:
             results = []
             adm0 = build_adm0(iso3, entry)
@@ -107,10 +112,14 @@ def main(argv: list[str] | None = None) -> int:
                 print("  nothing produced")
                 failed.append(iso3)
         except SystemExit:
+            if fresh:
+                shutil.rmtree(earth() / iso3, ignore_errors=True)
             raise
         except Exception as exc:
             print(f"  !! failed: {exc}")
             failed.append(iso3)
+            if fresh:
+                shutil.rmtree(earth() / iso3, ignore_errors=True)
 
     print(f"\nbuilt {len(built)}, skipped {len(skipped)}, failed {len(failed)}")
     if failed:
