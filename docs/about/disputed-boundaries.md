@@ -89,8 +89,39 @@ the point. It is one this project can actually honour.
 - **Gibraltar (`GIB`).** A British Overseas Territory claimed by Spain.
   Natural Earth's outline is followed, and the manifest says so.
 
-Of the manifests, `FLK`, `SGS`, `XKX`, `SRB`, `RUS`, `UKR` and `GIB` carry
-such a note today; Chile's does not yet.
+- **Western Sahara (`ESH`).** A non-self-governing territory on the UN list,
+  whose sovereignty is disputed between Morocco and the Sahrawi Arab
+  Democratic Republic. Natural Earth's default view draws the part west of the
+  Moroccan berm — Laayoune, Smara, Dakhla — inside Morocco's outline, and
+  `ESH` covers only the area east of it. Both outlines are published as
+  Natural Earth draws them; the `MAR` and `ESH` manifests say so.
+- **Somaliland.** It declared independence from Somalia in 1991 and functions
+  de facto as a separate state, without wide recognition and without an ISO
+  3166-1 code. Natural Earth draws it as a unit of its own; here `SOM` is
+  Natural Earth's Somalia and Somaliland dissolved together. No line is drawn
+  or moved — the union only drops the boundary between the two units — and it
+  matches ISO 3166-1, which has one entry for Somalia, and geoBoundaries'
+  Somali districts, which cover Somaliland. The `SOM` manifest records it.
+- **Abyei, Kafia Kingi, the Halaib Triangle and Bir Tawil.** Natural Earth
+  draws Abyei and Kafia Kingi, both claimed by South Sudan, inside Sudan, and
+  the Halaib Triangle, claimed by Sudan, inside Egypt. Bir Tawil, claimed by
+  neither, is a unit of its own with no code and is not published. Sudan's
+  first level, from geoBoundaries, has Abyei as a unit of its own. The `SDN`,
+  `SSD` and `EGY` manifests record this.
+- **The Ilemi Triangle.** Natural Earth draws it inside Kenya; South Sudan
+  claims it. The `KEN` and `SSD` manifests say so.
+- **The Chagos Archipelago (`IOT`).** Administered by the United Kingdom as
+  the British Indian Ocean Territory and claimed by Mauritius; the two signed
+  a treaty in 2025 to transfer sovereignty. The outline follows Natural Earth.
+- **The Scattered Islands and Tromelin.** Natural Earth's outline of the
+  French Southern Territories (`ATF`) includes them; Madagascar, Comoros and
+  Mauritius claim some of them.
+- **Mayotte (`MYT`).** A French department claimed by Comoros. It publishes
+  its communes only, because Natural Earth draws it inside France.
+
+Of the manifests, `FLK`, `SGS`, `XKX`, `SRB`, `RUS`, `UKR`, `GIB`, `MAR`,
+`ESH`, `SOM`, `SDN`, `SSD`, `EGY`, `KEN`, `ERI`, `IOT`, `MUS`, `ATF`, `MDG`,
+`COM` and `MYT` carry such a note today; Chile's does not yet.
 
 ## Naming
 

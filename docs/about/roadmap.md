@@ -108,6 +108,59 @@ Also outstanding for this continent:
 - [ ] Catalog previews for the three levels too dense for 2 MB even at the
       coarsest simplification: Spain ADM3, France ADM5 and Italy ADM4
 
+## Done — Africa
+
+**60 territories, 125 datasets, 7,934 features.** The same pipeline and
+sources: outlines from Natural Earth, first-level and municipal tiers from
+geoBoundaries under permissive licences only, read from the same pinned
+commit. No new licence was needed — every African entry is either on the
+allow-list or copyleft.
+
+Twenty countries have both a first level and a municipal tier: Angola,
+Burundi, Benin, Burkina Faso, the Central African Republic, Côte d'Ivoire,
+Djibouti, Guinea, Gambia, Liberia, Mali, Nigeria, Rwanda, Sudan, Senegal,
+Sierra Leone, South Sudan, South Africa, Zambia and Zimbabwe. Cameroon,
+Ethiopia, Kenya, Libya and Namibia have a first level only. Réunion and
+Mayotte publish their communes without an outline, as Guadeloupe and
+Martinique do: Natural Earth draws them inside France.
+
+Somalia's outline is Natural Earth's Somalia and Somaliland dissolved into one,
+matching ISO 3166 and geoBoundaries' Somali districts. Western Sahara follows
+Natural Earth's default view, which leaves only the area east of the Moroccan
+berm outside Morocco. Both, with Chagos, the Scattered Islands, Mayotte,
+Halaib, Abyei and the Ilemi Triangle, are in
+[Disputed boundaries](disputed-boundaries.md).
+
+### Coverage gaps
+
+**Twenty-nine countries have no first-level divisions here** because their
+geoBoundaries ADM1 is ODbL (Algeria, Cabo Verde, Chad, Comoros, Congo, DR
+Congo, Egypt, Equatorial Guinea, Eritrea, Eswatini, Guinea-Bissau, Lesotho,
+Madagascar, Malawi, Mauritius, Morocco, Mozambique, Niger, São Tomé and
+Príncipe, Somalia, Tanzania, Togo, Tunisia, Uganda) or CC-BY-SA (Botswana,
+Gabon, Ghana, Mauritania, Seychelles). Most of them do have a permissively
+licensed municipal tier, published without an ADM1 above it. Western Sahara,
+the French Southern Territories, the British Indian Ocean Territory and Saint
+Helena have nothing below the outline upstream.
+
+**Eleven countries have no municipal tier here** because it is copyleft:
+Algeria, Cameroon, Ethiopia, Morocco, Tunisia, Guinea-Bissau, São Tomé and
+Príncipe, Eswatini, Togo, and Cabo Verde and Mauritius, whose municipalities
+are their first level. Namibia's constituencies are left out for quality, not
+licence (see the table below).
+
+Also outstanding for this continent:
+
+- [ ] Newer vintages where a reform has happened since: Burundi (2025: 5
+      provinces, 42 communes), Angola (2024: 21 provinces), Burkina Faso
+      (2025), Mali (2023: 19 regions), the Central African Republic (2020: 20
+      prefectures), Ethiopia (new regions 2020–2023), Sierra Leone (2017) and
+      Namibia (2013: 14 regions)
+- [ ] Namibia's constituencies from a source whose names can be trusted
+- [ ] Intermediate levels the pipeline does not build yet, among them South
+      Africa's 52 district and metropolitan municipalities, Kenya's
+      sub-counties, Mali's cercles and Guinea's prefectures
+
 ## Next — from data repository to platform
 
 The Americas proved the pipeline. The next releases turn the repository into
@@ -175,7 +228,7 @@ server involved — they fetch static files. See
 
 ## Next — the other continents
 
-One PR each, reusing the pipeline: Africa, Asia, Oceania.
+One PR each, reusing the pipeline: Asia, Oceania.
 
 ## Later — global coverage
 
@@ -223,6 +276,15 @@ Tracked, not hidden.
 | Sofia Province has 23 units against 22 municipalities: two are named Zlatitsa | BGR ADM2 (`BGR:ADM2:BG-23.zlatitsa-2`) | Upstream; awaiting a fix |
 | The first level is the five NUTS 1 macro-regions, not the 20 regions | ITA ADM1 | Upstream tiering; regions and provinces are an open item above |
 | Crimea: inside Russia's outline in Natural Earth, inside Ukraine's raions in geoBoundaries | RUS ADM0, UKR ADM0 and ADM2 | Documented in [Disputed boundaries](disputed-boundaries.md) |
+| 29 countries have no permissively licensed ADM1 | Africa | Awaiting a permissive source |
+| `shapeISO` is `""` on 7,490 features — every African municipal dataset but Seychelles' | 41 municipal datasets from geoBoundaries | By design, as above; use `id` |
+| 193 name-keyed ids carry a numeric suffix, mostly Malagasy communes that share a name in different districts — Madagascar's first level is not published, so the name is the only key | MDG 150, EGY 33, MLI 4, GIN 2, NER 2, UGA 2 | Stable per data version; may renumber on an upstream refresh — pin a version |
+| Fourteen Egyptian units are named "Zemam Out", and two are named "Suhag" next to one named "Suhag-2" | EGY ADM2 | Upstream names; the second Suhag is pinned as `suhag-3` in `id_overrides.json` |
+| Municipal tier assignment unverified for 18 territories | AGO, BDI, BFA, BWA, CAF, CIV, COM, ETH, GMB, GNQ, LSO, MDG, MLI, MYT, REU, SLE, SYC, UGA | Marked `verify` and shipped as `review` |
+| Constituencies left out: seven of 109 are named "Luderitz", and six overlap no region | NAM ADM2 | Awaiting a better source |
+| Local government areas share their ISO region's code (Brikama and Kanifing are both in GM-W; Janjanbureh and Kuntaur in GM-M), so four are keyed by name | GMB ADM1 | Correct ISO codes; documented in `shapeiso_fixes.json` |
+| Upstream first-level codes were missing or malformed and are corrected in `shapeiso_fixes.json` | CIV (none), ZAF (no `ZA-` prefix), ZWE (not ISO), CAF, BEN, SDN | Fixed |
+| Western Sahara: Natural Earth draws the area west of the Moroccan berm inside Morocco | MAR ADM0, ESH ADM0 | Documented in [Disputed boundaries](disputed-boundaries.md) |
 | Legacy files still at the repository root | `comunas.geojson` and friends | Deprecated; stay through 1.x, removed in v2.0.0 |
 
 ## Not planned

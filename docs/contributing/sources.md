@@ -76,7 +76,8 @@ swisstopo's (Switzerland) and INE's (Spain's provinces).
     Measured across the 129 Americas entries in `gbOpen`, **43 (33%) are
     copyleft** — 35 ODbL and 8 CC-BY-SA, almost all derived from
     OpenStreetMap. Across the 160 European entries it is **64 (40%)** — 52
-    ODbL and 12 CC-BY-SA. Those cannot be used here.
+    ODbL and 12 CC-BY-SA — and across the 200 African entries **70 (35%)** —
+    59 ODbL and 11 CC-BY-SA. Those cannot be used here.
 
     Always read the `boundaryLicense` field from the metadata for the
     specific country **and level** you are taking. Chile is a good example of
@@ -104,9 +105,9 @@ swisstopo's (Switzerland) and INE's (Spain's provinces).
 
 ## Coverage gaps are acceptable; licence violations are not
 
-Excluding copyleft leaves visible holes — 15 Americas countries and 18
-European ones have no ADM1 here because their geoBoundaries ADM1 is copyleft
-(29 ODbL, 4 CC-BY-SA) and no permissive alternative has been found yet. That is the correct trade.
+Excluding copyleft leaves visible holes — 15 Americas countries, 18 European
+and 29 African ones have no ADM1 here because their geoBoundaries ADM1 is
+copyleft (53 ODbL, 9 CC-BY-SA) and no permissive alternative has been found yet. That is the correct trade.
 
 Gaps are recorded on the [Roadmap](../about/roadmap.md) as "awaiting a
 permissive source", and the way to close one is to find a national SDI or HDX

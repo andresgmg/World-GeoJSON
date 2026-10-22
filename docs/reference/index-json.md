@@ -21,7 +21,7 @@ can never disagree with a manifest — and CI regenerates it on every change
 {
   "schema_version": 1,
   "bodies": ["earth"],
-  "totals": { "countries": 106, "datasets": 192, "features": 75460, "bytes": 232336401 },
+  "totals": { "countries": 166, "datasets": 317, "features": 83394, "bytes": 276481043 },
   "countries": [ … ]
 }
 ```
@@ -80,7 +80,7 @@ Chile's entry, with the datasets abridged:
 
 ## Size and determinism
 
-About 650 KB on disk, 80 KB gzipped — smaller than most single data files. It has
+About 1 MB on disk, 130 KB gzipped — smaller than most single data files. It has
 no timestamp and no version field, deliberately: the file is byte-deterministic
 for a given state of the manifests, so CI can regenerate it and `git diff`. The
 data version is the git ref you fetched it from.

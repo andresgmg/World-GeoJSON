@@ -95,8 +95,8 @@ un cambio revisado; después, borra `.cache/sources/geoboundaries-all.json`.
 
 **El filtro de licencias vive aquí, a propósito.** gbOpen es un contenedor de
 licencias de origen heterogéneas, no un dataset uniformemente CC BY 4.0: un
-tercio de sus entradas de América y dos de cada cinco de las de Europa son ODbL
-o CC-BY-SA. Esas se rechazan antes
+tercio de sus entradas de América y de África y dos de cada cinco de las de
+Europa son ODbL o CC-BY-SA. Esas se rechazan antes
 de llegar al working tree, y ni hablar del historial de git. `--dry-run`
 muestra qué se aceptaría y qué se rechazaría sin descargar nada.
 
@@ -107,7 +107,9 @@ wgj build ARG
 wgj build --continent europe --skip-existing
 ```
 
-Lee la caché y escribe `data/earth/ARG/`. Para cada nivel:
+Lee la caché y escribe `data/earth/ARG/`. `--skip-existing` deja en paz cada
+país que ya tiene directorio; un país cuyo primer build falla no deja ninguno,
+así que la siguiente ejecución lo vuelve a tomar. Para cada nivel:
 
 - reproyecta a WGS 84 y escribe GeoJSON RFC 7946 — `bbox` de nivel superior,
   sin miembro `crs`;

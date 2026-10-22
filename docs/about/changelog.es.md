@@ -6,6 +6,45 @@ datos según [Versionado y estabilidad](versioning.md).
 
 ## Sin publicar
 
+### Añadido — África
+
+- **60 territorios, 125 datasets, 7.934 features**, con lo que el repositorio
+  llega a 166 territorios, 317 datasets y 83.394 features. Las mismas fuentes
+  y el mismo commit fijado de geoBoundaries; no se añadió ninguna licencia a la
+  lista blanca.
+- Veinte países tienen ambos niveles; Camerún, Etiopía, Kenia, Libia y Namibia
+  solo el primer nivel; veintidós un tier municipal sin ADM1 por encima, entre
+  ellos Reunión y Mayotte sin contorno (Natural Earth las dibuja dentro de
+  Francia); trece solo el contorno.
+- **Somalia** es la unión de Somalia y Somalilandia de Natural Earth en un solo
+  contorno (`NE_MERGE`), coherente con ISO 3166 y con los distritos de
+  geoBoundaries. El **Sáhara Occidental** sigue la vista por defecto de Natural
+  Earth. Ambos, con Abyei, Halaib, Ilemi, Chagos, las Islas Dispersas y
+  Mayotte, son casos nuevos en [Fronteras disputadas](disputed-boundaries.md).
+- Códigos ISO 3166-2 de primer nivel corregidos en `shapeiso_fixes.json` para
+  Costa de Marfil (ninguno en origen), Sudáfrica, Zimbabue, la República
+  Centroafricana, Benín, Gambia y Sudán. Cuando una corrección vacía un código,
+  la unión municipal usa ahora el nombre de la unidad en vez de dejar a sus
+  hijos sin asignar.
+
+**Qué no entra, y por qué.** Veintinueve países no tienen aquí primer nivel y
+once no tienen tier municipal, porque geoBoundaries los publica bajo ODbL o
+CC-BY-SA. Las circunscripciones de Namibia se dejan fuera porque siete llevan
+un nombre equivocado. Ver la [Hoja de ruta](roadmap.md).
+
+**Rarezas de las fuentes que conviene conocer.** Muchos niveles son anteriores
+a una reforma (Burundi, Angola, Burkina Faso, Malí, la República
+Centroafricana, Etiopía, Sierra Leona, Namibia); esos países se publican como
+`review`. Egipto tiene catorce unidades llamadas "Zemam Out" y dos llamadas
+"Suhag" junto a otra llamada "Suhag-2" (fijada en `id_overrides.json`). Las
+1.579 comunas de Madagascar no tienen primer nivel por encima, así que 150
+comparten nombre y llevan un sufijo numérico en su `id`.
+
+### Corregido — pipeline
+
+- Un país cuyo primer `wgj build` falla ya no deja un directorio a medio
+  construir, que `--skip-existing` tomaba por terminado.
+
 ### Cambiado
 
 - Los clientes `geoworld` (Python y JavaScript) usan por defecto los datos

@@ -29,13 +29,13 @@ convenciones, porque
 
 | | |
 |---|---|
-| Territorios | 106 (América 55, Europa 51) |
-| Datasets | 192 |
-| Features | 75.460 |
+| Territorios | 166 (América 55, Europa 51, África 60) |
+| Datasets | 317 |
+| Features | 83.394 |
 | Cuerpos | 1 de 3 previstos |
 | Licencia de datos | Solo permisivas, registrada por dataset |
 
-África, Asia y Oceanía vienen después, un continente por release. Ver
+Asia y Oceanía vienen después, un continente por release. Ver
 [Hoja de ruta](roadmap.md).
 
 Los cuatro archivos heredados en la raíz del repositorio son anteriores a las

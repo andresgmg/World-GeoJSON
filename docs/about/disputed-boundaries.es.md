@@ -95,8 +95,41 @@ débil, y ese es justamente el punto. Es una que este proyecto sí puede cumplir
 - **Gibraltar (`GIB`).** Territorio británico de ultramar reclamado por
   España. Se sigue el contorno de Natural Earth, y el manifiesto lo dice.
 
-De los manifiestos, `FLK`, `SGS`, `XKX`, `SRB`, `RUS`, `UKR` y `GIB` llevan
-hoy esa nota; el de Chile todavía no.
+- **Sáhara Occidental (`ESH`).** Territorio no autónomo de la lista de la ONU,
+  cuya soberanía disputan Marruecos y la República Árabe Saharaui Democrática.
+  La vista por defecto de Natural Earth dibuja la parte al oeste del muro
+  marroquí — El Aaiún, Smara, Dajla — dentro del contorno de Marruecos, y
+  `ESH` cubre solo la zona al este. Ambos contornos se publican tal como los
+  dibuja Natural Earth; los manifiestos de `MAR` y `ESH` lo dicen.
+- **Somalilandia.** Declaró su independencia de Somalia en 1991 y funciona de
+  facto como un Estado aparte, sin reconocimiento amplio y sin código ISO
+  3166-1. Natural Earth la dibuja como unidad propia; aquí `SOM` es la unión de
+  Somalia y Somalilandia de Natural Earth. No se dibuja ni se mueve ninguna
+  línea — la unión solo elimina el límite entre las dos unidades — y coincide
+  con ISO 3166-1, que tiene una sola entrada para Somalia, y con los distritos
+  somalíes de geoBoundaries, que cubren Somalilandia. El manifiesto de `SOM`
+  lo registra.
+- **Abyei, Kafia Kingi, el triángulo de Halaib y Bir Tawil.** Natural Earth
+  dibuja Abyei y Kafia Kingi, reclamados por Sudán del Sur, dentro de Sudán, y
+  el triángulo de Halaib, reclamado por Sudán, dentro de Egipto. Bir Tawil,
+  que nadie reclama, es una unidad propia sin código y no se publica. El
+  primer nivel de Sudán, de geoBoundaries, tiene Abyei como unidad propia. Los
+  manifiestos de `SDN`, `SSD` y `EGY` lo registran.
+- **El triángulo de Ilemi.** Natural Earth lo dibuja dentro de Kenia; Sudán del
+  Sur lo reclama. Los manifiestos de `KEN` y `SSD` lo dicen.
+- **El archipiélago de Chagos (`IOT`).** Administrado por el Reino Unido como
+  Territorio Británico del Océano Índico y reclamado por Mauricio; ambos
+  firmaron en 2025 un tratado para transferir la soberanía. El contorno sigue a
+  Natural Earth.
+- **Las Islas Dispersas y Tromelin.** El contorno de Natural Earth de los
+  Territorios Australes Franceses (`ATF`) las incluye; Madagascar, Comoras y
+  Mauricio reclaman algunas.
+- **Mayotte (`MYT`).** Departamento francés reclamado por Comoras. Publica
+  solo sus comunas, porque Natural Earth la dibuja dentro de Francia.
+
+De los manifiestos, `FLK`, `SGS`, `XKX`, `SRB`, `RUS`, `UKR`, `GIB`, `MAR`,
+`ESH`, `SOM`, `SDN`, `SSD`, `EGY`, `KEN`, `ERI`, `IOT`, `MUS`, `ATF`, `MDG`,
+`COM` y `MYT` llevan hoy esa nota; el de Chile todavía no.
 
 ## Nombres
 
