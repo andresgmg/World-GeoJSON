@@ -16,7 +16,7 @@ against the index.
     ```python
     from geoworld import GeoWorld
 
-    world = GeoWorld("1.0.0")
+    world = GeoWorld("1.1.0")
     regions = world.get("CHL", "ADM1")        # a GeoJSON FeatureCollection (dict)
     regions["features"][0]["id"]              # "CHL:ADM1:CL-CO"
     ```
@@ -30,7 +30,7 @@ against the index.
     ```ts
     import { createClient } from "geoworld";
 
-    const world = createClient({ version: "1.0.0" });
+    const world = createClient({ version: "1.1.0" });
     const regions = await world.get("CHL", "ADM1");   // a GeoJSON FeatureCollection
     regions.features[0].id;                           // "CHL:ADM1:CL-CO"
     ```
@@ -116,8 +116,8 @@ declares the data `schema_version` it understands and a default data release:
 
 | | Library | Default data | Supports schema |
 |---|---|---|---|
-| Python | `geoworld` 0.1.0 | `1.0.0` | 1 |
-| JavaScript | `geoworld` 0.2.0, and the three adapters at the same version | `1.0.0` | 1 |
+| Python | `geoworld` 0.1.0 | `1.1.0` | 1 |
+| JavaScript | `geoworld` 0.2.0, and the three adapters at the same version | `1.1.0` | 1 |
 
 The JavaScript packages move in lockstep: one version number, one tag, and
 each adapter declares `geoworld` as a peer at that minor.

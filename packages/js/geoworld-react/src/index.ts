@@ -5,7 +5,7 @@
  * import { createClient } from "geoworld";
  * import { GeoWorldProvider, useBoundaries } from "geoworld-react";
  *
- * const world = createClient({ version: "1.0.0" });
+ * const world = createClient({ version: "1.1.0" });
  * <GeoWorldProvider client={world}><Regions /></GeoWorldProvider>
  *
  * function Regions() {

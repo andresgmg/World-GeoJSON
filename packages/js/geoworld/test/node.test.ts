@@ -34,7 +34,7 @@ test("disk cache stores <version>/<path> atomically and refuses odd keys", async
 
     const world = client({ cache });
     await world.get("ABW", "ADM0");
-    assert.ok((await stat(join(dir, "1.0.0", "data", "earth", "ABW", "ABW_ADM0.geojson"))).isFile());
+    assert.ok((await stat(join(dir, "1.1.0", "data", "earth", "ABW", "ABW_ADM0.geojson"))).isFile());
     await cache.clear();
     await assert.rejects(stat(dir));
   } finally {

@@ -18,7 +18,7 @@ npm install geoworld
 ```ts
 import { createClient } from "geoworld";
 
-const world = createClient({ version: "1.0.0" });   // a data release; the library has its own version
+const world = createClient({ version: "1.1.0" });   // a data release; the library has its own version
 
 await world.countries();                            // every territory: levels, licence, feature counts
 (await world.country("CHL")).terms;                 // { adm1: { en: "Region", es: "Región" }, … }
@@ -54,7 +54,7 @@ Pass `baseUrl` to read from any static host with the same layout, and `fetch`
 to supply your own implementation:
 
 ```ts
-createClient({ version: "1.0.0", baseUrl: "https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0" });
+createClient({ version: "1.1.0", baseUrl: "https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0" });
 ```
 
 ## Caching

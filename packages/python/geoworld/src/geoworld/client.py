@@ -46,7 +46,7 @@ __version__ = "0.1.0"
 SUPPORTED_SCHEMA_VERSION = 1
 """The newest ``index.schema_version`` this client understands."""
 
-DEFAULT_DATA_VERSION = "1.0.0"
+DEFAULT_DATA_VERSION = "1.1.0"
 """The data release used when none is given."""
 
 DEFAULT_BASE_URL = "https://raw.githubusercontent.com/andresgmg/World-GeoJSON"
@@ -99,7 +99,7 @@ class GeoWorld:
     """Read one version of the World GeoJSON data.
 
     Args:
-        version: A data release tag without the ``v`` (``"1.0.0"``), or ``"main"``
+        version: A data release tag without the ``v`` (``"1.1.0"``), or ``"main"``
             to follow the branch (warns; nothing is cached on disk).
         base_url: Where the repository tree is served from. Defaults to
             ``raw.githubusercontent.com`` at the release tag; any static host
@@ -140,7 +140,7 @@ class GeoWorld:
         if self.version == "main":
             warnings.warn(
                 "GeoWorld(version='main') follows a moving branch: results change between "
-                "runs and nothing is cached on disk. Pin a release, e.g. GeoWorld('1.0.0').",
+                "runs and nothing is cached on disk. Pin a release, e.g. GeoWorld('1.1.0').",
                 stacklevel=2,
             )
             cache = False

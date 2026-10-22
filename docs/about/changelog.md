@@ -6,6 +6,14 @@ data in [Versioning & stability](versioning.md).
 
 ## Unreleased
 
+### Changed
+
+- The `geoworld` clients (Python and JavaScript) default to data `1.1.0`.
+  This ships with the next `python-v*` and `js-v*` tags; until then, pass
+  `version="1.1.0"` / `{ version: "1.1.0" }` to read Europe.
+
+## [1.1.0] — 2026-10-21
+
 ### Added — Europe
 
 - **51 territories, 97 datasets, 59,265 features**, bringing the repository to

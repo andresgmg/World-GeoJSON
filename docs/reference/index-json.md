@@ -93,16 +93,15 @@ data version is the git ref you fetched it from.
     https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/index.json
     ```
 
-=== "Pinned (once v1.0.0 is tagged)"
+=== "Pinned"
 
     ```
-    https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.0.0/data/index.json
+    https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/data/index.json
     ```
 
-    `v1.0.0` is tagged from the merge of the data contract; until then only
-    `main` resolves. Every tagged release also attaches `index.json` as a
-    Release asset, next to the per-country zips and a `SHA256SUMS`:
-    <https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.0.0>. See
+    `v1.1.0` is the latest data release. Every tagged release also attaches
+    `index.json` as a Release asset, next to the per-country zips and a
+    `SHA256SUMS`: <https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.1.0>. See
     [Download & CDN](../get-started/download.md#release-assets).
 
 The `path` of every dataset is repository-relative, so `base + path` is the

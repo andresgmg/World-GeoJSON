@@ -95,16 +95,16 @@ referencia de git desde la que lo descargaste.
     https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/data/index.json
     ```
 
-=== "Fijado (cuando exista la etiqueta v1.0.0)"
+=== "Fijado"
 
     ```
-    https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.0.0/data/index.json
+    https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/data/index.json
     ```
 
-    `v1.0.0` se etiqueta desde el merge del contrato de datos; hasta entonces
-    solo resuelve `main`. Cada release etiquetada adjunta además `index.json`
-    como asset de la Release, junto a los zips por país y un `SHA256SUMS`:
-    <https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.0.0>. Ver
+    `v1.1.0` es la release de datos más reciente. Cada release etiquetada
+    adjunta además `index.json` como asset de la Release, junto a los zips por
+    país y un `SHA256SUMS`:
+    <https://github.com/andresgmg/World-GeoJSON/releases/tag/v1.1.0>. Ver
     [Descarga y CDN](../get-started/download.md#assets-de-la-release).
 
 El `path` de cada dataset es relativo al repositorio, así que `base + path` es

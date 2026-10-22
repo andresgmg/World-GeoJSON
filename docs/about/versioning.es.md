@@ -43,19 +43,17 @@ su `id`, los campos de jerarquía, los valores de `shapeISO` corregidos, el
 índice global y los esquemas. Antes no existía ninguna etiqueta, así que nada
 estuvo nunca fijado a los archivos 0.x; sus cambios de `shapeISO` y de
 archivos de parte se listan en el [Registro de cambios](changelog.md) como
-rompedores respecto al `main` sin publicar. Hasta que exista la etiqueta, la
-única referencia es `main`, a través de URLs crudas:
+rompedores respecto al `main` sin publicar. **`v1.1.0`**, la más reciente,
+añade Europa y el nivel ADM5 — una release menor: todos los archivos de datos
+publicados en 1.0.0 son idénticos byte a byte en 1.1.0 (solo los previews se
+reserializaron con la reescritura del pipeline).
+
+**Fija una etiqueta en producción** — la URL cruda con la etiqueta en lugar de
+`main`, o la forma `@etiqueta` de jsDelivr:
 
 ```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/main/<ruta>
-```
-
-Una vez etiquetada `v1.0.0`, **fija la etiqueta en producción** — la misma URL
-cruda con la etiqueta en lugar de `main`, o la forma `@etiqueta` de jsDelivr:
-
-```
-https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.0.0/<ruta>
-https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.0.0/<ruta>
+https://raw.githubusercontent.com/andresgmg/World-GeoJSON/v1.1.0/<ruta>
+https://cdn.jsdelivr.net/gh/andresgmg/World-GeoJSON@v1.1.0/<ruta>
 ```
 
 `main` sigue la rama por defecto, así que una corrección de límites aguas
