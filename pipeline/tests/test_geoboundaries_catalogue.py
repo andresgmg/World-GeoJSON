@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from wgj.sources import geoboundaries as gb
-from wgj.sources.natural_earth import ne_code
+from wgj.sources.natural_earth import ne_code, ne_codes, ne_filter
 
 CSV = (
     "boundaryID,boundaryName,boundaryISO,boundaryYearRepresented,boundaryType,"
@@ -41,3 +41,12 @@ def test_the_default_ref_is_a_pinned_commit() -> None:
 def test_natural_earth_aliases() -> None:
     assert ne_code("XKX") == "KOS"
     assert ne_code("FRA") == "FRA"
+
+
+def test_natural_earth_merged_outline() -> None:
+    assert ne_codes("SOM") == ("SOM", "SOL")
+    assert ne_codes("XKX") == ("KOS",)
+    assert ne_codes("FRA") == ("FRA",)
+    assert ne_filter(("FRA",)) == "ADM0_A3 === 'FRA' || ISO_A3 === 'FRA'"
+    expr = ne_filter(ne_codes("SOM"))
+    assert "ADM0_A3 === 'SOM'" in expr and "ADM0_A3 === 'SOL'" in expr

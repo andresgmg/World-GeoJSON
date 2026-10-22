@@ -41,4 +41,4 @@ def test_corrections_are_keyed_by_upstream_id() -> None:
     fixes = registry.shapeiso_fixes()
     assert fixes["USA"]["ADM1"]["66186276B38006515706420"] == "US-SD"
     assert fixes["BLZ"]["ADM2"] == {"*": ""}
-    assert registry.id_overrides() == {}
+    assert registry.id_overrides() == {"EGY": {"ADM2": {"37247803B47370411243252": "suhag-3"}}}

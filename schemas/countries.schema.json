@@ -14,7 +14,7 @@
       "additionalProperties": false,
       "properties": {
         "iso_a2": { "type": "string", "pattern": "^[A-Z]{2}$" },
-        "m49_region": { "enum": ["Northern America", "Central America", "Caribbean", "South America", "Northern Europe", "Western Europe", "Eastern Europe", "Southern Europe"] },
+        "m49_region": { "enum": ["Northern America", "Central America", "Caribbean", "South America", "Northern Europe", "Western Europe", "Eastern Europe", "Southern Europe", "Northern Africa", "Eastern Africa", "Middle Africa", "Southern Africa", "Western Africa"] },
         "name": { "$ref": "manifest.schema.json#/$defs/localised" },
         "source": { "enum": ["geoboundaries", "ide-chile", "natural-earth"] },
         "municipal_level": { "oneOf": [{ "type": "string", "pattern": "^ADM[1-5]$" }, { "type": "null" }] },
