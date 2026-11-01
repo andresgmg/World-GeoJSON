@@ -6,15 +6,15 @@
 # Pinned for reproducible CI; Dependabot opens PRs for bumps. The docs
 # toolchain lives in requirements-docs.txt and is not needed here.
 
-ruff==0.16.9
-mypy==2.3.1
-pytest==9.1.1
+ruff==0.17.3
+mypy==2.4.1
+pytest==9.2.0
 
 # The pipeline itself, as an editable install: puts `wgj` on the path and
 # pulls its runtime dependencies (ijson for streaming scans, jsonschema for
 # the contract). Pinned here so CI is reproducible.
 -e ./pipeline[pipeline]
-ijson==3.5.1
+ijson==3.6.0
 jsonschema==4.26.0
 
 # The Python client library (packages/python/geoworld): zero dependencies.

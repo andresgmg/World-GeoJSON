@@ -9,7 +9,7 @@
 # and pinning separately means fighting the resolver.
 
 mkdocs==1.6.1
-mkdocs-material==9.7.7
+mkdocs-material==9.8.0
 
 # Catalog navigation. The catalog pages themselves are written by
 # pipeline/mkdocs_hook.py (a MkDocs hook); literate-nav turns the SUMMARY.md
