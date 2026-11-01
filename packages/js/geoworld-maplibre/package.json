@@ -56,9 +56,9 @@
     "maplibre-gl": ">=2"
   },
   "devDependencies": {
-    "@types/node": "^26.6.3",
+    "@types/node": "^26.6.6",
     "geoworld": "*",
-    "maplibre-gl": "^6.11.2",
-    "typescript": "~5.9.3"
+    "maplibre-gl": "^6.16.0",
+    "typescript": "~7.0.2"
   }
 }
